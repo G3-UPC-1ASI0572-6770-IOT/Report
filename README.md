@@ -252,6 +252,11 @@ En este contexto, PARKINGNOW plantea una solución tecnológica que busca mejora
 #### 1.2.2.3. Lean UX Hypothesis Statements
 ##### 1.2.2.4. Lean UX Canvas
 ### 1.3. Segmentos objetivo
+<strong>Conductores urbanos<strong/>
+Este segmento está conformado por personas que utilizan su vehículo con frecuencia dentro de la ciudad, ya sea por motivos laborales, académicos o personales. Incluye a jóvenes adultos, adultos y adultos mayores de distintos niveles socioeconómicos (principalmente B, C y D) que suelen desplazarse por zonas con alto tránsito vehicular. Para estos usuarios, uno de los principales problemas es el tiempo que deben invertir buscando un lugar para estacionar. PARKINGNOW busca facilitar esta tarea permitiéndoles consultar la disponibilidad de espacios en tiempo real, reservar un lugar antes de llegar y reducir así el estrés asociado a la búsqueda de estacionamiento. Además, el sistema incorpora sensores IoT y cámaras de monitoreo que permiten conocer el estado de ocupación de cada espacio y brindar mayor seguridad para los vehículos.
+
+<strong>Propietarios o gestores de estacionamientos<strong/>
+El segundo segmento está compuesto por personas o empresas que administran estacionamientos privados o comerciales. Estos usuarios buscan mejorar la forma en que gestionan sus espacios, optimizar la ocupación y tener mayor control sobre sus operaciones. A través de la plataforma web de PARKINGNOW, los administradores pueden visualizar la disponibilidad de espacios en tiempo real, monitorear el estado de los estacionamientos mediante sensores y cámaras, y acceder a información que les permita tomar decisiones para mejorar el funcionamiento de su negocio. Además, la digitalización de procesos como la reserva de espacios y los pagos contribuye a simplificar la administración y a ofrecer un servicio más ordenado y eficiente para los conductores.
 ## Capítulo II: Requirements Elicitation & Analysis
 
 ### 2.1. Competidores
