@@ -204,6 +204,11 @@ La visión de PARKINGNOW es posicionarse, en un periodo de cinco años, como una
 |  <br>**Integrante 5** |  |  |
 
 ### 1.2. Solution Profile
+
+PARKINGNOW propone una solución tecnológica orientada a mejorar la forma en que los conductores encuentran y utilizan espacios de estacionamiento en zonas urbanas. La propuesta consiste en una plataforma digital que permite a los usuarios localizar estacionamientos cercanos, consultar la disponibilidad de espacios en tiempo real, realizar reservas y efectuar pagos desde una aplicación móvil. De manera complementaria, los administradores de estacionamientos pueden gestionar y monitorear la ocupación de sus espacios a través de una plataforma web.
+La solución incorpora tecnologías de Internet de las Cosas (IoT) mediante la instalación de sensores en cada espacio de estacionamiento. Estos sensores permiten detectar automáticamente la presencia de un vehículo y enviar la información al sistema, actualizando en tiempo real el estado de cada espacio. Gracias a esto, los usuarios pueden visualizar desde la aplicación cuáles espacios están disponibles antes de llegar al lugar.
+Asimismo, el sistema contempla el uso de cámaras de monitoreo, que cumplen una función de supervisión y apoyo en la verificación de la ocupación de los espacios. Estas cámaras permiten brindar mayor seguridad dentro del estacionamiento y complementar la información obtenida por los sensores, contribuyendo a una gestión más confiable de los espacios disponibles.
+A través de la integración de estas tecnologías, PARKINGNOW busca proporcionar información precisa y actualizada sobre la disponibilidad de estacionamientos. De esta manera, la plataforma ayuda a reducir el tiempo que los conductores dedican a buscar un espacio libre, optimiza el uso de los estacionamientos existentes y mejora la experiencia tanto para los usuarios como para los administradores de estos espacios.
 ### 1.2.1. Antecedentes y problemática
 ### 1.2.2. Lean UX Process
 #### 1.2.2.1. Lean UX Problem Statements
