@@ -180,6 +180,20 @@ Desarrollo de Soluciones IOT - NRC: 6770 <br>
 En esta sección describiremos la descripción de nuestra Startup.
 
 ### 1.1.1. Descripción de la Startup
+
+PARKINGNOW es una startup del sector tecnológico orientada al desarrollo de soluciones digitales para la gestión inteligente de estacionamientos urbanos. La empresa propone una plataforma que permite a los conductores consultar la disponibilidad de espacios de estacionamiento, realizar reservas y efectuar pagos mediante una aplicación móvil, mientras que los administradores de los estacionamientos pueden monitorear y gestionar sus espacios a través de una plataforma web.
+La solución desarrollada por PARKINGNOW integra tecnologías de Internet de las Cosas (IoT) para mejorar la precisión de la información sobre la disponibilidad de los espacios. En cada zona de estacionamiento se utilizan sensores que permiten detectar la presencia de vehículos en tiempo real. Esta información es enviada al sistema y actualizada automáticamente en la plataforma, permitiendo que los usuarios visualicen de manera inmediata qué espacios se encuentran disponibles.
+Asimismo, el sistema contempla el uso de cámaras de monitoreo, las cuales cumplen un rol complementario dentro de la solución. Estas cámaras permiten supervisar visualmente el estado de los estacionamientos, apoyar en la validación de la ocupación de los espacios y brindar mayor seguridad tanto a los usuarios como a los administradores del establecimiento.
+El modelo de negocio de PARKINGNOW se basa en una plataforma digital que conecta a dos tipos de usuarios: los conductores que buscan estacionamiento y los gestores de espacios que desean optimizar la administración de sus instalaciones. A través de este enfoque, la empresa busca ofrecer una alternativa tecnológica que permita mejorar la gestión de estacionamientos y contribuir a reducir el tiempo que los conductores dedican a la búsqueda de espacios disponibles.
+
+Misión
+
+La misión de PARKINGNOW es conectar a conductores y administradores de estacionamientos mediante una plataforma tecnológica que permita optimizar la gestión y el uso de los espacios disponibles. A través de herramientas digitales, sensores IoT y sistemas de monitoreo, la empresa busca ofrecer información confiable en tiempo real que facilite el acceso a estacionamientos y mejore la experiencia de los usuarios.
+
+Visión
+
+La visión de PARKINGNOW es posicionarse, en un periodo de cinco años, como una de las principales plataformas tecnológicas para la gestión inteligente de estacionamientos en entornos urbanos. La empresa aspira a contribuir a la mejora de la movilidad en las ciudades mediante el uso de soluciones tecnológicas innovadoras, como sensores IoT y sistemas de monitoreo, que permitan optimizar el uso de los espacios disponibles y brindar un servicio más eficiente tanto para conductores como para gestores de estacionamientos.
+
 #### 1.1.2. Perfiles de integrantes del equipo
 ### 1.2. Solution Profile
 ### 1.2.1. Antecedentes y problemática
