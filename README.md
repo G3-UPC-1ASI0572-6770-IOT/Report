@@ -297,7 +297,50 @@ Facilitar el proceso de búsqueda, reserva y gestión de espacios de estacionami
 
 ¿Qué funcionalidades son clave en la aplicación?
 Entre las funcionalidades principales se encuentran la búsqueda de estacionamientos cercanos mediante geolocalización, la visualización de disponibilidad en tiempo real a partir de sensores IoT, la posibilidad de realizar reservas y herramientas de gestión para los administradores de los estacionamientos.
+
 #### 1.2.2.3. Lean UX Hypothesis Statements
+Para la formulación de las siguientes hipótesis se utilizó el formato propuesto por Lean UX, que se estructura en tres partes: We believe that, This will achieve y We will have demonstrated this when. Este enfoque permite establecer supuestos que posteriormente pueden ser validados mediante el uso y análisis de la plataforma.
+
+Hipótesis 1
+
+Creemos que facilitar el proceso de búsqueda y reserva de espacios de estacionamiento mediante una plataforma que muestre disponibilidad en tiempo real, utilizando sensores IoT y sistemas de monitoreo, motivará a los usuarios a utilizar la aplicación de forma constante.
+
+Esto permitirá alcanzar un incremento aproximado del 30 % en la cantidad de usuarios recurrentes durante los primeros meses de uso de la plataforma.
+
+Lo validaremos cuando se observe un aumento cercano al 30 % en el número de reservas realizadas por usuarios que ya hayan utilizado previamente la aplicación.
+
+Hipótesis 2
+
+Creemos que el acceso a información actualizada sobre la disponibilidad de estacionamientos, junto con notificaciones en tiempo real, permitirá que los conductores reduzcan el tiempo que normalmente dedican a buscar un espacio libre.
+
+Esto permitirá lograr una reducción cercana al 20 % en el tiempo promedio de búsqueda de estacionamiento.
+
+Lo validaremos cuando los registros del sistema y las métricas de uso reflejen una disminución significativa en el tiempo que los usuarios tardan en encontrar un espacio disponible.
+
+Hipótesis 3
+
+Creemos que ofrecer beneficios o descuentos para usuarios frecuentes incentivará el uso continuo de la plataforma y fomentará la fidelización de los conductores.
+
+Esto permitirá que al menos el 25 % de los usuarios ocasionales comiencen a utilizar la aplicación de manera más frecuente.
+
+Lo validaremos cuando los datos de uso evidencien un incremento en la cantidad de usuarios que realizan reservas de manera recurrente cada mes.
+
+Hipótesis 4
+
+Creemos que integrar herramientas de geolocalización y rutas hacia los estacionamientos disponibles mejorará la experiencia de los usuarios al momento de dirigirse a un espacio libre.
+
+Esto permitirá que los conductores puedan llegar de forma más rápida y eficiente a los estacionamientos disponibles, reduciendo la frustración asociada a la búsqueda.
+
+Lo validaremos cuando las encuestas de satisfacción y los comentarios de los usuarios reflejen una mejora en la percepción del servicio y una disminución en las quejas relacionadas con la búsqueda de estacionamiento.
+
+Hipótesis 5
+
+Creemos que implementar un sistema de recomendaciones y recompensas por el uso continuo de la plataforma incentivará a los usuarios a seguir utilizando el servicio y a recomendarlo a otras personas.
+
+Esto permitirá aumentar la retención de usuarios activos y generar crecimiento orgánico a través de recomendaciones.
+
+Lo validaremos cuando las métricas de la plataforma muestren un incremento en la tasa de retención y en el número de nuevos usuarios registrados a partir de referencias de otros usuarios.
+
 ##### 1.2.2.4. Lean UX Canvas
 ### 1.3. Segmentos objetivo
 Conductores urbanos
