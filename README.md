@@ -195,6 +195,14 @@ Visión
 La visión de PARKINGNOW es posicionarse, en un periodo de cinco años, como una de las principales plataformas tecnológicas para la gestión inteligente de estacionamientos en entornos urbanos. La empresa aspira a contribuir a la mejora de la movilidad en las ciudades mediante el uso de soluciones tecnológicas innovadoras, como sensores IoT y sistemas de monitoreo, que permitan optimizar el uso de los espacios disponibles y brindar un servicio más eficiente tanto para conductores como para gestores de estacionamientos.
 
 #### 1.1.2. Perfiles de integrantes del equipo
+| **Integrantes** | **Descripción** | **Conocimientos** |
+|-----------------|-----------------|-------------------|
+| ![Foto de Diego](Assets/Diego.jpg) <br>**Diego Ulises Soto Quispe** | Estudiante de 7.º ciclo en Ingeniería de Software. Persona responsable, puntual y comprometida. Disfruta jugar básquet, salir a pasear, jugar videojuegos y manejar bicicleta. | HTML, CSS, JavaScript, Angular, Vue.js, Python, C++, SQL, MongoDB, MySQL, NoSQL |
+| <br>**Rafael Alberto Cuya Villegas** | Estudiante de Ingeniería de Software en el 8vo ciclo. | HTML, CSS, Javascript, SQL, MongoDB, ciberseguridad, Python.  |
+|  <br>**Integrante 3** |  |  |
+|  <br>**Integrante 4** |  |  |
+|  <br>**Integrante 5** |  |  |
+
 ### 1.2. Solution Profile
 ### 1.2.1. Antecedentes y problemática
 ### 1.2.2. Lean UX Process
