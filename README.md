@@ -249,6 +249,16 @@ En este contexto, PARKINGNOW plantea una solución tecnológica que busca mejora
 ### 1.2.2. Lean UX Process
 En esta sección se aplica la metodología Lean UX, la cual permite orientar el desarrollo del proyecto hacia una solución centrada en las necesidades de los usuarios. Este enfoque se basa en la generación de ideas, la validación temprana y la mejora continua a partir de la retroalimentación obtenida durante el proceso de diseño. A través de Lean UX, el equipo busca conceptualizar el modelo de negocio y definir una propuesta de solución alineada con la problemática identificada, considerando el uso de tecnologías digitales e IoT para mejorar la gestión y disponibilidad de espacios de estacionamiento.
 #### 1.2.2.1. Lean UX Problem Statements
+Para identificar oportunidades de mejora dentro del proyecto, se utiliza el marco de Business Opportunity Statements propuesto por Gothelf (2022). Esta herramienta permite analizar la situación actual del problema, identificar las brechas existentes en las soluciones disponibles y definir de qué manera el producto propuesto puede generar valor para los usuarios. A partir de este enfoque, el equipo puede orientar el desarrollo de la solución hacia necesidades concretas del mercado y establecer criterios claros para evaluar su éxito.
+
+Declaración de Problema Lean UX para PARKINGNOW
+
+El estado actual del dominio de los estacionamientos urbanos se ha enfocado principalmente en sistemas tradicionales de gestión, donde la información sobre la disponibilidad de espacios suele ser limitada o inexistente para los conductores. Esto genera demoras al momento de buscar estacionamiento y contribuye a incrementar la congestión vehicular en zonas urbanas con alta demanda.
+Lo que los servicios actuales no logran abordar de manera efectiva es la falta de herramientas tecnológicas que permitan conocer en tiempo real qué espacios están disponibles y facilitar su acceso antes de llegar al lugar.
+Nuestra solución busca resolver esta brecha mediante una plataforma digital que integra una aplicación para conductores y un sistema de gestión para administradores de estacionamientos, apoyándose en tecnologías como sensores IoT y sistemas de monitoreo para detectar la ocupación de los espacios y actualizar la información en tiempo real.
+Nuestro enfoque inicial estará dirigido a conductores que se movilizan frecuentemente por zonas urbanas con alto flujo vehicular, donde la búsqueda de estacionamientos representa una dificultad constante.
+Sabremos que la solución está generando valor cuando observemos que los usuarios utilizan la plataforma para consultar y reservar espacios de estacionamiento con mayor frecuencia, reduciendo el tiempo que invierten en encontrar un lugar disponible y mejorando su experiencia de movilidad dentro de la ciudad.
+
 ### 1.2.2.2. Lean UX Assumptions
 #### 1.2.2.3. Lean UX Hypothesis Statements
 ##### 1.2.2.4. Lean UX Canvas
