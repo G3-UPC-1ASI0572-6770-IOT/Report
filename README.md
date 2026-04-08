@@ -247,6 +247,7 @@ La magnitud del problema es considerable, ya que afecta diariamente a miles de c
 En este contexto, PARKINGNOW plantea una solución tecnológica que busca mejorar la gestión de estacionamientos mediante el uso de sensores IoT y sistemas de monitoreo que permiten conocer en tiempo real el estado de los espacios disponibles. De esta manera, los conductores pueden localizar y reservar estacionamientos con mayor facilidad, mientras que los administradores cuentan con herramientas que facilitan la gestión de sus espacios.
 
 ### 1.2.2. Lean UX Process
+En esta sección se aplica la metodología Lean UX, la cual permite orientar el desarrollo del proyecto hacia una solución centrada en las necesidades de los usuarios. Este enfoque se basa en la generación de ideas, la validación temprana y la mejora continua a partir de la retroalimentación obtenida durante el proceso de diseño. A través de Lean UX, el equipo busca conceptualizar el modelo de negocio y definir una propuesta de solución alineada con la problemática identificada, considerando el uso de tecnologías digitales e IoT para mejorar la gestión y disponibilidad de espacios de estacionamiento.
 #### 1.2.2.1. Lean UX Problem Statements
 ### 1.2.2.2. Lean UX Assumptions
 #### 1.2.2.3. Lean UX Hypothesis Statements
