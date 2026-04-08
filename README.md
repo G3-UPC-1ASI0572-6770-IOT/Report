@@ -210,6 +210,42 @@ La solución incorpora tecnologías de Internet de las Cosas (IoT) mediante la i
 Asimismo, el sistema contempla el uso de cámaras de monitoreo, que cumplen una función de supervisión y apoyo en la verificación de la ocupación de los espacios. Estas cámaras permiten brindar mayor seguridad dentro del estacionamiento y complementar la información obtenida por los sensores, contribuyendo a una gestión más confiable de los espacios disponibles.
 A través de la integración de estas tecnologías, PARKINGNOW busca proporcionar información precisa y actualizada sobre la disponibilidad de estacionamientos. De esta manera, la plataforma ayuda a reducir el tiempo que los conductores dedican a buscar un espacio libre, optimiza el uso de los estacionamientos existentes y mejora la experiencia tanto para los usuarios como para los administradores de estos espacios.
 ### 1.2.1. Antecedentes y problemática
+En muchas ciudades con alto flujo vehicular, encontrar un espacio disponible para estacionar se ha convertido en una tarea complicada para los conductores. En zonas urbanas con gran actividad comercial o laboral es común observar vehículos estacionados en lugares no permitidos, ocupación de áreas peatonales o autos detenidos en doble fila, situaciones que terminan afectando el tránsito y la seguridad vial. Gran parte de este problema se debe a la falta de información clara y actualizada sobre la disponibilidad de estacionamientos.
+
+En el contexto peruano, esta situación se presenta con frecuencia en distritos con gran concentración de oficinas, centros comerciales o instituciones públicas. Los conductores suelen invertir varios minutos recorriendo calles en busca de un espacio libre, lo que incrementa la congestión vehicular, el consumo de combustible y la frustración de los usuarios. Además, muchos estacionamientos aún se gestionan de forma manual, lo que dificulta tener un control preciso de los espacios disponibles.
+
+Con el objetivo de comprender mejor esta problemática y plantear una solución centrada en el usuario, se realizó un análisis utilizando la metodología “5W’s & 2H’s”, la cual permite examinar el problema desde diferentes perspectivas y entender las necesidades reales de los usuarios.
+
+What (¿Qué?)
+
+El principal problema que busca abordar PARKINGNOW es la dificultad que tienen los conductores para encontrar espacios de estacionamiento disponibles en zonas urbanas con alta demanda. Esta situación provoca que muchos usuarios terminen estacionando en lugares no autorizados o permanezcan largos periodos buscando un espacio libre. Además, la falta de sistemas tecnológicos que permitan conocer la disponibilidad en tiempo real limita la gestión eficiente de los estacionamientos.
+
+When (¿Cuándo?)
+
+El problema suele intensificarse durante las horas de mayor circulación vehicular, como las mañanas antes del inicio de la jornada laboral, las tardes al finalizar el trabajo o durante eventos y actividades que concentran una gran cantidad de personas. En estos momentos, la demanda de estacionamientos aumenta considerablemente y la falta de información actualizada genera demoras innecesarias para los conductores.
+
+Where (¿Dónde?)
+
+La problemática se presenta principalmente en zonas urbanas con alta densidad de tráfico, como centros comerciales, áreas empresariales, zonas turísticas o sectores con gran actividad económica. En estos lugares, la cantidad de vehículos suele superar la capacidad de estacionamientos disponibles, lo que complica aún más la búsqueda de espacios libres.
+
+Who (¿Quiénes?)
+
+Los principales afectados son los conductores que necesitan encontrar estacionamientos de manera rápida y segura. Sin embargo, el problema también involucra a los administradores de estacionamientos, quienes muchas veces no cuentan con herramientas tecnológicas que les permitan gestionar de manera eficiente sus espacios disponibles y ofrecer información actualizada a los usuarios.
+
+Why (¿Por qué?)
+
+Una de las principales causas del problema es la falta de soluciones tecnológicas en los estacionamientos tradicionales. Muchos de estos lugares no cuentan con sistemas que permitan detectar automáticamente la ocupación de los espacios ni compartir esa información en tiempo real con los usuarios. Esto genera una desconexión entre la disponibilidad real de espacios y la información que reciben los conductores.
+
+How (¿Cómo?)
+
+Los conductores suelen recorrer varias calles o ingresar a distintos estacionamientos hasta encontrar un espacio disponible, lo que incrementa el tiempo de búsqueda y contribuye a la congestión vehicular. Frente a esta situación, PARKINGNOW propone una plataforma que integra sensores IoT y sistemas de monitoreo que permiten detectar la ocupación de los espacios de estacionamiento y actualizar esa información en tiempo real dentro de la aplicación.
+
+How much (¿Cuánto?)
+
+La magnitud del problema es considerable, ya que afecta diariamente a miles de conductores en zonas urbanas con alto tránsito. El tiempo perdido buscando estacionamiento no solo impacta en la movilidad, sino también en el consumo de combustible, el estrés de los conductores y el incremento de la congestión vehicular.
+
+En este contexto, PARKINGNOW plantea una solución tecnológica que busca mejorar la gestión de estacionamientos mediante el uso de sensores IoT y sistemas de monitoreo que permiten conocer en tiempo real el estado de los espacios disponibles. De esta manera, los conductores pueden localizar y reservar estacionamientos con mayor facilidad, mientras que los administradores cuentan con herramientas que facilitan la gestión de sus espacios.
+
 ### 1.2.2. Lean UX Process
 #### 1.2.2.1. Lean UX Problem Statements
 ### 1.2.2.2. Lean UX Assumptions
