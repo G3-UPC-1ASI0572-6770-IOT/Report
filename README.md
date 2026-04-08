@@ -353,6 +353,7 @@ El segundo segmento está compuesto por personas o empresas que administran esta
 ## Capítulo II: Requirements Elicitation & Analysis
 
 ### 2.1. Competidores
+#### 2.1.1 Análisis competitivo
 
 **Parkimeter**
 
@@ -365,6 +366,51 @@ ElParking brinda a los usuarios la posibilidad de localizar, reservar y pagar po
 **Aparcados**
 
 Aparcados es una aplicación enfocada en simplificar la búsqueda de estacionamientos urbanos según las necesidades del usuario. Aunque cuenta con versión web, su versión móvil es la más utilizada debido a su interfaz amigable y diseño visual atractivo, lo que la convierte en una herramienta práctica para conductores en movimiento.
+
+#### Competitive Analysis Landscape
+
+| ¿Por qué llevar a cabo este análisis? | Escribir en el recuadro la pregunta que busca responder o el objetivo de este análisis. |
+|---|---|
+| Identificar cómo se posiciona ParkingNow frente a soluciones ya existentes de estacionamiento digital y definir una respuesta competitiva basada en integración IoT, digitalización operativa y experiencia en tiempo real. | ¿Cómo puede ParkingNow diferenciarse frente a competidores de reserva y gestión de estacionamientos, creando una propuesta de valor difícil de igualar en el mercado objetivo? |
+
+| Categoría | Criterio | ParkingNow | Competidor 1: Parkimeter | Competidor 2: ElParking | Competidor 3: Aparcados |
+|---|---|---|---|---|---|
+| Perfil | Overview | Plataforma IoT para gestión inteligente de estacionamientos urbanos. Conecta conductores y gestores mediante app móvil + plataforma web + sensores de ocupación + monitoreo complementario. | Plataforma digital centrada en búsqueda, comparación y reserva de plazas de estacionamiento. | Plataforma digital que permite localizar, reservar y pagar estacionamientos, además de servicios complementarios para conductores. | Aplicación enfocada en facilitar la búsqueda de estacionamientos urbanos, con énfasis en experiencia móvil. |
+| Perfil | Ventaja competitiva ¿Qué valor ofrece a los clientes? | Disponibilidad validada en tiempo real con sensores IoT, reservas, pagos digitales y panel operativo para gestores. Mejora el control del negocio y ayuda en la gestión operativa. | Facilidad para comparar opciones y reservar espacios disponibles desde una sola plataforma. | Ecosistema más amplio para el conductor: estacionamiento, pagos y servicios relacionados con movilidad. | Simplicidad de uso, interfaz amigable y acceso rápido desde móvil. |
+| Perfil de Marketing | Mercado objetivo | Conductores urbanos en zonas de alta demanda y propietarios/gestores de estacionamientos que quieren digitalizar y optimizar ocupación. | Conductores que buscan reservar estacionamientos en distintas ubicaciones. | Conductores que quieren centralizar estacionamiento y otros servicios urbanos en una sola app. | Conductores urbanos que priorizan rapidez y facilidad de uso al buscar estacionamiento. |
+| Perfil de Marketing | Estrategias de marketing | Enfoque B2B2C: captar estacionamientos para crear red propia con datos confiables. Posicionamiento en eficiencia, control en tiempo real y experiencia premium. Alianzas con estacionamientos, centros comerciales, clínicas y zonas corporativas. | Marketing centrado en conveniencia, comparación y reserva. | Marketing basado en amplitud de servicios y conveniencia para conductores. | Marketing orientado a usabilidad, practicidad y movilidad urbana. |
+| Perfil de Producto | Productos & Servicios | App móvil para conductores, plataforma web para gestores, reservas, pagos digitales, visualización de disponibilidad en tiempo real, sensores IoT por espacio, monitoreo por cámaras y analítica de ocupación. | Búsqueda, comparación, tarifas, disponibilidad y reserva de plazas. | Localización, reserva, pago de estacionamientos, parquímetros y servicios complementarios. | Búsqueda de estacionamientos urbanos con experiencia centrada en móvil y web. |
+| Perfil de Producto | Precios & Costos | Modelo mixto: comisión por reserva/pago + suscripción o fee mensual a gestores por digitalización, monitoreo y analítica. Posible piloto de instalación por zonas premium. | Probable comisión por intermediación o reserva. | Probable monetización por transacción y servicios complementarios. | Posible monetización por visibilidad, afiliación o reservas. |
+| Perfil de Producto | Canales de distribución (Web y/o Móvil) | App móvil para conductores + plataforma web para gestores/administradores. | Web y/o móvil. | Web y/o móvil. | Web y móvil, con mayor enfoque en móvil. |
+| Análisis SWOT | Fortalezas | Nuestra fortaleza es validar la disponibilidad con IoT; propuesta B2B2C; digitalización de operación del estacionamiento; datos en tiempo real; analítica para gestores; barrera de entrada por instalación e integración física; posibilidad de posicionamiento premium por confiabilidad. | Marca centrada en reserva y comparación; propuesta clara y simple. | Mayor amplitud funcional para el conductor; conveniencia al centralizar más servicios. | Buena experiencia de usuario y adopción potencial por interfaz amigable. |
+| Análisis SWOT | Debilidades | Requiere instalación física, soporte técnico e inversión inicial en sensores/infraestructura. Consideramos que el escalamiento es más complejo que una app puramente digital. | Menor control sobre la veracidad operativa si depende de información de terceros. | Propuesta más amplia pero menos especializada en operación física del estacionamiento. | Menor diferenciación técnica si no cuenta con integración operativa profunda. |
+| Análisis SWOT | Oportunidades | Digitalizar estacionamientos tradicionales en Perú; entrar en mercados con baja madurez tecnológica; ofrecer dashboards, ocupación, trazabilidad y automatización; crear red propia de estacionamientos afiliados; integrar rutas, promociones y membresías premium. | Expandirse con más alianzas y cobertura geográfica. | Seguir capitalizando servicios urbanos integrados. | Crecer por adopción móvil en usuarios urbanos. |
+| Análisis SWOT | Amenazas | Competidores internacionales con mayor capital; replicación de funciones visibles de la app; resistencia de algunos gestores a adoptar hardware; problemas de conectividad o mantenimiento IoT. | Competidores con ecosistemas más amplios o integración física superior. | Competidores especializados que ofrezcan datos más precisos en tiempo real. | Apps más robustas con mejores alianzas o más funcionalidades. |
+
+
+
+
+
+
+
+#### 2.1.2 Estrategias y tácticas frente a competidores
+
+
+### 2.1.2. Estrategias y tácticas frente a competidores
+
+
+
+Luego de analizar a nuestros competidores, vimos que varias de estas plataformas ya permiten buscar, reservar e incluso pagar estacionamientos desde una app. Sin embargo, consideramos que PARKINGNOW puede diferenciarse porque no solo busca mostrar información al usuario, sino también mejorar la gestión real del estacionamiento mediante sensores IoT y monitoreo en tiempo real.
+
+Una de nuestras principales estrategias será ofrecer información más confiable sobre la disponibilidad de espacios. Para eso, nuestra táctica será integrar sensores en los estacionamientos afiliados, de manera que el sistema pueda detectar si un espacio está libre u ocupado y actualizarlo automáticamente en la plataforma. Esto nos ayudaría a dar un valor distinto frente a apps que solo funcionan como intermediarias.
+
+Otra estrategia será enfocarnos tanto en los conductores como en los propietarios o administradores. Mientras que para los conductores queremos brindar facilidad para encontrar, reservar y pagar un espacio, para los gestores queremos ofrecer una plataforma web que les ayude a controlar mejor su estacionamiento. Como táctica planteamos incluir funciones como visualización de espacios ocupados, reservas activas y seguimiento de pagos.
+
+También creemos que una buena forma de competir será empezar en zonas donde el problema del estacionamiento sea más fuerte, como centros comerciales, clínicas, universidades o zonas empresariales. La táctica en este caso sería hacer alianzas con algunos estacionamientos y empezar con pruebas piloto para validar cómo funciona la solución en un entorno real.
+
+Frente a competidores que ofrecen más servicios, nuestra estrategia será enfocarnos  en resolver bien el problema principal: encontrar y gestionar estacionamientos de forma rápida y ordenada. Por eso, nuestra táctica será priorizar funciones clave como disponibilidad en tiempo real, reservas, pagos y monitoreo, antes de pensar en agregar otras opciones.
+
+Finalmente, ante amenazas como la presencia de apps más conocidas o con más tiempo en el mercado, nuestra estrategia será diferenciarnos por la precisión de la información y por el apoyo que damos a los administradores del estacionamiento. De esta forma, PARKINGNOW no competiría solo por tener una app parecida sino por ofrecer una solución más completa y útil para ambos tipos de usuarios.
 
 
 ### 2.2 Entrevistas
