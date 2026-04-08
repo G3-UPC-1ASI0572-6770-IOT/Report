@@ -169,7 +169,40 @@ Desarrollo de Soluciones IOT - NRC: 6770 <br>
 - [Conclusiones](#conclusiones)  
   - [Conclusiones y recomendaciones](#conclusiones-y-recomendaciones)  
   - [Video About-the-Team](#video-about-the-team)  
-- [Bibliografía](#bibliografía)  
+- [Bibliografía](#bibliografía)
 - [Anexos](#anexos)
+
+
+## Capítulo I: Introducción
+
+### 1.1. StartUp Profile
+
+En esta sección describiremos la descripción de nuestra Startup.
+
+### 1.1.1. Descripción de la Startup
+#### 1.1.2. Perfiles de integrantes del equipo
+### 1.2. Solution Profile
+### 1.2.1. Antecedentes y problemática
+### 1.2.2. Lean UX Process
+#### 1.2.2.1. Lean UX Problem Statements
+### 1.2.2.2. Lean UX Assumptions
+#### 1.2.2.3. Lean UX Hypothesis Statements
+##### 1.2.2.4. Lean UX Canvas
+### 1.3. Segmentos objetivo
+## Capítulo II: Requirements Elicitation & Analysis
+
+### 2.1. Competidores
+
+**Parkimeter**
+
+Parkimeter es una solución digital enfocada en la gestión y reserva de espacios de estacionamiento. Su plataforma facilita a los usuarios la búsqueda, comparación y reserva de plazas en distintas ubicaciones. También ofrece funcionalidades como visualización de tarifas, disponibilidad en tiempo real y otros servicios útiles que simplifican el proceso de estacionamiento para los conductores.
+
+**ElParking**
+
+ElParking brinda a los usuarios la posibilidad de localizar, reservar y pagar por estacionamientos desde una misma plataforma. Su sistema incorpora datos actualizados sobre espacios disponibles, además de permitir el pago de parquímetros, seguimiento de sanciones de tránsito y otros servicios complementarios que optimizan la experiencia del conductor.
+
+**Aparcados**
+
+Aparcados es una aplicación enfocada en simplificar la búsqueda de estacionamientos urbanos según las necesidades del usuario. Aunque cuenta con versión web, su versión móvil es la más utilizada debido a su interfaz amigable y diseño visual atractivo, lo que la convierte en una herramienta práctica para conductores en movimiento.
 
 
