@@ -260,6 +260,43 @@ Nuestro enfoque inicial estará dirigido a conductores que se movilizan frecuent
 Sabremos que la solución está generando valor cuando observemos que los usuarios utilizan la plataforma para consultar y reservar espacios de estacionamiento con mayor frecuencia, reduciendo el tiempo que invierten en encontrar un lugar disponible y mejorando su experiencia de movilidad dentro de la ciudad.
 
 ### 1.2.2.2. Lean UX Assumptions
+En esta etapa del proceso Lean UX se establecen una serie de supuestos que permiten orientar el desarrollo inicial del producto. Estas suposiciones ayudan a identificar quiénes serán los usuarios del sistema, qué resultados esperan obtener al utilizar la plataforma y qué valor aportará la solución propuesta.
+
+Users
+
+Los principales usuarios de la plataforma serán conductores que se movilizan en zonas urbanas con alto nivel de congestión y que necesitan encontrar espacios de estacionamiento de forma rápida. También se consideran como usuarios a los propietarios o administradores de estacionamientos que buscan mejorar la gestión de sus espacios y tener un mayor control sobre su disponibilidad mediante herramientas tecnológicas. Adicionalmente, empresas de transporte o logística podrían beneficiarse de este tipo de solución para organizar mejor el estacionamiento de sus unidades en zonas urbanas.
+
+User Outcomes
+
+Segmento de Conductores
+Los conductores esperan poder acceder a una plataforma que les permita visualizar en tiempo real los espacios de estacionamiento disponibles, facilitando la búsqueda y reduciendo el tiempo que normalmente se pierde recorriendo varias calles. Asimismo, la posibilidad de reservar un espacio antes de llegar al lugar les permite planificar mejor sus trayectos y tener mayor seguridad de que encontrarán un lugar donde estacionar. También valoran poder consultar información relevante como tarifas, ubicación y disponibilidad desde una sola aplicación.
+
+Segmento de Propietarios de Estacionamientos
+Para los propietarios o administradores de estacionamientos, el sistema representa una herramienta que puede ayudarles a mejorar la gestión de sus espacios disponibles. A través de la plataforma pueden monitorear la ocupación en tiempo real, gestionar reservas y acceder a información que facilite la toma de decisiones. Esto puede contribuir a aumentar la ocupación de los espacios y mejorar la organización del servicio ofrecido a los conductores.
+
+Suposiciones de Negocio
+
+Se asume que existe una necesidad creciente de soluciones tecnológicas que faciliten la búsqueda y gestión de estacionamientos en ciudades con alta densidad vehicular. En este contexto, una plataforma que proporcione información en tiempo real sobre la disponibilidad de espacios, apoyada en sensores IoT y sistemas de monitoreo, puede representar una alternativa útil tanto para conductores como para administradores de estacionamientos.
+
+Suposiciones de Usuarios
+
+¿Quién usa nuestra plataforma?
+La plataforma está dirigida principalmente a conductores que necesitan encontrar estacionamiento de forma rápida y a propietarios o gestores de estacionamientos que buscan optimizar el uso de sus espacios disponibles.
+
+¿Cómo se integra nuestro producto en la rutina diaria?
+La aplicación puede ser utilizada por los conductores antes o durante sus desplazamientos dentro de la ciudad, permitiéndoles consultar la disponibilidad de estacionamientos cercanos y reservar un espacio cuando lo necesiten.
+
+¿Qué problemas resuelve nuestro producto?
+La solución busca reducir el tiempo que los conductores invierten buscando estacionamiento y mejorar la gestión de los espacios disponibles mediante información actualizada en tiempo real.
+
+¿Qué imagen queremos proyectar con nuestro producto?
+Se busca transmitir la idea de una plataforma tecnológica confiable y práctica que ayude a mejorar la movilidad urbana mediante el uso de herramientas digitales.
+
+¿Cuál es el objetivo principal de la aplicación?
+Facilitar el proceso de búsqueda, reserva y gestión de espacios de estacionamiento a través de una plataforma que conecte a conductores y administradores.
+
+¿Qué funcionalidades son clave en la aplicación?
+Entre las funcionalidades principales se encuentran la búsqueda de estacionamientos cercanos mediante geolocalización, la visualización de disponibilidad en tiempo real a partir de sensores IoT, la posibilidad de realizar reservas y herramientas de gestión para los administradores de los estacionamientos.
 #### 1.2.2.3. Lean UX Hypothesis Statements
 ##### 1.2.2.4. Lean UX Canvas
 ### 1.3. Segmentos objetivo
