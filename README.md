@@ -201,53 +201,26 @@ comprender la propuesta de valor que se desarrollará a lo largo del presente in
 
 ### 1.1.1. Descripción de la Startup
 
-**ParkingNow** es una startup tecnológica peruana especializada en el desarrollo de
-soluciones inteligentes para la gestión de estacionamientos urbanos. La solución que
-desarrolla es la plataforma **ParkingNow** para la gestión inteligente de
-estacionamientos urbanos en ciudades de alta densidad vehicular. Para ello, integra
-tecnologías IoT, aplicaciones móviles y servicios en la nube para conectar a
-conductores urbanos con operadores de estacionamientos independientes en tiempo real.
+**ParkingNow** es una startup tecnológica peruana especializada en el desarrollo de soluciones inteligentes para la gestión de estacionamientos urbanos. Su propuesta se materializa en la plataforma **ParkingNow**, orientada a mejorar la disponibilidad, reserva y monitoreo de espacios de estacionamiento en entornos de alta densidad vehicular. Para ello, integra tecnologías IoT, aplicaciones móviles, paneles web y servicios en la nube con el fin de conectar, en tiempo real, a conductores urbanos con operadores de estacionamientos independientes.
 
-La startup surge como respuesta a un problema estructural de la movilidad urbana en
-Lima Metropolitana: la dificultad crónica de encontrar estacionamiento disponible, la
-ausencia de herramientas digitales para los pequeños operadores del sector y la
-desconexión entre el estado físico real de los espacios y la información que recibe el
-conductor. A través de su plataforma principal, **ParkingNow**, la startup ofrece una
-solución distribuida que combina sensores físicos embebidos en el espacio de
-estacionamiento con aplicaciones web y móvil, permitiendo la detección en tiempo real
-del estado de ocupación, la reserva anticipada de espacios y el monitoreo remoto de la
-operación para el administrador del local.
+La startup surge como respuesta a un problema estructural de la movilidad urbana en Lima Metropolitana: la dificultad crónica de encontrar estacionamiento disponible, la ausencia de herramientas digitales accesibles para pequeños operadores del sector y la desconexión entre el estado físico real de los espacios y la información que recibe el conductor. A través de su plataforma principal, **ParkingNow** propone una solución distribuida que combina sensores físicos embebidos en el espacio de estacionamiento con aplicaciones web y móvil, permitiendo la detección en tiempo real del estado de ocupación, la reserva anticipada de espacios y el monitoreo remoto de la operación por parte del administrador del local.
 
-ParkingNow apuesta por un modelo de negocio sostenible basado en la afiliación de
-estacionamientos independientes a la plataforma, generando valor tanto para el conductor,
-que reduce el tiempo y la incertidumbre al buscar estacionamiento, como para el
-operador, que mejora la visibilidad y la gestión de su negocio sin necesidad de grandes
-inversiones tecnológicas propias.
+ParkingNow adopta un modelo de negocio **B2B2C** basado en la afiliación de estacionamientos independientes a la plataforma. En este modelo, el **cliente pagador principal** es el operador o administrador del estacionamiento afiliado, quien accede a la solución mediante una **suscripción mensual** a cambio de visibilidad digital, monitoreo en tiempo real, gestión de reservas y mejora operativa de sus espacios. Por su parte, el conductor participa como usuario final de la aplicación móvil, beneficiándose de la consulta de disponibilidad y de la reserva anticipada de espacios, sin asumir el rol de pagador principal en la etapa inicial del producto. De esta manera, ParkingNow genera valor para ambos segmentos: para el conductor, al reducir el tiempo y la incertidumbre en la búsqueda de estacionamiento; y para el operador, al digitalizar su operación sin exigir inversiones tecnológicas complejas.
 
 **Misión**
 
-Brindar una solución tecnológica confiable y accesible que permita a los conductores
-encontrar y reservar estacionamientos de manera más eficiente, mientras los
-administradores optimizan la ocupación y supervisión de sus espacios mediante
-herramientas digitales conectadas con información del entorno real.
+Brindar una solución tecnológica confiable y accesible que permita a los conductores encontrar y reservar estacionamientos de manera más eficiente, mientras los administradores optimizan la ocupación y supervisión de sus espacios mediante herramientas digitales conectadas con información del entorno real.
 
 **Visión**
 
-Ser la plataforma de referencia en gestión inteligente de estacionamientos urbanos en
-América Latina, reconocida por la precisión de su capa IoT, la experiencia de usuario de
-sus aplicaciones y su capacidad de generar valor medible tanto para los conductores como
-para los operadores del sector.
+Ser la plataforma de referencia en gestión inteligente de estacionamientos urbanos en América Latina, reconocida por la precisión de su capa IoT, la experiencia de usuario de sus aplicaciones y su capacidad de generar valor medible tanto para los conductores como para los operadores del sector.
 
 **Valores**
 
-- **Innovación práctica:** Desarrollamos tecnología con propósito real, orientada a
-  resolver problemas cotidianos y de alto impacto social.
-- **Transparencia:** Brindamos información veraz y en tiempo real a todos los actores
-  de la plataforma, eliminando la incertidumbre en la experiencia de estacionamiento.
-- **Sostenibilidad:** Contribuimos activamente a la reducción de la congestión vehicular
-  y la contaminación derivada de la búsqueda innecesaria de espacios.
-- **Colaboración:** Trabajamos de la mano con los operadores independientes para
-  construir un ecosistema de estacionamiento más eficiente y justo para todos.
+- **Innovación práctica:** Desarrollamos tecnología con propósito real, orientada a resolver problemas cotidianos y de alto impacto social.
+- **Transparencia:** Brindamos información veraz y en tiempo real a todos los actores de la plataforma, eliminando la incertidumbre en la experiencia de estacionamiento.
+- **Sostenibilidad:** Contribuimos activamente a la reducción de la congestión vehicular y la contaminación derivada de la búsqueda innecesaria de espacios.
+- **Colaboración:** Trabajamos de la mano con los operadores independientes para construir un ecosistema de estacionamiento más eficiente y justo para todos.
 
 ---
 
@@ -286,12 +259,12 @@ de la ciudad. El informe *Cities in Motion 2025* posicionó a Lima en el puesto 
 movilidad y transporte a nivel mundial, reflejando una crisis estructural que empeora año
 tras año (Infobae, 2025a).
 
-En este escenario, la búsqueda de estacionamiento disponible se convierte en un problema
-recurrente y costoso en tiempo para los conductores. Investigaciones recientes sobre
-sistemas de Smart Parking confirman que la falta de información en tiempo real sobre
-la disponibilidad de espacios es una de las principales causas de congestión vehicular
-urbana, y que soluciones basadas en IoT con sensores y aplicaciones móviles pueden
-reducir significativamente ese impacto (Ruiz Cruzado et al., 2026; Nur et al., 2025).
+En este escenario, encontrar espacios disponibles se convierte en un problema recurrente
+y costoso para los conductores en términos de tiempo. Investigaciones recientes sobre
+sistemas de Smart Parking confirman que la falta de información actualizada es una de
+las principales causas de congestión vehicular urbana, y que soluciones basadas en IoT
+con sensores y aplicaciones móviles pueden reducir significativamente ese impacto
+(Ruiz Cruzado et al., 2026; Nur et al., 2025).
 
 Desde la perspectiva de los operadores, el problema es igualmente crítico. Lima enfrenta
 una informalidad crónica en el sector: parqueadores informales se han adueñado de
@@ -304,9 +277,9 @@ herramientas digitales que permitan a los operadores formales gestionar mejor lo
 espacios disponibles y conectarlos con los conductores que los necesitan.
 
 ParkingNow surge en este contexto como una propuesta orientada a resolver esa doble
-brecha: reducir la incertidumbre del conductor al buscar estacionamiento y modernizar
-la operación de los administradores mediante herramientas digitales conectadas con el
-estado físico real de los espacios.
+brecha: reducir la incertidumbre del conductor al buscar un espacio y modernizar la
+operación de los administradores mediante herramientas digitales conectadas al estado
+físico real.
 
 ---
 
@@ -326,15 +299,14 @@ informalidad del sector limita la oferta formal de estacionamiento disponible pa
 conductor (Infobae, 2024).
 
 **What (¿Qué?):**
-El problema central es la desconexión entre el estado físico real de los espacios de
-estacionamiento y la información disponible para el conductor y el administrador. El
-conductor no sabe qué espacios están disponibles antes de llegar; el administrador no
-cuenta con visibilidad en tiempo real sobre la ocupación de su local. Estudios sobre
-sistemas de Smart Parking basados en IoT demuestran que integrar sensores ultrasónicos
-y microcontroladores ESP32 con plataformas de visualización en tiempo real permite
-resolver con precisión esta brecha de información, logrando la detección confiable de
-vehículos con filtros antirrebote y notificación automática de espacios liberados
-(Ruiz Cruzado et al., 2026).
+El problema central es la desconexión entre el estado físico real de los espacios y la
+información que reciben el conductor y el administrador. El conductor no sabe qué
+espacios están libres antes de llegar, y el administrador no cuenta con visibilidad
+inmediata de la ocupación de su local. Estudios sobre sistemas de Smart Parking basados
+en IoT demuestran que integrar sensores ultrasónicos y microcontroladores ESP32 con
+plataformas de visualización permite cerrar con precisión esta brecha de información,
+logrando detección confiable de vehículos con filtros antirrebote y notificación
+automática de espacios liberados (Ruiz Cruzado et al., 2026).
 
 **Where (¿Dónde?):**
 El problema ocurre con mayor frecuencia en zonas urbanas de alta densidad vehicular de
@@ -367,17 +339,17 @@ especializado, lo que las hace inaccesibles para los operadores independientes d
 pequeña escala.
 
 **How (¿Cómo?):**
-ParkingNow aborda esta problemática mediante una plataforma digital distribuida que
+ParkingNow aborda esta problemática mediante una solución digital distribuida que
 integra una aplicación móvil para el conductor, un panel web para el administrador,
 servicios backend y una capa de sensado IoT basada en microcontroladores ESP32 y
 sensores ultrasónicos HC-SR04+. La literatura científica reciente confirma la viabilidad
 de este enfoque: sistemas de Smart Parking que integran sensor networks, ESP32 y
-aplicaciones móviles logran gestión eficiente de espacios en tiempo real con
-arquitecturas de bajo costo y alta escalabilidad (Nur et al., 2025). El nodo IoT detecta
-físicamente el estado de ocupación de cada espacio, procesa localmente esa información
-aplicando lógica edge, y la reporta al backend mediante HTTP REST. Los cambios se
-propagan automáticamente a las aplicaciones mediante Supabase Realtime, garantizando
-coherencia entre el estado físico y los canales digitales.
+aplicaciones móviles logran una gestión eficiente de espacios con arquitecturas de bajo
+costo y alta escalabilidad (Nur et al., 2025). El nodo IoT detecta físicamente el estado
+de ocupación de cada espacio, procesa localmente esa información aplicando lógica edge,
+y la reporta al backend mediante HTTP REST. Los cambios se propagan automáticamente a
+las aplicaciones mediante Supabase Realtime, garantizando coherencia entre el estado
+físico y los canales digitales.
 
 **How Much (¿Cuánto?):**
 El Instituto Nacional de Estadística e Informática (INEI) reportó en diciembre de 2025
@@ -461,278 +433,150 @@ siguientes problemas:
 
 ### 1.2.2. Lean UX Process
 
-En este apartado se describe el proceso Lean UX aplicado sobre el dominio del problema,
-con el objetivo de construir una visión compartida y validable del modelo de negocio
-que sustenta ParkingNow. El proceso parte de la identificación de los Problem
-Statements, continúa con la formulación de Assumptions sobre el negocio y los usuarios,
-y culmina en la redacción de Hypothesis Statements que serán sometidos a validación
-durante el ciclo de desarrollo del producto.
+En este apartado se describe el proceso Lean UX aplicado sobre el dominio del problema, con el objetivo de construir una visión compartida y validable del modelo de negocio que sustenta ParkingNow. El proceso parte de la identificación de los Problem Statements, continúa con la formulación de Assumptions sobre el negocio y los usuarios, y culmina en la redacción de Hypothesis Statements que serán sometidos a validación durante el ciclo de desarrollo del producto.
 
 #### 1.2.2.1. Lean UX Problem Statements
 
 **Problem Statement: Segmento Conductores Urbanos**
 
-El estado actual de la movilidad urbana en Lima se ha centrado principalmente en el
-mejoramiento de infraestructura vial y la implementación de sistemas de transporte
-público masivo. Sin embargo, lo que los servicios y plataformas existentes no logran
-abordar de forma efectiva es la **brecha de información en tiempo real sobre la
-disponibilidad de espacios de estacionamiento**, lo que obliga al conductor a recorrer
-múltiples cuadras de forma incierta antes de encontrar un espacio libre, agravando la
-congestión y deteriorando su experiencia de movilidad.
+El estado actual de la movilidad urbana en Lima se ha centrado principalmente en el mejoramiento de infraestructura vial y la implementación de sistemas de transporte público masivo. Sin embargo, los servicios y plataformas existentes no logran abordar de forma efectiva la **brecha de información en tiempo real sobre la disponibilidad de espacios de estacionamiento**. Esto obliga al conductor a recorrer múltiples cuadras de forma incierta antes de encontrar un espacio libre, agravando la congestión y deteriorando su experiencia de movilidad.
 
-Las soluciones digitales actuales no integran una capa física de sensado que confirme
-el estado real del espacio, lo que genera inconsistencias entre la información mostrada
-y la disponibilidad efectiva. Esto produce desconfianza en el usuario y limita la
-adopción de estas plataformas.
+Las soluciones digitales actuales no integran una capa física de sensado que confirme el estado real del espacio, lo que genera inconsistencias entre la información mostrada y la disponibilidad efectiva. Esto produce desconfianza en el usuario y limita la adopción de estas plataformas.
 
-Nuestra solución abordará esta brecha mediante el desarrollo de una plataforma IoT
-distribuida que integra sensores físicos en los espacios de estacionamiento afiliados,
-permitiendo al conductor consultar disponibilidad verificada en tiempo real, reservar
-espacios desde su aplicación móvil y llegar directamente a un lugar garantizado, sin
-necesidad de búsqueda adicional.
+Nuestra solución abordará esta brecha mediante el desarrollo de una plataforma IoT distribuida que integra sensores físicos en los espacios afiliados. Esto permitirá al conductor consultar disponibilidad verificada en tiempo real, reservar desde su aplicación móvil y llegar directamente a un lugar garantizado, sin necesidad de búsqueda adicional.
 
-Nuestro enfoque inicial estará dirigido a **conductores urbanos de Lima Metropolitana**
-que se desplazan frecuentemente a zonas de alta demanda vehicular (San Isidro,
-Miraflores, Surco) y que han experimentado de forma recurrente la frustración de perder
-tiempo buscando estacionamiento.
+Nuestro enfoque inicial estará dirigido a **conductores urbanos de Lima Metropolitana** que se desplazan frecuentemente a zonas de alta demanda vehicular (San Isidro, Miraflores y Surco) y que han experimentado de forma recurrente la frustración de perder tiempo buscando estacionamiento.
 
-Sabremos que hemos tenido éxito cuando el tiempo promedio que un conductor tarda en
-encontrar y acceder a un espacio de estacionamiento afiliado se reduzca a menos de
-**5 minutos desde el momento en que inicia la búsqueda en la aplicación**, y cuando el
-índice de satisfacción del conductor alcance un **NPS positivo (>30)** en los primeros
-tres meses de operación.
+Como criterio preliminar de validación, se plantea como hipótesis que el uso de ParkingNow podría reducir el tiempo promedio que un conductor tarda en encontrar y acceder a un espacio afiliado a menos de **5 minutos desde el momento en que inicia la búsqueda en la aplicación**. Asimismo, se considera como meta inicial de experiencia de usuario alcanzar un **NPS positivo superior a 30** en una etapa posterior de validación del producto. Ambas métricas constituyen objetivos preliminares sujetos a validación y no resultados observados en la presente etapa del proyecto.
 
 ---
 
 **Problem Statement: Segmento Administradores de Estacionamientos Independientes**
 
-El estado actual de los estacionamientos independientes en Lima se caracteriza por una
-operación predominantemente manual, sin herramientas digitales de gestión, sin presencia
-en plataformas de búsqueda para el conductor y sin capacidad de monitoreo remoto del
-estado de sus espacios. Los operadores no tienen visibilidad en tiempo real de su propia
-operación y carecen de datos históricos que les permitan tomar decisiones sobre precios,
-horarios o capacidad. Esta informalidad operativa les impide competir con
-estacionamientos de mayor escala y los margina de la demanda digital creciente de
-conductores que buscan opciones verificadas y reservables en línea.
+El estado actual de los estacionamientos independientes en Lima se caracteriza por una operación predominantemente manual, sin herramientas digitales de gestión, sin presencia en plataformas de búsqueda para el conductor y sin capacidad de monitoreo remoto del estado de sus espacios. Los operadores no tienen visibilidad inmediata de su propia operación y carecen de datos históricos para tomar decisiones sobre precios, horarios o capacidad. Esta informalidad operativa les impide competir con estacionamientos de mayor escala y los margina de la demanda digital creciente de conductores que buscan opciones verificadas y reservables en línea.
 
-Lo que las soluciones actuales del mercado no resuelven para este segmento es la
-**accesibilidad tecnológica**: los sistemas de control de acceso y monitoreo existentes
-implican inversiones elevadas, configuración compleja y mantenimiento especializado,
-lo que los hace inviables para operadores con locales de 2 a 20 espacios sin respaldo
-tecnológico propio.
+Lo que las soluciones actuales del mercado no resuelven para este segmento es la **accesibilidad tecnológica**. Los sistemas de control de acceso y monitoreo existentes implican inversiones elevadas, configuración compleja y mantenimiento especializado, lo que los hace inviables para operadores con locales de 2 a 20 espacios sin respaldo tecnológico propio.
 
-Nuestra solución abordará esta brecha proporcionando al operador independiente una
-plataforma de afiliación de bajo costo de entrada, con un nodo IoT de hardware accesible
-(ESP32 + sensores ultrasónicos) y un panel web intuitivo que le permita monitorear sus
-espacios en tiempo real, visualizar reservas activas, gestionar su historial operativo y
-ganar visibilidad digital frente a conductores de la zona.
+Nuestra solución abordará esta brecha proporcionando al operador independiente un esquema de afiliación de bajo costo de entrada, con un nodo IoT de hardware accesible (ESP32 + sensores ultrasónicos) y un panel web intuitivo que le permita monitorear sus espacios en tiempo real, visualizar reservas activas, gestionar su historial operativo y ganar visibilidad digital frente a conductores de la zona.
 
-Nuestro enfoque inicial estará dirigido a **administradores de estacionamientos
-independientes ubicados en distritos de alta demanda vehicular de Lima**, que operan
-entre 2 y 30 espacios de manera manual y que no cuentan con ninguna herramienta digital
-de gestión en la actualidad.
+Nuestro enfoque inicial estará dirigido a **administradores de estacionamientos independientes ubicados en distritos de alta demanda vehicular de Lima**, que operan entre 2 y 30 espacios de manera manual y que no cuentan con ninguna herramienta digital de gestión en la actualidad.
 
-Sabremos que hemos tenido éxito cuando un operador afiliado a ParkingNow registre
-un **aumento del 25% en la tasa de ocupación de sus espacios** durante los primeros
-seis meses de uso de la plataforma, en comparación con su operación previa sin
-herramientas digitales.
+Como criterio preliminar de validación para el segmento de operadores, se plantea como hipótesis que un estacionamiento afiliado a ParkingNow podría registrar un **incremento del 25% en la tasa de ocupación de sus espacios** durante los primeros seis meses de uso de la plataforma, en comparación con una operación previa sin herramientas digitales. Este valor se formula como una meta inicial de negocio que deberá validarse en etapas posteriores del desarrollo y no como un resultado garantizado del presente prototipo académico.
 
 ---
 
 #### 1.2.2.2. Lean UX Assumptions
 
+Las métricas cuantitativas presentadas en esta sección corresponden a supuestos iniciales de negocio, adopción y experiencia de usuario. En consecuencia, deben entenderse como referencias preliminares orientadas a la validación del modelo de ParkingNow y no como resultados observados ni como proyecciones definitivas del proyecto. Su contraste se realizará en etapas posteriores mediante entrevistas, validaciones con usuarios, pruebas piloto y evaluación del prototipo.
+
 ##### Business Outcomes Assumptions
 
-1. **Generar un modelo de ingresos recurrente mediante afiliación de operadores:**
-   Meta cuantificable: Afiliar al menos 15 estacionamientos independientes en Lima
-   dentro de los primeros seis meses posteriores al lanzamiento.
-   Indicadores de éxito: Número de contratos de afiliación firmados, número de nodos
-   IoT instalados y activos en campo.
+1. **Generar un modelo de ingresos recurrente mediante afiliación de operadores:**  
+   Como supuesto inicial de negocio, se plantea la posibilidad de afiliar al menos 15 estacionamientos independientes en Lima durante los primeros seis meses posteriores a un eventual lanzamiento. Este valor se considera una meta preliminar de validación comercial.  
+   **Indicadores de referencia:** número de contratos de afiliación firmados y número de nodos IoT instalados y activos.
 
-2. **Escalar la plataforma a nuevas zonas urbanas de Lima:**
-   Meta cuantificable: Contar con cobertura activa en al menos 5 distritos de Lima
-   Metropolitana al término del primer año de operación.
-   Indicadores de éxito: Número de estacionamientos afiliados por distrito, volumen
-   de reservas completadas por zona.
+2. **Escalar la plataforma a nuevas zonas urbanas de Lima:**  
+   Como supuesto de crecimiento, se plantea alcanzar presencia en al menos 5 distritos de Lima Metropolitana al término del primer año de operación. Esta métrica se formula como un objetivo exploratorio de expansión.  
+   **Indicadores de referencia:** número de estacionamientos afiliados por distrito y volumen de reservas completadas por zona.
 
-3. **Posicionarse como referente de soluciones IoT para estacionamientos en Perú:**
-   Meta cuantificable: Alcanzar al menos 1,000 conductores activos registrados en la
-   plataforma y 500 reservas completadas durante los primeros tres meses.
-   Indicadores de éxito: Número de usuarios registrados, tasa de conversión de
-   búsqueda a reserva, retención mensual de usuarios activos.
+3. **Posicionarse como referente inicial de soluciones IoT para estacionamientos en Perú:**  
+   Como supuesto preliminar de adopción, se plantea alcanzar al menos 1,000 conductores registrados y 500 reservas completadas durante los primeros meses de operación de una versión futura del producto. Estos valores constituyen métricas objetivo sujetas a validación posterior.  
+   **Indicadores de referencia:** número de usuarios registrados, tasa de conversión de búsqueda a reserva y retención mensual de usuarios activos.
 
 ##### User Outcomes Assumptions
 
-1. Reducir el tiempo que un conductor invierte en encontrar estacionamiento en zonas
-  de alta demanda de Lima, pasando de un promedio estimado de 20 a 30 minutos a menos
-   de 5 minutos mediante el uso de la plataforma.
+1. Se plantea como supuesto inicial que el uso de la plataforma podría reducir el tiempo que un conductor invierte en encontrar estacionamiento en zonas de alta demanda de Lima, pasando de un promedio estimado de 20 a 30 minutos a menos de 5 minutos.
 
-2. Incrementar la tasa de ocupación de los estacionamientos independientes afiliados
-   en al menos un 25% durante los primeros seis meses, al conectarlos con la demanda
-   digital de conductores.
+2. Se plantea como supuesto de negocio que los estacionamientos independientes afiliados podrían incrementar su tasa de ocupación en al menos un 25% durante los primeros seis meses, al conectarse con la demanda digital de conductores.
 
-3. Reducir significativamente la carga operativa manual del administrador de
-  estacionamiento, eliminando la necesidad de registros físicos de entradas, salidas y
-  disponibilidad.
+3. Se plantea como supuesto operativo que el uso del panel web podría reducir de forma significativa la carga operativa manual del administrador de estacionamiento, disminuyendo la necesidad de registros físicos de entradas, salidas y disponibilidad.
 
-4. Mejorar la percepción de seguridad y confianza del conductor al momento de realizar
-   una reserva, al garantizar que la disponibilidad mostrada en la app corresponde al
-   estado físico verificado por el sensor IoT.
+4. Se plantea como supuesto de experiencia de usuario que la validación física del estado del espacio mediante sensores IoT podría mejorar la percepción de seguridad y confianza del conductor al momento de realizar una reserva.
 
 ##### Business Assumptions
 
-- Los conductores urbanos de Lima están dispuestos a adoptar una aplicación móvil para
-  reservar estacionamiento si esta les garantiza disponibilidad confirmada en tiempo
-  real y reduce significativamente su tiempo de búsqueda.
-- Los operadores independientes de estacionamientos están dispuestos a integrar un nodo
-  IoT en sus espacios si el costo de hardware es accesible y la plataforma les genera
-  visibilidad digital y aumento de reservas medible.
-- Existe suficiente densidad de estacionamientos independientes en distritos como San
-  Isidro, Miraflores y Surco para construir una oferta inicial atractiva para los
-  conductores de la zona.
-- La integración con OpenStreetMap permite poblar el mapa inicial con estacionamientos
-  reales de Lima, aumentando la utilidad percibida de la plataforma desde el primer uso,
-  incluso antes de contar con afiliados propios.
-- El uso de Supabase Realtime como mecanismo de propagación de estados elimina la
-  necesidad de polling y garantiza la coherencia entre el estado físico detectado por
-  el sensor y la información mostrada en las aplicaciones.
+- Los conductores urbanos de Lima están dispuestos a adoptar una aplicación móvil para consultar disponibilidad y reservar estacionamiento, siempre que esta les garantice información confiable en tiempo real y reduzca de manera perceptible el tiempo de búsqueda.
+
+- Los operadores o administradores de estacionamientos independientes están dispuestos a afiliarse a ParkingNow y asumir el pago de una suscripción mensual, siempre que la plataforma les ofrezca un beneficio económico claro en términos de mayor visibilidad digital, mejora operativa y potencial incremento de ocupación.
+
+- Los operadores independientes de estacionamientos están dispuestos a integrar un nodo IoT en sus espacios si el costo de implementación es accesible, la configuración es simple y la solución no requiere conocimientos técnicos especializados para su operación cotidiana.
+
+- En la etapa inicial del modelo de negocio, el conductor puede participar como usuario final de la aplicación sin asumir el rol de cliente pagador principal, ya que el valor económico directo de la solución se concentra en el operador afiliado.
+
+- Existe suficiente densidad de estacionamientos independientes en distritos como San Isidro, Miraflores y Surco para construir una oferta inicial atractiva para los conductores de la zona y sostener una estrategia temprana de afiliación.
+
+- La integración con OpenStreetMap permite poblar el mapa inicial con estacionamientos reales de Lima, aumentando la utilidad percibida de la plataforma desde el primer uso. Sin embargo, solo los estacionamientos afiliados ofrecerán disponibilidad validada en tiempo real y funcionalidad de reserva.
+
+- El uso de Supabase Realtime como mecanismo de propagación de estados permite mantener coherencia entre el estado físico detectado por el sensor y la información mostrada en las aplicaciones, fortaleciendo la propuesta de valor de la plataforma para conductores y operadores.
 
 ##### User Assumptions
 
-- Los conductores urbanos de Lima revisan la disponibilidad de estacionamiento
-  preferentemente desde su teléfono móvil, antes o durante el trayecto hacia su
-  destino.
-- Los administradores de estacionamientos prefieren interfaces simples y visuales que
-  no requieran formación técnica especializada para ser utilizadas.
-- Los conductores valoran la posibilidad de ver en el mapa tanto estacionamientos
-  afiliados (con reserva y disponibilidad en tiempo real) como estacionamientos no
-  afiliados (solo referencia de ubicación), porque les da una visión completa de sus
-  opciones.
-- Los administradores valoran recibir una alerta inmediata cuando un espacio cambia de
-  estado, especialmente cuando una reserva activa es consumida por la llegada física
-  del vehículo.
-- Tanto conductores como administradores esperan que la plataforma mantenga la última
-  información conocida del estado de los espacios ante una eventual desconexión del
-  nodo IoT, en lugar de mostrar errores o datos vacíos.
+- Los conductores urbanos de Lima revisan la disponibilidad de estacionamiento preferentemente desde su teléfono móvil, antes o durante el trayecto hacia su destino.
+- Los administradores de estacionamientos prefieren interfaces simples y visuales que no requieran formación técnica especializada para ser utilizadas.
+- Los conductores valoran la posibilidad de ver en el mapa tanto estacionamientos afiliados (con reserva y disponibilidad en tiempo real) como estacionamientos no afiliados (solo referencia de ubicación), porque les da una visión completa de sus opciones.
+- Los administradores valoran recibir una alerta inmediata cuando un espacio cambia de estado, especialmente cuando una reserva activa es consumida por la llegada física del vehículo.
+- Tanto conductores como administradores esperan que la plataforma mantenga la última información conocida del estado de los espacios ante una eventual desconexión del nodo IoT, en lugar de mostrar errores o datos vacíos.
 
 ##### Features Assumptions
 
-- **Detección de ocupación en tiempo real:** Sensores ultrasónicos HC-SR04+ conectados
-  al ESP32 detectan la presencia de vehículos con un umbral de distancia configurable,
-  aplicando lógica de debounce para evitar falsos positivos antes de reportar al
-  backend.
-- **Reserva anticipada de espacios:** El conductor puede seleccionar y reservar un
-  espacio libre desde la app móvil antes de llegar físicamente al estacionamiento, con
-  un ticket virtual como comprobante de la reserva.
-- **Propagación automática de estados en tiempo real:** Cualquier cambio de estado
-  físico detectado por el sensor (libre → ocupado → libre) se refleja automáticamente
-  en la Web App del administrador y en la Mobile App del conductor vía Supabase
-  Realtime, sin necesidad de recargar la pantalla.
-- **Diferenciación entre estacionamientos afiliados y no afiliados:** La plataforma
-  muestra en el mapa estacionamientos reales de Lima cargados desde OpenStreetMap,
-  distinguiendo visualmente cuáles tienen disponibilidad en tiempo real y permiten
-  reservas (afiliados) y cuáles son solo puntos de referencia (no afiliados).
-- **Comportamiento degradado ante desconexión del nodo IoT:** Si el nodo deja de
-  reportar, el sistema conserva el último estado conocido del espacio y lo marca
-  visualmente como "no confirmado en tiempo real", sin ocultar ni eliminar la
-  información disponible.
-- **Vista de cámara local para el administrador:** Una cámara local integrada al nodo
-  IoT permite al administrador verificar visualmente el estado desde el panel web.
+- **Detección de ocupación en tiempo real:** Sensores ultrasónicos HC-SR04+ conectados al ESP32 detectan la presencia de vehículos con un umbral de distancia configurable, aplicando lógica de debounce para evitar falsos positivos antes de reportar al backend.
+- **Reserva anticipada de espacios:** El conductor puede seleccionar y reservar un espacio libre desde la app móvil antes de llegar físicamente al estacionamiento, con un ticket virtual como comprobante de la reserva.
+- **Propagación automática de estados en tiempo real:** Cualquier cambio de estado físico detectado por el sensor (libre → ocupado → libre) se refleja automáticamente en la Web App del administrador y en la Mobile App del conductor vía Supabase Realtime, sin necesidad de recargar la pantalla.
+- **Diferenciación entre estacionamientos afiliados y no afiliados:** La plataforma muestra en el mapa estacionamientos reales de Lima cargados desde OpenStreetMap, distinguiendo visualmente cuáles tienen disponibilidad en tiempo real y permiten reservas (afiliados) y cuáles son solo puntos de referencia (no afiliados).
+- **Comportamiento degradado ante desconexión del nodo IoT:** Si el nodo deja de reportar, el sistema conserva el último estado conocido del espacio y lo marca visualmente como "no confirmado en tiempo real", sin ocultar ni eliminar la información disponible.
+- **Vista de cámara local para el administrador:** Una cámara local integrada al nodo IoT permite al administrador verificar visualmente el estado desde el panel web.
 
 ---
 
 #### 1.2.2.3. Lean UX Hypothesis Statements
 
+Las siguientes hipótesis representan relaciones de causa-efecto que se espera contrastar en etapas posteriores del proyecto. Su finalidad es orientar el diseño del producto y establecer criterios iniciales de validación, sin constituir resultados demostrados en la presente entrega.
+
 **Hipótesis 1:**
 
-Creemos que lograremos **reducir el tiempo de búsqueda de estacionamiento de los
-conductores urbanos en Lima a menos de 5 minutos**,
-si los conductores que visitan zonas de alta demanda vehicular logran identificar,
-seleccionar y reservar un espacio disponible sin necesidad de buscar físicamente,
-con una plataforma que muestre disponibilidad verificada en tiempo real respaldada
-por sensores IoT físicos en cada espacio afiliado.
+Se plantea la hipótesis de que ParkingNow podría reducir el tiempo de búsqueda de estacionamiento de los conductores urbanos en Lima a menos de 5 minutos, si los usuarios logran identificar, seleccionar y reservar un espacio disponible sin necesidad de búsqueda física adicional, a partir de una plataforma que muestre disponibilidad validada mediante sensores IoT.
 
 ---
 
 **Hipótesis 2:**
 
-Creemos que lograremos **aumentar la tasa de ocupación de los estacionamientos
-afiliados en al menos un 25% durante los primeros seis meses de uso**,
-si los administradores de estacionamientos independientes logran atraer conductores
-digitalmente a través de la plataforma y gestionar sus espacios de forma automatizada,
-con un panel web en tiempo real que reemplaza el registro manual y les otorga
-visibilidad en la búsqueda de conductores de la zona.
+Se plantea la hipótesis de que los estacionamientos afiliados podrían incrementar su tasa de ocupación en al menos un 25% durante los primeros seis meses de uso, si los administradores logran atraer conductores digitalmente y gestionar sus espacios de forma automatizada mediante el panel web.
 
 ---
 
 **Hipótesis 3:**
 
-Creemos que lograremos **alcanzar un índice de satisfacción NPS superior a 30 entre
-los conductores activos durante los primeros tres meses de operación**,
-si los conductores que realizan al menos una reserva a través de la app móvil
-comprueban que el espacio que reservaron estaba efectivamente disponible al momento
-de llegar al estacionamiento,
-con la capa IoT que valida en tiempo real la coherencia entre el estado digital mostrado
-en la app y el estado físico confirmado por el sensor ultrasónico.
+Se plantea la hipótesis de que la satisfacción del conductor podría alcanzar un NPS superior a 30 en una etapa posterior de validación, si los usuarios comprueban que el espacio reservado se encuentra efectivamente disponible al momento de llegar, gracias a la validación física realizada por la capa IoT.
 
 ---
 
 **Hipótesis 4:**
 
-Creemos que lograremos **reducir significativamente la carga operativa manual del
-administrador, eliminando la necesidad de registros físicos de entradas, salidas y
-disponibilidad**,
-si los administradores afiliados logran monitorear el estado de sus espacios, gestionar
-reservas activas y revisar el historial de eventos sin necesidad de registros físicos ni
-presencia constante en el local,
-con el panel web que centraliza en tiempo real toda la información operativa del
-estacionamiento, incluyendo estados IoT, reservas activas y eventos históricos.
+Se plantea la hipótesis de que el uso del panel web podría reducir de forma significativa la carga operativa manual del administrador, si centraliza el monitoreo de estados, las reservas activas y el historial de eventos del estacionamiento.
 
 ---
 
 **Hipótesis 5:**
 
-Creemos que lograremos **afiliar al menos 15 estacionamientos independientes en Lima
-durante los primeros seis meses posteriores al lanzamiento**,
-si los operadores independientes perciben que el costo de integración del nodo IoT es
-accesible y que la plataforma genera un retorno de inversión medible en términos de
-aumento de reservas y visibilidad digital,
-con una propuesta de afiliación que incluye hardware de bajo costo (ESP32 + sensores
-HC-SR04+) y un panel web intuitivo que no requiere formación técnica especializada para
-ser operado.
+Se plantea la hipótesis de que ParkingNow podría afiliar al menos 15 estacionamientos independientes en Lima durante los primeros seis meses de una etapa posterior de comercialización, si los operadores perciben que el costo de integración es accesible y que la plataforma genera un retorno de inversión medible en términos de aumento de reservas y visibilidad digital.
 
 ---
 
 #### 1.2.2.4. Lean UX Canvas
 
-A continuación se presenta el Lean UX Canvas elaborado para ParkingNow, el cual
-sintetiza los elementos clave del proceso Lean UX: el problema de negocio identificado,
-los segmentos de usuario, las ideas de solución, los beneficios esperados, las hipótesis
-centrales y los aprendizajes prioritarios que orientan el desarrollo del producto.
+A continuación se presenta el Lean UX Canvas elaborado para ParkingNow, que sintetiza los elementos clave del proceso Lean UX: el problema de negocio identificado, los segmentos de usuario, las ideas de solución, los beneficios esperados, las hipótesis centrales y los aprendizajes prioritarios que orientan el desarrollo del producto.
 
 **Figura 1**
 
-*Lean UX Canvas de ParkingNow para el dominio de gestión de 
-estacionamientos urbanos en Lima Metropolitana*
+*Lean UX Canvas de ParkingNow para el dominio de gestión de estacionamientos urbanos en Lima Metropolitana*
 
 ![alt text](<assets/lean ux canvas.png>)
 
 **Nota**. Elaboración propia (2026).
 
-Según la Figura 1, el Lean UX Canvas de ParkingNow identifica como problema central
-la desconexión entre el estado físico real de los espacios de estacionamiento y los
-canales digitales de información, afectando tanto a conductores urbanos que pierden
-tiempo buscando disponibilidad como a administradores independientes que operan sin
-visibilidad ni herramientas digitales. Las ideas de solución se articulan en torno a
-una plataforma distribuida con sensores IoT (ESP32 + HC-SR04+), reservas anticipadas
-vía aplicación móvil y un panel web de monitoreo en tiempo real para el operador. Los
-outcomes de negocio priorizan el incremento de la tasa de ocupación de los
-estacionamientos afiliados y la reducción del tiempo de búsqueda del conductor, con
-una meta de NPS superior a 30 en los primeros tres meses de operación. El aprendizaje
-más importante a validar en las primeras iteraciones es confirmar que la disponibilidad
-en tiempo real respaldada por el nodo IoT reduce efectivamente el tiempo de búsqueda
-y que la reserva anticipada incrementa la satisfacción del usuario en al menos un 25%
-durante los primeros seis meses. 
+Según la Figura 1, el Lean UX Canvas de ParkingNow identifica como problema central la desconexión entre el estado físico real de los espacios y los canales digitales de información. Esta brecha afecta tanto a conductores urbanos, que pierden tiempo buscando disponibilidad, como a administradores independientes, que operan sin visibilidad ni herramientas digitales.
+
+Las ideas de solución se articulan en torno a una plataforma distribuida con sensores IoT (ESP32 + HC-SR04+), reservas anticipadas vía aplicación móvil y un panel web de monitoreo para el operador. Los outcomes de negocio priorizan, como objetivos preliminares de validación, el incremento de la tasa de ocupación de los estacionamientos afiliados y la reducción del tiempo de búsqueda del conductor. Asimismo, se plantea como meta inicial de experiencia alcanzar un NPS positivo superior a 30 en una etapa posterior de validación del producto. El aprendizaje más importante a contrastar en las primeras iteraciones será determinar si la disponibilidad respaldada por el nodo IoT contribuye efectivamente a reducir el tiempo de búsqueda y si la reserva anticipada mejora la percepción de valor y satisfacción del usuario. Estas métricas deben entenderse como referencias iniciales sujetas a validación, no como resultados demostrados en la presente fase.
 
 Enlace al canvas: [https://canva.link/jukpsaamxd32d5t](https://canva.link/jukpsaamxd32d5t)
 
@@ -790,47 +634,22 @@ mayor presión sobre la infraestructura de estacionamiento en los próximos año
 
 ### Segmento 2: Administradores de Estacionamientos Independientes
 
-**Descripción:**
-Este segmento incluye a los dueños y administradores de estacionamientos independientes
-de Lima Metropolitana que operan entre 2 y 30 espacios de manera informal o
-semi-formal, sin herramientas digitales de gestión. Son los usuarios del panel web de
-ParkingNow, desde el cual registran su local, configuran sus espacios, monitorean
-el estado de ocupación en tiempo real, gestionan reservas activas y acceden al historial
-de eventos generado por el nodo IoT instalado en su local.
+**Descripción:**  
+Este segmento comprende a los dueños y administradores de estacionamientos independientes de Lima Metropolitana que operan entre 2 y 30 espacios, generalmente bajo esquemas manuales o semi-formales y sin herramientas digitales integradas de gestión. Constituyen el cliente pagador principal de ParkingNow y los usuarios directos del panel web de la plataforma, desde el cual pueden registrar su local, configurar sus espacios, monitorear el estado de ocupación en tiempo real, gestionar reservas activas y consultar el historial de eventos generados por el nodo IoT instalado en su establecimiento. Se trata de un segmento relevante porque concentra una necesidad operativa clara, posee baja digitalización y puede obtener un beneficio económico directo a partir de una mejor visibilidad, control y aprovechamiento de sus espacios disponibles.
 
-**Características demográficas:**
-- **Edad:** Entre 35 y 60 años, generalmente propietarios del local o administradores
-  con varios años de experiencia operativa en el sector.
-- **Género:** Predominantemente hombres, aunque con presencia creciente de mujeres
-  emprendedoras en el sector de servicios urbanos.
-- **Ubicación:** Operan estacionamientos ubicados en distritos de alta densidad
-  comercial y residencial de Lima, especialmente en zonas aledañas a centros
-  empresariales, universidades, hospitales y mercados.
-- **Nivel tecnológico:** Medio-bajo en términos de adopción de herramientas digitales.
-  La mayoría lleva registros manuales en cuadernos o planillas físicas. Sin embargo,
-  muestran interés en adoptar soluciones simples que mejoren sus ingresos y reduzcan
-  la carga operativa, siempre que la curva de aprendizaje sea accesible.
-- **Perfil de negocio:** Microempresas o negocios familiares con márgenes ajustados,
-  sensibles al precio de las soluciones tecnológicas y motivados principalmente por
-  resultados económicos medibles.
+**Características demográficas:**  
+- **Edad:** Entre 35 y 60 años, generalmente propietarios del local o administradores con varios años de experiencia operativa en el sector.  
+- **Género:** Predominantemente hombres, aunque con presencia creciente de mujeres emprendedoras en actividades de servicios urbanos.  
+- **Ubicación:** Operan estacionamientos ubicados en distritos de alta densidad comercial y residencial de Lima, especialmente en zonas próximas a centros empresariales, universidades, hospitales, mercados y áreas de alta concurrencia.  
+- **Nivel tecnológico:** Medio-bajo en términos de adopción de herramientas digitales. En muchos casos, la operación se apoya todavía en cuadernos, registros manuales o procedimientos informales. Sin embargo, muestran disposición a adoptar soluciones simples, siempre que estas sean accesibles, fáciles de usar y generen mejoras visibles en ingresos u operación.  
+- **Perfil de negocio:** Microempresas o negocios familiares con márgenes ajustados, alta sensibilidad al costo de implementación y orientación a resultados concretos, como aumento de ocupación, reducción de carga manual y mayor captación de clientes.
 
-**Información estadística de sustento:**
-Lima registra una informalidad crónica en el sector de estacionamientos: parqueadores
-informales se han adueñado de espacios públicos en múltiples distritos, cobran tarifas
-sin regulación y desplazan a los operadores formales (Infobae, 2024). Esta situación
-evidencia que existe una oferta potencial de espacios que no llega a formalizarse ni a
-conectarse con la demanda digital por falta de herramientas accesibles. El INEI publicó
-en 2026 el informe *Región Lima: Estructura Empresarial, 2024*, que documenta la
-composición del tejido empresarial de la región, incluyendo microempresas del sector
-servicios (en el que se inscriben los estacionamientos independientes) como el segmento
-con mayor cantidad de unidades y menor grado de formalización digital (INEI, 2026).
-Asimismo, la literatura científica sobre Smart Parking confirma que los sistemas IoT
-de bajo costo basados en ESP32, sensores ultrasónicos y plataformas web son soluciones
-escalables y eficientes que se adaptan a la infraestructura de operadores pequeños en
-entornos urbanos, logrando detección precisa de vehículos y notificación automática de
-espacios liberados con costos de implementación accesibles (Ruiz Cruzado et al., 2026;
-Bustamante & Hidrobo, 2024). Esto sustenta la viabilidad técnica y económica de
-incorporar a este segmento como usuario clave de ParkingNow.
+**Información estadística de sustento:**  
+Lima presenta una informalidad persistente en la gestión del estacionamiento urbano. Reportes periodísticos recientes muestran que, en diversos distritos, la presencia de parqueadores informales y el uso no regulado del espacio urbano han desplazado o debilitado la operación formal del sector (Infobae, 2024). Esta situación evidencia la existencia de una oferta fragmentada, con baja visibilidad digital y escaso acceso a herramientas tecnológicas de gestión.
+
+Asimismo, el INEI publicó en 2026 el informe *Región Lima: Estructura Empresarial, 2024*, en el cual se observa que las microempresas del sector servicios representan una parte importante del tejido empresarial regional y enfrentan mayores limitaciones de formalización y digitalización que empresas de mayor escala (INEI, 2026). Este contexto resulta consistente con el perfil de los estacionamientos independientes, que suelen operar con recursos limitados y baja incorporación de tecnología.
+
+Desde el punto de vista técnico y económico, la literatura reciente sobre Smart Parking respalda la pertinencia de este segmento como usuario objetivo. Estudios recientes muestran que soluciones basadas en ESP32, sensores ultrasónicos y plataformas web permiten implementar sistemas de monitoreo de ocupación con costos accesibles, buena precisión y una complejidad técnica adecuada para contextos urbanos de pequeña escala (Ruiz Cruzado et al., 2026; Bustamante & Hidrobo, 2024). En consecuencia, los administradores de estacionamientos independientes constituyen un segmento viable para ParkingNow, no solo por su necesidad de digitalización, sino también porque pueden capturar un beneficio económico directo a partir de una mejora en la gestión, la visibilidad y la ocupación de sus espacios.
 
 # Capítulo II: Requirements Elicitation & Analysis
 
@@ -1353,7 +1172,7 @@ propietarios y administradores de estacionamientos independientes
 de Lima Metropolitana que operan sus locales de forma manual
 o semi-formal, sin herramientas digitales de gestión integradas.
 
-#### Entrevista 1
+#### Entrevista 4
 
 | Campo                  | Detalle |
 |------------------------|---------|
@@ -1365,7 +1184,7 @@ o semi-formal, sin herramientas digitales de gestión integradas.
 | **Link de entrevista** | Por completar |
 | **Resumen**            | Administra un local de 12 espacios en Lince con control manual en cuaderno. Indica que pierde tiempo verificando cupos y atendiendo consultas de disponibilidad por telefono. Le interesa una plataforma web simple que muestre ocupacion en tiempo real y le ayude a aumentar reservas. |
 
-#### Entrevista 2
+#### Entrevista 5
 
 | Campo                  | Detalle |
 |------------------------|---------|
@@ -1377,7 +1196,7 @@ o semi-formal, sin herramientas digitales de gestión integradas.
 | **Link de entrevista** | Por completar |
 | **Resumen**            | Gestiona un estacionamiento familiar de 8 espacios en Surco. Senala que su principal problema es no poder monitorear el estado cuando no esta en el local. Considera viable instalar sensores si el costo es accesible y el sistema reduce errores operativos diarios. |
 
-#### Entrevista 3
+#### Entrevista 6
 
 | Campo                  | Detalle |
 |------------------------|---------|
@@ -1390,3 +1209,355 @@ o semi-formal, sin herramientas digitales de gestión integradas.
 | **Resumen**            | Opera 20 espacios en San Isidro y reporta demanda alta en horas punta. Menciona que necesita visibilidad de ingresos, salidas y cupos sin depender de reportes verbales del personal. Valora una solucion con panel web y alertas para mejorar control y atencion al cliente. |
 
 ---
+
+
+### 2.2.3. Análisis de entrevistas
+
+En esta sección se presenta el análisis de las seis entrevistas
+realizadas, tres por cada segmento objetivo. A partir de las
+respuestas recopiladas se identifican las características objetivas
+y subjetivas más representativas de cada segmento, sustentadas con
+porcentajes que reflejan la frecuencia de cada hallazgo entre los
+entrevistados. Este análisis constituye la base directa para la
+construcción de los arquetipos de usuario en la sección 2.3.
+
+---
+
+#### Segmento 1: Conductores Urbanos
+
+##### Características objetivas
+
+**Edad y género**
+
+Los tres entrevistados tienen entre 29 y 41 años, con un promedio
+de 35 años. El 67% son hombres (Carlos, Rodrigo) y el 33% son
+mujeres (Valeria). Este rango corresponde a la población
+económicamente activa que se desplaza con frecuencia en vehículo
+propio por Lima Metropolitana.
+
+**Estado civil y carga familiar**
+
+El 67% de los entrevistados está casado (Valeria, Rodrigo) y el
+33% es soltero (Carlos). El 67% tiene hijos a su cargo (Valeria
+con uno, Rodrigo con dos), lo que implica que la mayoría gestiona
+su tiempo con responsabilidades familiares adicionales al trabajo.
+
+**Ocupación**
+
+El 100% trabaja a tiempo completo. Sus ocupaciones son analista
+de sistemas (Carlos), ejecutiva de ventas (Valeria) y docente
+universitario (Rodrigo). En todos los casos, el vehículo es un
+medio de transporte esencial para cumplir sus responsabilidades
+laborales.
+
+**Frecuencia de uso del vehículo**
+
+El 100% usa su vehículo con alta frecuencia: Carlos lo usa a
+diario de lunes a viernes, Valeria prácticamente todos los días
+incluidos sábados, y Rodrigo tres veces por semana en días de
+clases. Ninguno considera prescindir del auto para sus trayectos
+habituales.
+
+**Zonas de desplazamiento**
+
+El 100% se desplaza frecuentemente a Miraflores. El 67% visita
+San Isidro (Carlos, Rodrigo) y el 67% visita Surco (Carlos,
+Valeria). Estas zonas coinciden exactamente con los distritos
+de mayor demanda vehicular identificados en el análisis del
+problema.
+
+**Dispositivo y navegador**
+
+El 67% usa Android (Carlos, Rodrigo) y el 33% usa iOS (Valeria).
+El 67% navega desde Chrome (Carlos, Rodrigo) y el 33% desde
+Safari (Valeria). El 100% utiliza el smartphone como dispositivo
+principal para apps de movilidad y servicio.
+
+---
+
+##### Características subjetivas
+
+**Comportamiento actual al buscar estacionamiento**
+
+El 100% de los entrevistados no cuenta con ninguna herramienta
+que le informe sobre la disponibilidad real de estacionamiento
+antes de llegar. Carlos y Rodrigo usan Google Maps para la ruta
+pero reconocen que no les dice nada sobre disponibilidad de
+espacios. Valeria simplemente sale sin consultar nada al respecto.
+
+**Tiempo promedio de búsqueda**
+
+El 100% demora más de 15 minutos en encontrar estacionamiento
+en zonas de alta demanda. Carlos estima entre 15 y 25 minutos,
+Valeria entre 20 y 30 minutos, y Rodrigo entre 20 y 40 minutos
+en días complicados, llegando a no encontrar espacio en 45
+minutos en el peor caso reportado.
+
+**Frecuencia del problema**
+
+El 100% enfrenta este problema de forma recurrente. Carlos lo
+vive tres o cuatro veces por semana, Valeria dos o tres veces
+por semana, y Rodrigo estima que el 70% de las veces que va a
+Miraflores tiene problemas para estacionar.
+
+**Reacción ante la falta de disponibilidad**
+
+El 100% da vueltas como primera reacción. El 67% recurre a
+estacionamientos de pago como segunda alternativa (Carlos,
+Valeria). El 33% ha llegado a retirarse del lugar sin completar
+su objetivo por no encontrar espacio (Rodrigo). El 33% ha
+optado por estacionarse en zonas no autorizadas ante la urgencia
+(Carlos, Valeria).
+
+**Disposición a usar una app móvil de disponibilidad en tiempo real**
+
+El 100% afirma que usaría una app móvil de disponibilidad en
+tiempo real. Carlos la usaría sin dudarlo, Valeria confirma que
+claro que sí, y Rodrigo señala que con dudas iniciales pero que
+sí la adoptaría si demuestra ser confiable.
+
+**Disposición a reservar desde el celular**
+
+El 100% reservaría un espacio desde su teléfono si eso les
+garantizara disponibilidad al llegar. Carlos pone como condición
+que el proceso sea simple (máximo tres pasos), Valeria lo haría
+especialmente antes de reuniones importantes, y Rodrigo lo haría
+para sus compromisos fijos de docencia.
+
+**Importancia del sensor físico para la confianza**
+
+El 100% considera importante o muy importante que la
+disponibilidad mostrada en la app esté respaldada por un sensor
+físico real. Carlos lo señala como lo que le daría confianza
+real frente a la disponibilidad declarativa. Valeria afirma que
+es lo que marcaría la diferencia entre confiar y no confiar.
+Rodrigo indica que eso elimina la dependencia de que alguien
+recuerde actualizar la app.
+
+**Aplicaciones móviles de referencia**
+
+El 100% usa Google Maps o Waze para navegación. El 67% usa
+Rappi (Carlos, Valeria). El 67% usa apps bancarias como Yape
+o BCP (Carlos, Rodrigo). El 33% usa Uber (Valeria). La app
+más admirada por su experiencia de usuario es Yape para Carlos
+(por simplicidad), Uber para Valeria (por predictibilidad) y
+BCP para Rodrigo (por funcionalidad directa). El patrón común
+es la valoración de apps simples, rápidas y que cumplen
+exactamente lo que prometen.
+
+**Principales frustraciones**
+
+El 100% menciona la pérdida de tiempo como frustración central.
+El 67% menciona la incertidumbre de no saber si encontrará
+espacio (Valeria, Rodrigo). El 67% asocia la búsqueda de
+estacionamiento con estrés que afecta su rendimiento posterior
+(Carlos, Valeria).
+
+**Condición de abandono de la app**
+
+El 100% abandonaría la app si falla la primera vez que confían
+en su información. Carlos dice "una vez y ya no la uso más",
+Valeria afirma "si me falla la primera vez ya no la vuelvo a
+usar", y Rodrigo señala que no le daría segunda oportunidad.
+Esto establece un umbral de tolerancia cero ante información
+incorrecta en el primer uso.
+
+---
+
+##### Conclusiones del segmento 1
+
+Los conductores urbanos entrevistados comparten un perfil
+homogéneo: adultos de entre 29 y 41 años, trabajadores activos,
+usuarios frecuentes del vehículo en zonas de alta demanda
+vehicular como Miraflores, San Isidro y Surco. El 100% enfrenta
+el problema de estacionamiento de forma recurrente, con tiempos
+de búsqueda que superan los 15 minutos, y el 100% no cuenta
+con ninguna herramienta que le anticipe la disponibilidad real
+antes de llegar.
+
+La disposición a adoptar una app móvil es unánime, condicionada
+a que la información sea confiable y esté respaldada por un
+mecanismo físico verificable. El sensor IoT es percibido por el
+100% como el diferencial clave que generaría esa confianza.
+La tolerancia al error es nula: un solo fallo en la primera
+experiencia determina el abandono definitivo de la plataforma.
+
+---
+
+#### Segmento 2: Administradores de Estacionamientos Independientes
+
+##### Características objetivas
+
+**Edad y género**
+
+Los tres entrevistados tienen entre 38 y 55 años, con un promedio
+de 47 años. El 67% son hombres (Jorge, Manuel) y el 33% son
+mujeres (Patricia). Este rango refleja el perfil de operadores
+con varios años de experiencia en el sector, que iniciaron sus
+negocios antes de la era de las plataformas digitales.
+
+**Tamaño y antigüedad del local**
+
+Los locales tienen entre 8 y 20 espacios, con un promedio de
+13 espacios. El tiempo de operación varía entre 5 y 14 años,
+con un promedio de 9 años. El 100% opera en distritos de alta
+demanda vehicular: Miraflores (Jorge), San Isidro (Patricia)
+y Surco (Manuel).
+
+**Personal de apoyo**
+
+El 33% opera completamente solo con apoyo eventual de un
+familiar (Manuel). El 33% tiene un trabajador de apoyo en
+turno parcial (Jorge). El 33% cuenta con dos trabajadores en
+turnos diferenciados (Patricia). En ningún caso existe un
+sistema formal de coordinación más allá de WhatsApp.
+
+**Dispositivo preferido para gestión**
+
+El 100% gestiona su negocio principalmente desde el celular.
+Jorge y Manuel usan exclusivamente el celular, sin computadora.
+Patricia usa celular y laptop dependiendo de dónde se encuentre,
+siendo la única que requiere que el panel web funcione bien
+en ambos dispositivos.
+
+**Herramientas digitales actuales**
+
+El 100% usa WhatsApp como única herramienta digital de
+coordinación. El 33% usa adicionalmente Yape para pagos (Jorge).
+El 33% usa Google Sheets para control básico de ingresos
+(Patricia). El 0% tiene un sistema digital formal de gestión
+de estacionamiento activo.
+
+---
+
+##### Características subjetivas
+
+**Sistema de control de espacios**
+
+El 100% lleva el control de espacios de forma completamente
+manual. Jorge usa un cuaderno de entradas y salidas, Manuel
+anota en papel que lleva en el bolsillo, y Patricia usa una
+pizarra física en la entrada actualizada por sus trabajadores.
+Ninguno tiene un mecanismo digital que refleje el estado real
+de los espacios en tiempo real.
+
+**Visibilidad remota de la operación**
+
+El 100% reconoce que no puede saber en tiempo real cuántos
+espacios tiene disponibles si no está físicamente en el local.
+Jorge llama a su trabajador o espera un mensaje de WhatsApp.
+Patricia llama a su personal, con riesgo de discrepancias
+comprobadas. Manuel directamente no sabe lo que pasa cuando
+no está.
+
+**Conductores llegando sin espacio disponible**
+
+El 100% ha tenido situaciones en que conductores llegaron al
+local y no había espacio disponible. Jorge lo reporta como
+algo frecuente en mediodía y fin de tarde. Patricia ha tenido
+que devolver dinero por reservas por WhatsApp no honradas.
+Manuel solo puede disculparse y pedir que vuelvan más tarde.
+
+**Mayor fuente de errores operativos**
+
+El 67% identifica la presencia obligatoria como su mayor
+problema operativo (Jorge, Manuel): no pueden ausentarse sin
+perder el control del negocio. El 33% identifica el desorden
+en las reservas manuales como su mayor fuente de conflictos
+(Patricia): mensajes cruzados, confirmaciones perdidas y
+clientes que no cancelan.
+
+**Interés en una plataforma web de gestión**
+
+El 100% muestra interés en afiliarse a una plataforma web.
+Jorge lo considera atractivo si le trae más clientes sin
+costo fijo rígido. Patricia afirma que ya lo necesita y que
+solo le preocupa la curva de aprendizaje para su personal.
+Manuel lo ve posible si alguien le enseña en persona.
+
+**Disposición a instalar sensores**
+
+El 100% consideraría instalar sensores bajo condiciones de
+simplicidad. La condición compartida por el 100% es que no
+requiera obras ni electricista. El 67% requiere una demostración
+o caso de éxito previo antes de comprometerse (Jorge, Manuel).
+El 33% prioriza que el sistema automatice la actualización de
+disponibilidad sin intervención de su personal (Patricia).
+
+**Experiencia previa con herramientas digitales de gestión**
+
+El 67% nunca ha intentado ninguna app o sistema para gestionar
+su estacionamiento (Jorge, Manuel), principalmente por
+desconocer que existan opciones para locales pequeños. El 33%
+intentó un sistema hace dos años pero lo abandonó por alto
+costo y complejidad de interfaz (Patricia).
+
+**Beneficio principal esperado**
+
+El 33% prioriza atraer más reservas y conductores nuevos que
+no conocían el local (Jorge). El 33% prioriza eliminar errores
+en reservas y tener visibilidad remota en tiempo real (Patricia).
+El 33% prioriza poder monitorear espacios desde el celular sin
+depender de terceros (Manuel). En los tres casos el beneficio
+esperado es operativo y medible, no tecnológico en abstracto.
+
+**Condición para confiar en la plataforma**
+
+El 67% necesita ver un caso real de otro negocio similar que
+ya la use con buenos resultados (Jorge, Manuel). El 33% necesita
+una demostración en vivo en su propio local (Patricia). El 0%
+se conformaría con material promocional o videos sin evidencia
+real.
+
+---
+
+##### Conclusiones del segmento 2
+
+Los administradores entrevistados comparten un perfil operativo
+homogéneo: propietarios o gestores de locales de 8 a 20 espacios,
+con entre 5 y 14 años de experiencia, que operan completamente
+de forma manual y sin visibilidad digital de su negocio. El 100%
+depende de su presencia física o de comunicación informal por
+WhatsApp para saber el estado de su local en tiempo real.
+
+La disposición a digitalizar es unánime, pero condicionada a
+simplicidad de instalación, bajo costo de entrada y demostración
+tangible de valor. El sensor IoT es percibido como viable por el
+100% siempre que no implique obras ni conocimiento técnico. La
+principal barrera no es el precio sino la incertidumbre sobre
+si la plataforma funcionará realmente para un negocio de su
+escala, lo que hace que la prueba social y la demostración en
+vivo sean los mecanismos de conversión más efectivos para este
+segmento.
+
+---
+
+#### Conclusiones generales
+
+Los hallazgos del segmento 1 (conductores urbanos) evidencian
+una necesidad urgente de información confiable y verificada en
+tiempo real sobre la disponibilidad de estacionamientos, con
+disposición total a reservar desde una app móvil si la
+plataforma demuestra coherencia entre lo que muestra y lo que
+el conductor encuentra al llegar. El sensor físico IoT es el
+elemento diferencial que generaría esa confianza para el 100%
+de los entrevistados.
+
+En el segmento 2 (administradores independientes), se evidencia
+una necesidad clara de digitalizar una operación que hoy depende
+enteramente de la presencia física del dueño y de coordinación
+informal. El 100% ve valor en una plataforma web de monitoreo
+en tiempo real y reservas automatizadas, con la condición de
+que la instalación sea simple, el costo sea accesible y alguien
+les acompañe en el proceso de adopción.
+
+Ambos segmentos se complementan directamente: los conductores
+necesitan información verificada que solo puede existir si los
+administradores tienen sensores instalados, y los administradores
+necesitan más reservas y visibilidad digital que solo pueden
+conseguir si los conductores tienen una app confiable que los
+conecte. Esta interdependencia valida el modelo de negocio
+distribuido de ParkingNow y sustenta la prioridad de construir
+ambas experiencias de usuario con igual nivel de atención.
+
+
