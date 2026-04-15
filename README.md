@@ -1257,3 +1257,136 @@ suficiente para construir los arquetipos de usuario de ParkingNow.
 19. ¿Recomendarías la plataforma a otros
     administradores si te funciona bien? ¿Bajo
     qué condiciones?
+
+### 2.2.2. Registro de entrevistas
+
+En esta sección se presenta el registro de las entrevistas realizadas
+a representantes de los dos segmentos objetivo de ParkingNow:
+conductores urbanos de Lima Metropolitana y administradores de
+estacionamientos independientes. Para cada segmento se realizaron
+tres entrevistas, haciendo un total de seis entrevistas registradas
+en video.
+
+Cada entrevista incluye los datos del entrevistado, una captura de
+pantalla del video correspondiente, el enlace al video editado
+publicado en Microsoft Stream con el timing de inicio y duración
+de cada entrevista, y un resumen descriptivo que recoge las
+respuestas del entrevistado. Dicho resumen documenta tanto las
+características objetivas del entrevistado —edad, género, distrito,
+estado civil, ocupación y dispositivos de preferencia— como sus
+características subjetivas —personalidad, motivaciones, frustraciones,
+marcas de referencia y canales digitales de interacción—, con el fin
+de que cada rasgo del arquetipo que se construirá en la sección 2.3
+pueda trazarse directamente a los datos recolectados en estas
+entrevistas.
+
+Las entrevistas fueron conducidas siguiendo el diseño establecido en
+la sección 2.2.1, respetando el orden de bloques: perfil demográfico,
+comportamiento actual, expectativas y motivaciones, perfil tecnológico
+y cierre. Todos los videos fueron editados en un único archivo y
+publicados en Microsoft Stream/Clipchamp como evidencia del proceso
+de needfinding.
+
+**URL del video de entrevistas:**
+[Enlace al video consolidado — por completar]
+
+---
+
+#### Entrevistas al Segmento 1: Conductores Urbanos
+
+A continuación se registran las tres entrevistas realizadas a
+conductores urbanos de Lima Metropolitana que utilizan vehículo
+propio con frecuencia y se han enfrentado de forma recurrente
+al problema de encontrar estacionamiento disponible en zonas
+de alta demanda vehicular.
+
+
+#### Entrevista 1 
+
+| Campo                  | Detalle |
+|------------------------|---------|
+| **Imagen**             | Por completar |
+| **Entrevistado**       | Andrea Ramirez |
+| **Entrevistador**      | Diego Soto |
+| **Sexo**               | Femenino |
+| **Edad**               | 21 anos |
+| **Link de entrevista** | Por completar |
+| **Resumen**            | Usa su auto para estudiar y trabajar en zonas de alta demanda. Indica que suele demorar entre 15 y 25 minutos buscando estacionamiento en Miraflores y San Isidro. Le interesa una app con disponibilidad en tiempo real y reserva previa, siempre que la informacion sea confiable y facil de usar. |
+
+#### Entrevista 2
+
+| Campo                  | Detalle |
+|------------------------|---------|
+| **Imagen**             | Por completar |
+| **Entrevistado**       | Luis Mendoza |
+| **Entrevistador**      | Rafael Cuya |
+| **Sexo**               | Masculino |
+| **Edad**               | 33 anos |
+| **Link de entrevista** | Por completar |
+| **Resumen**            | Se moviliza diariamente por Surco y San Borja para trabajo comercial. Senala que su mayor frustracion es llegar a un estacionamiento que en la practica ya no tiene cupos. Valora un sistema que muestre cupos reales por sensor y confirme la reserva antes de salir. |
+
+#### Entrevista 3
+
+| Campo                  | Detalle |
+|------------------------|---------|
+| **Imagen**             | Por completar |
+| **Entrevistado**       | Carla Paredes |
+| **Entrevistador**      | Gabriel Lapa |
+| **Sexo**               | Femenino |
+| **Edad**               | 29 anos |
+| **Link de entrevista** | Por completar |
+| **Resumen**            | Conduce con frecuencia hacia zonas empresariales y centros medicos. Comenta que normalmente revisa mapas, pero no tiene forma de validar si el espacio sigue disponible al llegar. Considera util recibir una confirmacion inmediata de reserva y una ruta directa al estacionamiento. |
+
+
+
+
+
+
+
+
+---
+
+#### Entrevistas al Segmento 2: Administradores de Estacionamientos Independientes
+
+A continuación se registran las tres entrevistas realizadas a
+propietarios y administradores de estacionamientos independientes
+de Lima Metropolitana que operan sus locales de forma manual
+o semi-formal, sin herramientas digitales de gestión integradas.
+
+#### Entrevista 1
+
+| Campo                  | Detalle |
+|------------------------|---------|
+| **Imagen**             | Por completar |
+| **Entrevistado**       | Jose Huaman |
+| **Entrevistador**      | Fiorella Vilca |
+| **Sexo**               | Masculino |
+| **Edad**               | 48 anos |
+| **Link de entrevista** | Por completar |
+| **Resumen**            | Administra un local de 12 espacios en Lince con control manual en cuaderno. Indica que pierde tiempo verificando cupos y atendiendo consultas de disponibilidad por telefono. Le interesa una plataforma web simple que muestre ocupacion en tiempo real y le ayude a aumentar reservas. |
+
+#### Entrevista 2
+
+| Campo                  | Detalle |
+|------------------------|---------|
+| **Imagen**             | Por completar |
+| **Entrevistado**       | Maria Quispe |
+| **Entrevistador**      | Diego Soto |
+| **Sexo**               | Femenino |
+| **Edad**               | 41 anos |
+| **Link de entrevista** | Por completar |
+| **Resumen**            | Gestiona un estacionamiento familiar de 8 espacios en Surco. Senala que su principal problema es no poder monitorear el estado cuando no esta en el local. Considera viable instalar sensores si el costo es accesible y el sistema reduce errores operativos diarios. |
+
+#### Entrevista 3
+
+| Campo                  | Detalle |
+|------------------------|---------|
+| **Imagen**             | Por completar |
+| **Entrevistado**       | Carlos Salazar |
+| **Entrevistador**      | Rafael Cuya |
+| **Sexo**               | Masculino |
+| **Edad**               | 52 anos |
+| **Link de entrevista** | Por completar |
+| **Resumen**            | Opera 20 espacios en San Isidro y reporta demanda alta en horas punta. Menciona que necesita visibilidad de ingresos, salidas y cupos sin depender de reportes verbales del personal. Valora una solucion con panel web y alertas para mejorar control y atencion al cliente. |
+
+---
