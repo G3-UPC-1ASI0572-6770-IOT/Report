@@ -57,11 +57,11 @@ Durante la preparación del informe, se llevaron a cabo las siguientes actividad
 
 (añadir imagen de los commits en general del grupo)
 
-### ABET – EAC - Student Outcome 5
+### ABET, EAC - Student Outcome 5
 
 **Criterio:** *La capacidad de funcionar efectivamente en un equipo cuyos miembros juntos proporcionan liderazgo, crean un entorno de colaboración e inclusivo, establecen objetivos, planifican tareas y cumplen objetivos.*
 
-En el siguiente cuadro se describen las acciones realizadas y enunciados de conclusiones por parte del grupo, que permiten sustentar el haber alcanzado el logro del ABET – EAC - Student Outcome 5.
+En el siguiente cuadro se describen las acciones realizadas y enunciados de conclusiones por parte del grupo, que permiten sustentar el haber alcanzado el logro del ABET, EAC - Student Outcome 5.
 
 | Criterio específico | Acciones realizadas | Conclusiones |
 |---------------------|---------------------|--------------|
@@ -193,8 +193,8 @@ En el siguiente cuadro se describen las acciones realizadas y enunciados de conc
 
 ## 1.1. Startup Profile
 
-En esta sección se presenta el perfil de la startup responsable del desarrollo de
-ParkingNow IoT. Se describe la empresa emergente, su propósito fundacional, misión,
+En esta sección se presenta el perfil de la startup ParkingNow, responsable de la concepción y
+desarrollo de la solución propuesta. Se describe la empresa emergente, su propósito fundacional, misión,
 visión y los valores que orientan su operación. Esta información contextualiza al lector
 sobre el origen del proyecto y el equipo detrás de él, estableciendo las bases para
 comprender la propuesta de valor que se desarrollará a lo largo del presente informe.
@@ -202,17 +202,17 @@ comprender la propuesta de valor que se desarrollará a lo largo del presente in
 ### 1.1.1. Descripción de la Startup
 
 **ParkingNow** es una startup tecnológica peruana especializada en el desarrollo de
-soluciones inteligentes para la gestión de estacionamientos urbanos. Fundada con el
-propósito de digitalizar y optimizar la experiencia de estacionamiento en ciudades de
-alta densidad vehicular, ParkingNow integra tecnologías IoT, aplicaciones móviles y
-servicios en la nube para conectar a conductores urbanos con operadores de
-estacionamientos independientes en tiempo real.
+soluciones inteligentes para la gestión de estacionamientos urbanos. La solución que
+desarrolla es la plataforma **ParkingNow** para la gestión inteligente de
+estacionamientos urbanos en ciudades de alta densidad vehicular. Para ello, integra
+tecnologías IoT, aplicaciones móviles y servicios en la nube para conectar a
+conductores urbanos con operadores de estacionamientos independientes en tiempo real.
 
 La startup surge como respuesta a un problema estructural de la movilidad urbana en
 Lima Metropolitana: la dificultad crónica de encontrar estacionamiento disponible, la
 ausencia de herramientas digitales para los pequeños operadores del sector y la
 desconexión entre el estado físico real de los espacios y la información que recibe el
-conductor. A través de su producto principal, **ParkingNow IoT**, la startup ofrece una
+conductor. A través de su plataforma principal, **ParkingNow**, la startup ofrece una
 solución distribuida que combina sensores físicos embebidos en el espacio de
 estacionamiento con aplicaciones web y móvil, permitiendo la detección en tiempo real
 del estado de ocupación, la reserva anticipada de espacios y el monitoreo remoto de la
@@ -347,8 +347,8 @@ puntual sino sistémica en el contexto urbano de la ciudad.
 
 **When (¿Cuándo?):**
 El problema se manifiesta de forma recurrente durante los días laborables, con mayor
-intensidad en horarios de alta demanda vehicular: mañana (7:00–9:00 am), mediodía
-(12:00–2:00 pm) y tarde-noche (5:00–8:00 pm). El flujo vehicular en el país registró
+intensidad en horarios de alta demanda vehicular: mañana (7:00 a 9:00 am), mediodía
+(12:00 a 2:00 pm) y tarde-noche (5:00 a 8:00 pm). El flujo vehicular en el país registró
 en julio de 2025 un crecimiento de 4.1% respecto al mismo mes del año anterior, con
 los vehículos ligeros creciendo 3.8% y los pesados 4.6% (AAP, 2025), lo que anticipa
 que la saturación seguirá agravándose en los próximos años. La problemática se agudiza
@@ -456,13 +456,6 @@ siguientes problemas:
 - El despliegue se realizará sobre servicios cloud gratuitos o de bajo costo
   (Railway para backend, Vercel para frontend, Supabase free tier para base de datos
   y tiempo real), adecuados para el alcance universitario del proyecto.
-- La autenticación del nodo IoT se implementará mediante **API Key estática** embebida
-  en el firmware. Se es consciente de que en una versión productiva se requeriría un
-  mecanismo más robusto, como tokens rotativos por dispositivo o autenticación mTLS.
-- El protocolo de comunicación entre el ESP32 y el backend será **HTTP REST**,
-  descartando MQTT en esta versión por su infraestructura adicional innecesaria para
-  un solo nodo. MQTT queda documentado como mejora futura para escenarios con
-  múltiples nodos IoT distribuidos.
 
 ---
 
@@ -470,14 +463,14 @@ siguientes problemas:
 
 En este apartado se describe el proceso Lean UX aplicado sobre el dominio del problema,
 con el objetivo de construir una visión compartida y validable del modelo de negocio
-que sustenta ParkingNow IoT. El proceso parte de la identificación de los Problem
+que sustenta ParkingNow. El proceso parte de la identificación de los Problem
 Statements, continúa con la formulación de Assumptions sobre el negocio y los usuarios,
 y culmina en la redacción de Hypothesis Statements que serán sometidos a validación
 durante el ciclo de desarrollo del producto.
 
 #### 1.2.2.1. Lean UX Problem Statements
 
-**Problem Statement – Segmento Conductores Urbanos**
+**Problem Statement: Segmento Conductores Urbanos**
 
 El estado actual de la movilidad urbana en Lima se ha centrado principalmente en el
 mejoramiento de infraestructura vial y la implementación de sistemas de transporte
@@ -511,7 +504,7 @@ tres meses de operación.
 
 ---
 
-**Problem Statement – Segmento Administradores de Estacionamientos Independientes**
+**Problem Statement: Segmento Administradores de Estacionamientos Independientes**
 
 El estado actual de los estacionamientos independientes en Lima se caracteriza por una
 operación predominantemente manual, sin herramientas digitales de gestión, sin presencia
@@ -539,7 +532,7 @@ independientes ubicados en distritos de alta demanda vehicular de Lima**, que op
 entre 2 y 30 espacios de manera manual y que no cuentan con ninguna herramienta digital
 de gestión en la actualidad.
 
-Sabremos que hemos tenido éxito cuando un operador afiliado a ParkingNow IoT registre
+Sabremos que hemos tenido éxito cuando un operador afiliado a ParkingNow registre
 un **aumento del 25% en la tasa de ocupación de sus espacios** durante los primeros
 seis meses de uso de la plataforma, en comparación con su operación previa sin
 herramientas digitales.
@@ -571,15 +564,16 @@ herramientas digitales.
 ##### User Outcomes Assumptions
 
 1. Reducir el tiempo que un conductor invierte en encontrar estacionamiento en zonas
-   de alta demanda de Lima, pasando de un promedio estimado de 20–30 minutos a menos
+  de alta demanda de Lima, pasando de un promedio estimado de 20 a 30 minutos a menos
    de 5 minutos mediante el uso de la plataforma.
 
 2. Incrementar la tasa de ocupación de los estacionamientos independientes afiliados
    en al menos un 25% durante los primeros seis meses, al conectarlos con la demanda
    digital de conductores.
 
-3. Disminuir la carga operativa manual del administrador de estacionamiento en un 40%,
-   al eliminar la necesidad de registro físico de entradas, salidas y disponibilidad.
+3. Reducir significativamente la carga operativa manual del administrador de
+  estacionamiento, eliminando la necesidad de registros físicos de entradas, salidas y
+  disponibilidad.
 
 4. Mejorar la percepción de seguridad y confianza del conductor al momento de realizar
    una reserva, al garantizar que la disponibilidad mostrada en la app corresponde al
@@ -642,9 +636,8 @@ herramientas digitales.
   reportar, el sistema conserva el último estado conocido del espacio y lo marca
   visualmente como "no confirmado en tiempo real", sin ocultar ni eliminar la
   información disponible.
-- **Vista de cámara local para el administrador:** Una ESP32-CAM orientada
-  automáticamente por un servo SG90 hacia el espacio donde ocurrió el último evento,
-  permite al administrador verificar visualmente el estado desde el panel web.
+- **Vista de cámara local para el administrador:** Una cámara local integrada al nodo
+  IoT permite al administrador verificar visualmente el estado desde el panel web.
 
 ---
 
@@ -686,8 +679,9 @@ en la app y el estado físico confirmado por el sensor ultrasónico.
 
 **Hipótesis 4:**
 
-Creemos que lograremos **reducir la carga operativa manual del administrador en un 40%
-durante los primeros seis meses**,
+Creemos que lograremos **reducir significativamente la carga operativa manual del
+administrador, eliminando la necesidad de registros físicos de entradas, salidas y
+disponibilidad**,
 si los administradores afiliados logran monitorear el estado de sus espacios, gestionar
 reservas activas y revisar el historial de eventos sin necesidad de registros físicos ni
 presencia constante en el local,
@@ -711,20 +705,21 @@ ser operado.
 
 #### 1.2.2.4. Lean UX Canvas
 
-A continuación se presenta el Lean UX Canvas elaborado para ParkingNow IoT, el cual
+A continuación se presenta el Lean UX Canvas elaborado para ParkingNow, el cual
 sintetiza los elementos clave del proceso Lean UX: el problema de negocio identificado,
 los segmentos de usuario, las ideas de solución, los beneficios esperados, las hipótesis
 centrales y los aprendizajes prioritarios que orientan el desarrollo del producto.
 
 **Figura 1**
 
-*Síntesis del proceso Lean UX Canvas aplicado al dominio de gestión de estacionamientos urbanos en Lima Metropolitana para ParkingNow IoT*
+*Lean UX Canvas de ParkingNow para el dominio de gestión de 
+estacionamientos urbanos en Lima Metropolitana*
 
 ![alt text](<assets/lean ux canvas.png>)
 
 **Nota**. Elaboración propia (2026).
 
-Según la Figura 1, el Lean UX Canvas de ParkingNow IoT identifica como problema central
+Según la Figura 1, el Lean UX Canvas de ParkingNow identifica como problema central
 la desconexión entre el estado físico real de los espacios de estacionamiento y los
 canales digitales de información, afectando tanto a conductores urbanos que pierden
 tiempo buscando disponibilidad como a administradores independientes que operan sin
@@ -744,7 +739,7 @@ Enlace al canvas: [https://canva.link/jukpsaamxd32d5t](https://canva.link/jukpsa
 
 ## 1.3. Segmentos objetivo
 
-Los segmentos objetivo de ParkingNow IoT han sido identificados a partir del análisis
+Los segmentos objetivo de ParkingNow han sido identificados a partir del análisis
 del dominio del problema de la gestión de estacionamientos urbanos en Lima
 Metropolitana. La plataforma atiende a dos tipos de usuarios con necesidades distintas
 pero complementarias: los conductores urbanos que necesitan encontrar y reservar
@@ -760,7 +755,7 @@ describe cada segmento con sus características demográficas y estadísticas de
 Este segmento comprende a personas que se movilizan habitualmente en vehículo propio
 por Lima Metropolitana y que se enfrentan de forma recurrente al problema de encontrar
 estacionamiento disponible en zonas de alta demanda vehicular. Son los usuarios finales
-de la aplicación móvil de ParkingNow IoT, a través de la cual consultan disponibilidad
+de la aplicación móvil de ParkingNow, a través de la cual consultan disponibilidad
 en tiempo real, ubican estacionamientos cercanos en el mapa, realizan reservas
 anticipadas y gestionan su historial de uso.
 
@@ -799,7 +794,7 @@ mayor presión sobre la infraestructura de estacionamiento en los próximos año
 Este segmento incluye a los dueños y administradores de estacionamientos independientes
 de Lima Metropolitana que operan entre 2 y 30 espacios de manera informal o
 semi-formal, sin herramientas digitales de gestión. Son los usuarios del panel web de
-ParkingNow IoT, desde el cual registran su local, configuran sus espacios, monitorean
+ParkingNow, desde el cual registran su local, configuran sus espacios, monitorean
 el estado de ocupación en tiempo real, gestionan reservas activas y acceden al historial
 de eventos generado por el nodo IoT instalado en su local.
 
@@ -835,69 +830,256 @@ escalables y eficientes que se adaptan a la infraestructura de operadores peque�
 entornos urbanos, logrando detección precisa de vehículos y notificación automática de
 espacios liberados con costos de implementación accesibles (Ruiz Cruzado et al., 2026;
 Bustamante & Hidrobo, 2024). Esto sustenta la viabilidad técnica y económica de
-incorporar a este segmento como usuario clave de ParkingNow IoT.
+incorporar a este segmento como usuario clave de ParkingNow.
 
-## Capítulo II: Requirements Elicitation & Analysis
+# Capítulo II: Requirements Elicitation & Analysis
 
-### 2.1. Competidores
-#### 2.1.1 Análisis competitivo
+## 2.1. Competidores
 
-**Parkimeter**
+ParkingNow compite en el mercado de soluciones digitales para la gestión y búsqueda
+de estacionamientos urbanos en Lima Metropolitana. Los principales competidores directos
+con presencia activa en el mercado peruano son **Quadra**, **ParkGo** y **Apparka**
+(Los Portales). Los tres operan como plataformas digitales que conectan conductores con
+espacios de estacionamiento; sin embargo, ninguno integra una capa física de sensado IoT
+que verifique la disponibilidad real de los espacios en tiempo real. Esta ausencia
+constituye la principal brecha que ParkingNow busca cubrir.
 
-Parkimeter es una solución digital enfocada en la gestión y reserva de espacios de estacionamiento. Su plataforma facilita a los usuarios la búsqueda, comparación y reserva de plazas en distintas ubicaciones. También ofrece funcionalidades como visualización de tarifas, disponibilidad en tiempo real y otros servicios útiles que simplifican el proceso de estacionamiento para los conductores.
+**Quadra** es una startup peruana que opera como marketplace de estacionamientos,
+conectando conductores con cocheras privadas y propietarios de espacios independientes
+a través de una app móvil disponible en Android e iOS. Su modelo pay-per-use permite
+al operador rentabilizar cocheras subutilizadas sin costos fijos, y cuenta con un módulo
+SaaS con inteligencia artificial para gestión de accesos y reportes operativos. No
+integra ninguna capa de sensado físico para verificar la disponibilidad real de los
+espacios.
 
-**ElParking**
+**ParkGo** es una aplicación peruana fundada por Katherinne Oyarce que conecta
+conductores con cocheras seguras en tiempo real. Cuenta con 4,500 usuarios activos en
+Lima, Arequipa, Cusco y Huarmey, con un crecimiento del 40% anual reportado por El
+Comercio en marzo de 2026. Opera bajo un modelo freemium con ingresos por comisión
+sobre reservas completadas. Al igual que Quadra, no dispone de una capa IoT propia que
+valide físicamente el estado de ocupación de los espacios.
 
-ElParking brinda a los usuarios la posibilidad de localizar, reservar y pagar por estacionamientos desde una misma plataforma. Su sistema incorpora datos actualizados sobre espacios disponibles, además de permitir el pago de parquímetros, seguimiento de sanciones de tránsito y otros servicios complementarios que optimizan la experiencia del conductor.
+**Apparka** es la plataforma digital del grupo Los Portales, líder en estacionamientos
+formales en Perú. Permite encontrar, reservar y gestionar espacios en playas autorizadas
+y aeropuertos a nivel nacional. Incorpora tecnología de reconocimiento de placas con
+apertura automática de barreras y un sistema de abonados con Apparka Wallet. Su alcance
+está limitado a la red de estacionamientos formales del grupo y no está orientada a
+operadores independientes de pequeña escala.
 
-**Aparcados**
+---
 
-Aparcados es una aplicación enfocada en simplificar la búsqueda de estacionamientos urbanos según las necesidades del usuario. Aunque cuenta con versión web, su versión móvil es la más utilizada debido a su interfaz amigable y diseño visual atractivo, lo que la convierte en una herramienta práctica para conductores en movimiento.
+### 2.1.1. Análisis competitivo
 
-#### Competitive Analysis Landscape
+<table>
+  <thead>
+    <tr>
+      <th colspan="5" align="left">Competitive Analysis Landscape</th>
+    </tr>
+    <tr>
+      <th align="left">¿Por qué llevar a cabo este análisis?</th>
+      <th colspan="4" align="left">Identificar las fortalezas, debilidades, oportunidades y amenazas de los principales competidores permite a ParkingNow definir su ventaja competitiva diferencial: la integración de una capa IoT física que verifica el estado real de los espacios, conectando el entorno físico del estacionamiento con los canales digitales de información y gestión, diferenciándose de soluciones que dependen de disponibilidad declarativa no verificada.</th>
+    </tr>
+    <tr>
+      <th colspan="2" align="left">(En la cabecera colocar por cada competidor nombre y logo)</th>
+      <th>ParkingNow<br><img src="assets/logo%20de%20parkingnow.png" alt="Logo ParkingNow" width="90"></th>
+      <th>Quadra<br><img src="assets/quadra.png" alt="Logo Quadra" width="90"></th>
+      <th>ParkGo<br><img src="assets/parkgo.png" alt="Logo ParkGo" width="90"></th>
+      <th>Apparka<br><img src="assets/apparka.png" alt="Logo Apparka" width="90"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="2" valign="middle">Perfil</th>
+      <td><strong>Overview</strong></td>
+      <td>Startup tecnológica peruana con plataforma IoT distribuida: sensores físicos (ESP32 + HC-SR04+), app móvil para conductores y panel web para administradores independientes, con detección de ocupación en tiempo real.</td>
+      <td>Startup peruana que opera como marketplace de estacionamientos. Conecta conductores con cocheras privadas y propietarios independientes vía app móvil. Sin capa IoT propia.</td>
+      <td>Aplicación peruana con 4,500 usuarios activos en Lima, Arequipa, Cusco y Huarmey. Crecimiento del 40% anual. Sin capa IoT propia para verificar disponibilidad física.</td>
+      <td>Plataforma digital del grupo Los Portales. Permite encontrar, reservar y gestionar espacios en playas autorizadas y aeropuertos a nivel nacional.</td>
+    </tr>
+    <tr>
+      <td><strong>Ventaja competitiva</strong><br>¿Qué valor ofrece a los clientes?</td>
+      <td>Única solución local con detección física real de ocupación mediante sensores IoT. Diseñada específicamente para operadores independientes de 2 a 30 espacios sin inversión tecnológica previa.</td>
+      <td>Modelo pay-per-use sin costos fijos para operadores, con módulo SaaS con IA para gestión avanzada de accesos y reportes.</td>
+      <td>Crecimiento orgánico acelerado, presencia multiciudad en Perú y modelo de bajo costo operativo para conductores y propietarios de cocheras.</td>
+      <td>Respaldo financiero y reputacional del grupo Los Portales, tecnología de reconocimiento de placas con apertura automática de barreras y cobertura en aeropuertos nacionales.</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="middle">Perfil de Marketing</th>
+      <td><strong>Mercado objetivo</strong></td>
+      <td>Conductores urbanos de Lima (22 a 45 años, NSE B-C) y administradores de estacionamientos independientes de 2 a 30 espacios en distritos de alta demanda vehicular.</td>
+      <td>Conductores urbanos de Lima y propietarios de cocheras privadas que desean rentabilizar sus espacios subutilizados.</td>
+      <td>Conductores urbanos en Lima, Arequipa, Cusco y Huarmey que buscan cocheras seguras y accesibles.</td>
+      <td>Conductores urbanos, abonados a estacionamientos formales y viajeros en aeropuertos a nivel nacional.</td>
+    </tr>
+    <tr>
+      <td><strong>Estrategias de marketing</strong></td>
+      <td>Afiliación directa de operadores con propuesta de valor medible, integración con OpenStreetMap para visibilidad desde el primer uso, presencia digital en zonas de alta demanda.</td>
+      <td>Marketing digital en redes sociales (Instagram, TikTok), posicionamiento como solución "sin vueltas", modelo de referidos para onboarding de propietarios.</td>
+      <td>Relaciones públicas y cobertura mediática (El Comercio, TEC Perú), crecimiento boca a boca entre conductores y propietarios de cocheras.</td>
+      <td>Marketing institucional respaldado por Los Portales, campañas de fidelización mediante Apparka Wallet y beneficios para abonados.</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="middle">Perfil de Producto</th>
+      <td><strong>Productos & Servicios</strong></td>
+      <td>App móvil para conductores (disponibilidad IoT, reserva anticipada, mapa), panel web para administradores (monitoreo, reservas, historial), nodo IoT físico (ESP32 + HC-SR04+ + ESP32-CAM).</td>
+      <td>App para conductores (búsqueda y reserva), app para empresarios (gestión, reportes, pagos), módulo SaaS con IA.</td>
+      <td>App móvil (búsqueda, reserva y acceso en tiempo real), gestión de permisos digitales, alertas automatizadas y análisis de ocupación.</td>
+      <td>App Apparka (búsqueda, reserva, abonados, pago digital), reconocimiento de placas con apertura automática de barreras, cobertura en aeropuertos.</td>
+    </tr>
+    <tr>
+      <td><strong>Precios & Costos</strong></td>
+      <td>Afiliación de bajo costo (ESP32 + HC-SR04+), sin inversión tecnológica previa. Despliegue en servicios cloud gratuitos o de bajo costo (Railway, Vercel, Supabase free tier).</td>
+      <td>Pay-per-use: el operador paga solo por reservas y pagos procesados, sin costos fijos.</td>
+      <td>Descarga gratuita para conductores, ingresos por comisión sobre reservas completadas.</td>
+      <td>Gratuito para conductores en funciones básicas; ingresos por tarifas en playas Los Portales y servicios de abonado.</td>
+    </tr>
+    <tr>
+      <td><strong>Canales de distribución</strong><br>(Web y/o Móvil)</td>
+      <td>Web App (panel administrador), Mobile App (conductor, Android/iOS), Landing Page, nodo IoT físico instalado en el local afiliado.</td>
+      <td>App móvil (Android/iOS), sitio web quadra.com.pe, redes sociales.</td>
+      <td>App móvil (Android/iOS), sitio web parkgo.com.pe, redes sociales.</td>
+      <td>App móvil Apparka (Android/iOS), sitio web Los Portales, presencia física en playas y aeropuertos.</td>
+    </tr>
+    <tr>
+      <th rowspan="4" valign="middle">Análisis SWOT</th>
+      <td><strong>Fortalezas</strong></td>
+      <td>Capa IoT física que garantiza disponibilidad verificada en tiempo real; arquitectura de bajo costo; trazabilidad end-to-end entre evento físico y representación digital; diseño específico para operadores independientes.</td>
+      <td>Modelo sin inversión en infraestructura propia; interfaz intuitiva; modelo pay-per-use atractivo; módulo SaaS con IA.</td>
+      <td>Tracción real comprobada (4,500 usuarios, +40% anual); presencia multiciudad; cobertura mediática positiva.</td>
+      <td>Respaldo financiero del grupo Los Portales; red consolidada de estacionamientos formales; tecnología avanzada de reconocimiento de placas; cobertura nacional.</td>
+    </tr>
+    <tr>
+      <td><strong>Debilidades</strong></td>
+      <td>Prototipo académico en etapa inicial; red de afiliados por construir; dependencia de instalación física del nodo IoT en cada local.</td>
+      <td>Sin capa IoT: disponibilidad no verificada por sensado físico; depende de actualización manual por parte del operador.</td>
+      <td>Base de usuarios aún limitada; verificación de disponibilidad no respaldada por sensado físico; cobertura IoT inexistente.</td>
+      <td>Limitado a estacionamientos formales de Los Portales; no accesible para operadores independientes pequeños; alto costo de entrada para nuevos operadores.</td>
+    </tr>
+    <tr>
+      <td><strong>Oportunidades</strong></td>
+      <td>Alta informalidad del sector en Lima; crecimiento vehicular sostenido; ningún competidor local ofrece integración IoT física para pequeños operadores.</td>
+      <td>Crecimiento del mercado de cocheras privadas en Lima; expansión a ciudades intermedias; posible integración futura con IoT de terceros.</td>
+      <td>Expansión a más ciudades del Perú; posible integración de capa IoT para diferenciarse; alianzas con municipalidades.</td>
+      <td>Expansión en nuevos distritos; crecimiento del turismo y uso de aeropuertos; integración con servicios de movilidad urbana.</td>
+    </tr>
+    <tr>
+      <td><strong>Amenazas</strong></td>
+      <td>Competidores con mayor tracción y recursos; posible replicación del modelo IoT por startups con mayor financiamiento; curva de adopción del hardware en operadores de perfil tecnológico bajo.</td>
+      <td>Entrada de competidores con IoT integrado; posible comoditización del modelo marketplace sin diferencial tecnológico.</td>
+      <td>Competencia creciente en Lima; posible entrada de actores internacionales; riesgo de no escalar sin diferencial tecnológico claro.</td>
+      <td>Informalidad crónica que limita su expansión; competidores digitales más ágiles dirigidos a operadores independientes; cambios regulatorios en concesiones.</td>
+    </tr>
+  </tbody>
+</table>
 
-| ¿Por qué llevar a cabo este análisis? | Escribir en el recuadro la pregunta que busca responder o el objetivo de este análisis. |
-|---|---|
-| Identificar cómo se posiciona ParkingNow frente a soluciones ya existentes de estacionamiento digital y definir una respuesta competitiva basada en integración IoT, digitalización operativa y experiencia en tiempo real. | ¿Cómo puede ParkingNow diferenciarse frente a competidores de reserva y gestión de estacionamientos, creando una propuesta de valor difícil de igualar en el mercado objetivo? |
-
-| Categoría | Criterio | ParkingNow | Competidor 1: Parkimeter | Competidor 2: ElParking | Competidor 3: Aparcados |
-|---|---|---|---|---|---|
-| Perfil | Overview | Plataforma IoT para gestión inteligente de estacionamientos urbanos. Conecta conductores y gestores mediante app móvil + plataforma web + sensores de ocupación + monitoreo complementario. | Plataforma digital centrada en búsqueda, comparación y reserva de plazas de estacionamiento. | Plataforma digital que permite localizar, reservar y pagar estacionamientos, además de servicios complementarios para conductores. | Aplicación enfocada en facilitar la búsqueda de estacionamientos urbanos, con énfasis en experiencia móvil. |
-| Perfil | Ventaja competitiva ¿Qué valor ofrece a los clientes? | Disponibilidad validada en tiempo real con sensores IoT, reservas, pagos digitales y panel operativo para gestores. Mejora el control del negocio y ayuda en la gestión operativa. | Facilidad para comparar opciones y reservar espacios disponibles desde una sola plataforma. | Ecosistema más amplio para el conductor: estacionamiento, pagos y servicios relacionados con movilidad. | Simplicidad de uso, interfaz amigable y acceso rápido desde móvil. |
-| Perfil de Marketing | Mercado objetivo | Conductores urbanos en zonas de alta demanda y propietarios/gestores de estacionamientos que quieren digitalizar y optimizar ocupación. | Conductores que buscan reservar estacionamientos en distintas ubicaciones. | Conductores que quieren centralizar estacionamiento y otros servicios urbanos en una sola app. | Conductores urbanos que priorizan rapidez y facilidad de uso al buscar estacionamiento. |
-| Perfil de Marketing | Estrategias de marketing | Enfoque B2B2C: captar estacionamientos para crear red propia con datos confiables. Posicionamiento en eficiencia, control en tiempo real y experiencia premium. Alianzas con estacionamientos, centros comerciales, clínicas y zonas corporativas. | Marketing centrado en conveniencia, comparación y reserva. | Marketing basado en amplitud de servicios y conveniencia para conductores. | Marketing orientado a usabilidad, practicidad y movilidad urbana. |
-| Perfil de Producto | Productos & Servicios | App móvil para conductores, plataforma web para gestores, reservas, pagos digitales, visualización de disponibilidad en tiempo real, sensores IoT por espacio, monitoreo por cámaras y analítica de ocupación. | Búsqueda, comparación, tarifas, disponibilidad y reserva de plazas. | Localización, reserva, pago de estacionamientos, parquímetros y servicios complementarios. | Búsqueda de estacionamientos urbanos con experiencia centrada en móvil y web. |
-| Perfil de Producto | Precios & Costos | Modelo mixto: comisión por reserva/pago + suscripción o fee mensual a gestores por digitalización, monitoreo y analítica. Posible piloto de instalación por zonas premium. | Probable comisión por intermediación o reserva. | Probable monetización por transacción y servicios complementarios. | Posible monetización por visibilidad, afiliación o reservas. |
-| Perfil de Producto | Canales de distribución (Web y/o Móvil) | App móvil para conductores + plataforma web para gestores/administradores. | Web y/o móvil. | Web y/o móvil. | Web y móvil, con mayor enfoque en móvil. |
-| Análisis SWOT | Fortalezas | Nuestra fortaleza es validar la disponibilidad con IoT; propuesta B2B2C; digitalización de operación del estacionamiento; datos en tiempo real; analítica para gestores; barrera de entrada por instalación e integración física; posibilidad de posicionamiento premium por confiabilidad. | Marca centrada en reserva y comparación; propuesta clara y simple. | Mayor amplitud funcional para el conductor; conveniencia al centralizar más servicios. | Buena experiencia de usuario y adopción potencial por interfaz amigable. |
-| Análisis SWOT | Debilidades | Requiere instalación física, soporte técnico e inversión inicial en sensores/infraestructura. Consideramos que el escalamiento es más complejo que una app puramente digital. | Menor control sobre la veracidad operativa si depende de información de terceros. | Propuesta más amplia pero menos especializada en operación física del estacionamiento. | Menor diferenciación técnica si no cuenta con integración operativa profunda. |
-| Análisis SWOT | Oportunidades | Digitalizar estacionamientos tradicionales en Perú; entrar en mercados con baja madurez tecnológica; ofrecer dashboards, ocupación, trazabilidad y automatización; crear red propia de estacionamientos afiliados; integrar rutas, promociones y membresías premium. | Expandirse con más alianzas y cobertura geográfica. | Seguir capitalizando servicios urbanos integrados. | Crecer por adopción móvil en usuarios urbanos. |
-| Análisis SWOT | Amenazas | Competidores internacionales con mayor capital; replicación de funciones visibles de la app; resistencia de algunos gestores a adoptar hardware; problemas de conectividad o mantenimiento IoT. | Competidores con ecosistemas más amplios o integración física superior. | Competidores especializados que ofrezcan datos más precisos en tiempo real. | Apps más robustas con mejores alianzas o más funcionalidades. |
-
-
-
-
-
-
-
-#### 2.1.2 Estrategias y tácticas frente a competidores
-
+---
 
 ### 2.1.2. Estrategias y tácticas frente a competidores
 
+A partir del análisis competitivo realizado en la sección anterior, ParkingNow
+define las siguientes estrategias y tácticas preliminares para afrontar las fortalezas
+de sus competidores, aprovechar sus debilidades y actuar sobre el contexto de
+oportunidades y amenazas identificadas en el mercado de gestión de estacionamientos
+urbanos en Lima Metropolitana.
 
+---
 
-Luego de analizar a nuestros competidores, vimos que varias de estas plataformas ya permiten buscar, reservar e incluso pagar estacionamientos desde una app. Sin embargo, consideramos que PARKINGNOW puede diferenciarse porque no solo busca mostrar información al usuario, sino también mejorar la gestión real del estacionamiento mediante sensores IoT y monitoreo en tiempo real.
+**Estrategia 1: Diferenciación sostenida por capa IoT física**
 
-Una de nuestras principales estrategias será ofrecer información más confiable sobre la disponibilidad de espacios. Para eso, nuestra táctica será integrar sensores en los estacionamientos afiliados, de manera que el sistema pueda detectar si un espacio está libre u ocupado y actualizarlo automáticamente en la plataforma. Esto nos ayudaría a dar un valor distinto frente a apps que solo funcionan como intermediarias.
+Ninguno de los tres competidores directos identificados, Quadra, ParkGo ni Apparka,
+integra una capa de sensado físico que verifique en tiempo real el estado de ocupación
+de los espacios. Los tres dependen de disponibilidad declarativa: el operador actualiza
+manualmente la información, lo que genera inconsistencias frecuentes entre lo que la
+plataforma muestra y lo que el conductor encuentra al llegar físicamente al
+estacionamiento. Esta brecha es la causa raíz de la desconfianza del usuario en las
+plataformas digitales de estacionamiento. ParkingNow tiene la oportunidad de
+consolidar una ventaja competitiva duradera al ser la única solución del mercado local
+que resuelve este problema mediante sensores ultrasónicos HC-SR04+ integrados en un
+nodo ESP32 que reporta al backend en tiempo real.
 
-Otra estrategia será enfocarnos tanto en los conductores como en los propietarios o administradores. Mientras que para los conductores queremos brindar facilidad para encontrar, reservar y pagar un espacio, para los gestores queremos ofrecer una plataforma web que les ayude a controlar mejor su estacionamiento. Como táctica planteamos incluir funciones como visualización de espacios ocupados, reservas activas y seguimiento de pagos.
+- Comunicar activamente en todos los canales digitales que la disponibilidad mostrada
+  en ParkingNow está "verificada por sensor físico", diferenciándola con claridad
+  de la disponibilidad declarativa de los competidores.
+- Incluir en la interfaz del conductor un indicador visual explícito que distinga
+  espacios con disponibilidad verificada en tiempo real por IoT (afiliados) de espacios
+  de referencia sin verificación (no afiliados cargados desde OpenStreetMap).
+- Publicar contenido educativo en redes sociales y blog explicando la diferencia entre
+  disponibilidad declarativa y disponibilidad verificada por sensor, posicionando a
+  ParkingNow como la alternativa más confiable del mercado.
 
-También creemos que una buena forma de competir será empezar en zonas donde el problema del estacionamiento sea más fuerte, como centros comerciales, clínicas, universidades o zonas empresariales. La táctica en este caso sería hacer alianzas con algunos estacionamientos y empezar con pruebas piloto para validar cómo funciona la solución en un entorno real.
+---
 
-Frente a competidores que ofrecen más servicios, nuestra estrategia será enfocarnos  en resolver bien el problema principal: encontrar y gestionar estacionamientos de forma rápida y ordenada. Por eso, nuestra táctica será priorizar funciones clave como disponibilidad en tiempo real, reservas, pagos y monitoreo, antes de pensar en agregar otras opciones.
+**Estrategia 2: Penetración directa en el segmento de operadores independientes**
 
-Finalmente, ante amenazas como la presencia de apps más conocidas o con más tiempo en el mercado, nuestra estrategia será diferenciarnos por la precisión de la información y por el apoyo que damos a los administradores del estacionamiento. De esta forma, PARKINGNOW no competiría solo por tener una app parecida sino por ofrecer una solución más completa y útil para ambos tipos de usuarios.
+Apparka está orientada exclusivamente a la red formal de Los Portales y no es accesible
+para operadores independientes de pequeña escala. Quadra y ParkGo operan principalmente
+con cocheras privadas individuales, pero no ofrecen herramientas de monitoreo en tiempo
+real ni infraestructura IoT para el operador. Ninguno de los tres atiende de forma
+específica al segmento de administradores de estacionamientos independientes de 2 a 30
+espacios que operan de manera informal o semi-formal, el segmento con mayor
+concentración de unidades no formalizadas en Lima Metropolitana (INEI, 2026). Este
+segmento representa la oportunidad de entrada más accesible y menos disputada para
+ParkingNow.
+
+- Diseñar una propuesta de afiliación de bajo costo de entrada, con hardware accesible
+  (ESP32 + sensores HC-SR04+) y un proceso de onboarding guiado paso a paso que no
+  requiera formación técnica especializada por parte del operador.
+- Desarrollar materiales de presentación en lenguaje sencillo que expliquen al operador
+  independiente el beneficio directo de la afiliación: mayor visibilidad digital, más
+  reservas y monitoreo remoto sin necesidad de estar físicamente en el local.
+- Priorizar la afiliación inicial en distritos de alta demanda vehicular como San Isidro,
+  Miraflores y Surco, donde la densidad de estacionamientos independientes es mayor y
+  la presión de la demanda del conductor es más intensa.
+- Ofrecer un periodo de prueba sin costo al operador durante los primeros meses de
+  afiliación, con el fin de reducir la barrera de adopción y generar casos de éxito
+  documentados que sirvan como prueba social para atraer nuevos operadores.
+
+---
+
+**Estrategia 3: Construcción de red inicial mediante OpenStreetMap**
+
+Uno de los principales desafíos de cualquier marketplace en etapa de lanzamiento es el
+problema del "huevo y la gallina": los conductores no descargan la app si no hay
+suficientes estacionamientos disponibles, y los operadores no se afilian si no hay
+suficientes conductores activos. ParkingNow puede sortear este obstáculo cargando
+desde el inicio estacionamientos reales de Lima Metropolitana a partir de datos de
+OpenStreetMap, proporcionando utilidad al conductor desde el primer uso incluso antes
+de contar con afiliados propios. Esta táctica no está disponible para competidores como
+Quadra o ParkGo, cuya oferta depende exclusivamente de su red afiliada.
+
+- Integrar la carga automática de estacionamientos desde OpenStreetMap desde el primer
+  sprint de desarrollo, distinguiendo visualmente en el mapa los estacionamientos
+  afiliados con IoT de los no afiliados que solo sirven como referencia de ubicación.
+- Usar la densidad del mapa inicial como argumento de valor en la propuesta comercial
+  para operadores independientes: "Tu estacionamiento ya aparece en el mapa; afíliate
+  y activa la disponibilidad en tiempo real."
+- Actualizar periódicamente los datos de OpenStreetMap para mantener la relevancia y
+  precisión del mapa frente a la oferta real de la ciudad.
+
+---
+
+**Estrategia 4: Posicionamiento en el contexto de crisis de movilidad en Lima**
+
+El crecimiento vehicular sostenido en el país, con un incremento acumulado del 3.5%
+entre agosto de 2024 y julio de 2025 (AAP, 2025), y el posicionamiento de Lima en el
+puesto 176 de movilidad y transporte a nivel mundial (Infobae, 2025a) configuran un
+entorno de alta urgencia percibida por los conductores urbanos. Este contexto es
+favorable para ParkingNow, ya que refuerza la relevancia del problema que resuelve
+y legitima la necesidad de soluciones tecnológicas más confiables que las actualmente
+disponibles en el mercado local.
+
+- Desarrollar contenido de valor en redes sociales y blog corporativo que relacione
+  directamente la crisis de estacionamiento en Lima con la propuesta diferencial de
+  ParkingNow, generando awareness orgánico entre conductores y operadores del
+  segmento objetivo.
+- Aprovechar la cobertura mediática que han obtenido competidores como ParkGo (El
+  Comercio, TEC Perú) como referencia para establecer alianzas con medios
+  especializados en movilidad urbana y tecnología que amplifiquen el lanzamiento de
+  la plataforma.
+- Posicionar a ParkingNow ante los medios no solo como una app de estacionamiento,
+  sino como una solución de infraestructura urbana inteligente que contribuye
+  activamente a reducir la congestión vehicular y la contaminación derivada de la
+  búsqueda innecesaria de espacios en la ciudad.
 
 
 ### 2.2 Entrevistas
