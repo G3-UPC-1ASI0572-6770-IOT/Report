@@ -709,6 +709,39 @@ ser operado.
 
 ---
 
+#### 1.2.2.4. Lean UX Canvas
+
+A continuación se presenta el Lean UX Canvas elaborado para ParkingNow IoT, el cual
+sintetiza los elementos clave del proceso Lean UX: el problema de negocio identificado,
+los segmentos de usuario, las ideas de solución, los beneficios esperados, las hipótesis
+centrales y los aprendizajes prioritarios que orientan el desarrollo del producto.
+
+**Figura 1**
+
+*Síntesis del proceso Lean UX Canvas aplicado al dominio de gestión de estacionamientos urbanos en Lima Metropolitana para ParkingNow IoT*
+
+![alt text](<assets/lean ux canvas.png>)
+
+**Nota**. Elaboración propia (2026).
+
+Según la Figura 1, el Lean UX Canvas de ParkingNow IoT identifica como problema central
+la desconexión entre el estado físico real de los espacios de estacionamiento y los
+canales digitales de información, afectando tanto a conductores urbanos que pierden
+tiempo buscando disponibilidad como a administradores independientes que operan sin
+visibilidad ni herramientas digitales. Las ideas de solución se articulan en torno a
+una plataforma distribuida con sensores IoT (ESP32 + HC-SR04+), reservas anticipadas
+vía aplicación móvil y un panel web de monitoreo en tiempo real para el operador. Los
+outcomes de negocio priorizan el incremento de la tasa de ocupación de los
+estacionamientos afiliados y la reducción del tiempo de búsqueda del conductor, con
+una meta de NPS superior a 30 en los primeros tres meses de operación. El aprendizaje
+más importante a validar en las primeras iteraciones es confirmar que la disponibilidad
+en tiempo real respaldada por el nodo IoT reduce efectivamente el tiempo de búsqueda
+y que la reserva anticipada incrementa la satisfacción del usuario en al menos un 25%
+durante los primeros seis meses. 
+
+Enlace al canvas: [https://canva.link/jukpsaamxd32d5t](https://canva.link/jukpsaamxd32d5t)
+
+
 ## 1.3. Segmentos objetivo
 
 Los segmentos objetivo de ParkingNow IoT han sido identificados a partir del análisis
