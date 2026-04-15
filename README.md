@@ -877,7 +877,7 @@ operadores independientes de pequeña escala.
     </tr>
     <tr>
       <th align="left">¿Por qué llevar a cabo este análisis?</th>
-      <th colspan="4" align="left">Identificar las fortalezas, debilidades, oportunidades y amenazas de los principales competidores permite a ParkingNow definir su ventaja competitiva diferencial: la integración de una capa IoT física que verifica el estado real de los espacios, conectando el entorno físico del estacionamiento con los canales digitales de información y gestión, diferenciándose de soluciones que dependen de disponibilidad declarativa no verificada.</th>
+      <th colspan="5" align="left">Identificar las fortalezas, debilidades, oportunidades y amenazas de los principales competidores permite a ParkingNow definir su ventaja competitiva diferencial: la integración de una capa IoT física que verifica el estado real de los espacios, conectando el entorno físico del estacionamiento con los canales digitales de información y gestión, diferenciándose de soluciones que dependen de disponibilidad declarativa no verificada.</th>
     </tr>
     <tr>
       <th colspan="2" align="left">(En la cabecera colocar por cada competidor nombre y logo)</th>
