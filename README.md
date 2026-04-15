@@ -576,7 +576,7 @@ A continuación se presenta el Lean UX Canvas elaborado para ParkingNow, que sin
 
 Según la Figura 1, el Lean UX Canvas de ParkingNow identifica como problema central la desconexión entre el estado físico real de los espacios y los canales digitales de información. Esta brecha afecta tanto a conductores urbanos, que pierden tiempo buscando disponibilidad, como a administradores independientes, que operan sin visibilidad ni herramientas digitales.
 
-Las ideas de solución se articulan en torno a una plataforma distribuida con sensores IoT (ESP32 + HC-SR04+), reservas anticipadas vía aplicación móvil y un panel web de monitoreo para el operador. Los outcomes de negocio priorizan, como objetivos preliminares de validación, el incremento de la tasa de ocupación de los estacionamientos afiliados y la reducción del tiempo de búsqueda del conductor. Asimismo, se plantea como meta inicial de experiencia alcanzar un NPS positivo superior a 30 en una etapa posterior de validación del producto. El aprendizaje más importante a contrastar en las primeras iteraciones será determinar si la disponibilidad respaldada por el nodo IoT contribuye efectivamente a reducir el tiempo de búsqueda y si la reserva anticipada mejora la percepción de valor y satisfacción del usuario. Estas métricas deben entenderse como referencias iniciales sujetas a validación, no como resultados demostrados en la presente fase.
+Las ideas de solución se articulan en torno a una plataforma distribuida con sensores IoT (ESP32 + HC-SR04+), reservas anticipadas vía aplicación móvil y un panel web de monitoreo para el operador. Los outcomes de negocio priorizan, como objetivos preliminares de validación, el incremento de la tasa de ocupación de los estacionamientos afiliados y la reducción del tiempo de búsqueda del conductor. Asimismo, se plantea como meta inicial de experiencia de usuario alcanzar un NPS positivo superior a 30 en una etapa posterior de validación del producto. El aprendizaje más importante a contrastar en las primeras iteraciones será determinar si la disponibilidad respaldada por el nodo IoT contribuye efectivamente a reducir el tiempo de búsqueda y si la reserva anticipada mejora la percepción de valor y satisfacción del usuario. Estas métricas deben entenderse como referencias iniciales sujetas a validación, no como resultados demostrados en la presente fase.
 
 Enlace al canvas: [https://canva.link/jukpsaamxd32d5t](https://canva.link/jukpsaamxd32d5t)
 
@@ -658,25 +658,27 @@ Desde el punto de vista técnico y económico, la literatura reciente sobre Smar
 ParkingNow compite en el mercado de soluciones digitales para la gestión y búsqueda
 de estacionamientos urbanos en Lima Metropolitana. Los principales competidores directos
 con presencia activa en el mercado peruano son **Quadra**, **ParkGo** y **Apparka**
-(Los Portales). Los tres operan como plataformas digitales que conectan conductores con
-espacios de estacionamiento; sin embargo, ninguno integra una capa física de sensado IoT
-que verifique la disponibilidad real de los espacios en tiempo real. Esta ausencia
-constituye la principal brecha que ParkingNow busca cubrir.
+(Los Portales). En esta clasificación, **Quadra** y **ParkGo** se consideran competidores
+más directos en la búsqueda y reserva digital de estacionamientos o cocheras. **Apparka**
+también compite en la experiencia del conductor, pero desde una red formal y cerrada de
+estacionamientos del grupo Los Portales. En este contexto, ParkingNow participa en el
+mismo dominio funcional y se diferencia por una propuesta con sensado físico IoT para
+respaldar la disponibilidad reportada.
 
 **Quadra** es una startup peruana que opera como marketplace de estacionamientos,
 conectando conductores con cocheras privadas y propietarios de espacios independientes
 a través de una app móvil disponible en Android e iOS. Su modelo pay-per-use permite
 al operador rentabilizar cocheras subutilizadas sin costos fijos, y cuenta con un módulo
 SaaS con inteligencia artificial para gestión de accesos y reportes operativos. No
-integra ninguna capa de sensado físico para verificar la disponibilidad real de los
-espacios.
+se identifica una integración explícita de sensado físico IoT para verificar la
+disponibilidad real de los espacios.
 
 **ParkGo** es una aplicación peruana fundada por Katherinne Oyarce que conecta
 conductores con cocheras seguras en tiempo real. Cuenta con 4,500 usuarios activos en
 Lima, Arequipa, Cusco y Huarmey, con un crecimiento del 40% anual reportado por El
 Comercio en marzo de 2026. Opera bajo un modelo freemium con ingresos por comisión
-sobre reservas completadas. Al igual que Quadra, no dispone de una capa IoT propia que
-valide físicamente el estado de ocupación de los espacios.
+sobre reservas completadas. Al igual que Quadra, no se identifica una capa IoT propia
+que valide físicamente el estado de ocupación de los espacios.
 
 **Apparka** es la plataforma digital del grupo Los Portales, líder en estacionamientos
 formales en Perú. Permite encontrar, reservar y gestionar espacios en playas autorizadas
@@ -696,7 +698,7 @@ operadores independientes de pequeña escala.
     </tr>
     <tr>
       <th align="left">¿Por qué llevar a cabo este análisis?</th>
-      <th colspan="5" align="left">Identificar las fortalezas, debilidades, oportunidades y amenazas de los principales competidores permite a ParkingNow definir su ventaja competitiva diferencial: la integración de una capa IoT física que verifica el estado real de los espacios, conectando el entorno físico del estacionamiento con los canales digitales de información y gestión, diferenciándose de soluciones que dependen de disponibilidad declarativa no verificada.</th>
+      <th colspan="5" align="left">Identificar las fortalezas, debilidades, oportunidades y amenazas de los principales competidores permite a ParkingNow delimitar su propuesta diferenciada en el mercado local: la integración de una capa IoT física para respaldar el estado de los espacios y conectar el entorno físico del estacionamiento con los canales digitales de información y gestión frente a soluciones basadas principalmente en disponibilidad declarativa.</th>
     </tr>
     <tr>
       <th colspan="2" align="left">(En la cabecera colocar por cada competidor nombre y logo)</th>
@@ -710,14 +712,14 @@ operadores independientes de pequeña escala.
     <tr>
       <th rowspan="2" valign="middle">Perfil</th>
       <td><strong>Overview</strong></td>
-      <td>Startup tecnológica peruana con plataforma IoT distribuida: sensores físicos (ESP32 + HC-SR04+), app móvil para conductores y panel web para administradores independientes, con detección de ocupación en tiempo real.</td>
+      <td>Startup tecnológica peruana con una propuesta de plataforma IoT distribuida: sensores físicos (ESP32 + HC-SR04+), app móvil para conductores y panel web para administradores independientes, orientada a la detección de ocupación en tiempo real.</td>
       <td>Startup peruana que opera como marketplace de estacionamientos. Conecta conductores con cocheras privadas y propietarios independientes vía app móvil. Sin capa IoT propia.</td>
       <td>Aplicación peruana con 4,500 usuarios activos en Lima, Arequipa, Cusco y Huarmey. Crecimiento del 40% anual. Sin capa IoT propia para verificar disponibilidad física.</td>
       <td>Plataforma digital del grupo Los Portales. Permite encontrar, reservar y gestionar espacios en playas autorizadas y aeropuertos a nivel nacional.</td>
     </tr>
     <tr>
       <td><strong>Ventaja competitiva</strong><br>¿Qué valor ofrece a los clientes?</td>
-      <td>Única solución local con detección física real de ocupación mediante sensores IoT. Diseñada específicamente para operadores independientes de 2 a 30 espacios sin inversión tecnológica previa.</td>
+      <td>ParkingNow se diferencia en el mercado local por incorporar detección física de ocupación mediante sensores IoT. La propuesta está orientada a operadores independientes de 2 a 30 espacios con baja inversión tecnológica inicial.</td>
       <td>Modelo pay-per-use sin costos fijos para operadores, con módulo SaaS con IA para gestión avanzada de accesos y reportes.</td>
       <td>Crecimiento orgánico acelerado, presencia multiciudad en Perú y modelo de bajo costo operativo para conductores y propietarios de cocheras.</td>
       <td>Respaldo financiero y reputacional del grupo Los Portales, tecnología de reconocimiento de placas con apertura automática de barreras y cobertura en aeropuertos nacionales.</td>
@@ -762,7 +764,7 @@ operadores independientes de pequeña escala.
     <tr>
       <th rowspan="4" valign="middle">Análisis SWOT</th>
       <td><strong>Fortalezas</strong></td>
-      <td>Capa IoT física que garantiza disponibilidad verificada en tiempo real; arquitectura de bajo costo; trazabilidad end-to-end entre evento físico y representación digital; diseño específico para operadores independientes.</td>
+      <td>Propuesta con capa IoT física orientada a disponibilidad respaldada en tiempo real; arquitectura de bajo costo; trazabilidad end-to-end entre evento físico y representación digital; diseño específico para operadores independientes.</td>
       <td>Modelo sin inversión en infraestructura propia; interfaz intuitiva; modelo pay-per-use atractivo; módulo SaaS con IA.</td>
       <td>Tracción real comprobada (4,500 usuarios, +40% anual); presencia multiciudad; cobertura mediática positiva.</td>
       <td>Respaldo financiero del grupo Los Portales; red consolidada de estacionamientos formales; tecnología avanzada de reconocimiento de placas; cobertura nacional.</td>
@@ -776,7 +778,7 @@ operadores independientes de pequeña escala.
     </tr>
     <tr>
       <td><strong>Oportunidades</strong></td>
-      <td>Alta informalidad del sector en Lima; crecimiento vehicular sostenido; ningún competidor local ofrece integración IoT física para pequeños operadores.</td>
+      <td>Alta informalidad del sector en Lima; crecimiento vehicular sostenido; no se observa evidencia de integración IoT física explícita orientada a pequeños operadores en competidores locales.</td>
       <td>Crecimiento del mercado de cocheras privadas en Lima; expansión a ciudades intermedias; posible integración futura con IoT de terceros.</td>
       <td>Expansión a más ciudades del Perú; posible integración de capa IoT para diferenciarse; alianzas con municipalidades.</td>
       <td>Expansión en nuevos distritos; crecimiento del turismo y uso de aeropuertos; integración con servicios de movilidad urbana.</td>
@@ -795,36 +797,35 @@ operadores independientes de pequeña escala.
 
 ### 2.1.2. Estrategias y tácticas frente a competidores
 
-A partir del análisis competitivo realizado en la sección anterior, ParkingNow
-define las siguientes estrategias y tácticas preliminares para afrontar las fortalezas
-de sus competidores, aprovechar sus debilidades y actuar sobre el contexto de
-oportunidades y amenazas identificadas en el mercado de gestión de estacionamientos
-urbanos en Lima Metropolitana.
+A partir del análisis competitivo realizado en la sección anterior, se proponen las
+siguientes estrategias y tácticas preliminares para afrontar las fortalezas de los
+competidores, aprovechar sus debilidades y actuar sobre el contexto de oportunidades y
+amenazas identificadas en el mercado de gestión de estacionamientos urbanos en Lima
+Metropolitana.
 
 ---
 
 **Estrategia 1: Diferenciación sostenida por capa IoT física**
 
-Ninguno de los tres competidores directos identificados, Quadra, ParkGo ni Apparka,
-integra una capa de sensado físico que verifique en tiempo real el estado de ocupación
-de los espacios. Los tres dependen de disponibilidad declarativa: el operador actualiza
-manualmente la información, lo que genera inconsistencias frecuentes entre lo que la
+No se identifica evidencia de una capa de sensado físico explícita en Quadra, ParkGo y
+Apparka que verifique en tiempo real el estado de ocupación de los espacios en el
+alcance analizado. En términos generales, las soluciones revisadas se apoyan en
+disponibilidad declarativa, lo que puede generar inconsistencias entre lo que la
 plataforma muestra y lo que el conductor encuentra al llegar físicamente al
-estacionamiento. Esta brecha es la causa raíz de la desconfianza del usuario en las
-plataformas digitales de estacionamiento. ParkingNow tiene la oportunidad de
-consolidar una ventaja competitiva duradera al ser la única solución del mercado local
-que resuelve este problema mediante sensores ultrasónicos HC-SR04+ integrados en un
-nodo ESP32 que reporta al backend en tiempo real.
+estacionamiento. Esta brecha aparece como un factor asociado a la desconfianza del
+usuario en plataformas digitales de estacionamiento. En este escenario, ParkingNow
+podría construir una ventaja competitiva diferenciada en el mercado local mediante
+sensores ultrasónicos HC-SR04+ integrados en un nodo ESP32 que reporta al backend.
 
-- Comunicar activamente en todos los canales digitales que la disponibilidad mostrada
-  en ParkingNow está "verificada por sensor físico", diferenciándola con claridad
-  de la disponibilidad declarativa de los competidores.
-- Incluir en la interfaz del conductor un indicador visual explícito que distinga
-  espacios con disponibilidad verificada en tiempo real por IoT (afiliados) de espacios
-  de referencia sin verificación (no afiliados cargados desde OpenStreetMap).
-- Publicar contenido educativo en redes sociales y blog explicando la diferencia entre
-  disponibilidad declarativa y disponibilidad verificada por sensor, posicionando a
-  ParkingNow como la alternativa más confiable del mercado.
+- Se propone comunicar en los canales digitales que la disponibilidad mostrada en
+  ParkingNow está "respaldada por sensor físico", diferenciándola de la disponibilidad
+  declarativa observada en otras soluciones.
+- Se plantea incorporar en la interfaz del conductor un indicador visual explícito que
+  distinga espacios con disponibilidad verificada en tiempo real por IoT (afiliados) de
+  espacios de referencia sin verificación (no afiliados cargados desde OpenStreetMap).
+- Como línea estratégica preliminar, se considera pertinente desarrollar contenido
+  explicativo en canales digitales sobre la diferencia entre disponibilidad declarativa
+  y disponibilidad respaldada por sensor.
 
 ---
 
@@ -837,21 +838,21 @@ real ni infraestructura IoT para el operador. Ninguno de los tres atiende de for
 específica al segmento de administradores de estacionamientos independientes de 2 a 30
 espacios que operan de manera informal o semi-formal, el segmento con mayor
 concentración de unidades no formalizadas en Lima Metropolitana (INEI, 2026). Este
-segmento representa la oportunidad de entrada más accesible y menos disputada para
-ParkingNow.
+segmento aparece como una oportunidad de entrada relevante para ParkingNow.
 
-- Diseñar una propuesta de afiliación de bajo costo de entrada, con hardware accesible
-  (ESP32 + sensores HC-SR04+) y un proceso de onboarding guiado paso a paso que no
-  requiera formación técnica especializada por parte del operador.
-- Desarrollar materiales de presentación en lenguaje sencillo que expliquen al operador
-  independiente el beneficio directo de la afiliación: mayor visibilidad digital, más
-  reservas y monitoreo remoto sin necesidad de estar físicamente en el local.
-- Priorizar la afiliación inicial en distritos de alta demanda vehicular como San Isidro,
-  Miraflores y Surco, donde la densidad de estacionamientos independientes es mayor y
-  la presión de la demanda del conductor es más intensa.
-- Ofrecer un periodo de prueba sin costo al operador durante los primeros meses de
-  afiliación, con el fin de reducir la barrera de adopción y generar casos de éxito
-  documentados que sirvan como prueba social para atraer nuevos operadores.
+- Se plantea diseñar una propuesta de afiliación de bajo costo de entrada, con hardware
+  accesible (ESP32 + sensores HC-SR04+) y un proceso de onboarding guiado paso a paso
+  que no requiera formación técnica especializada por parte del operador.
+- Se propone elaborar materiales de presentación en lenguaje sencillo que expliquen al
+  operador independiente el beneficio directo de la afiliación: mayor visibilidad
+  digital, más reservas y monitoreo remoto sin necesidad de presencia constante en el
+  local.
+- Se considera pertinente priorizar la afiliación inicial en distritos de alta demanda
+  vehicular como San Isidro, Miraflores y Surco, donde la densidad de estacionamientos
+  independientes es mayor y la presión de la demanda del conductor es más intensa.
+- Podría implementarse un periodo de prueba sin costo durante los primeros meses de
+  afiliación, con el fin de reducir la barrera de adopción y generar casos de referencia
+  para nuevos operadores.
 
 ---
 
@@ -860,20 +861,21 @@ ParkingNow.
 Uno de los principales desafíos de cualquier marketplace en etapa de lanzamiento es el
 problema del "huevo y la gallina": los conductores no descargan la app si no hay
 suficientes estacionamientos disponibles, y los operadores no se afilian si no hay
-suficientes conductores activos. ParkingNow puede sortear este obstáculo cargando
+suficientes conductores activos. ParkingNow podría abordar este obstáculo cargando
 desde el inicio estacionamientos reales de Lima Metropolitana a partir de datos de
 OpenStreetMap, proporcionando utilidad al conductor desde el primer uso incluso antes
-de contar con afiliados propios. Esta táctica no está disponible para competidores como
-Quadra o ParkGo, cuya oferta depende exclusivamente de su red afiliada.
+de contar con afiliados propios. Esta aproximación no se observa de forma explícita en
+competidores como Quadra o ParkGo, cuya oferta depende principalmente de su red
+afiliada.
 
-- Integrar la carga automática de estacionamientos desde OpenStreetMap desde el primer
-  sprint de desarrollo, distinguiendo visualmente en el mapa los estacionamientos
-  afiliados con IoT de los no afiliados que solo sirven como referencia de ubicación.
-- Usar la densidad del mapa inicial como argumento de valor en la propuesta comercial
-  para operadores independientes: "Tu estacionamiento ya aparece en el mapa; afíliate
-  y activa la disponibilidad en tiempo real."
-- Actualizar periódicamente los datos de OpenStreetMap para mantener la relevancia y
-  precisión del mapa frente a la oferta real de la ciudad.
+- Se plantea integrar la carga automática de estacionamientos desde OpenStreetMap desde
+  etapas tempranas de desarrollo, distinguiendo visualmente en el mapa los
+  estacionamientos afiliados con IoT de los no afiliados que solo sirven como
+  referencia de ubicación.
+- Como línea estratégica preliminar, se propone usar la densidad del mapa inicial como
+  argumento de valor en la propuesta comercial para operadores independientes.
+- Se considera pertinente actualizar periódicamente los datos de OpenStreetMap para
+  mantener la relevancia y precisión del mapa frente a la oferta real de la ciudad.
 
 ---
 
@@ -883,22 +885,20 @@ El crecimiento vehicular sostenido en el país, con un incremento acumulado del 
 entre agosto de 2024 y julio de 2025 (AAP, 2025), y el posicionamiento de Lima en el
 puesto 176 de movilidad y transporte a nivel mundial (Infobae, 2025a) configuran un
 entorno de alta urgencia percibida por los conductores urbanos. Este contexto es
-favorable para ParkingNow, ya que refuerza la relevancia del problema que resuelve
-y legitima la necesidad de soluciones tecnológicas más confiables que las actualmente
+favorable para ParkingNow, ya que refuerza la relevancia del problema que aborda y la
+necesidad de soluciones tecnológicas más confiables que las actualmente
 disponibles en el mercado local.
 
-- Desarrollar contenido de valor en redes sociales y blog corporativo que relacione
-  directamente la crisis de estacionamiento en Lima con la propuesta diferencial de
-  ParkingNow, generando awareness orgánico entre conductores y operadores del
-  segmento objetivo.
-- Aprovechar la cobertura mediática que han obtenido competidores como ParkGo (El
-  Comercio, TEC Perú) como referencia para establecer alianzas con medios
-  especializados en movilidad urbana y tecnología que amplifiquen el lanzamiento de
-  la plataforma.
-- Posicionar a ParkingNow ante los medios no solo como una app de estacionamiento,
-  sino como una solución de infraestructura urbana inteligente que contribuye
-  activamente a reducir la congestión vehicular y la contaminación derivada de la
-  búsqueda innecesaria de espacios en la ciudad.
+- Se propone desarrollar contenido en redes sociales y blog corporativo que relacione
+  la crisis de estacionamiento en Lima con la propuesta diferencial de ParkingNow,
+  orientado a conductores y operadores del segmento objetivo.
+- Se plantea tomar como referencia la cobertura mediática obtenida por competidores
+  como ParkGo (El Comercio, TEC Perú) para evaluar alianzas con medios especializados
+  en movilidad urbana y tecnología.
+- Como línea estratégica preliminar, se considera pertinente presentar a ParkingNow
+  como una solución de infraestructura urbana inteligente que podría contribuir a
+  reducir la congestión vehicular y la contaminación derivada de la búsqueda
+  innecesaria de espacios en la ciudad.
 
 
 ## 2.2. Entrevistas
@@ -1125,36 +1125,36 @@ de alta demanda vehicular.
 | Campo                  | Detalle |
 |------------------------|---------|
 | **Imagen**             | Por completar |
-| **Entrevistado**       | Andrea Ramirez |
+| **Entrevistado**       | Carlos Mendoza Ríos |
 | **Entrevistador**      | Diego Soto |
-| **Sexo**               | Femenino |
-| **Edad**               | 21 anos |
+| **Sexo**               | Masculino |
+| **Edad**               | 29 años |
 | **Link de entrevista** | Por completar |
-| **Resumen**            | Usa su auto para estudiar y trabajar en zonas de alta demanda. Indica que suele demorar entre 15 y 25 minutos buscando estacionamiento en Miraflores y San Isidro. Le interesa una app con disponibilidad en tiempo real y reserva previa, siempre que la informacion sea confiable y facil de usar. |
+| **Resumen**            | Analista de sistemas que usa su auto a diario para trabajar en San Isidro. Reporta tiempos de búsqueda de 15 a 25 minutos y señala que, aunque utiliza Google Maps, no cuenta con información de disponibilidad. Muestra alta disposición a usar ParkingNow si la disponibilidad está respaldada por sensor físico y advierte que abandonaría la app si falla en el primer uso. |
 
 #### Entrevista 2
 
 | Campo                  | Detalle |
 |------------------------|---------|
 | **Imagen**             | Por completar |
-| **Entrevistado**       | Luis Mendoza |
+| **Entrevistado**       | Valeria Torres Chávez |
 | **Entrevistador**      | Rafael Cuya |
-| **Sexo**               | Masculino |
-| **Edad**               | 33 anos |
+| **Sexo**               | Femenino |
+| **Edad**               | 34 años |
 | **Link de entrevista** | Por completar |
-| **Resumen**            | Se moviliza diariamente por Surco y San Borja para trabajo comercial. Senala que su mayor frustracion es llegar a un estacionamiento que en la practica ya no tiene cupos. Valora un sistema que muestre cupos reales por sensor y confirme la reserva antes de salir. |
+| **Resumen**            | Ejecutiva de ventas que se moviliza casi todos los días entre Miraflores, San Borja, Surco y San Isidro. Indica demoras de 20 a 30 minutos para estacionar en zonas de alta demanda y valora la certeza de disponibilidad junto con la reserva previa. Considera que la validación por sensor físico es determinante para confiar en la solución y afirma que dejaría de usarla ante una falla inicial. |
 
 #### Entrevista 3
 
 | Campo                  | Detalle |
 |------------------------|---------|
 | **Imagen**             | Por completar |
-| **Entrevistado**       | Carla Paredes |
+| **Entrevistado**       | Rodrigo Palomino Vega |
 | **Entrevistador**      | Gabriel Lapa |
-| **Sexo**               | Femenino |
-| **Edad**               | 29 anos |
+| **Sexo**               | Masculino |
+| **Edad**               | 41 años |
 | **Link de entrevista** | Por completar |
-| **Resumen**            | Conduce con frecuencia hacia zonas empresariales y centros medicos. Comenta que normalmente revisa mapas, pero no tiene forma de validar si el espacio sigue disponible al llegar. Considera util recibir una confirmacion inmediata de reserva y una ruta directa al estacionamiento. |
+| **Resumen**            | Docente universitario que usa su auto tres veces por semana, principalmente hacia Miraflores y San Isidro. Reporta tiempos de búsqueda entre 20 y 40 minutos y menciona un caso extremo de 45 minutos sin encontrar espacio. Señala que reservaría para compromisos fijos y que la confiabilidad del sistema depende de contar con validación por sensor físico, evitando la actualización manual. |
 
 
 
@@ -1177,36 +1177,36 @@ o semi-formal, sin herramientas digitales de gestión integradas.
 | Campo                  | Detalle |
 |------------------------|---------|
 | **Imagen**             | Por completar |
-| **Entrevistado**       | Jose Huaman |
+| **Entrevistado**       | Jorge Huamán Castillo |
 | **Entrevistador**      | Fiorella Vilca |
 | **Sexo**               | Masculino |
-| **Edad**               | 48 anos |
+| **Edad**               | 47 años |
 | **Link de entrevista** | Por completar |
-| **Resumen**            | Administra un local de 12 espacios en Lince con control manual en cuaderno. Indica que pierde tiempo verificando cupos y atendiendo consultas de disponibilidad por telefono. Le interesa una plataforma web simple que muestre ocupacion en tiempo real y le ayude a aumentar reservas. |
+| **Resumen**            | Administra un estacionamiento de 12 espacios en Miraflores con control manual en cuaderno. Indica que no tiene visibilidad remota de la operación, salvo por llamadas o WhatsApp. Muestra interés en afiliarse a la plataforma si contribuye a captar más clientes y señala que instalaría sensores siempre que no requieran obras ni configuraciones complejas. |
 
 #### Entrevista 5
 
 | Campo                  | Detalle |
 |------------------------|---------|
 | **Imagen**             | Por completar |
-| **Entrevistado**       | Maria Quispe |
+| **Entrevistado**       | Patricia Quispe Alvarado |
 | **Entrevistador**      | Diego Soto |
 | **Sexo**               | Femenino |
-| **Edad**               | 41 anos |
+| **Edad**               | 38 años |
 | **Link de entrevista** | Por completar |
-| **Resumen**            | Gestiona un estacionamiento familiar de 8 espacios en Surco. Senala que su principal problema es no poder monitorear el estado cuando no esta en el local. Considera viable instalar sensores si el costo es accesible y el sistema reduce errores operativos diarios. |
+| **Resumen**            | Administra 20 espacios en San Isidro y gestiona la operación con pizarra y WhatsApp, lo que le genera errores frecuentes en reservas. Señala la necesidad de un panel web simple con control en tiempo real y automatización de disponibilidad. Indica que ya probó un sistema previo, pero lo descartó por costo y complejidad, por lo que requiere una demostración en vivo en su local para confiar. |
 
 #### Entrevista 6
 
 | Campo                  | Detalle |
 |------------------------|---------|
 | **Imagen**             | Por completar |
-| **Entrevistado**       | Carlos Salazar |
+| **Entrevistado**       | Manuel Ccoa Ticona |
 | **Entrevistador**      | Rafael Cuya |
 | **Sexo**               | Masculino |
-| **Edad**               | 52 anos |
+| **Edad**               | 55 años |
 | **Link de entrevista** | Por completar |
-| **Resumen**            | Opera 20 espacios en San Isidro y reporta demanda alta en horas punta. Menciona que necesita visibilidad de ingresos, salidas y cupos sin depender de reportes verbales del personal. Valora una solucion con panel web y alertas para mejorar control y atencion al cliente. |
+| **Resumen**            | Administra 8 espacios en Surco y lleva el control de forma totalmente manual en papel, apoyándose solo en celular y WhatsApp. Explica que no puede ausentarse sin perder visibilidad del negocio. Considera útil monitorear espacios desde el teléfono y evaluaría instalar sensores si recibe acompañamiento de instalación y una explicación paso a paso. |
 
 ---
 
@@ -1233,7 +1233,8 @@ Los tres entrevistados tienen entre 29 y 41 años, con un promedio
 de 35 años. El 67% son hombres (Carlos, Rodrigo) y el 33% son
 mujeres (Valeria). Este rango corresponde a la población
 económicamente activa que se desplaza con frecuencia en vehículo
-propio por Lima Metropolitana.
+propio por Lima Metropolitana. En la muestra entrevistada,
+residen en Surquillo, La Molina y San Miguel.
 
 **Estado civil y carga familiar**
 
@@ -1253,18 +1254,16 @@ laborales.
 **Frecuencia de uso del vehículo**
 
 El 100% usa su vehículo con alta frecuencia: Carlos lo usa a
-diario de lunes a viernes, Valeria prácticamente todos los días
-incluidos sábados, y Rodrigo tres veces por semana en días de
-clases. Ninguno considera prescindir del auto para sus trayectos
-habituales.
+diario de lunes a viernes, Valeria casi todos los días y Rodrigo
+tres veces por semana en días de clases. Ninguno considera
+prescindir del auto para sus trayectos habituales.
 
 **Zonas de desplazamiento**
 
-El 100% se desplaza frecuentemente a Miraflores. El 67% visita
-San Isidro (Carlos, Rodrigo) y el 67% visita Surco (Carlos,
-Valeria). Estas zonas coinciden exactamente con los distritos
-de mayor demanda vehicular identificados en el análisis del
-problema.
+El 100% se desplaza con frecuencia hacia San Isidro y
+Miraflores. El 67% visita Surco (Carlos, Valeria). Estas
+zonas coinciden con distritos de alta demanda vehicular
+identificados en el análisis del problema.
 
 **Dispositivo y navegador**
 
@@ -1279,7 +1278,7 @@ principal para apps de movilidad y servicio.
 
 **Comportamiento actual al buscar estacionamiento**
 
-El 100% de los entrevistados no cuenta con ninguna herramienta
+En la totalidad de la muestra entrevistada no se cuenta con ninguna herramienta
 que le informe sobre la disponibilidad real de estacionamiento
 antes de llegar. Carlos y Rodrigo usan Google Maps para la ruta
 pero reconocen que no les dice nada sobre disponibilidad de
@@ -1311,7 +1310,7 @@ optado por estacionarse en zonas no autorizadas ante la urgencia
 
 **Disposición a usar una app móvil de disponibilidad en tiempo real**
 
-El 100% afirma que usaría una app móvil de disponibilidad en
+En los tres casos se afirma que usarían una app móvil de disponibilidad en
 tiempo real. Carlos la usaría sin dudarlo, Valeria confirma que
 claro que sí, y Rodrigo señala que con dudas iniciales pero que
 sí la adoptaría si demuestra ser confiable.
@@ -1326,7 +1325,7 @@ para sus compromisos fijos de docencia.
 
 **Importancia del sensor físico para la confianza**
 
-El 100% considera importante o muy importante que la
+De forma consistente entre los entrevistados, se considera importante o muy importante que la
 disponibilidad mostrada en la app esté respaldada por un sensor
 físico real. Carlos lo señala como lo que le daría confianza
 real frente a la disponibilidad declarativa. Valeria afirma que
@@ -1359,7 +1358,7 @@ El 100% abandonaría la app si falla la primera vez que confían
 en su información. Carlos dice "una vez y ya no la uso más",
 Valeria afirma "si me falla la primera vez ya no la vuelvo a
 usar", y Rodrigo señala que no le daría segunda oportunidad.
-Esto establece un umbral de tolerancia cero ante información
+Esto sugiere un umbral de tolerancia muy bajo ante información
 incorrecta en el primer uso.
 
 ---
@@ -1369,18 +1368,20 @@ incorrecta en el primer uso.
 Los conductores urbanos entrevistados comparten un perfil
 homogéneo: adultos de entre 29 y 41 años, trabajadores activos,
 usuarios frecuentes del vehículo en zonas de alta demanda
-vehicular como Miraflores, San Isidro y Surco. El 100% enfrenta
-el problema de estacionamiento de forma recurrente, con tiempos
-de búsqueda que superan los 15 minutos, y el 100% no cuenta
-con ninguna herramienta que le anticipe la disponibilidad real
+vehicular como Miraflores, San Isidro y Surco. En la totalidad de
+la muestra, el problema de estacionamiento se presenta de forma
+recurrente, con tiempos de búsqueda que superan los 15 minutos, y
+no se reportan herramientas que anticipen la disponibilidad real
 antes de llegar.
 
-La disposición a adoptar una app móvil es unánime, condicionada
-a que la información sea confiable y esté respaldada por un
-mecanismo físico verificable. El sensor IoT es percibido por el
-100% como el diferencial clave que generaría esa confianza.
-La tolerancia al error es nula: un solo fallo en la primera
-experiencia determina el abandono definitivo de la plataforma.
+La disposición a adoptar una app móvil aparece de forma
+consistente, condicionada a que la información sea confiable y
+esté respaldada por un mecanismo físico verificable. El sensor IoT
+aparece como un factor clave para generar esa confianza en la
+totalidad de la muestra entrevistada.
+La tolerancia al error se perfila como muy baja: un solo fallo en
+la primera experiencia podría derivar en abandono de la
+plataforma.
 
 ---
 
@@ -1400,7 +1401,7 @@ negocios antes de la era de las plataformas digitales.
 
 Los locales tienen entre 8 y 20 espacios, con un promedio de
 13 espacios. El tiempo de operación varía entre 5 y 14 años,
-con un promedio de 9 años. El 100% opera en distritos de alta
+con un promedio de 9 años. En los tres casos operan en distritos de alta
 demanda vehicular: Miraflores (Jorge), San Isidro (Patricia)
 y Surco (Manuel).
 
@@ -1469,7 +1470,7 @@ clientes que no cancelan.
 
 **Interés en una plataforma web de gestión**
 
-El 100% muestra interés en afiliarse a una plataforma web.
+En la totalidad de la muestra se observa interés en afiliarse a una plataforma web.
 Jorge lo considera atractivo si le trae más clientes sin
 costo fijo rígido. Patricia afirma que ya lo necesita y que
 solo le preocupa la curva de aprendizaje para su personal.
@@ -1477,7 +1478,7 @@ Manuel lo ve posible si alguien le enseña en persona.
 
 **Disposición a instalar sensores**
 
-El 100% consideraría instalar sensores bajo condiciones de
+En los tres casos se consideraría instalar sensores bajo condiciones de
 simplicidad. La condición compartida por el 100% es que no
 requiera obras ni electricista. El 67% requiere una demostración
 o caso de éxito previo antes de comprometerse (Jorge, Manuel).
@@ -1516,19 +1517,20 @@ real.
 Los administradores entrevistados comparten un perfil operativo
 homogéneo: propietarios o gestores de locales de 8 a 20 espacios,
 con entre 5 y 14 años de experiencia, que operan completamente
-de forma manual y sin visibilidad digital de su negocio. El 100%
-depende de su presencia física o de comunicación informal por
-WhatsApp para saber el estado de su local en tiempo real.
+de forma manual y sin visibilidad digital de su negocio. En la
+totalidad de la muestra se depende de la presencia física o de
+comunicación informal por WhatsApp para conocer el estado del
+local en tiempo real.
 
-La disposición a digitalizar es unánime, pero condicionada a
+La disposición a digitalizar aparece de forma consistente, pero condicionada a
 simplicidad de instalación, bajo costo de entrada y demostración
-tangible de valor. El sensor IoT es percibido como viable por el
-100% siempre que no implique obras ni conocimiento técnico. La
+tangible de valor. El sensor IoT es percibido como viable en los
+tres casos, siempre que no implique obras ni conocimiento técnico. La
 principal barrera no es el precio sino la incertidumbre sobre
 si la plataforma funcionará realmente para un negocio de su
-escala, lo que hace que la prueba social y la demostración en
-vivo sean los mecanismos de conversión más efectivos para este
-segmento.
+escala, lo que sugiere que la prueba social y la demostración en
+vivo se perfilan como mecanismos de conversión relevantes para
+este segmento.
 
 ---
 
@@ -1537,26 +1539,26 @@ segmento.
 Los hallazgos del segmento 1 (conductores urbanos) evidencian
 una necesidad urgente de información confiable y verificada en
 tiempo real sobre la disponibilidad de estacionamientos, con
-disposición total a reservar desde una app móvil si la
+disposición consistente a reservar desde una app móvil si la
 plataforma demuestra coherencia entre lo que muestra y lo que
-el conductor encuentra al llegar. El sensor físico IoT es el
-elemento diferencial que generaría esa confianza para el 100%
-de los entrevistados.
+el conductor encuentra al llegar. El sensor físico IoT aparece
+como un elemento diferenciador relevante que podría generar esa confianza en la
+totalidad de la muestra entrevistada.
 
 En el segmento 2 (administradores independientes), se evidencia
 una necesidad clara de digitalizar una operación que hoy depende
-enteramente de la presencia física del dueño y de coordinación
-informal. El 100% ve valor en una plataforma web de monitoreo
+en gran medida de la presencia física del dueño y de coordinación
+informal. En la totalidad de la muestra se observa valor en una plataforma web de monitoreo
 en tiempo real y reservas automatizadas, con la condición de
 que la instalación sea simple, el costo sea accesible y alguien
 les acompañe en el proceso de adopción.
 
-Ambos segmentos se complementan directamente: los conductores
+Ambos segmentos se complementan de manera directa: los conductores
 necesitan información verificada que solo puede existir si los
 administradores tienen sensores instalados, y los administradores
 necesitan más reservas y visibilidad digital que solo pueden
 conseguir si los conductores tienen una app confiable que los
-conecte. Esta interdependencia valida el modelo de negocio
+conecte. Esta interdependencia respalda preliminarmente el modelo de negocio
 distribuido de ParkingNow y sustenta la prioridad de construir
 ambas experiencias de usuario con igual nivel de atención.
 
