@@ -1082,43 +1082,178 @@ disponibles en el mercado local.
   búsqueda innecesaria de espacios en la ciudad.
 
 
-### 2.2 Entrevistas
-#### 2.2.1 Diseño de entrevistas
+## 2.2. Entrevistas
 
+En esta sección se documenta el proceso de recolección de información
+primaria mediante entrevistas a representantes de los dos segmentos
+objetivo de ParkingNow: conductores urbanos de Lima Metropolitana y
+administradores de estacionamientos independientes. El objetivo es
+obtener datos cualitativos reales que permitan identificar necesidades,
+comportamientos, frustraciones y expectativas de cada segmento, como
+base para construir los arquetipos de usuario, los Empathy Maps, los
+User Journey Maps y, posteriormente, los User Stories del producto.
 
-**Preguntas para Conductores urbanos**
+---
 
-1. Cuénteme cómo suele buscar actualmente un lugar para estacionar cuando se encuentra en una zona urbana con alta demanda.  
-2. ¿Cuáles son los principales problemas o frustraciones que enfrenta al momento de buscar estacionamiento?  
-3. ¿Qué factores toma en cuenta para elegir un estacionamiento, por ejemplo cercanía, precio, seguridad o disponibilidad?  
-4. ¿Qué información le gustaría conocer antes de llegar a un estacionamiento?  
-5. ¿En qué momentos o situaciones necesita encontrar estacionamiento con mayor urgencia?  
-6. ¿Qué suele hacer cuando llega a un estacionamiento y no encuentra espacios disponibles?  
-7. ¿Qué tan útil le resultaría poder ver espacios disponibles en tiempo real desde una aplicación? ¿Por qué?  
-8. ¿Qué tan útil le resultaría poder reservar un espacio antes de llegar al lugar? ¿En qué casos sí y en cuáles no?  
-9. ¿Qué palabras o términos usa normalmente para referirse a espacios disponibles, reservas, ocupación, ingreso, salida o pago de estacionamiento?  
-10. Si pudiera mejorar una sola cosa del proceso actual de búsqueda de estacionamiento, ¿qué cambiaría primero?  
+### 2.2.1. Diseño de entrevistas
 
-**Preguntas para Propietarios o gestores de estacionamientos**
+A continuación se presenta la relación de preguntas principales y
+complementarias diseñadas para cada segmento objetivo. Las preguntas
+están orientadas a recolectar características demográficas (edad,
+género, distrito, estado civil, ocupación, familia) y características
+subjetivas (personalidad, motivaciones, frustraciones, marcas de
+referencia, dispositivos de preferencia, canales digitales de
+interacción y biografía general), con el fin de contar con información
+suficiente para construir los arquetipos de usuario de ParkingNow.
 
-1. ¿Cómo se gestiona actualmente el estacionamiento desde que inicia la jornada hasta que termina?  
-2. ¿Cuáles son los principales problemas operativos que enfrenta hoy en la administración de los espacios?  
-3. ¿Cómo controlan actualmente la disponibilidad de espacios y cómo verifican si realmente están ocupados o libres?  
-4. ¿Qué tareas o actividades se repiten con mayor frecuencia en la operación diaria del estacionamiento?  
-5. ¿Qué situaciones generan más conflictos o reclamos con los conductores?  
-6. ¿Qué información considera indispensable para administrar mejor el estacionamiento?  
-7. ¿Qué reglas de negocio aplican actualmente para asignar espacios, aceptar reservas, cobrar tarifas o gestionar retrasos?  
-8. ¿Qué eventos importantes ocurren normalmente en la operación, por ejemplo ingreso de vehículos, salida, pago, ocupación completa o incidencias?  
-9. ¿Qué términos usan usted y su personal para referirse a espacios, reservas, ocupación, incidencias, control de acceso o pagos?  
-10. Si pudiera mejorar una sola parte del proceso actual de gestión del estacionamiento, ¿cuál sería y por qué?  
+---
 
-**Preguntas técnicas generales para ambos segmentos**
+#### Segmento 1: Conductores Urbanos
 
-1. ¿Qué dispositivos utiliza con mayor frecuencia en su rutina diaria y con cuál se sentiría más cómodo usando una solución como ParkingNow: celular, tablet, laptop o computadora?  
-2. ¿Qué nivel de familiaridad tiene con aplicaciones móviles, plataformas web, pagos digitales, geolocalización o notificaciones en tiempo real?  
-3. ¿Qué funcionalidades tecnológicas le parecerían más útiles en una solución de estacionamientos, por ejemplo mapa, disponibilidad en tiempo real, reservas, pagos digitales, alertas o monitoreo?  
-4. ¿Qué limitaciones técnicas o de acceso considera importantes, por ejemplo conexión a internet, uso de sensores, cámaras, método de pago o disponibilidad de dispositivos?  
-5. ¿Prefiere que la solución funcione principalmente como aplicación móvil, plataforma web o ambas? ¿Por qué?  
+##### Preguntas principales
 
-#### 2.2.2 Registro de entrevistas
-#### 2.2.3 Análisis de entrevistas
+1. ¿Cuántos años tienes?
+
+2. ¿En qué distrito resides actualmente y cuál es
+   tu estado civil?
+
+3. ¿Tienes hijos o personas a tu cargo?
+
+4. ¿Cuál es tu ocupación actual? ¿Trabajas,
+   estudias o ambas cosas?
+
+5. ¿Tienes vehículo propio? ¿Con qué frecuencia
+   lo usas para desplazarte por Lima?
+
+6. ¿Qué zonas de Lima visitas más frecuentemente
+   con tu vehículo?
+
+7. Cuando necesitas estacionar en una zona que no
+   conoces bien, ¿cómo te preparas antes de salir?
+   ¿Consultas algo en tu teléfono o simplemente vas?
+
+8. ¿Cuánto tiempo estimas que demoras en promedio
+   en encontrar un espacio disponible en zonas como
+   San Isidro, Miraflores o Surco?
+
+9. ¿Has llegado alguna vez a un estacionamiento y
+   estaba completamente lleno? ¿Qué hiciste en ese
+   momento?
+
+10. ¿Con qué frecuencia te ocurre no encontrar
+    estacionamiento disponible al llegar a tu destino?
+
+11. Si existiera una aplicación móvil que te mostrara
+    en tiempo real qué estacionamientos cercanos tienen
+    espacios libres antes de que llegues, ¿la usarías?
+    ¿Qué necesitarías para confiar en esa información?
+
+12. ¿Estarías dispuesto a reservar un espacio desde
+    tu teléfono antes de salir si eso te garantizara
+    encontrar lugar al llegar?
+
+13. ¿Qué aplicaciones móviles usas con más frecuencia
+    en tu día a día?
+
+14. ¿Usas Android o iOS? ¿Qué navegador usas
+    habitualmente en tu celular?
+
+15. ¿Qué es lo que más te frustra al buscar
+    estacionamiento en Lima?
+
+---
+
+##### Preguntas complementarias
+
+16. ¿Qué haces cuando no encuentras estacionamiento
+    cerca de tu destino? ¿Das vueltas, cambias de
+    plan o buscas transporte alternativo?
+
+17. ¿Qué tan importante es para ti saber que la
+    disponibilidad mostrada en la app está respaldada
+    por un sensor físico real, y no solo por datos
+    ingresados manualmente por el dueño del
+    estacionamiento?
+
+18. ¿Hay alguna app móvil que consideres muy bien
+    hecha? ¿Qué es lo que más valoras de ella?
+
+19. ¿Qué haría que dejes de usar una app de
+    estacionamiento después de probarla? ¿Y qué
+    haría que la recomiendes a alguien?
+
+---
+
+#### Segmento 2: Administradores de Estacionamientos Independientes
+
+##### Preguntas principales
+
+1. ¿Cuántos años tienes?
+
+2. ¿En qué distrito está ubicado tu estacionamiento?
+
+3. ¿Cuántos espacios tiene tu local actualmente?
+
+4. ¿Cuánto tiempo llevas administrándolo?
+
+5. ¿Operas solo o tienes personal de apoyo?
+
+6. ¿Cómo controlas actualmente qué espacios están
+   ocupados y cuáles están libres? ¿Usas algún
+   sistema o es completamente manual?
+
+7. ¿Cómo se enteran los conductores de que tu
+   estacionamiento tiene espacios disponibles antes
+   de llegar?
+
+8. ¿Puedes saber en tiempo real cuántos espacios
+   tienes ocupados si no estás físicamente en el
+   local? ¿Cómo lo resuelves?
+
+9. ¿Has tenido situaciones en que llegaron conductores
+   esperando encontrar espacio y ya no había
+   disponibilidad? ¿Cómo lo manejas?
+
+10. ¿Qué parte de tu operación diaria te consume
+    más tiempo o te genera más errores?
+
+11. Si hubiera una plataforma web donde pudieras
+    publicar tu estacionamiento y los conductores de
+    la zona pudieran verte y reservar en línea,
+    ¿te interesaría afiliar tu local? ¿Qué te
+    preocuparía?
+
+12. ¿Estarías dispuesto a instalar un sensor pequeño
+    por espacio para que la disponibilidad se actualice
+    automáticamente en la plataforma? ¿Qué condiciones
+    necesitarías para aceptarlo?
+
+13. ¿Desde qué dispositivo prefieres gestionar tu
+    negocio: computadora, tablet o celular? ¿Cuál
+    usas más en tu día a día?
+
+14. ¿Usas alguna herramienta digital actualmente
+    para gestionar tu negocio? ¿Cuál y para qué?
+
+15. ¿Qué es lo que más te frustra del día a día
+    en la gestión de tu local?
+
+---
+
+##### Preguntas complementarias
+
+16. ¿Qué beneficio concreto necesitarías ver para
+    considerar que vale la pena digitalizar tu
+    operación? ¿Más reservas, menos trabajo manual
+    o ambas cosas?
+
+17. ¿Has intentado antes usar alguna app o sistema
+    para gestionar tu estacionamiento? ¿Qué pasó?
+
+18. ¿Qué necesitarías ver o comprobar antes de
+    confiar en una plataforma web nueva para
+    digitalizar tu negocio?
+
+19. ¿Recomendarías la plataforma a otros
+    administradores si te funciona bien? ¿Bajo
+    qué condiciones?
