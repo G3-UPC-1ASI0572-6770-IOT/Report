@@ -1926,7 +1926,60 @@ realizar inversiones en infraestructura compleja. La prueba social — ver que
 funciona en un negocio similar al suyo — emerge como el mecanismo de conversión
 más relevante para este segmento.
 
+### 2.3.5. As-Is Scenario Mapping
 
+En esta sección se presentan los As-Is Scenario Maps de los dos segmentos
+objetivo de ParkingNow. El As-Is Scenario Mapping es una técnica de Design
+Thinking que permite documentar el entendimiento colectivo del equipo sobre
+los flujos de trabajo actuales de los usuarios, registrando en cada paso lo
+que el usuario hace (Doing), piensa (Thinking) y siente (Feeling), sin la
+existencia de la solución propuesta. Su propósito es identificar con precisión
+los puntos de mayor fricción en la experiencia actual de cada segmento, como
+base para definir las oportunidades de diseño que guiarán el desarrollo de
+ParkingNow. Los mapas fueron elaborados a partir de los hallazgos del análisis
+de entrevistas de la sección 2.2.3 y son coherentes con los User Journey Maps
+de la sección 2.3.3.
+
+---
+
+Figura 8
+
+*As-Is Scenario Map del segmento conductores urbanos de Lima Metropolitana*
+
+![alt text](<assets/as is conductor.jpeg>)
+
+*Nota.* Elaboración propia (2026).
+
+Según la Figura 8, el As-Is Scenario Map del conductor urbano evidencia que
+la mayor fricción se concentra en los pasos 3 y 4 — búsqueda e intento de
+estacionamiento — donde el usuario combina una acción de alto costo físico
+(dar vueltas en auto por 15 a 40 minutos) con pensamientos de frustración
+creciente y emociones que escalan desde tensión hasta pérdida de control
+del tiempo. El paso 1 revela una brecha crítica de diseño: el conductor
+planifica su salida con Google Maps pero no cuenta con ninguna herramienta
+que le anticipe la disponibilidad de estacionamiento, generando una
+incertidumbre que condiciona negativamente toda la experiencia posterior.
+
+---
+
+Figura 9
+
+*As-Is Scenario Map del segmento administradores de estacionamientos independientes*
+
+![alt text](<assets/as is conductor.jpeg>)
+
+*Nota.* Elaboración propia (2026).
+
+Según la Figura 9, el As-Is Scenario Map del administrador independiente
+evidencia que la mayor fricción se concentra en los pasos 4 y 5 — ausencia
+del local y coordinación a distancia — donde el usuario abandona el control
+de su propio negocio al depender exclusivamente de que terceros le informen
+correctamente por WhatsApp o llamada. El paso 6 revela una segunda brecha
+crítica: el administrador cierra el día sin reporte ni historial digital,
+lo que le impide tomar decisiones basadas en datos reales de su operación.
+Ambos mapas confirman la interdependencia entre los dos segmentos: la
+solución que el conductor necesita solo puede existir si el administrador
+tiene herramientas que digitalicen su operación sin complejidad.
 
 
 
