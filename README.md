@@ -1932,41 +1932,98 @@ más relevante para este segmento.
 
 ## 2.5. Ubiquitous Language
 
-En esta sección se presenta el glosario de términos y conceptos del dominio de
-negocio de ParkingNow, construido a partir del lenguaje empleado por los expertos
-del dominio identificados en las entrevistas: conductores urbanos y administradores
-de estacionamientos independientes. Siguiendo el enfoque de Eric Evans en
-*Domain-Driven Design: Tackling Complexity in the Heart of Software* (2003), el
-Ubiquitous Language constituye un vocabulario común, riguroso y sin ambigüedad
-que permite que todos los miembros del equipo y stakeholders — incluyendo
-desarrolladores, diseñadores y representantes de los segmentos objetivo — se
-comuniquen con precisión sobre los conceptos del dominio. Los términos están
-en inglés, con su equivalente en español entre paréntesis, y sus definiciones
-en español. No se incluyen términos técnicos de ingeniería de software.
+Este es el lenguaje compartido utilizado por todo el equipo de ParkingNow,
+para asegurar una comprensión común de los conceptos clave dentro del dominio
+del negocio. Los términos están en inglés con su equivalente en español entre
+paréntesis, y sus definiciones en español. Solo se incluyen términos del dominio
+del negocio, no términos técnicos de ingeniería de software.
 
----
+**Parking Space** (Espacio de estacionamiento): Unidad física individual dentro
+de un estacionamiento destinada al estacionamiento de un vehículo. Es la unidad
+mínima de disponibilidad en el dominio de ParkingNow.
 
-| Término | Definición |
-|---|---|
-| **Parking Space** (Espacio de estacionamiento) | Unidad física individual dentro de un estacionamiento destinada al estacionamiento de un vehículo. Es la unidad mínima de disponibilidad en el dominio de ParkingNow. |
-| **Parking Lot** (Estacionamiento) | Instalación física compuesta por uno o más Parking Spaces, administrada por un Operator y registrada o no en la plataforma. |
-| **Affiliated Parking Lot** (Estacionamiento afiliado) | Parking Lot cuyos Parking Spaces están equipados con un Sensor Node y registrados en ParkingNow, lo que permite reportar Verified Availability en tiempo real. |
-| **Non-Affiliated Parking Lot** (Estacionamiento no afiliado) | Parking Lot visible en el mapa de ParkingNow a partir de datos de OpenStreetMap, pero sin Sensor Node instalado. Su disponibilidad no está verificada. |
-| **Driver** (Conductor) | Usuario del segmento de conductores urbanos que utiliza la app móvil de ParkingNow para consultar disponibilidad, buscar Parking Spaces y realizar Reservations. |
-| **Operator** (Operador / Administrador) | Usuario del segmento de administradores independientes que gestiona uno o más Parking Lots y accede al panel web de ParkingNow para monitorear Occupancy y administrar Reservations. |
-| **Availability** (Disponibilidad) | Estado de un Parking Space que indica si está libre u ocupado en un momento determinado. Puede ser de tipo Declarative Availability o Verified Availability. |
-| **Declarative Availability** (Disponibilidad declarativa) | Disponibilidad de un Parking Space reportada manualmente por el Operator sin respaldo de un Sensor Node. Susceptible a errores por actualización tardía o incorrecta. |
-| **Verified Availability** (Disponibilidad verificada) | Disponibilidad de un Parking Space respaldada por la lectura en tiempo real de un Sensor Node instalado físicamente en el espacio. Constituye el diferencial central de ParkingNow frente a sus competidores. |
-| **Occupancy** (Ocupación) | Estado de un Parking Space que indica que se encuentra actualmente en uso por un vehículo, determinado por la detección del Sensor Node o por el registro manual del Operator. |
-| **Sensor Node** (Nodo sensor) | Dispositivo físico instalado por espacio en un Affiliated Parking Lot, compuesto por un microcontrolador y un sensor ultrasónico, que detecta la presencia de un vehículo y reporta el estado de Occupancy al backend de la plataforma. |
-| **Reservation** (Reserva) | Acción mediante la cual un Driver asegura un Parking Space disponible en un Affiliated Parking Lot por un período determinado antes de llegar físicamente al lugar. |
-| **Booking Window** (Ventana de reserva) | Período de tiempo durante el cual una Reservation está activa y el Parking Space queda bloqueado para el Driver que la realizó. |
-| **Entry** (Ingreso) | Evento que registra la llegada de un vehículo a un Parking Space, marcando el inicio de su Occupancy. |
-| **Exit** (Salida) | Evento que registra la partida de un vehículo de un Parking Space, marcando el fin de su Occupancy y liberando el espacio para nuevos Drivers. |
-| **Occupancy Map** (Mapa de ocupación) | Representación visual del estado de todos los Parking Spaces de un Parking Lot en tiempo real, accesible desde el panel web para el Operator. |
-| **Peak Demand** (Alta demanda / Hora punta) | Período del día en que la concentración de Drivers buscando Parking Spaces supera la disponibilidad existente en una zona geográfica determinada, generando mayor tiempo de búsqueda y frustración. |
-| **Operator Onboarding** (Incorporación de operador) | Proceso mediante el cual un nuevo Operator registra su Parking Lot en ParkingNow, instala los Sensor Nodes correspondientes y configura su perfil en el panel web para comenzar a recibir Reservations. |
-| **Affiliation** (Afiliación) | Vínculo formal entre un Operator y ParkingNow que convierte un Parking Lot en un Affiliated Parking Lot, habilitando Verified Availability y visibilidad digital del local para los Drivers. |
-| **Real-time Detection** (Detección en tiempo real) | Capacidad del Sensor Node de reportar cambios en el estado de Occupancy de un Parking Space de forma continua y sin intervención manual del Operator. |
-| **Urban Zone** (Zona urbana de alta demanda) | Área geográfica dentro de Lima Metropolitana caracterizada por alta concentración de actividad comercial y laboral, donde la escasez de Parking Spaces disponibles es recurrente durante Peak Demand. Ejemplos: San Isidro, Miraflores, Surco. |
-| **Earnings Report** (Reporte de ingresos) | Registro histórico generado automáticamente por la plataforma con las entradas, salidas, Reservations completadas e ingresos del Parking Lot en un período determinado, accesible para el Operator desde el panel web. |
+**Parking Lot** (Estacionamiento): Instalación física compuesta por uno o más
+Parking Spaces, administrada por un Operator y registrada o no en la plataforma.
+
+**Affiliated Parking Lot** (Estacionamiento afiliado): Parking Lot cuyos Parking
+Spaces están equipados con un Sensor Node y registrados en ParkingNow, lo que
+permite reportar Verified Availability en tiempo real.
+
+**Non-Affiliated Parking Lot** (Estacionamiento no afiliado): Parking Lot visible
+en el mapa de ParkingNow a partir de datos de OpenStreetMap, pero sin Sensor Node
+instalado. Su disponibilidad no está verificada.
+
+**Driver** (Conductor): Usuario del segmento de conductores urbanos que utiliza
+la app móvil de ParkingNow para consultar disponibilidad, buscar Parking Spaces
+y realizar Reservations.
+
+**Operator** (Operador / Administrador): Usuario del segmento de administradores
+independientes que gestiona uno o más Parking Lots y accede al panel web de
+ParkingNow para monitorear Occupancy y administrar Reservations.
+
+**Availability** (Disponibilidad): Estado de un Parking Space que indica si está
+libre u ocupado en un momento determinado. Puede ser Declarative Availability o
+Verified Availability.
+
+**Declarative Availability** (Disponibilidad declarativa): Disponibilidad de un
+Parking Space reportada manualmente por el Operator sin respaldo de un Sensor
+Node. Susceptible a errores por actualización tardía o incorrecta.
+
+**Verified Availability** (Disponibilidad verificada): Disponibilidad de un
+Parking Space respaldada por la lectura en tiempo real de un Sensor Node
+instalado físicamente en el espacio. Constituye el diferencial central de
+ParkingNow frente a sus competidores.
+
+**Occupancy** (Ocupación): Estado de un Parking Space que indica que se
+encuentra actualmente en uso por un vehículo, determinado por la detección
+del Sensor Node o por el registro manual del Operator.
+
+**Sensor Node** (Nodo sensor): Dispositivo físico instalado por espacio en
+un Affiliated Parking Lot que detecta la presencia de un vehículo y reporta
+el estado de Occupancy al backend de la plataforma en tiempo real.
+
+**Reservation** (Reserva): Acción mediante la cual un Driver asegura un
+Parking Space disponible en un Affiliated Parking Lot por un período
+determinado antes de llegar físicamente al lugar.
+
+**Booking Window** (Ventana de reserva): Período de tiempo durante el cual
+una Reservation está activa y el Parking Space queda bloqueado para el
+Driver que la realizó.
+
+**Entry** (Ingreso): Evento que registra la llegada de un vehículo a un
+Parking Space, marcando el inicio de su Occupancy.
+
+**Exit** (Salida): Evento que registra la partida de un vehículo de un
+Parking Space, marcando el fin de su Occupancy y liberando el espacio.
+
+**Occupancy Map** (Mapa de ocupación): Representación visual del estado
+de todos los Parking Spaces de un Parking Lot en tiempo real, accesible
+desde el panel web para el Operator.
+
+**Peak Demand** (Alta demanda / Hora punta): Período del día en que la
+concentración de Drivers buscando Parking Spaces supera la disponibilidad
+existente en una zona geográfica determinada, generando mayor tiempo de
+búsqueda y frustración.
+
+**Operator Onboarding** (Incorporación de operador): Proceso mediante el cual
+un nuevo Operator registra su Parking Lot en ParkingNow, instala los Sensor
+Nodes correspondientes y configura su perfil en el panel web para comenzar
+a recibir Reservations.
+
+**Affiliation** (Afiliación): Vínculo formal entre un Operator y ParkingNow
+que convierte un Parking Lot en un Affiliated Parking Lot, habilitando
+Verified Availability y visibilidad digital del local para los Drivers.
+
+**Real-time Detection** (Detección en tiempo real): Capacidad del Sensor Node
+de reportar cambios en el estado de Occupancy de un Parking Space de forma
+continua y sin intervención manual del Operator.
+
+**Urban Zone** (Zona urbana de alta demanda): Área geográfica dentro de Lima
+Metropolitana con alta concentración de actividad comercial y laboral, donde
+la escasez de Parking Spaces es recurrente durante Peak Demand. Ejemplos:
+San Isidro, Miraflores, Surco.
+
+**Earnings Report** (Reporte de ingresos): Registro histórico generado
+automáticamente por la plataforma con las entradas, salidas, Reservations
+completadas e ingresos del Parking Lot en un período determinado, accesible
+para el Operator desde el panel web.
