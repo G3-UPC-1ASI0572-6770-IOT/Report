@@ -1688,3 +1688,240 @@ conecte. Esta interdependencia respalda preliminarmente el modelo de negocio
 distribuido de ParkingNow y sustenta la prioridad de construir
 ambas experiencias de usuario con igual nivel de atención.
 
+## 2.3. Needfinding
+
+En esta sección se presentan los artefactos resultantes del proceso de análisis de la
+información recolectada en las entrevistas de la sección 2.2. A partir de los hallazgos
+identificados en ambos segmentos objetivo, el equipo construyó de forma colaborativa
+los siguientes artefactos: User Personas, User Task Matrix, User Journey Maps, Empathy
+Maps y As-Is Scenario Mapping. Cada uno de estos artefactos tiene como propósito
+consolidar el entendimiento sobre las necesidades reales, comportamientos y
+frustraciones de los conductores urbanos y los administradores de estacionamientos
+independientes, asegurando que los rasgos representados puedan trazarse directamente
+a los datos recolectados en las entrevistas.
+
+### 2.3.1. User Personas
+
+A partir del análisis de entrevistas realizado en la sección 2.2.3, el equipo
+construyó una ficha de User Persona por cada segmento objetivo de ParkingNow.
+Los arquetipos sintetizan las características objetivas y subjetivas más
+representativas de cada segmento: datos demográficos, ocupación, dispositivos
+de preferencia, canales digitales, motivaciones, frustraciones y marcas de
+referencia identificadas en las entrevistas. Las fichas fueron elaboradas
+en UXPressia.
+
+---
+
+Figura 2
+
+*User Persona del segmento conductores urbanos de Lima Metropolitana*
+
+![alt text](<assets/Andrés Villanueva Ríos.png>)
+
+*Nota.* Elaboración propia (2026).
+
+Según la Figura 2, el arquetipo del conductor urbano corresponde a un profesional
+de 35 años, casado, que usa su vehículo a diario en zonas de alta demanda como
+San Isidro, Miraflores y Surco. Sus principales frustraciones son la pérdida de
+tiempo buscando estacionamiento —entre 15 y 30 minutos en hora punta— y la
+ausencia de información confiable sobre disponibilidad real antes de llegar.
+Muestra alta disposición a reservar desde su celular, condicionada a que la
+información esté respaldada por un sensor físico, y presenta tolerancia cero
+al error en el primer uso de la plataforma.
+
+---
+
+Figura 3
+
+*User Persona del segmento administradores de estacionamientos independientes*
+
+![alt text](<assets/Jorge Quispe Huamán.png>)
+
+*Nota.* Elaboración propia (2026).
+
+Según la Figura 3, el arquetipo del administrador independiente corresponde a un
+operador de 47 años que gestiona entre 8 y 20 espacios de forma completamente
+manual, sin visibilidad remota de su operación. Su mayor frustración es no poder
+ausentarse del local sin perder el control del negocio. Muestra interés en
+digitalizar su operación siempre que la instalación sea simple, el costo sea
+accesible y alguien le acompañe en el proceso de adopción inicial.
+
+### 2.3.2. User Task Matrix
+
+En esta sección se presenta el User Task Matrix de ParkingNow, que concentra
+las tareas que los dos User Personas realizan para cumplir sus objetivos en el
+dominio del estacionamiento urbano, con independencia de la existencia de la
+solución. Los segmentos considerados son **Andrés Villanueva Ríos** (conductor
+urbano) y **Jorge Quispe Huamán** (administrador de estacionamiento
+independiente). Cada tarea es evaluada en términos de frecuencia e importancia
+para cada segmento, con el fin de identificar las actividades más críticas,
+las coincidencias entre ambos perfiles y las diferencias que orientan el diseño
+de las experiencias de usuario de la plataforma.
+
+| Tareas | Andrés Villanueva / Frecuencia | Andrés Villanueva / Importancia | Jorge Quispe / Frecuencia | Jorge Quispe / Importancia |
+|---|---|---|---|---|
+| Planificar la ruta hacia el destino antes de salir | Casi siempre | Alta | No aplica | No aplica |
+| Buscar estacionamiento disponible en la zona de destino | Siempre | Alta | No aplica | No aplica |
+| Buscar alternativas ante falta de disponibilidad | Casi siempre | Alta | No aplica | No aplica |
+| Pagar por el servicio de estacionamiento | Siempre | Alta | No aplica | No aplica |
+| Calcular tiempo extra por dificultad de estacionamiento | Casi siempre | Media | No aplica | No aplica |
+| Coordinar llegada a tiempo a compromisos laborales | Siempre | Alta | No aplica | No aplica |
+| Controlar entradas y salidas de vehículos en el local | No aplica | No aplica | Siempre | Alta |
+| Registrar manualmente el estado de ocupación de espacios | No aplica | No aplica | Siempre | Alta |
+| Comunicar disponibilidad de espacios a conductores | No aplica | No aplica | Casi siempre | Alta |
+| Gestionar cobros a clientes al momento de retiro | No aplica | No aplica | Siempre | Alta |
+| Coordinar con el personal de apoyo la operación del local | No aplica | No aplica | Casi siempre | Alta |
+| Monitorear la operación del local a distancia | No aplica | No aplica | A veces | Alta |
+| Atender conductores que llegan sin espacio disponible | No aplica | No aplica | Casi siempre | Media |
+| Registrar ingresos diarios del negocio | No aplica | No aplica | Siempre | Alta |
+
+**Análisis**
+
+Las tareas con mayor frecuencia e importancia para **Andrés** son buscar
+estacionamiento disponible, coordinar llegada a tiempo a compromisos y pagar
+por el servicio, todas con frecuencia "Siempre" e importancia "Alta". Esto
+evidencia que el proceso de estacionamiento es una actividad crítica e
+inseparable de su rutina laboral diaria. La tarea buscar alternativas ante
+falta de disponibilidad aparece como "Casi siempre / Alta", lo que confirma
+que el conductor ya tiene incorporado en su rutina un plan de contingencia
+ante la escasez de espacios, asumiendo un costo habitual de tiempo y estrés.
+
+Para **Jorge**, las tareas de mayor frecuencia e importancia son controlar
+entradas y salidas, registrar ocupación manualmente, gestionar cobros y
+registrar ingresos diarios, todas con frecuencia "Siempre" e importancia
+"Alta". Esto confirma que la operación del local depende completamente de
+su presencia física y de procesos manuales sin automatización. Destaca que
+monitorear la operación a distancia tiene importancia "Alta" pero frecuencia
+"A veces", evidenciando que Jorge reconoce su valor pero no puede realizarlo
+con la frecuencia deseada por falta de herramientas.
+
+La principal **coincidencia** entre ambos segmentos es la necesidad de
+información en tiempo real sobre el estado de los espacios: el conductor
+necesita saber qué hay libre antes de llegar, y el administrador necesita
+saber qué está ocupado sin tener que estar presente. Esta intersección
+es el punto de valor más directo que ParkingNow resuelve mediante su
+capa IoT distribuida.
+
+La principal **diferencia** es que las tareas del conductor son de
+desplazamiento y búsqueda, mientras que las del administrador son de
+control operativo y coordinación. Ambos operan en dominios distintos
+pero complementarios: el conductor interactúa con el espacio desde
+afuera hacia adentro, y el administrador lo gestiona desde adentro
+hacia afuera.
+
+### 2.3.3. User Journey Maps
+
+En esta sección se presentan los User Journey Maps As-Is de los dos segmentos
+objetivo de ParkingNow. Estos mapas ilustran el recorrido actual de cada User
+Persona en su contexto real, sin la existencia de la solución, con el propósito
+de identificar los puntos de mayor fricción, frustración y oportunidad en la
+experiencia de cada segmento. El journey del conductor urbano recorre el proceso
+completo desde que planifica su salida hasta que llega a su destino, evidenciando
+la ausencia total de información verificada sobre disponibilidad de estacionamiento
+en cada etapa. El journey del administrador independiente recorre su jornada
+operativa desde la apertura del local hasta el cierre del día, evidenciando la
+dependencia de procesos manuales y la imposibilidad de monitorear su negocio a
+distancia. Ambos mapas fueron elaborados en UXPressia, vinculados directamente a
+los User Personas construidos en la sección 2.3.1, y toman como insumo los
+hallazgos del análisis de entrevistas de la sección 2.2.3.
+
+---
+
+Figura 4
+
+*User Journey Map As-Is del segmento conductores urbanos de Lima Metropolitana*
+
+![alt text](<assets/As-Is Journey Map — Andrés Villanueva (Conductor Urbano).png>)
+
+*Nota.* Elaboración propia (2026) en UXPressia.
+
+Según la Figura 4, el journey As-Is del conductor urbano evidencia una experiencia
+marcada por la ausencia de información confiable en tiempo real durante todas las
+etapas del recorrido. La curva de experiencia se mantiene en nivel neutral en las
+etapas de planificación y salida, desciende a sadness en la etapa de búsqueda —
+donde el conductor pierde entre 15 y 40 minutos dando vueltas sin herramienta
+alguna que le anticipe la disponibilidad — y alcanza su punto más crítico en la
+etapa de intento de estacionamiento, donde la frustración llega a nivel rage ante
+la reiterada falta de espacio disponible al llegar al destino. El journey concluye
+en nivel sadness, reflejando que el conductor llega a su compromiso laboral con
+estrés acumulado que afecta su rendimiento posterior. Las oportunidades identificadas
+en cada etapa apuntan directamente a la propuesta de valor de ParkingNow: anticipar
+disponibilidad, permitir reserva garantizada y respaldar la información con
+verificación física mediante sensor IoT.
+
+---
+
+Figura 5
+
+*User Journey Map As-Is del segmento administradores de estacionamientos independientes*
+
+![alt text](<assets/As-Is Journey Map — Jorge Quispe (Administrador Independiente).png>)
+
+*Nota.* Elaboración propia (2026) en UXPressia.
+
+Según la Figura 5, el journey As-Is del administrador independiente evidencia una
+operación completamente dependiente de la presencia física del dueño y de
+herramientas informales como cuaderno, pizarra y WhatsApp. La curva de experiencia
+se mantiene en nivel neutral en las etapas de apertura y operación diaria, desciende
+a sadness en la etapa de gestión de conductores — donde se producen los conflictos
+más frecuentes por llegadas sin espacio disponible y reservas fallidas — y alcanza
+su punto más crítico en la etapa de coordinación a distancia, donde el administrador
+depende de terceros para saber qué ocurre en su propio local sin poder verificarlo.
+El journey cierra en nivel sadness, reflejando que el día termina sin reporte ni
+historial digital de la operación. Las oportunidades identificadas en cada etapa
+sustentan el diseño del panel web de ParkingNow: monitoreo remoto en tiempo real,
+actualización automática de disponibilidad mediante sensores y sistema de reservas
+digitales que elimine la coordinación informal por WhatsApp.
+
+### 2.3.4. Empathy Mapping
+
+En esta sección se presentan los Empathy Maps de los dos segmentos objetivo de
+ParkingNow. Estos artefactos profundizan en la dimensión emocional y perceptiva
+de cada User Persona, recogiendo lo que piensan, sienten, escuchan, hacen, sufren
+y esperan ganar en el contexto del problema del estacionamiento urbano en Lima
+Metropolitana. Cada Empathy Map fue construido a partir de los hallazgos del
+análisis de entrevistas de la sección 2.2.3 y complementa la visión objetiva de
+los User Personas de la sección 2.3.1, añadiendo la capa subjetiva necesaria para
+diseñar experiencias de usuario empáticas y centradas en necesidades reales.
+Los mapas fueron elaborados en UXPressia, vinculados a los User Personas
+correspondientes.
+
+---
+
+Figura 6
+
+*Empathy Map del segmento conductores urbanos de Lima Metropolitana*
+
+![alt text](<assets/Andrés Villanueva Ríos — Conductor Urbano.png>)
+
+*Nota.* Elaboración propia (2026) en UXPressia.
+
+Según la Figura 6, el Empathy Map del conductor urbano revela que su principal
+dolor no es solo el tiempo perdido buscando estacionamiento, sino la incertidumbre
+previa que genera ansiedad desde el momento en que planifica su salida. El
+conductor piensa que debería existir una forma de saber si habrá espacio antes
+de llegar — de la misma manera en que ya existen apps que anticipan el tráfico —
+y su principal ganancia esperada es la certeza respaldada por un mecanismo físico
+verificable, no por datos ingresados manualmente. La tolerancia al error es
+mínima: una sola falla en el primer uso representa la pérdida definitiva de su
+confianza en la plataforma.
+
+---
+
+Figura 7
+
+*Empathy Map del segmento administradores de estacionamientos independientes*
+
+![alt text](<assets/Jorge Quispe Huamán — Administrador Independiente.png>)
+
+*Nota.* Elaboración propia (2026) en UXPressia.
+
+Según la Figura 7, el Empathy Map del administrador independiente revela que su
+principal dolor no es técnico sino operativo: la imposibilidad de alejarse de su
+negocio sin perder el control de lo que ocurre en él. El administrador no rechaza
+la tecnología por principio, sino por desconocimiento de que existan soluciones
+accesibles para locales de su escala. Su principal ganancia esperada es poder
+monitorear su operación desde el celular sin necesitar conocimientos técnicos ni
+realizar inversiones en infraestructura compleja. La prueba social — ver que
+funciona en un negocio similar al suyo — emerge como el mecanismo de conversión
+más relevante para este segmento.
