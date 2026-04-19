@@ -1,5 +1,3 @@
-# **COURSE PROJECT** <p align="center">
-
 <p align="center">
   <img src="assets/UPC_logo_transparente.png" alt="Logo de la UPC" />
 </p>
@@ -8,29 +6,24 @@
 
 <p align="center"><strong>Ingeniería de Software</strong><br>
 Ciclo: 7mo <br>
-Desarrollo de Soluciones IOT - NRC: 6770 <br>  
-<strong>Profesor:Javier Antonio Prudencio Vidal</strong> </p>
+ 1ASI0572 Desarrollo de Soluciones IoT - NRC: 6770 <br>  
+<strong>Profesor: Javier Antonio Prudencio Vidal</strong> </p>
 
-<h2 align="center">INFORME</h2>
+<h2 align="center">Informe de Trabajo Final</h2>
 
 <h3 align="center">Startup: Code Mondoguito </h3>
 <p align="center"><strong>Producto: ParkingNow</strong></p>
 
-<h3 align="center">Team Members:</h3>
+<h3 align="center">Relación de integrantes:</h3>
 
 <div align="center">
 
-| **Member**              | **Code** |
+| **Apellidos y Nombres**              | **Code** |
 | ----------------------------- | -------------- |
-|   |    |
 | Cuya Villegas, Rafael Alberto    | U201913495    |
-|  |      |
-| Soto Quispe, Diego Ulises        | U2022144778    |
-|  |      |
-| Lapa De La Cruz, Gabriel Omar    |     |
-|  |      |
-| Vilca Valverde, Fiorella Angela  |     |
-|  |      |
+| Soto Quispe, Diego Ulises        | U202214477   |
+| Lapa De La Cruz, Gabriel Omar    |              |
+| Vilca Valverde, Fiorella Angela  |              |
 
 </div>
 
@@ -38,16 +31,22 @@ Desarrollo de Soluciones IOT - NRC: 6770 <br>
 
 # Registro de Versiones del Informe
 
-| Versión | Fecha      | Autor(es)                                                                                                                                                                                                                   | Descripción de la modificación                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-|---------|------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| TB1     | 00/00/2026 | Rafael Alberto Cuya Villegas <br><br> Diego Ulises Soto Quispe <br><br> Gabriel Omar Lapa De La Cruz <br><br> Fiorella Angela Vilca Valverde | Capítulo I. Introducción <br> 1.1 Startup Profile <br> 1.1.1 Descripción de la Startup <br> 1.1.2 Perfiles de integrantes del equipo <br><br> 1.2 Solution Profile <br> 1.2.1 Antecedentes y problemática <br> 1.2.2 Lean UX Process <br> 1.2.2.1 Lean UX Problem Statements <br> 1.2.2.2 Lean UX Assumptions <br> 1.2.2.3 Lean UX Hypothesis Statements <br> 1.2.2.4 Lean UX Canvas <br><br> 1.3 Segmentos objetivo <br><br> Capítulo II. Requirements Elicitation & Analysis <br><br> 2.1 Competidores <br> 2.1.1 Análisis competitivo <br> 2.1.2 Estrategias y tácticas frente a competidores <br><br> 2.2 Entrevistas <br> 2.2.1 Diseño de entrevistas <br> 2.2.2 Registro de entrevistas <br> 2.2.3 Análisis de entrevistas <br><br> 2.3 Needfinding <br> 2.3.1 User Personas <br> 2.3.2 User Task Matrix <br> 2.3.3 User Journey Mapping <br> 2.3.4 Empathy Mapping <br><br> 2.4 Big Picture EventStorming <br> 2.5 Ubiquitous Language <br><br> Capítulo III. Requirements Specification <br><br> 3.1 User Stories <br> 3.2 Impact Mapping <br> 3.3 Product Backlog <br><br> Capítulo IV. Solution Software Design <br><br> 4.1 Strategic-Level Domain-Driven Design <br> 4.1.1 Design-Level EventStorming <br> 4.1.1.1 Candidate Context Discovery <br> 4.1.1.2 Domain Message Flows Modeling <br> 4.1.1.3 Bounded Context Canvases <br> 4.1.2 Context Mapping <br> 4.1.3 Software Architecture <br> 4.1.3.1 System Landscape Diagram <br> 4.1.3.2 Context Level Diagrams <br> 4.1.3.3 Container Level Diagrams <br> 4.1.3.4 Deployment Diagrams <br><br> 4.2 Tactical-Level Domain-Driven Design <br> 4.2.1 Bounded Context: Domain Layer <br> 4.2.2 Bounded Context: Interface Layer <br> 4.2.3 Bounded Context: Application Layer <br> 4.2.4 Bounded Context: Infrastructure Layer <br> 4.2.5 Bounded Context: Component Diagrams <br> 4.2.6 Bounded Context: Class Diagrams <br> 4.2.7 Bounded Context: Database Design Diagram |
+| Versión | Fecha      | Autor | Descripción de la modificación |
+|---------|------------|-------|--------------------------------|
+| AV1     | 23/04/2026 | Soto Quispe, Diego Ulises | Se incorporó el **Capítulo I. Introducción**, incluyendo: **1.1 Startup Profile** (1.1.1 Descripción de la Startup, 1.1.2 Perfiles de integrantes del equipo), **1.2 Solution Profile** (1.2.1 Antecedentes y problemática, 1.2.2 Lean UX Process, 1.2.2.1 Lean UX Problem Statements, 1.2.2.2 Lean UX Assumptions, 1.2.2.3 Lean UX Hypothesis Statements, 1.2.2.4 Lean UX Canvas) y **1.3 Segmentos objetivo**. |
+| AV1     | 23/04/2026 | Soto Quispe, Diego Ulises | Se incorporó el **Capítulo II. Requirements Elicitation & Analysis**, incluyendo: **2.1 Competidores** (2.1.1 Análisis competitivo, 2.1.2 Estrategias y tácticas frente a competidores), **2.2 Entrevistas** (2.2.1 Diseño de entrevistas, 2.2.2 Registro de entrevistas, 2.2.3 Análisis de entrevistas), **2.3 Needfinding** (2.3.1 User Personas, 2.3.2 User Task Matrix, 2.3.3 User Journey Mapping, 2.3.4 Empathy Mapping), **2.4 Big Picture EventStorming** y **2.5 Ubiquitous Language**. |
+| AV1     | 23/04/2026 | Soto Quispe, Diego Ulises | Se incorporó el **Capítulo III. Requirements Specification**, incluyendo: **3.1 User Stories**, **3.2 Impact Mapping** y **3.3 Product Backlog**. |
+| AV1 | 23/04/2026 | Cuya Villegas, Rafael Alberto | Se incorporó y desarrolló parte del **Capítulo IV. Solution Software Design**, participando en la definición y estructuración de los artefactos correspondientes a **4.1 Strategic-Level Domain-Driven Design** y **4.2 Tactical-Level Domain-Driven Design**, incluyendo el modelado de **Design-Level EventStorming**, **Candidate Context Discovery**, **Domain Message Flows Modeling**, **Bounded Context Canvases**, **Context Mapping**, así como la propuesta preliminar de **Software Architecture**, **Component Diagrams**, **Class Diagrams** y **Database Design Diagram**. |
+| AV1 | 23/04/2026 | Soto Quispe, Diego Ulises | Se incorporó y desarrolló parte del **Capítulo IV. Solution Software Design**, participando en la definición y estructuración de los artefactos correspondientes a **4.1 Strategic-Level Domain-Driven Design** y **4.2 Tactical-Level Domain-Driven Design**, incluyendo el modelado de **Design-Level EventStorming**, **Candidate Context Discovery**, **Domain Message Flows Modeling**, **Bounded Context Canvases**, **Context Mapping**, así como la propuesta preliminar de **Software Architecture**, **Component Diagrams**, **Class Diagrams** y **Database Design Diagram**. |
+| AV1 | 23/04/2026 | Lapa De La Cruz, Gabriel Omar | Se incorporó y desarrolló parte del **Capítulo IV. Solution Software Design**, participando en la definición y estructuración de los artefactos correspondientes a **4.1 Strategic-Level Domain-Driven Design** y **4.2 Tactical-Level Domain-Driven Design**, incluyendo el modelado de **Design-Level EventStorming**, **Candidate Context Discovery**, **Domain Message Flows Modeling**, **Bounded Context Canvases**, **Context Mapping**, así como la propuesta preliminar de **Software Architecture**, **Component Diagrams**, **Class Diagrams** y **Database Design Diagram**. |
+| AV1 | 23/04/2026 | Vilca Valverde, Fiorella Angela | Se incorporó y desarrolló parte del **Capítulo IV. Solution Software Design**, participando en la definición y estructuración de los artefactos correspondientes a **4.1 Strategic-Level Domain-Driven Design** y **4.2 Tactical-Level Domain-Driven Design**, incluyendo el modelado de **Design-Level EventStorming**, **Candidate Context Discovery**, **Domain Message Flows Modeling**, **Bounded Context Canvases**, **Context Mapping**, así como la propuesta preliminar de **Software Architecture**, **Component Diagrams**, **Class Diagrams** y **Database Design Diagram**. |
 
 ## Project Report Collaboration Insights
 
 **Organización de GitHub:** [https://github.com/G3-UPC-1ASI0572-6770-IOT](https://github.com/G3-UPC-1ASI0572-6770-IOT)  
 **Repositorio del Informe:** [https://github.com/G3-UPC-1ASI0572-6770-IOT/Report](https://github.com/G3-UPC-1ASI0572-6770-IOT/Report)
 
-**TB1:** Las tareas asignadas para la entrega TB1 se han completado y están documentadas en el repositorio de GitHub perteneciente a la organización del equipo.
+**AV1:** Las tareas asignadas para la entrega AV1 se han completado y están documentadas en el repositorio de GitHub perteneciente a la organización del equipo.
 
 Durante la preparación del informe, se llevaron a cabo las siguientes actividades:
 
@@ -65,8 +64,8 @@ En el siguiente cuadro se describen las acciones realizadas y enunciados de conc
 
 | Criterio específico | Acciones realizadas | Conclusiones |
 |---------------------|---------------------|--------------|
-| **Trabaja en equipo para proporcionar liderazgo en forma conjunta** | **Cuya Villegas, Rafael Alberto**<br>TB1<br><br>**Soto Quispe, Diego Ulises**<br>TB1<br><br>**Lapa De La Cruz, Gabriel Omar**<br>TB1<br><br>**Vilca Valverde, Fiorella Angela**<br>TB1 | TB1 |
-| **Crea un entorno colaborativo e inclusivo, establece metas, planifica tareas y cumple objetivos** | **Cuya Villegas, Rafael Alberto**<br>TB1<br><br>**Soto Quispe, Diego Ulises**<br>TB1<br><br>**Lapa De La Cruz, Gabriel Omar**<br>TB1<br><br>**Vilca Valverde, Fiorella Angela**<br>TB1 | TB1 |
+| **Trabaja en equipo para proporcionar liderazgo en forma conjunta** | **Cuya Villegas, Rafael Alberto**<br>AV1<br><br>**Soto Quispe, Diego Ulises**<br>AV1<br><br>**Lapa De La Cruz, Gabriel Omar**<br>AV1<br><br>**Vilca Valverde, Fiorella Angela**<br>AV1 | AV1 |
+| **Crea un entorno colaborativo e inclusivo, establece metas, planifica tareas y cumple objetivos** | **Cuya Villegas, Rafael Alberto**<br>AV1<br><br>**Soto Quispe, Diego Ulises**<br>AV1<br><br>**Lapa De La Cruz, Gabriel Omar**<br>AV1<br><br>**Vilca Valverde, Fiorella Angela**<br>AV1 | AV1 |
 
 # Contenido
 
@@ -477,7 +476,7 @@ de movilidad.
 
 **Visión / Solución propuesta:**
 Nuestra solución abordará esta brecha mediante el desarrollo de una plataforma IoT
-distribuida que integra sensores físicos en los espacios afiliados. Esto permitirá
+distribuida que integre sensores físicos en los espacios afiliados. Esto permitirá
 al conductor consultar disponibilidad verificada en tiempo real, reservar desde su
 aplicación móvil y llegar directamente a un lugar garantizado, sin necesidad de
 búsqueda adicional.
@@ -583,7 +582,7 @@ Las métricas cuantitativas presentadas en esta sección corresponden a supuesto
 
 - Los conductores urbanos de Lima están dispuestos a adoptar una aplicación móvil para consultar disponibilidad y reservar estacionamiento, siempre que esta les garantice información confiable en tiempo real y reduzca de manera perceptible el tiempo de búsqueda.
 
-- Los operadores o administradores de estacionamientos independientes están dispuestos a afiliarse a ParkingNow y asumir el pago de una suscripción mensual, siempre que la plataforma les ofrezca un beneficio económico claro en términos de mayor visibilidad digital, mejora operativa y potencial incremento de ocupación.
+- Los operadores o administradores de estacionamientos independientes están dispuestos a afiliar a ParkingNow y asumir el pago de una suscripción mensual, siempre que la plataforma les ofrezca un beneficio económico claro en términos de mayor visibilidad digital, mejora operativa y potencial incremento de ocupación.
 
 - Los operadores independientes de estacionamientos están dispuestos a integrar un nodo IoT en sus espacios si el costo de implementación es accesible, la configuración es simple y la solución no requiere conocimientos técnicos especializados para su operación cotidiana.
 
@@ -763,7 +762,7 @@ Lima presenta una informalidad persistente en la gestión del estacionamiento ur
 
 Asimismo, el INEI publicó en 2026 el informe *Región Lima: Estructura Empresarial, 2024*, en el cual se observa que las microempresas del sector servicios representan una parte importante del tejido empresarial regional y enfrentan mayores limitaciones de formalización y digitalización que empresas de mayor escala (INEI, 2026). Este contexto resulta consistente con el perfil de los estacionamientos independientes, que suelen operar con recursos limitados y baja incorporación de tecnología.
 
-Desde el punto de vista técnico y económico, la literatura reciente sobre Smart Parking respalda la pertinencia de este segmento como usuario objetivo. Estudios recientes muestran que soluciones basadas en ESP32, sensores ultrasónicos y plataformas web permiten implementar sistemas de monitoreo de ocupación con costos accesibles, buena precisión y una complejidad técnica adecuada para contextos urbanos de pequeña escala (Ruiz Cruzado et al., 2026; Bustamante & Hidrobo, 2024). En consecuencia, los administradores de estacionamientos independientes constituyen un segmento viable para ParkingNow, no solo por su necesidad de digitalización, sino también porque pueden capturar un beneficio económico directo a partir de una mejora en la gestión, la visibilidad y la ocupación de sus espacios.
+Desde el punto de vista técnico y económico, la literatura reciente sobre Smart Parking respalda la pertinencia de este segmento como usuario objetivo. Estudios recientes muestran que soluciones basadas en ESP32, sensores ultrasónicos y plataformas web permiten implementar sistemas de monitoreo de ocupación con costos accesibles, buena precisión y una complejidad técnica adecuada para contextos urbanos de pequeña escala (Ruiz Cruzado et al., 2026; Bustamante & Hidrobo, 2024). En consecuencia, los administradores de estacionamientos independientes constituyen un segmento viable para ParkingNow, no solo por su necesidad de digitalización, sino también porque pueden capturar un beneficio económico directo a partir de una mejor visibilidad, control y aprovechamiento de sus espacios disponibles.
 
 # Capítulo II: Requirements Elicitation & Analysis
 
@@ -780,8 +779,7 @@ mismo dominio funcional y se diferencia por una propuesta con sensado físico Io
 respaldar la disponibilidad reportada.
 
 **Quadra** es una startup peruana que opera como marketplace de estacionamientos,
-conectando conductores con cocheras privadas y propietarios de espacios independientes
-a través de una app móvil disponible en Android e iOS. Su modelo pay-per-use permite
+conectando conductores con cocheras privadas y propietarios independientes vía app móvil. Su modelo pay-per-use permite
 al operador rentabilizar cocheras subutilizadas sin costos fijos, y cuenta con un módulo
 SaaS con inteligencia artificial para gestión de accesos y reportes operativos. No
 se identifica una integración explícita de sensado físico IoT para verificar la
@@ -834,9 +832,9 @@ operadores independientes de pequeña escala.
     <tr>
       <td><strong>Ventaja competitiva</strong><br>¿Qué valor ofrece a los clientes?</td>
       <td>ParkingNow se diferencia en el mercado local por incorporar detección física de ocupación mediante sensores IoT. La propuesta está orientada a operadores independientes de 2 a 30 espacios con baja inversión tecnológica inicial.</td>
-      <td>Modelo pay-per-use sin costos fijos para operadores, con módulo SaaS con IA para gestión avanzada de accesos y reportes.</td>
+      <td>Modelo pay-per-use sin costos fijos para operadores, con módulo SaaS con IA.</td>
       <td>Crecimiento orgánico acelerado, presencia multiciudad en Perú y modelo de bajo costo operativo para conductores y propietarios de cocheras.</td>
-      <td>Respaldo financiero y reputacional del grupo Los Portales, tecnología de reconocimiento de placas con apertura automática de barreras y cobertura en aeropuertos nacionales.</td>
+      <td>Respaldo financiero y reputacional del grupo Los Portales, tecnología de reconocimiento de placas con apertura automática de barreras y cobertura en aeropuertos.</td>
     </tr>
     <tr>
       <th rowspan="2" valign="middle">Perfil de Marketing</th>
@@ -1304,7 +1302,7 @@ o semi-formal, sin herramientas digitales de gestión integradas.
 | **Distrito**      | Miraflores |
 | **Timing**        | Por completar |
 | **Link**          | Por completar |
-| **Resumen**       | Administra un estacionamiento de 12 espacios en Miraflores con control manual en cuaderno. Indica que no tiene visibilidad remota de la operación, salvo por llamadas o WhatsApp. Muestra interés en afiliarse a la plataforma si contribuye a captar más clientes y señala que instalaría sensores siempre que no requieran obras ni configuraciones complejas. |
+| **Resumen**       | Administra un estacionamiento de 12 espacios en Miraflores con control manual en cuaderno. Indica que no tiene visibilidad remota de la operación, salvo por llamadas o WhatsApp. Muestra interés en afiliar tu local si contribuye a captar más clientes y señala que instalaría sensores siempre que no requieran obras ni configuraciones complejas. |
 
 #### Entrevista 5
 
@@ -1332,7 +1330,7 @@ o semi-formal, sin herramientas digitales de gestión integradas.
 | **Distrito**      | Surco |
 | **Timing**        | Por completar |
 | **Link**          | Por completar |
-| **Resumen**       | Administra 8 espacios en Surco y lleva el control de forma totalmente manual en papel, apoyándose solo en celular y WhatsApp. Explica que no puede ausentarse sin perder visibilidad del negocio. Considera útil monitorear espacios desde el teléfono y evaluaría instalar sensores si recibe acompañamiento de instalación y una explicación paso a paso. |
+| **Resumen**       | Administra 8 espacios en Surco y lleva el control de forma totalmente manual en papel, apoyándose solo en celular y WhatsApp. Explica que no puede ausentarse sin perder visibilidad del negocio. Considera útil monitorear espacios desde el celular sin depender de terceros. |
 
 ---
 
@@ -1503,7 +1501,7 @@ antes de llegar.
 La disposición a adoptar una app móvil aparece de forma
 consistente, condicionada a que la información sea confiable y
 esté respaldada por un mecanismo físico verificable. El sensor IoT
-aparece como un factor clave para generar esa confianza en la
+aparece como un elemento diferenciador relevante que podría generar esa confianza en la
 totalidad de la muestra entrevistada.
 La tolerancia al error se perfila como muy baja: un solo fallo en
 la primera experiencia podría derivar en abandono de la
@@ -1677,7 +1675,7 @@ en gran medida de la presencia física del dueño y de coordinación
 informal. En la totalidad de la muestra se observa valor en una plataforma web de monitoreo
 en tiempo real y reservas automatizadas, con la condición de
 que la instalación sea simple, el costo sea accesible y alguien
-les acompañe en el proceso de adopción.
+les acompañe en el proceso de adopción inicial.
 
 Ambos segmentos se complementan de manera directa: los conductores
 necesitan información verificada que solo puede existir si los
@@ -1820,8 +1818,7 @@ completo desde que planifica su salida hasta que llega a su destino, evidenciand
 la ausencia total de información verificada sobre disponibilidad de estacionamiento
 en cada etapa. El journey del administrador independiente recorre su jornada
 operativa desde la apertura del local hasta el cierre del día, evidenciando la
-dependencia de procesos manuales y la imposibilidad de monitorear su negocio a
-distancia. Ambos mapas fueron elaborados en UXPressia, vinculados directamente a
+dependencia de procesos manuales y la imposibilidad de monitoreo a distancia. Ambos mapas fueron elaborados en UXPressia, vinculados directamente a
 los User Personas construidos en la sección 2.3.1, y toman como insumo los
 hallazgos del análisis de entrevistas de la sección 2.2.3.
 
@@ -1921,7 +1918,7 @@ principal dolor no es técnico sino operativo: la imposibilidad de alejarse de s
 negocio sin perder el control de lo que ocurre en él. El administrador no rechaza
 la tecnología por principio, sino por desconocimiento de que existan soluciones
 accesibles para locales de su escala. Su principal ganancia esperada es poder
-monitorear su operación desde el celular sin necesitar conocimientos técnicos ni
+monitorear su operación desde el celular sin necesidad de conocimientos técnicos ni
 realizar inversiones en infraestructura compleja. La prueba social — ver que
 funciona en un negocio similar al suyo — emerge como el mecanismo de conversión
 más relevante para este segmento.
