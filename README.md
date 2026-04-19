@@ -6,24 +6,24 @@
 
 <p align="center"><strong>Ingeniería de Software</strong><br>
 Ciclo: 7mo <br>
- 1ASI0572 Desarrollo de Soluciones IoT - NRC: 6770 <br>  
+1ASI0572 Desarrollo de Soluciones IoT - NRC: 6770 <br>  
 <strong>Profesor: Javier Antonio Prudencio Vidal</strong> </p>
 
 <h2 align="center">Informe de Trabajo Final</h2>
 
-<h3 align="center">Startup: Code Mondoguito </h3>
+<h3 align="center">Startup: Code Mondoguito</h3>
 <p align="center"><strong>Producto: ParkingNow</strong></p>
 
 <h3 align="center">Relación de integrantes:</h3>
 
 <div align="center">
 
-| **Apellidos y Nombres**              | **Code** |
-| ----------------------------- | -------------- |
-| Cuya Villegas, Rafael Alberto    | U201913495    |
-| Soto Quispe, Diego Ulises        | U202214477   |
-| Lapa De La Cruz, Gabriel Omar    |              |
-| Vilca Valverde, Fiorella Angela  |              |
+| **Apellidos y Nombres**       | **Código**   |
+|-------------------------------|--------------|
+| Cuya Villegas, Rafael Alberto | U201913495   |
+| Soto Quispe, Diego Ulises     | U202214477   |
+| Lapa De La Cruz, Gabriel Omar | [COMPLETAR]  |
+| Vilca Valverde, Fiorella Angela | [COMPLETAR]  |
 
 </div>
 
@@ -33,28 +33,38 @@ Ciclo: 7mo <br>
 
 | Versión | Fecha      | Autor | Descripción de la modificación |
 |---------|------------|-------|--------------------------------|
-| AV1     | 23/04/2026 | Soto Quispe, Diego Ulises | Se incorporó el **Capítulo I. Introducción**, incluyendo: **1.1 Startup Profile** (1.1.1 Descripción de la Startup, 1.1.2 Perfiles de integrantes del equipo), **1.2 Solution Profile** (1.2.1 Antecedentes y problemática, 1.2.2 Lean UX Process, 1.2.2.1 Lean UX Problem Statements, 1.2.2.2 Lean UX Assumptions, 1.2.2.3 Lean UX Hypothesis Statements, 1.2.2.4 Lean UX Canvas) y **1.3 Segmentos objetivo**. |
-| AV1     | 23/04/2026 | Soto Quispe, Diego Ulises | Se incorporó el **Capítulo II. Requirements Elicitation & Analysis**, incluyendo: **2.1 Competidores** (2.1.1 Análisis competitivo, 2.1.2 Estrategias y tácticas frente a competidores), **2.2 Entrevistas** (2.2.1 Diseño de entrevistas, 2.2.2 Registro de entrevistas, 2.2.3 Análisis de entrevistas), **2.3 Needfinding** (2.3.1 User Personas, 2.3.2 User Task Matrix, 2.3.3 User Journey Mapping, 2.3.4 Empathy Mapping), **2.4 Big Picture EventStorming** y **2.5 Ubiquitous Language**. |
-| AV1     | 23/04/2026 | Soto Quispe, Diego Ulises | Se incorporó el **Capítulo III. Requirements Specification**, incluyendo: **3.1 User Stories**, **3.2 Impact Mapping** y **3.3 Product Backlog**. |
-| AV1 | 23/04/2026 | Cuya Villegas, Rafael Alberto | Se incorporó y desarrolló parte del **Capítulo IV. Solution Software Design**, participando en la definición y estructuración de los artefactos correspondientes a **4.1 Strategic-Level Domain-Driven Design** y **4.2 Tactical-Level Domain-Driven Design**, incluyendo el modelado de **Design-Level EventStorming**, **Candidate Context Discovery**, **Domain Message Flows Modeling**, **Bounded Context Canvases**, **Context Mapping**, así como la propuesta preliminar de **Software Architecture**, **Component Diagrams**, **Class Diagrams** y **Database Design Diagram**. |
-| AV1 | 23/04/2026 | Soto Quispe, Diego Ulises | Se incorporó y desarrolló parte del **Capítulo IV. Solution Software Design**, participando en la definición y estructuración de los artefactos correspondientes a **4.1 Strategic-Level Domain-Driven Design** y **4.2 Tactical-Level Domain-Driven Design**, incluyendo el modelado de **Design-Level EventStorming**, **Candidate Context Discovery**, **Domain Message Flows Modeling**, **Bounded Context Canvases**, **Context Mapping**, así como la propuesta preliminar de **Software Architecture**, **Component Diagrams**, **Class Diagrams** y **Database Design Diagram**. |
-| AV1 | 23/04/2026 | Lapa De La Cruz, Gabriel Omar | Se incorporó y desarrolló parte del **Capítulo IV. Solution Software Design**, participando en la definición y estructuración de los artefactos correspondientes a **4.1 Strategic-Level Domain-Driven Design** y **4.2 Tactical-Level Domain-Driven Design**, incluyendo el modelado de **Design-Level EventStorming**, **Candidate Context Discovery**, **Domain Message Flows Modeling**, **Bounded Context Canvases**, **Context Mapping**, así como la propuesta preliminar de **Software Architecture**, **Component Diagrams**, **Class Diagrams** y **Database Design Diagram**. |
-| AV1 | 23/04/2026 | Vilca Valverde, Fiorella Angela | Se incorporó y desarrolló parte del **Capítulo IV. Solution Software Design**, participando en la definición y estructuración de los artefactos correspondientes a **4.1 Strategic-Level Domain-Driven Design** y **4.2 Tactical-Level Domain-Driven Design**, incluyendo el modelado de **Design-Level EventStorming**, **Candidate Context Discovery**, **Domain Message Flows Modeling**, **Bounded Context Canvases**, **Context Mapping**, así como la propuesta preliminar de **Software Architecture**, **Component Diagrams**, **Class Diagrams** y **Database Design Diagram**. |
+| AV1     | 20/04/2026 | Soto Quispe, Diego Ulises | Se incorporó el **Capítulo I. Introducción**, incluyendo: **1.1 Startup Profile** (1.1.1 Descripción de la Startup, 1.1.2 Perfiles de integrantes del equipo), **1.2 Solution Profile** (1.2.1 Antecedentes y problemática, 1.2.2 Lean UX Process completo) y **1.3 Segmentos objetivo**. |
+| AV1     | 21/04/2026 | Soto Quispe, Diego Ulises | Se incorporó el **Capítulo II. Requirements Elicitation & Analysis**, incluyendo: **2.1 Competidores** (análisis competitivo + estrategias), **2.2 Entrevistas** (diseño, registro y análisis), **2.3 Needfinding** (Personas, Task Matrix, Journey Mapping, Empathy Mapping), **2.4 Big Picture EventStorming** y **2.5 Ubiquitous Language**. |
+| AV1     | 22/04/2026 | Soto Quispe, Diego Ulises | Se incorporó el **Capítulo III. Requirements Specification**, incluyendo: **3.1 User Stories** con Acceptance Criteria en Gherkin, **3.2 Impact Mapping** y **3.3 Product Backlog** priorizado. |
+| AV1 | 20/04/2026 | Cuya Villegas, Rafael Alberto | Se incorporó y desarrolló parte del **Capítulo IV. Solution Software Design**, liderando la definición de **4.1 Strategic-Level DDD** (Design-Level EventStorming, Candidate Context Discovery, Domain Message Flows Modeling) y la estructuración inicial de **Bounded Context Canvases** y **Context Mapping**. |
+| AV1 | 21/04/2026 | Soto Quispe, Diego Ulises | Se incorporó y desarrolló parte del **Capítulo IV. Solution Software Design**, participando en la consolidación de **4.1 Strategic-Level DDD**, la propuesta de **Software Architecture (C4 Model)** y la revisión de coherencia entre diagramas de contexto, contenedores y despliegue. |
+| AV1 | 22/04/2026 | Lapa De La Cruz, Gabriel Omar | Se incorporó y desarrolló parte del **Capítulo IV. Solution Software Design**, enfocándose en **4.2 Tactical-Level DDD**, elaboración de **Component Level Diagrams (C4)**, validación de notación UML en Class Diagrams y apoyo en la documentación de capas de infraestructura y aplicación. |
+| AV1 | 23/04/2026 | Vilca Valverde, Fiorella Angela | Se incorporó y desarrolló parte del **Capítulo IV. Solution Software Design**, encargándose del **Database Design Diagram**, documentación de entidades/relaciones, validación de consistencia entre Domain Layer y esquema de persistencia, y revisión final de formato Markdown y Tabla de Contenidos. |
 
 ## Project Report Collaboration Insights
 
 **Organización de GitHub:** [https://github.com/G3-UPC-1ASI0572-6770-IOT](https://github.com/G3-UPC-1ASI0572-6770-IOT)  
 **Repositorio del Informe:** [https://github.com/G3-UPC-1ASI0572-6770-IOT/Report](https://github.com/G3-UPC-1ASI0572-6770-IOT/Report)
 
-**AV1:** Las tareas asignadas para la entrega AV1 se han completado y están documentadas en el repositorio de GitHub perteneciente a la organización del equipo.
+**Entrega AV1:** Las actividades asignadas para la presente iteración han sido completadas y documentadas de forma colaborativa en el repositorio de control de versiones perteneciente a la organización del equipo en GitHub.
 
-Durante la preparación del informe, se llevaron a cabo las siguientes actividades:
+### Proceso de Elaboración Colaborativa
 
-- Se redactaron y estructuraron los contenidos asignados a cada integrante en formato Markdown, realizando commits frecuentes para asegurar la evidencia del progreso en el repositorio.
-- Se elaboraron los diferentes artefactos necesarios empleando las herramientas recomendadas y se centralizaron los recursos de imágenes en la carpeta `assets` del repositorio del informe.
-- Se organizaron reuniones de coordinación para distribuir las áreas a desarrollar, revisar el estado de los elementos del documento y consolidar los avances requeridos para la presente iteración.
+Durante el ciclo de desarrollo del informe para la entrega AV1, el equipo ejecutó las siguientes actividades coordinadas:
 
-(añadir imagen de los commits en general del grupo)
+- **Redacción estructurada en Markdown:** Cada integrante elaboró los contenidos asignados empleando sintaxis Markdown, realizando commits frecuentes y descriptivos bajo la convención *Conventional Commits*, con el fin de garantizar trazabilidad y evidencia del progreso individual y grupal en el repositorio.
+
+- **Elaboración de artefactos técnicos y de diseño:** Se generaron los diagramas, modelos y documentos requeridos empleando las herramientas indicadas en el enunciado del curso (UXPressia, Structurizr, LucidChart, Figma, entre otras). Los recursos gráficos resultantes fueron centralizados en la carpeta `assets/` del repositorio del informe, siguiendo una nomenclatura consistente para facilitar su referencia en el documento final.
+
+- **Coordinación y revisión iterativa:** Se realizaron sesiones de trabajo síncrono y asíncrono para distribuir responsabilidades, validar la coherencia transversal entre secciones, revisar el estado de los artefactos y consolidar los avances requeridos para la presente entrega.
+
+- **Participación integral del equipo:** Todos los miembros del equipo participaron activamente en la elaboración del informe, contribuyendo en la redacción, revisión técnica, validación de formato y generación de evidencias de colaboración, tal como se detalla en el *Registro de Versiones del Informe* y en la sección *Student Outcome*.
+
+### Evidencias de Colaboración en GitHub
+
+A continuación se presentan las métricas de colaboración extraídas del repositorio del informe, que evidencian la participación distribuida de los integrantes del equipo:
+
+> *[Insertar aquí captura de pantalla de GitHub Insights: gráfico de contribuciones por miembro, historial de commits y actividad por rama]*
 
 ### ABET, EAC - Student Outcome 5
 
@@ -64,8 +74,8 @@ En el siguiente cuadro se describen las acciones realizadas y enunciados de conc
 
 | Criterio específico | Acciones realizadas | Conclusiones |
 |---------------------|---------------------|--------------|
-| **Trabaja en equipo para proporcionar liderazgo en forma conjunta** | **Cuya Villegas, Rafael Alberto**<br>AV1<br><br>**Soto Quispe, Diego Ulises**<br>AV1<br><br>**Lapa De La Cruz, Gabriel Omar**<br>AV1<br><br>**Vilca Valverde, Fiorella Angela**<br>AV1 | AV1 |
-| **Crea un entorno colaborativo e inclusivo, establece metas, planifica tareas y cumple objetivos** | **Cuya Villegas, Rafael Alberto**<br>AV1<br><br>**Soto Quispe, Diego Ulises**<br>AV1<br><br>**Lapa De La Cruz, Gabriel Omar**<br>AV1<br><br>**Vilca Valverde, Fiorella Angela**<br>AV1 | AV1 |
+| **Trabaja en equipo para proporcionar liderazgo en forma conjunta** | **Soto Quispe, Diego Ulises**<br>**AV1:** Lideró la definición del Sprint Goal y la priorización preliminar del Product Backlog para la entrega AV1. Coordinó la sesión de Big Picture EventStorming para alinear la visión general del dominio y revisó la coherencia entre Lean UX Canvas y los User Stories del Capítulo III.<br><br>**Cuya Villegas, Rafael Alberto**<br>**AV1:** Lideró la estructuración de los Bounded Context Canvases en el Capítulo IV. Coordinó la revisión técnica de los diagramas C4 a nivel Context y Container, y facilitó la integración entre los artefactos de DDD estratégico y el diseño táctico.<br><br>**Lapa De La Cruz, Gabriel Omar**<br>**AV1:** Lideró la elaboración de los Component Level Diagrams y la validación de la notación UML empleada en el diseño táctico. Coordinó la revisión de consistencia entre capas y apoyó en la integración de evidencias técnicas dentro del repositorio del informe.<br><br>**Vilca Valverde, Fiorella Angela**<br>**AV1:** Lideró la documentación del Database Design Diagram y la validación de las relaciones de persistencia. Coordinó la revisión de formato, ortografía y estructura Markdown, además de verificar la coherencia entre Domain Layer y el esquema de base de datos. | **AV1:** El equipo distribuyó el liderazgo de manera conjunta según la especialidad técnica de cada integrante, permitiendo avanzar en paralelo en los Capítulos I, II, III y IV sin generar bloqueos relevantes. La organización del trabajo evidenció liderazgo compartido, coordinación efectiva y capacidad de integración de artefactos en una sola entrega coherente. |
+| **Crea un entorno colaborativo e inclusivo, establece metas, planifica tareas y cumple objetivos** | **Soto Quispe, Diego Ulises**<br>**AV1:** Definió el Sprint Goal para AV1 orientado a comunicar la arquitectura conceptual y los requisitos validados de ParkingNow IoT. Planificó tareas del Sprint Backlog según las fortalezas técnicas del equipo y promovió reuniones breves de seguimiento para sincronizar avances y resolver bloqueos.<br><br>**Cuya Villegas, Rafael Alberto**<br>**AV1:** Propuso el uso de Structurizr para la elaboración de diagramas bajo C4 Model y participó en la sesión de Candidate Context Discovery. Colaboró en la redacción del Ubiquitous Language y revisó artefactos de Needfinding antes de su consolidación en el informe.<br><br>**Lapa De La Cruz, Gabriel Omar**<br>**AV1:** Configuró lineamientos de trabajo en el repositorio del informe siguiendo GitFlow y Conventional Commits. Colaboró en la elaboración de Domain Message Flows Modeling y documentó decisiones técnicas para facilitar la trazabilidad de aportes en el equipo.<br><br>**Vilca Valverde, Fiorella Angela**<br>**AV1:** Estableció criterios de formato para el informe en Markdown, la jerarquía de títulos y la nomenclatura de recursos gráficos. Colaboró en la revisión de consistencia entre User Personas, historias de usuario y criterios de aceptación, además de centralizar los recursos en la carpeta `assets/`. | **AV1:** El equipo mantuvo un entorno colaborativo mediante acuerdos explícitos de trabajo, uso de convenciones comunes y revisión cruzada de artefactos. La planificación de tareas se realizó con base en objetivos concretos y responsabilidades claras, lo que permitió cumplir oportunamente con el alcance definido para AV1 y sostener una participación equilibrada entre los integrantes. |
 
 # Contenido
 
@@ -73,7 +83,7 @@ En el siguiente cuadro se describen las acciones realizadas y enunciados de conc
 - [Project Report Collaboration Insights](#project-report-collaboration-insights)  
 - [Student Outcome](#student-outcome)  
 
-## Capítulo I: Presentación
+## Capítulo I: Introducción
 
 - [1.1. Startup Profile](#11-startup-profile)  
   - [1.1.1. Descripción de la Startup](#111-descripción-de-la-startup)  
@@ -101,78 +111,79 @@ En el siguiente cuadro se describen las acciones realizadas y enunciados de conc
   - [2.3.2. User Task Matrix](#232-user-task-matrix)  
   - [2.3.3. User Journey Mapping](#233-user-journey-mapping)  
   - [2.3.4. Empathy Mapping](#234-empathy-mapping)  
-  - [2.3.5. As-is Scenario Mapping](#235-as-is-scenario-mapping)
-- [2.4. Big Picture EventStorming](#24-big-picture-eventstorming)
-- [2.5. Ubiquitous Language](#24-ubiquitous-language)
+- [2.4. Big Picture EventStorming](#24-big-picture-eventstorming)  
+- [2.5. Ubiquitous Language](#25-ubiquitous-language)  
 
 ## Capítulo III: Requirements Specification
 
-- [3.1. User Stories](#32-user-stories)  
-- [3.2. Impact Mapping](#33-impact-mapping)  
-- [3.3. Product Backlog](#34-product-backlog) 
+- [3.1. User Stories](#31-user-stories)  
+- [3.2. Impact Mapping](#32-impact-mapping)  
+- [3.3. Product Backlog](#33-product-backlog)  
 
 ## Capítulo IV: Solution Software Design
 
 - [4.1. Strategic-Level Domain-Driven Design](#41-strategic-level-domain-driven-design)  
-  - [4.1.1. EventStorming](#411-eventstorming)  
+  - [4.1.1. Design-Level EventStorming](#411-design-level-eventstorming)  
     - [4.1.1.1. Candidate Context Discovery](#4111-candidate-context-discovery)  
     - [4.1.1.2. Domain Message Flows Modeling](#4112-domain-message-flows-modeling)  
     - [4.1.1.3. Bounded Context Canvases](#4113-bounded-context-canvases)  
   - [4.1.2. Context Mapping](#412-context-mapping)  
   - [4.1.3. Software Architecture](#413-software-architecture)  
-    - [4.1.3.1. Software Architecture Context Level Diagrams](#4131-software-architecture-context-level-diagrams)  
-    - [4.1.3.2. Software Architecture Container Level Diagrams](#4132-software-architecture-container-level-diagrams)  
-    - [4.1.3.3. Software Architecture Deployment Diagrams](#4133-software-architecture-deployment-diagrams)  
+    - [4.1.3.1. System Landscape Diagram](#4131-system-landscape-diagram)  
+    - [4.1.3.2. Context Level Diagrams](#4132-context-level-diagrams)  
+    - [4.1.3.3. Container Level Diagrams](#4133-container-level-diagrams)  
+    - [4.1.3.4. Deployment Diagrams](#4134-deployment-diagrams)  
 - [4.2. Tactical-Level Domain-Driven Design](#42-tactical-level-domain-driven-design)  
-  - [4.2.X. Bounded Context: <Bounded Context Name>](#42x-bounded-context-bounded-context-name)  
+  - [4.2.X. Bounded Context: Parking Management](#42x-bounded-context-parking-management)  
     - [4.2.X.1. Domain Layer](#42x1-domain-layer)  
     - [4.2.X.2. Interface Layer](#42x2-interface-layer)  
     - [4.2.X.3. Application Layer](#42x3-application-layer)  
     - [4.2.X.4. Infrastructure Layer](#42x4-infrastructure-layer)  
-    - [4.2.X.5. Bounded Context Software Architecture Component Level Diagrams](#42x5-bounded-context-software-architecture-component-level-diagrams)  
-    - [4.2.X.6. Bounded Context Software Architecture Code Level Diagrams](#42x6-bounded-context-software-architecture-code-level-diagrams)  
-    - [4.2.X.6.1. Bounded Context Domain Layer Class Diagrams](#42x61-bounded-context-domain-layer-class-diagrams)  
-    - [4.2.X.6.2. Bounded Context Database Design Diagram](#42x62-bounded-context-database-design-diagram)
-  
-  ## Capítulo V: Solution UI/UX Design
+    - [4.2.X.5. Component Level Diagrams](#42x5-component-level-diagrams)  
+    - [4.2.X.6. Code Level Diagrams](#42x6-code-level-diagrams)  
+      - [4.2.X.6.1. Class Diagrams](#42x61-class-diagrams)  
+      - [4.2.X.6.2. Database Design Diagram](#42x62-database-design-diagram)  
+
+## Capítulo V: Solution UI/UX Design
 
 - [5.1. Style Guidelines](#51-style-guidelines)  
   - [5.1.1. General Style Guidelines](#511-general-style-guidelines)  
-    - [5.1.2. Web, Mobile and IoT Style Guidelines](#512-web-mobile-and-iot-style-guidelines)  
-  - [5.2. Information Architecture](#52-information-architecture)  
-    - [5.2.1. Organization Systems](#521-organization-systems)  
-    - [5.2.2. Labelling Systems](#522-labelling-systems)  
-    - [5.2.3. SEO Tags and Meta Tags](#523-seo-tags-and-meta-tags)  
-    - [5.2.4. Searching Systems](#524-searching-systems)  
-    - [5.2.5. Navigation Systems](#525-navigation-systems)  
-  - [5.3. Landing Page UI Design](#53-landing-page-ui-design)  
-    - [5.3.1. Landing Page Wireframe](#531-landing-page-wireframe)  
-    - [5.3.2. Landing Page Mock-up](#532-landing-page-mock-up)  
-  - [5.4. Applications UX/UI Design](#54-applications-uxui-design)  
-    - [5.4.1. Applications Wireframes](#541-applications-wireframes)  
-    - [5.4.2. Applications Wireflow Diagrams](#542-applications-wireflow-diagrams)  
-    - [5.4.3. Applications Mock-ups](#543-applications-mock-ups)  
-    - [5.4.4. Applications User Flow Diagrams](#544-applications-user-flow-diagrams)  
-    - [5.4.5. Applications Prototyping](#545-applications-prototyping)
-   - [5.6. IoT Device Design](#56-iot-device-design)
+  - [5.1.2. Web, Mobile and IoT Style Guidelines](#512-web-mobile-and-iot-style-guidelines)  
+- [5.2. Information Architecture](#52-information-architecture)  
+  - [5.2.1. Organization Systems](#521-organization-systems)  
+  - [5.2.2. Labeling Systems](#522-labeling-systems)  
+  - [5.2.3. SEO Tags and Meta Tags](#523-seo-tags-and-meta-tags)  
+  - [5.2.4. Searching Systems](#524-searching-systems)  
+  - [5.2.5. Navigation Systems](#525-navigation-systems)  
+- [5.3. Landing Page UI Design](#53-landing-page-ui-design)  
+  - [5.3.1. Landing Page Wireframe](#531-landing-page-wireframe)  
+  - [5.3.2. Landing Page Mock-up](#532-landing-page-mock-up)  
+- [5.4. Applications UX/UI Design](#54-applications-uxui-design)  
+  - [5.4.1. Applications Wireframes](#541-applications-wireframes)  
+  - [5.4.2. Applications Wireflow Diagrams](#542-applications-wireflow-diagrams)  
+  - [5.4.3. Applications Mock-ups](#543-applications-mock-ups)  
+  - [5.4.4. Applications User Flow Diagrams](#544-applications-user-flow-diagrams)  
+- [5.5. Applications Prototyping](#55-applications-prototyping)  
+- [5.6. IoT Device Design](#56-iot-device-design)  
 
-  ## Capítulo VI: Product Implementation, Validation & Deployment
+## Capítulo VI: Product Implementation, Validation & Deployment
 
 - [6.1. Software Configuration Management](#61-software-configuration-management)  
   - [6.1.1. Software Development Environment Configuration](#611-software-development-environment-configuration)  
   - [6.1.2. Source Code Management](#612-source-code-management)  
   - [6.1.3. Source Code Style Guide & Conventions](#613-source-code-style-guide--conventions)  
   - [6.1.4. Software Deployment Configuration](#614-software-deployment-configuration)  
-- [6.2. Landing Page & Mobile Application Implementation](#62-landing-page--mobile-application-implementation)  
+- [6.2. Landing Page, Services & Applications Implementation](#62-landing-page-services-applications-implementation)  
   - [6.2.X. Sprint n](#62x-sprint-n)  
     - [6.2.X.1. Sprint Planning n](#62x1-sprint-planning-n)  
-    - [6.2.X.2. Sprint Backlog n](#62x2-sprint-backlog-n)  
-    - [6.2.X.3. Development Evidence for Sprint Review](#62x3-development-evidence-for-sprint-review)  
-    - [6.2.X.4. Testing Suite Evidence for Sprint Review](#62x4-testing-suite-evidence-for-sprint-review)  
-    - [6.2.X.5. Execution Evidence for Sprint Review](#62x5-execution-evidence-for-sprint-review)  
-    - [6.2.X.6. Services Documentation Evidence for Sprint Review](#62x6-services-documentation-evidence-for-sprint-review)  
-    - [6.2.X.7. Software Deployment Evidence for Sprint Review](#62x7-software-deployment-evidence-for-sprint-review)  
-    - [6.2.X.8. Team Collaboration Insights during Sprint](#62x8-team-collaboration-insights-during-sprint)  
+    - [6.2.X.2. Aspect Leaders and Collaborators](#62x2-aspect-leaders-and-collaborators)  
+    - [6.2.X.3. Sprint Backlog n](#62x3-sprint-backlog-n)  
+    - [6.2.X.4. Development Evidence for Sprint Review](#62x4-development-evidence-for-sprint-review)  
+    - [6.2.X.5. Testing Suite Evidence for Sprint Review](#62x5-testing-suite-evidence-for-sprint-review)  
+    - [6.2.X.6. Execution Evidence for Sprint Review](#62x6-execution-evidence-for-sprint-review)  
+    - [6.2.X.7. Services Documentation Evidence for Sprint Review](#62x7-services-documentation-evidence-for-sprint-review)  
+    - [6.2.X.8. Software Deployment Evidence for Sprint Review](#62x8-software-deployment-evidence-for-sprint-review)  
+    - [6.2.X.9. Team Collaboration Insights during Sprint](#62x9-team-collaboration-insights-during-sprint)  
 - [6.3. Validation Interviews](#63-validation-interviews)  
   - [6.3.1. Diseño de Entrevistas](#631-diseño-de-entrevistas)  
   - [6.3.2. Registro de Entrevistas](#632-registro-de-entrevistas)  
@@ -184,9 +195,8 @@ En el siguiente cuadro se describen las acciones realizadas y enunciados de conc
 - [Conclusiones](#conclusiones)  
   - [Conclusiones y recomendaciones](#conclusiones-y-recomendaciones)  
   - [Video About-the-Team](#video-about-the-team)  
-- [Bibliografía](#bibliografía)
+- [Bibliografía](#bibliografía)  
 - [Anexos](#anexos)
-
 
 # Capítulo I: Introducción
 
