@@ -827,7 +827,7 @@ A continuación se registran las entrevistas realizadas a conductores urbanos de
 
 | Campo             | Detalle |
 |-------------------|---------|
-| **Imagen**        | ![Carlos Mendoza Rios](assets/Carlos.jpeg) |
+| **Imagen**        | <img src="assets/Carlos.jpeg" alt="Carlos Mendoza Rios" width="320" /> |
 | **Entrevistado**  | Carlos Mendoza Ríos |
 | **Entrevistador** | Rafael Cuya |
 | **Sexo**          | Masculino |
@@ -841,7 +841,7 @@ A continuación se registran las entrevistas realizadas a conductores urbanos de
 
 | Campo             | Detalle |
 |-------------------|---------|
-| **Imagen**        | ![Valeria Torres Chavez](assets/valeria.jpeg) |
+| **Imagen**        | <img src="assets/valeria.jpeg" alt="Valeria Torres Chavez" width="320" /> |
 | **Entrevistado**  | Valeria Torres Chávez |
 | **Entrevistador** | Gabriel Lapa |
 | **Sexo**          | Femenino |
@@ -875,7 +875,7 @@ A continuación se registran las entrevistas realizadas a propietarios y adminis
 
 | Campo             | Detalle |
 |-------------------|---------|
-| **Imagen**        | ![Jorge Huaman Castillo](assets/fiorella.jpeg) |
+| **Imagen**        | <img src="assets/fiorella.jpeg" alt="Jorge Huaman Castillo" width="320" /> |
 | **Entrevistado**  | Jorge Huamán Castillo |
 | **Entrevistador** | Fiorella Vilca |
 | **Sexo**          | Masculino |
@@ -889,7 +889,7 @@ A continuación se registran las entrevistas realizadas a propietarios y adminis
 
 | Campo             | Detalle |
 |-------------------|---------|
-| **Imagen**        | ![Leonardo Delgado Arriola](assets/leonardo.jpeg) |
+| **Imagen**        | <img src="assets/leonardo.jpeg" alt="Leonardo Delgado Arriola" width="320" /> |
 | **Entrevistado**  | Leonardo Delgado Arriola |
 | **Entrevistador** | Elverth Vásquez Villalobos |
 | **Sexo**          | Masculino |
