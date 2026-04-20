@@ -1182,66 +1182,33 @@ Estos hallazgos servirán como base directa para la elaboración de los User Jou
 
 ### 2.3.3. User Journey Maps
 
-En esta sección se presentan los User Journey Maps As-Is de los dos segmentos
-objetivo de ParkingNow. Estos mapas ilustran el recorrido actual de cada User
-Persona en su contexto real, sin la existencia de la solución, con el propósito
-de identificar los puntos de mayor fricción, frustración y oportunidad en la
-experiencia de cada segmento. El journey del conductor urbano recorre el proceso
-completo desde que planifica su salida hasta que llega a su destino, evidenciando
-la ausencia total de información verificada sobre disponibilidad de estacionamiento
-en cada etapa. El journey del administrador independiente recorre su jornada
-operativa desde la apertura del local hasta el cierre del día, evidenciando la
-dependencia de procesos manuales y la imposibilidad de monitoreo a distancia. Ambos mapas fueron elaborados en UXPressia, vinculados directamente a
-los User Personas construidos en la sección 2.3.1, y toman como insumo los
-hallazgos del análisis de entrevistas de la sección 2.2.3.
+En esta sección se presentan los User Journey Maps As-Is de los dos segmentos objetivo de ParkingNow. Estos mapas ilustran el recorrido actual de cada User Persona en su contexto real, sin la existencia de la solución, con el propósito de identificar los puntos de mayor fricción, frustración y oportunidad en la experiencia de cada segmento. El journey del conductor urbano recorre el proceso completo desde que planifica su salida hasta que llega a su destino, evidenciando la ausencia total de información verificada sobre disponibilidad de estacionamiento en cada etapa. El journey del administrador independiente recorre su jornada operativa desde la apertura del local hasta el cierre del día, evidenciando la dependencia de procesos manuales y la imposibilidad de monitoreo a distancia.
+
+Ambos mapas fueron elaborados en UXPressia, vinculados directamente a los User Personas construidos en la sección 2.3.1, y toman como insumo los hallazgos del análisis de entrevistas de la sección 2.2.3.
 
 ---
 
-Figura 4
+**Figura 4**
 
 *User Journey Map As-Is del segmento conductores urbanos de Lima Metropolitana*
 
-![alt text](<assets/As-Is Journey Map — Andrés Villanueva (Conductor Urbano).png>)
+![User Journey Map As-Is del conductor urbano](assets/AsIsJourneyMapAndrésVillanueva(ConductorUrbano).png)
 
 *Nota.* Elaboración propia (2026) en UXPressia.
 
-Según la Figura 4, el journey As-Is del conductor urbano evidencia una experiencia
-marcada por la ausencia de información confiable en tiempo real durante todas las
-etapas del recorrido. La curva de experiencia se mantiene en nivel neutral en las
-etapas de planificación y salida, desciende a sadness en la etapa de búsqueda —
-donde el conductor pierde entre 15 y 40 minutos dando vueltas sin herramienta
-alguna que le anticipe la disponibilidad — y alcanza su punto más crítico en la
-etapa de intento de estacionamiento, donde la frustración llega a nivel rage ante
-la reiterada falta de espacio disponible al llegar al destino. El journey concluye
-en nivel sadness, reflejando que el conductor llega a su compromiso laboral con
-estrés acumulado que afecta su rendimiento posterior. Las oportunidades identificadas
-en cada etapa apuntan directamente a la propuesta de valor de ParkingNow: anticipar
-disponibilidad, permitir reserva garantizada y respaldar la información con
-verificación física mediante sensor IoT.
+Según la Figura 4, el journey As-Is del conductor urbano evidencia una experiencia marcada por la ausencia de información confiable en tiempo real durante todas las etapas del recorrido. La curva de experiencia se mantiene en nivel neutral en las etapas de planificación y salida, desciende a sadness en la etapa de búsqueda, donde el conductor pierde entre 15 y 40 minutos dando vueltas sin herramienta alguna que le anticipe la disponibilidad, y alcanza su punto más crítico en la etapa de intento de estacionamiento, donde la frustración llega a nivel rage ante la reiterada falta de espacio disponible al llegar al destino. El journey concluye en nivel sadness, reflejando que el conductor llega a su compromiso laboral con estrés acumulado que afecta su rendimiento posterior. Las oportunidades identificadas en cada etapa apuntan directamente a la propuesta de valor de ParkingNow: anticipar disponibilidad, permitir reserva garantizada y respaldar la información con verificación física mediante sensor IoT. Este journey sintetiza patrones observados en las Entrevistas 1, 2 y 3.
 
 ---
 
-Figura 5
+**Figura 5**
 
 *User Journey Map As-Is del segmento administradores de estacionamientos independientes*
 
-![alt text](<assets/As-Is Journey Map — Jorge Quispe (Administrador Independiente).png>)
+![User Journey Map As-Is del administrador independiente](assets/AsIsJourneyMapJorgeQuispe(AdministradorIndependiente).png)
 
 *Nota.* Elaboración propia (2026) en UXPressia.
 
-Según la Figura 5, el journey As-Is del administrador independiente evidencia una
-operación completamente dependiente de la presencia física del dueño y de
-herramientas informales como cuaderno, pizarra y WhatsApp. La curva de experiencia
-se mantiene en nivel neutral en las etapas de apertura y operación diaria, desciende
-a sadness en la etapa de gestión de conductores — donde se producen los conflictos
-más frecuentes por llegadas sin espacio disponible y reservas fallidas — y alcanza
-su punto más crítico en la etapa de coordinación a distancia, donde el administrador
-depende de terceros para saber qué ocurre en su propio local sin poder verificarlo.
-El journey cierra en nivel sadness, reflejando que el día termina sin reporte ni
-historial digital de la operación. Las oportunidades identificadas en cada etapa
-sustentan el diseño del panel web de ParkingNow: monitoreo remoto en tiempo real,
-actualización automática de disponibilidad mediante sensores y sistema de reservas
-digitales que elimine la coordinación informal por WhatsApp.
+Según la Figura 5, el journey As-Is del administrador independiente evidencia una operación completamente dependiente de la presencia física del dueño y de herramientas informales como cuaderno, pizarra y WhatsApp. La curva de experiencia se mantiene en nivel neutral en las etapas de apertura y operación diaria, desciende a sadness en la etapa de gestión de conductores, donde se producen los conflictos más frecuentes por llegadas sin espacio disponible y reservas fallidas, y alcanza su punto más crítico en la etapa de coordinación a distancia, donde el administrador depende de terceros para saber qué ocurre en su propio local sin poder verificarlo. El journey cierra en nivel sadness, reflejando que el día termina sin reporte ni historial digital de la operación. Las oportunidades identificadas en cada etapa sustentan el diseño del panel web de ParkingNow: monitoreo remoto en tiempo real, actualización automática de disponibilidad mediante sensores y sistema de reservas digitales que elimine la coordinación informal por WhatsApp. Este journey sintetiza patrones observados en las Entrevistas 4, 5 y 6.
 
 ### 2.3.4. Empathy Mapping
 
