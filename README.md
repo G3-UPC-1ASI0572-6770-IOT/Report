@@ -480,7 +480,7 @@ A continuación se presenta el Lean UX Canvas elaborado para ParkingNow, que sin
 **Figura 1**  
 *Lean UX Canvas de ParkingNow para el dominio de gestión de estacionamientos urbanos en Lima Metropolitana*
 
-![alt text](<assets/lean ux canvas new.jpeg>)
+![alt text](<assets/leanuxcanvas new.jpeg>)
 
 **Nota.** Elaboración propia (2026). Iteración 1. Fecha: 15/04/2026.
 
@@ -565,7 +565,7 @@ ParkingNow compite en el mercado de soluciones digitales para la gestión y bús
     </tr>
     <tr>
       <th colspan="2" align="left">(En la cabecera colocar por cada competidor nombre y logo)</th>
-      <th>ParkingNow<br><img src=" assets/logo de parkingnow.png " alt="Logo ParkingNow" width="90"></th>
+      <th>ParkingNow<br><img src="assets/logoparkingnow.png" alt="Logo ParkingNow" width="90"></th>
       <th>Quadra<br><img src="assets/quadra.png" alt="Logo Quadra" width="90"></th>
       <th>ParkGo<br><img src="assets/parkgo.png" alt="Logo ParkGo" width="90"></th>
       <th>Apparka<br><img src="assets/apparka.png" alt="Logo Apparka" width="90"></th>
@@ -1127,7 +1127,7 @@ en UXPressia.
 
 *User Persona del segmento conductores urbanos de Lima Metropolitana*
 
-![alt text](<assets/Andrés Villanueva Ríos.png>)
+![alt text](<assets/AndrésVillanueva Ríos.png>)
 
 *Nota.* Elaboración propia (2026).
 
@@ -1151,7 +1151,7 @@ primer uso de la plataforma.
 
 *User Persona del segmento administradores de estacionamientos independientes*
 
-![alt text](<assets/Jorge Quispe Huamán.png>)
+![alt text](<assets/JorgeQuispe Huamán.png>)
 
 *Nota.* Elaboración propia (2026).
 
