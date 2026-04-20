@@ -934,27 +934,27 @@ En esta sección se presenta el análisis de las seis entrevistas realizadas, tr
 
 **Edad y género**
 
-Los tres entrevistados tienen entre 29 y 41 años, con un promedio de 35 años. Dos de los tres entrevistados son hombres (67%) y una de las tres entrevistadas es mujer (33%). Este rango corresponde a población económicamente activa que se desplaza con frecuencia en vehículo propio por Lima Metropolitana. Dentro de la muestra analizada, residen en Surquillo, La Molina y San Miguel.
+Los tres entrevistados tienen entre 29 y 41 años, con un promedio de 35 años. Dos de los tres entrevistados son hombres, equivalente al 67% (2/3), y una de las tres entrevistadas es mujer, equivalente al 33% (1/3). Este rango corresponde a población económicamente activa que se desplaza con frecuencia en vehículo propio por Lima Metropolitana. Dentro de la muestra analizada, residen en Surquillo, La Molina y San Miguel.
 
 **Estado civil y carga familiar**
 
-Dos de los tres entrevistados están casados (67%) y uno es soltero (33%). Asimismo, dos de los tres entrevistados tienen hijos o personas a su cargo, lo que sugiere que la mayoría combina sus desplazamientos laborales con responsabilidades familiares adicionales.
+Dos de los tres entrevistados están casados, equivalente al 67% (2/3), y uno es soltero, equivalente al 33% (1/3). Asimismo, dos de los tres entrevistados, equivalente al 67% (2/3), tienen hijos o personas a su cargo, lo que sugiere que la mayoría combina sus desplazamientos laborales con responsabilidades familiares adicionales.
 
 **Ocupación**
 
-En los tres casos entrevistados se identificó trabajo a tiempo completo. Las ocupaciones corresponden a un analista de sistemas, una ejecutiva de ventas y un docente universitario. En todos los casos, el vehículo aparece como un medio de transporte importante para cumplir sus responsabilidades laborales.
+En los tres casos entrevistados, equivalente al 100% (3/3), se identificó trabajo a tiempo completo. Las ocupaciones corresponden a un analista de sistemas, una ejecutiva de ventas y un docente universitario. En todos los casos, equivalente al 100% (3/3), el vehículo aparece como un medio de transporte importante para cumplir sus responsabilidades laborales.
 
 **Frecuencia de uso del vehículo**
 
-Los tres entrevistados usan su vehículo con alta frecuencia: un caso de uso diario de lunes a viernes, un caso de uso casi diario y un caso de uso tres veces por semana. En todos los casos el auto se percibe como parte importante de la rutina de movilidad.
+Los tres entrevistados, equivalente al 100% (3/3), usan su vehículo con alta frecuencia: un caso de uso diario de lunes a viernes, un caso de uso casi diario y un caso de uso tres veces por semana. En todos los casos, equivalente al 100% (3/3), el auto se percibe como parte importante de la rutina de movilidad.
 
 **Zonas de desplazamiento**
 
-En los tres casos se repiten San Isidro y Miraflores como zonas de desplazamiento frecuentes. En dos de los tres casos también aparece Surco. Estas zonas coinciden con distritos de alta demanda vehicular y alta presión sobre el estacionamiento.
+En los tres casos, equivalente al 100% (3/3), se repiten San Isidro y Miraflores como zonas de desplazamiento frecuentes. En dos de los tres casos, equivalente al 67% (2/3), también aparece Surco. Estas zonas coinciden con distritos de alta demanda vehicular y alta presión sobre el estacionamiento.
 
 **Dispositivo y navegador**
 
-Dos de los tres entrevistados usan Android con Chrome, mientras que una entrevistada usa iPhone con Safari. En la totalidad de la muestra, el smartphone es el dispositivo principal para aplicaciones de movilidad y servicios.
+Dos de los tres entrevistados, equivalente al 67% (2/3), usan Android con Chrome, mientras que una entrevistada, equivalente al 33% (1/3), usa iPhone con Safari. En la totalidad de la muestra, equivalente al 100% (3/3), el smartphone es el dispositivo principal para aplicaciones de movilidad y servicios.
 
 ---
 
@@ -962,31 +962,31 @@ Dos de los tres entrevistados usan Android con Chrome, mientras que una entrevis
 
 **Comportamiento actual al buscar estacionamiento**
 
-En los tres casos entrevistados no se identificó una herramienta que les informe de manera anticipada sobre la disponibilidad real de estacionamiento antes de llegar. Dos entrevistados usan Google Maps o Waze para planificar la ruta, pero reconocen que estas herramientas no resuelven el problema de disponibilidad. En el caso restante, la búsqueda se realiza directamente al llegar a la zona.
+En los tres casos entrevistados, equivalente al 100% (3/3), no se identificó una herramienta que les informe de manera anticipada sobre la disponibilidad real de estacionamiento antes de llegar. Dos entrevistados, equivalente al 67% (2/3), usan Google Maps o Waze para planificar la ruta, pero reconocen que estas herramientas no resuelven el problema de disponibilidad. En el caso restante, equivalente al 33% (1/3), la búsqueda se realiza directamente al llegar a la zona.
 
 **Tiempo promedio de búsqueda**
 
-En los tres casos se reportan tiempos de búsqueda superiores a 15 minutos en zonas de alta demanda. Las respuestas oscilan entre 15 y 40 minutos, con un caso extremo de 45 minutos sin encontrar espacio. Esto evidencia que la búsqueda de estacionamiento representa una pérdida significativa de tiempo para este segmento.
+En los tres casos, equivalente al 100% (3/3), se reportan tiempos de búsqueda superiores a 15 minutos en zonas de alta demanda. Las respuestas oscilan entre 15 y 40 minutos, con un caso extremo de 45 minutos sin encontrar espacio. Esto evidencia que la búsqueda de estacionamiento representa una pérdida significativa de tiempo para este segmento.
 
 **Frecuencia del problema**
 
-En toda la muestra el problema aparece de forma recurrente. Dos entrevistados lo viven varias veces por semana y un tercero lo asocia a la mayoría de sus visitas a Miraflores. Esto sugiere que no se trata de un evento aislado, sino de una fricción habitual en su experiencia de movilidad.
+En toda la muestra, equivalente al 100% (3/3), el problema aparece de forma recurrente. Dos entrevistados, equivalente al 67% (2/3), lo viven varias veces por semana y un tercero, equivalente al 33% (1/3), lo asocia a la mayoría de sus visitas a Miraflores. Esto sugiere que no se trata de un evento aislado, sino de una fricción habitual en su experiencia de movilidad.
 
 **Reacción ante la falta de disponibilidad**
 
-En los tres casos la primera reacción consiste en dar vueltas buscando una alternativa cercana. Dos de los tres entrevistados recurren luego a estacionamientos de pago. También aparecen decisiones no ideales, como estacionarse en zonas no autorizadas o cambiar de plan cuando no encuentran espacio.
+En los tres casos, equivalente al 100% (3/3), la primera reacción consiste en dar vueltas buscando una alternativa cercana. Dos de los tres entrevistados, equivalente al 67% (2/3), recurren luego a estacionamientos de pago. También aparecen decisiones no ideales, como estacionarse en zonas no autorizadas o cambiar de plan cuando no encuentran espacio.
 
 **Disposición a usar una app móvil de disponibilidad en tiempo real**
 
-En los tres casos se observa disposición a usar una aplicación móvil que muestre disponibilidad en tiempo real. Dos entrevistados lo afirman de manera directa e inmediata, mientras que un tercero expresa cautela inicial, aunque también muestra apertura si la solución demuestra ser confiable.
+En los tres casos, equivalente al 100% (3/3), se observa disposición a usar una aplicación móvil que muestre disponibilidad en tiempo real. Dos entrevistados, equivalente al 67% (2/3), lo afirman de manera directa e inmediata, mientras que un tercero, equivalente al 33% (1/3), expresa cautela inicial, aunque también muestra apertura si la solución demuestra ser confiable.
 
 **Disposición a reservar desde el celular**
 
-Los tres entrevistados indican que reservarían un espacio desde el celular si eso les garantizara disponibilidad al llegar. Sin embargo, esta disposición está condicionada a que el proceso sea rápido, claro y simple, especialmente en contextos de trabajo o compromisos con horario fijo.
+Los tres entrevistados, equivalente al 100% (3/3), indican que reservarían un espacio desde el celular si eso les garantizara disponibilidad al llegar. Sin embargo, esta disposición está condicionada a que el proceso sea rápido, claro y simple, especialmente en contextos de trabajo o compromisos con horario fijo.
 
 **Importancia del sensor físico para la confianza**
 
-En toda la muestra el sensor físico aparece como un factor relevante de confianza. Los entrevistados distinguen claramente entre una disponibilidad declarada manualmente y una disponibilidad respaldada por detección física del estado del espacio. Este hallazgo refuerza el valor diferencial de la propuesta IoT de ParkingNow.
+En toda la muestra, equivalente al 100% (3/3), el sensor físico aparece como un factor relevante de confianza. Los entrevistados distinguen claramente entre una disponibilidad declarada manualmente y una disponibilidad respaldada por detección física del estado del espacio. Este hallazgo refuerza el valor diferencial de la propuesta IoT de ParkingNow.
 
 **Aplicaciones móviles de referencia**
 
@@ -994,11 +994,11 @@ Google Maps, Waze, Rappi, Uber y apps bancarias aparecen de forma recurrente en 
 
 **Principales frustraciones**
 
-La pérdida de tiempo aparece en los tres casos como la frustración principal. En dos de los tres casos también se menciona la incertidumbre de no saber si se encontrará espacio al llegar. Además, se identifica una asociación entre esta búsqueda y niveles de estrés que afectan negativamente el inicio de actividades laborales o compromisos personales.
+La pérdida de tiempo aparece en los tres casos, equivalente al 100% (3/3), como la frustración principal. En dos de los tres casos, equivalente al 67% (2/3), también se menciona la incertidumbre de no saber si se encontrará espacio al llegar. Además, se identifica una asociación entre esta búsqueda y niveles de estrés que afectan negativamente el inicio de actividades laborales o compromisos personales.
 
 **Condición de abandono de la app**
 
-En los tres casos se observa una tolerancia muy baja al error. Todos señalan, con distintos matices, que una primera falla importante en la disponibilidad mostrada sería suficiente para abandonar la aplicación. Esto implica que la confianza inicial será crítica para la adopción.
+En los tres casos, equivalente al 100% (3/3), se observa una tolerancia muy baja al error. Todos señalan, con distintos matices, que una primera falla importante en la disponibilidad mostrada sería suficiente para abandonar la aplicación. Esto implica que la confianza inicial será crítica para la adopción.
 
 ---
 
@@ -1016,23 +1016,23 @@ Asimismo, se observa disposición a adoptar una app móvil de estacionamiento, s
 
 **Edad y género**
 
-Los tres entrevistados tienen entre 38 y 55 años, con un promedio de 47 años. Dos de los tres entrevistados son hombres (67%) y una es mujer (33%). Este rango refleja operadores con varios años de experiencia en el sector, cuyo negocio se ha desarrollado mayormente fuera de ecosistemas digitales formales.
+Los tres entrevistados tienen entre 38 y 55 años, con un promedio de 47 años. Dos de los tres entrevistados son hombres, equivalente al 67% (2/3), y una es mujer, equivalente al 33% (1/3). Este rango refleja operadores con varios años de experiencia en el sector, cuyo negocio se ha desarrollado mayormente fuera de ecosistemas digitales formales.
 
 **Tamaño y antigüedad del local**
 
-Los estacionamientos entrevistados tienen entre 8 y 20 espacios, con un promedio de 13 espacios. El tiempo de operación varía entre 5 y 14 años, con un promedio aproximado de 9 años. En los tres casos operan en distritos de alta demanda vehicular: Miraflores, San Isidro y Surco.
+Los estacionamientos entrevistados tienen entre 8 y 20 espacios, con un promedio de 13 espacios. El tiempo de operación varía entre 5 y 14 años, con un promedio aproximado de 9 años. En los tres casos, equivalente al 100% (3/3), operan en distritos de alta demanda vehicular: Miraflores, San Isidro y Surco.
 
 **Personal de apoyo**
 
-La estructura operativa es pequeña y varía entre operación individual, apoyo parcial y apoyo por turnos. Un caso opera solo con apoyo eventual de un familiar, otro cuenta con un trabajador y otro con dos trabajadores en turnos distintos. En todos los casos, la coordinación sigue siendo informal.
+La estructura operativa es pequeña y varía entre operación individual, apoyo parcial y apoyo por turnos. Un caso, equivalente al 33% (1/3), opera solo con apoyo eventual de un familiar, otro, equivalente al 33% (1/3), cuenta con un trabajador y otro, equivalente al 33% (1/3), con dos trabajadores en turnos distintos. En todos los casos, equivalente al 100% (3/3), la coordinación sigue siendo informal.
 
 **Dispositivo preferido para gestión**
 
-En los tres casos el celular aparece como el dispositivo principal de gestión. Dos entrevistados dependen exclusivamente de este medio y una entrevistada complementa su uso con laptop. Esto sugiere que la solución debe priorizar accesibilidad y claridad en entornos móviles.
+En los tres casos, equivalente al 100% (3/3), el celular aparece como el dispositivo principal de gestión. Dos entrevistados, equivalente al 67% (2/3), dependen exclusivamente de este medio y una entrevistada, equivalente al 33% (1/3), complementa su uso con laptop. Esto sugiere que la solución debe priorizar accesibilidad y claridad en entornos móviles.
 
 **Herramientas digitales actuales**
 
-En los tres casos se usa WhatsApp como herramienta digital básica de coordinación. Solo un caso menciona Yape para pagos y otro Google Sheets para control de ingresos. No se identificó un sistema digital formal de gestión de estacionamientos en uso activo dentro de la muestra entrevistada.
+En los tres casos, equivalente al 100% (3/3), se usa WhatsApp como herramienta digital básica de coordinación. Solo un caso, equivalente al 33% (1/3), menciona Yape para pagos y otro, equivalente al 33% (1/3), Google Sheets para control de ingresos. No se identificó un sistema digital formal de gestión de estacionamientos en uso activo dentro de la muestra entrevistada.
 
 ---
 
@@ -1040,39 +1040,39 @@ En los tres casos se usa WhatsApp como herramienta digital básica de coordinaci
 
 **Sistema de control de espacios**
 
-En los tres casos el control de espacios sigue siendo manual. Se utilizan cuadernos, papel o pizarra física, sin mecanismos automáticos que reflejen el estado real de los espacios en tiempo real. Esto evidencia una baja digitalización operativa.
+En los tres casos, equivalente al 100% (3/3), el control de espacios sigue siendo manual. Se utilizan cuadernos, papel o pizarra física, sin mecanismos automáticos que reflejen el estado real de los espacios en tiempo real. Esto evidencia una baja digitalización operativa.
 
 **Visibilidad remota de la operación**
 
-En toda la muestra se observa ausencia de visibilidad remota real. Cuando el administrador no está físicamente en el local, depende de llamadas, mensajes o de terceros para conocer el estado del negocio. Esta dependencia aparece como una fuente importante de fricción.
+En toda la muestra, equivalente al 100% (3/3), se observa ausencia de visibilidad remota real. Cuando el administrador no está físicamente en el local, depende de llamadas, mensajes o de terceros para conocer el estado del negocio. Esta dependencia aparece como una fuente importante de fricción.
 
 **Conductores llegando sin espacio disponible**
 
-Los tres entrevistados reportan situaciones en las que llegan conductores esperando encontrar espacio y este ya no se encuentra disponible. Esto genera incomodidad, pérdida de clientes y, en un caso, incluso devoluciones de dinero por reservas informales mal gestionadas.
+Los tres entrevistados, equivalente al 100% (3/3), reportan situaciones en las que llegan conductores esperando encontrar espacio y este ya no se encuentra disponible. Esto genera incomodidad, pérdida de clientes y, en un caso, incluso devoluciones de dinero por reservas informales mal gestionadas.
 
 **Mayor fuente de errores operativos**
 
-En dos de los tres casos la principal dificultad está asociada a la necesidad de presencia constante para mantener el control del negocio. En el tercer caso, la principal fuente de error está en la gestión manual de reservas, especialmente cuando intervienen varios trabajadores o canales como WhatsApp.
+En dos de los tres casos, equivalente al 67% (2/3), la principal dificultad está asociada a la necesidad de presencia constante para mantener el control del negocio. En el tercer caso, equivalente al 33% (1/3), la principal fuente de error está en la gestión manual de reservas, especialmente cuando intervienen varios trabajadores o canales como WhatsApp.
 
 **Interés en una plataforma web de gestión**
 
-En los tres casos se observa interés por una plataforma web de gestión y visibilidad digital. Sin embargo, este interés está condicionado a simplicidad de uso, claridad del beneficio y reducción real de problemas operativos. No hay rechazo al cambio, pero sí cautela.
+En los tres casos, equivalente al 100% (3/3), se observa interés por una plataforma web de gestión y visibilidad digital. Sin embargo, este interés está condicionado a simplicidad de uso, claridad del beneficio y reducción real de problemas operativos. No hay rechazo al cambio, pero sí cautela.
 
 **Disposición a instalar sensores**
 
-En los tres casos existe apertura a instalar sensores, siempre que la instalación sea simple y no implique obras, electricista ni procesos complejos. Además, dos de los tres entrevistados requieren evidencia previa o un caso similar exitoso para confiar, mientras que un caso prioriza que el sistema automatice la actualización de disponibilidad.
+En los tres casos, equivalente al 100% (3/3), existe apertura a instalar sensores, siempre que la instalación sea simple y no implique obras, electricista ni procesos complejos. Además, dos de los tres entrevistados, equivalente al 67% (2/3), requieren evidencia previa o un caso similar exitoso para confiar, mientras que un caso, equivalente al 33% (1/3), prioriza que el sistema automatice la actualización de disponibilidad.
 
 **Experiencia previa con herramientas digitales de gestión**
 
-Dos de los tres entrevistados nunca han usado un sistema de gestión para estacionamientos, principalmente porque no conocían opciones ajustadas a negocios pequeños. El caso restante sí probó una solución anterior, pero la abandonó por complejidad y costo.
+Dos de los tres entrevistados, equivalente al 67% (2/3), nunca han usado un sistema de gestión para estacionamientos, principalmente porque no conocían opciones ajustadas a negocios pequeños. El caso restante, equivalente al 33% (1/3), sí probó una solución anterior, pero la abandonó por complejidad y costo.
 
 **Beneficio principal esperado**
 
-Los beneficios esperados son concretos y operativos. Un entrevistado prioriza atraer más clientes, otro reducir errores y ganar visibilidad en tiempo real, y otro poder monitorear el estado del local desde el celular sin depender de terceros. En conjunto, los tres administradores priorizan beneficios prácticos antes que atributos tecnológicos abstractos.
+Los beneficios esperados son concretos y operativos. Un entrevistado, equivalente al 33% (1/3), prioriza atraer más clientes, otro, equivalente al 33% (1/3), reducir errores y ganar visibilidad en tiempo real, y otro, equivalente al 33% (1/3), poder monitorear el estado del local desde el celular sin depender de terceros. En conjunto, los tres administradores, equivalente al 100% (3/3), priorizan beneficios prácticos antes que atributos tecnológicos abstractos.
 
 **Condición para confiar en la plataforma**
 
-La confianza no depende de marketing general, sino de evidencia tangible. Dos de los tres entrevistados necesitan ver un caso real de negocio similar funcionando correctamente, mientras que un caso necesita una demostración en vivo en su propio local. Esto sugiere que la adopción inicial dependerá mucho de demostración práctica y prueba social.
+La confianza no depende de marketing general, sino de evidencia tangible. Dos de los tres entrevistados, equivalente al 67% (2/3), necesitan ver un caso real de negocio similar funcionando correctamente, mientras que un caso, equivalente al 33% (1/3), necesita una demostración en vivo en su propio local. Esto sugiere que la adopción inicial dependerá mucho de demostración práctica y prueba social.
 
 ---
 
@@ -1131,19 +1131,7 @@ en UXPressia.
 
 *Nota.* Elaboración propia (2026).
 
-Según la Figura 2, el arquetipo del conductor urbano corresponde a un profesional
-de 35 años, casado, que usa su vehículo a diario para desplazarse hacia zonas de
-alta demanda vehicular como San Isidro, Miraflores y Surco. Utiliza principalmente
-su smartphone Android y el navegador Chrome, y está familiarizado con aplicaciones
-de uso cotidiano como Google Maps, Waze, Yape, Rappi y WhatsApp. Sus principales
-motivaciones son ahorrar tiempo, llegar puntual a reuniones y compromisos, y reducir
-el estrés asociado a la búsqueda de estacionamiento en Lima. Entre sus mayores
-frustraciones destacan la pérdida de entre 15 y 30 minutos dando vueltas, la
-incertidumbre de no saber si realmente encontrará espacio al llegar y la falta de
-coherencia entre la información digital y el estado real del lugar. Asimismo, muestra
-alta disposición a reservar desde su celular siempre que la información esté
-respaldada por un sensor físico y presenta una tolerancia muy baja al error en el
-primer uso de la plataforma.
+Según la Figura 2, el arquetipo del conductor urbano corresponde a un profesional de 35 años, casado, que usa su vehículo con alta frecuencia para desplazarse hacia zonas de alta demanda vehicular como San Isidro, Miraflores y Surco. Utiliza principalmente su smartphone para consultar rutas y servicios digitales, y dentro de la muestra se observaron tanto usuarios de Android con Chrome como de iPhone con Safari. Asimismo, está familiarizado con aplicaciones de uso cotidiano como Google Maps, Waze, Yape, Rappi y WhatsApp. Sus principales motivaciones son ahorrar tiempo, llegar puntual a reuniones y compromisos, y reducir el estrés asociado a la búsqueda de estacionamiento en Lima. Entre sus mayores frustraciones destacan la pérdida de entre 15 y 30 minutos dando vueltas, la incertidumbre de no saber si realmente encontrará espacio al llegar y la falta de coherencia entre la información digital y el estado real del lugar. Asimismo, muestra alta disposición a reservar desde su celular siempre que la información esté respaldada por un sensor físico y presenta una tolerancia muy baja al error en el primer uso de la plataforma. Este arquetipo sintetiza patrones observados en las Entrevistas 1, 2 y 3.
 
 ---
 
@@ -1155,84 +1143,42 @@ primer uso de la plataforma.
 
 *Nota.* Elaboración propia (2026).
 
-Según la Figura 3, el arquetipo del administrador independiente corresponde a un
-operador de 47 años que gestiona un estacionamiento de pequeña escala en Lima
-Metropolitana. Su operación depende en gran medida de registros manuales,
-coordinación informal por WhatsApp y supervisión presencial, lo que le impide tener
-visibilidad remota confiable sobre el estado de sus espacios. Utiliza principalmente
-su celular Android y el navegador Chrome, y recurre a herramientas básicas como
-WhatsApp y Google Maps para coordinar y ubicarse. Sus principales motivaciones son
-monitorear la ocupación desde el celular sin necesidad de estar presente, captar
-nuevos conductores y reducir errores en la gestión diaria del local. Entre sus mayores
-frustraciones destacan la dependencia de su presencia física para mantener el control
-del negocio, la imposibilidad de saber en tiempo real cuántos espacios están ocupados
-cuando se encuentra fuera del establecimiento y los errores derivados de una gestión
-manual. Muestra disposición a digitalizar su operación siempre que la solución sea
-simple, accesible, fácil de aprender y demuestre beneficios concretos para un negocio
-de su escala.
+Según la Figura 3, el arquetipo del administrador independiente corresponde a un operador de 47 años que gestiona un estacionamiento de pequeña escala en Lima Metropolitana. Su operación depende en gran medida de registros manuales, coordinación informal por WhatsApp y supervisión presencial, lo que le impide tener visibilidad remota confiable sobre el estado de sus espacios. Utiliza principalmente su celular para coordinar y gestionar aspectos operativos del negocio y, en algunos casos, complementa esta gestión con laptop. Además, recurre a herramientas básicas como WhatsApp, Yape, Google Maps y, de manera puntual, hojas de cálculo. Sus principales motivaciones son monitorear la ocupación desde el celular sin necesidad de estar presente, captar nuevos conductores y reducir errores en la gestión diaria del local. Entre sus mayores frustraciones destacan la dependencia de su presencia física para mantener el control del negocio, la imposibilidad de saber en tiempo real cuántos espacios están ocupados cuando se encuentra fuera del establecimiento y los errores derivados de una gestión manual. Muestra disposición a digitalizar su operación siempre que la solución sea simple, accesible, fácil de aprender y demuestre beneficios concretos para un negocio de su escala. Este arquetipo sintetiza patrones observados en las Entrevistas 4, 5 y 6.
 
 ### 2.3.2. User Task Matrix
 
-En esta sección se presenta el User Task Matrix de ParkingNow, que concentra
-las tareas que los dos User Personas realizan para cumplir sus objetivos en el
-dominio del estacionamiento urbano, con independencia de la existencia de la
-solución. Los segmentos considerados son **Andrés Villanueva Ríos** (conductor
-urbano) y **Jorge Quispe Huamán** (administrador de estacionamiento
-independiente). Cada tarea es evaluada en términos de frecuencia e importancia
-para cada segmento, con el fin de identificar las actividades más críticas,
-las coincidencias entre ambos perfiles y las diferencias que orientan el diseño
-de las experiencias de usuario de la plataforma.
+En esta sección se presenta el User Task Matrix de ParkingNow, que concentra las tareas que los User Personas, representativos de cada segmento objetivo, realizan para cumplir sus objetivos dentro del dominio del estacionamiento urbano, independientemente de la existencia de la solución propuesta. Los segmentos considerados son el conductor urbano y el administrador de estacionamiento independiente, representados mediante los arquetipos construidos en la sección 2.3.1. Cada tarea se evalúa en términos de frecuencia e importancia para cada segmento, con el fin de identificar las actividades más críticas, las coincidencias entre ambos perfiles y las diferencias que orientan el diseño de las experiencias de usuario de la plataforma.
 
-| Tareas | Andrés Villanueva / Frecuencia | Andrés Villanueva / Importancia | Jorge Quispe / Frecuencia | Jorge Quispe / Importancia |
-|---|---|---|---|---|
-| Planificar la ruta hacia el destino antes de salir | Casi siempre | Alta | No aplica | No aplica |
-| Buscar estacionamiento disponible en la zona de destino | Siempre | Alta | No aplica | No aplica |
-| Buscar alternativas ante falta de disponibilidad | Casi siempre | Alta | No aplica | No aplica |
-| Pagar por el servicio de estacionamiento | Siempre | Alta | No aplica | No aplica |
-| Calcular tiempo extra por dificultad de estacionamiento | Casi siempre | Media | No aplica | No aplica |
-| Coordinar llegada a tiempo a compromisos laborales | Siempre | Alta | No aplica | No aplica |
-| Controlar entradas y salidas de vehículos en el local | No aplica | No aplica | Siempre | Alta |
-| Registrar manualmente el estado de ocupación de espacios | No aplica | No aplica | Siempre | Alta |
-| Comunicar disponibilidad de espacios a conductores | No aplica | No aplica | Casi siempre | Alta |
-| Gestionar cobros a clientes al momento de retiro | No aplica | No aplica | Siempre | Alta |
-| Coordinar con el personal de apoyo la operación del local | No aplica | No aplica | Casi siempre | Alta |
-| Monitorear la operación del local a distancia | No aplica | No aplica | A veces | Alta |
-| Atender conductores que llegan sin espacio disponible | No aplica | No aplica | Casi siempre | Media |
-| Registrar ingresos diarios del negocio | No aplica | No aplica | Siempre | Alta |
+| Tarea | Andrés Villanueva (Frecuencia) | Andrés Villanueva (Importancia) | Jorge Quispe (Frecuencia) | Jorge Quispe (Importancia) |
+|-------|-------------------------------|--------------------------------|--------------------------|--------------------------|
+| Planificar la ruta hacia el destino antes de salir | Frecuentemente | Alta | — | — |
+| Buscar estacionamiento disponible en la zona de destino | Siempre | Alta | — | — |
+| Buscar alternativas ante falta de disponibilidad | Frecuentemente | Alta | — | — |
+| Pagar por el servicio de estacionamiento | Siempre | Alta | — | — |
+| Considerar tiempo adicional por dificultad para estacionar | Frecuentemente | Media | — | — |
+| Salir con anticipación para llegar a tiempo a compromisos | Siempre | Alta | — | — |
+| Controlar entradas y salidas de vehículos en el local | — | — | Siempre | Alta |
+| Registrar manualmente el estado de ocupación de espacios | — | — | Siempre | Alta |
+| Comunicar disponibilidad de espacios a conductores | — | — | Frecuentemente | Alta |
+| Gestionar cobros a clientes al momento de retiro | — | — | Siempre | Alta |
+| Coordinar con el personal de apoyo la operación del local | — | — | Frecuentemente | Alta |
+| Monitorear la operación del local a distancia | — | — | Ocasionalmente | Alta |
+| Atender conductores que llegan sin espacio disponible | — | — | Frecuentemente | Media |
+| Registrar ingresos diarios del negocio | — | — | Siempre | Alta |
 
 **Análisis**
 
-Las tareas con mayor frecuencia e importancia para **Andrés** son buscar
-estacionamiento disponible, coordinar llegada a tiempo a compromisos y pagar
-por el servicio, todas con frecuencia "Siempre" e importancia "Alta". Esto
-evidencia que el proceso de estacionamiento es una actividad crítica e
-inseparable de su rutina laboral diaria. La tarea buscar alternativas ante
-falta de disponibilidad aparece como "Casi siempre / Alta", lo que confirma
-que el conductor ya tiene incorporado en su rutina un plan de contingencia
-ante la escasez de espacios, asumiendo un costo habitual de tiempo y estrés.
+La valoración de frecuencia e importancia se estableció a partir de los patrones identificados en las Entrevistas 1 a 6 y de su síntesis en los User Personas de la sección 2.3.1.
 
-Para **Jorge**, las tareas de mayor frecuencia e importancia son controlar
-entradas y salidas, registrar ocupación manualmente, gestionar cobros y
-registrar ingresos diarios, todas con frecuencia "Siempre" e importancia
-"Alta". Esto confirma que la operación del local depende completamente de
-su presencia física y de procesos manuales sin automatización. Destaca que
-monitorear la operación a distancia tiene importancia "Alta" pero frecuencia
-"A veces", evidenciando que Jorge reconoce su valor pero no puede realizarlo
-con la frecuencia deseada por falta de herramientas.
+Las tareas con mayor frecuencia e importancia para **Andrés** son buscar estacionamiento disponible, pagar por el servicio y salir con anticipación para llegar a tiempo a sus compromisos, todas con frecuencia `Siempre` e importancia `Alta`. Esto evidencia que el proceso de estacionamiento forma parte crítica de su rutina de movilidad. Asimismo, la tarea `Buscar alternativas ante falta de disponibilidad` aparece con valoración `Frecuentemente / Alta`, lo que confirma que el conductor ya ha incorporado en su comportamiento habitual un mecanismo de contingencia frente a la escasez de espacios.
 
-La principal **coincidencia** entre ambos segmentos es la necesidad de
-información en tiempo real sobre el estado de los espacios: el conductor
-necesita saber qué hay libre antes de llegar, y el administrador necesita
-saber qué está ocupado sin tener que estar presente. Esta intersección
-es el punto de valor más directo que ParkingNow resuelve mediante su
-capa IoT distribuida.
+Para **Jorge**, las tareas de mayor frecuencia e importancia son controlar entradas y salidas, registrar manualmente la ocupación, gestionar cobros y registrar ingresos diarios, todas con frecuencia `Siempre` e importancia `Alta`. Esto confirma que la operación del local depende de procesos manuales y de supervisión constante. Destaca además que `Monitorear la operación del local a distancia` presenta importancia `Alta` pero frecuencia `Ocasionalmente`, lo que evidencia que el administrador reconoce su valor, pero no puede realizar esta tarea con regularidad debido a la falta de herramientas adecuadas.
 
-La principal **diferencia** es que las tareas del conductor son de
-desplazamiento y búsqueda, mientras que las del administrador son de
-control operativo y coordinación. Ambos operan en dominios distintos
-pero complementarios: el conductor interactúa con el espacio desde
-afuera hacia adentro, y el administrador lo gestiona desde adentro
-hacia afuera.
+La principal **coincidencia** entre ambos segmentos es la necesidad de contar con visibilidad confiable sobre el estado de ocupación de los espacios. El conductor requiere esa información antes de llegar a su destino, mientras que el administrador necesita conocerla para operar y responder adecuadamente a la demanda. Esta intersección representa uno de los puntos de valor más directos que la solución propuesta busca resolver.
+
+La principal **diferencia** radica en la naturaleza de las tareas realizadas por cada segmento. En el caso del conductor, las actividades se centran en desplazamiento, búsqueda y manejo de incertidumbre. En el caso del administrador, las tareas se enfocan en control operativo, coordinación y registro manual de la actividad diaria del local. Ambos actúan sobre el mismo dominio, pero desde perspectivas complementarias.
+
+Estos hallazgos servirán como base directa para la elaboración de los User Journey Maps en la siguiente sección, donde se representará el recorrido As-Is de cada User Persona en la situación actual, sin la intervención de la solución propuesta.
 
 ### 2.3.3. User Journey Maps
 
