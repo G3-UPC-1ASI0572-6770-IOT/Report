@@ -66,7 +66,7 @@ A continuación se presentan las métricas de colaboración extraídas del repos
 
 > *[Insertar aquí captura de pantalla de GitHub Insights: gráfico de contribuciones por miembro, historial de commits y actividad por rama]*
 
-### ABET – EAC - Student Outcome 5
+# ABET – EAC - Student Outcome 5
 
 El curso contribuye al cumplimiento del Student Outcome ABET:  
 **ABET – EAC - Student Outcome 5**  
@@ -441,37 +441,37 @@ A partir de esta priorización, se consideran como supuestos de **alto riesgo y 
 
 #### 1.2.2.3. Lean UX Hypothesis Statements
 
-> Las siguientes hipótesis se redactan a partir de la plantilla de hipótesis de Lean UX y buscan expresar resultados esperados y señales de validación temprana, sin constituir resultados demostrados en la presente entrega.
+> Las siguientes hipótesis se formulan a partir de la plantilla de hipótesis de Lean UX y buscan vincular de manera explícita un resultado de negocio esperado con un segmento de usuario, un beneficio observable y una funcionalidad concreta de la solución. Su propósito es orientar la validación progresiva del producto en iteraciones posteriores, sin asumir que estos resultados han sido demostrados en la presente entrega.
 
 ##### Hypothesis Statement #1
 
-**Creemos que** reducir el tiempo de búsqueda de estacionamiento de los conductores urbanos en Lima a menos de 5 minutos es un resultado alcanzable.  
-**Sabremos que estamos bien cuando veamos los siguientes comentarios del mercado:** una proporción significativa de usuarios complete una reserva exitosa en menos de 5 minutos desde el inicio de la búsqueda, y los conductores reporten que la visualización de disponibilidad en tiempo real les permitió reducir recorridos innecesarios y tomar decisiones con mayor rapidez.
+**Creemos que** reducir el tiempo de búsqueda de estacionamiento de los conductores urbanos en Lima Metropolitana **se logrará si** los conductores **consiguen** identificar espacios disponibles y reservarlos anticipadamente **con** una aplicación móvil que muestre disponibilidad en tiempo real y permita la reserva antes de llegar al destino.  
+**Sabremos que estamos en lo correcto cuando veamos** que al menos el 40% de los usuarios completa una reserva exitosa en menos de 5 minutos desde el inicio de la búsqueda y que una mayoría de usuarios valida que redujo recorridos innecesarios para encontrar estacionamiento.
 
 ##### Hypothesis Statement #2
 
-**Creemos que** mejorar la tasa de ocupación de los espacios de estacionamientos independientes es un resultado alcanzable.  
-**Sabremos que estamos bien cuando veamos los siguientes comentarios del mercado:** los operadores afiliados registren un incremento sostenido en el número de reservas completadas respecto a su situación previa y manifiesten que la visibilidad digital de sus espacios contribuyó a captar una mayor demanda.
+**Creemos que** mejorar la tasa de ocupación de los estacionamientos independientes afiliados **se logrará si** los administradores **consiguen** mayor visibilidad digital de sus espacios y captación de demanda **con** una plataforma que exponga su disponibilidad al conductor y permita la gestión digital de reservas.  
+**Sabremos que estamos en lo correcto cuando veamos** un incremento de al menos 15% en la cantidad de reservas completadas de los estacionamientos afiliados durante el periodo de validación y retroalimentación positiva de los operadores respecto al impacto de la plataforma en su nivel de ocupación.
 
 ##### Hypothesis Statement #3
 
-**Creemos que** incrementar la confianza del conductor en la disponibilidad mostrada por la plataforma es un resultado alcanzable.  
-**Sabremos que estamos bien cuando veamos los siguientes comentarios del mercado:** los usuarios que completan una reserva reporten niveles positivos de satisfacción con la consistencia entre el espacio mostrado como disponible y el espacio encontrado al llegar al estacionamiento.
+**Creemos que** incrementar la confianza del conductor en la disponibilidad mostrada por la plataforma **se logrará si** los conductores **consiguen** percibir consistencia entre la información digital y el estado real del espacio **con** una solución conectada a un nodo IoT que actualice automáticamente el estado de ocupación.  
+**Sabremos que estamos en lo correcto cuando veamos** que al menos el 80% de los usuarios que completan reservas reporta satisfacción con la correspondencia entre el espacio mostrado como disponible y el espacio efectivamente encontrado al llegar al estacionamiento.
 
 ##### Hypothesis Statement #4
 
-**Creemos que** reducir de forma significativa la carga operativa manual del administrador de estacionamiento es un resultado alcanzable.  
-**Sabremos que estamos bien cuando veamos los siguientes comentarios del mercado:** los administradores reporten haber eliminado o reducido sustancialmente el uso de registros físicos manuales para el control de ocupación y reservas, y manifiesten que el monitoreo centralizado simplifica su operación diaria.
+**Creemos que** reducir la carga operativa manual del administrador de estacionamiento **se logrará si** los administradores **consiguen** centralizar el monitoreo de ocupación, reservas y eventos operativos **con** un panel web conectado al estado actualizado de los espacios y al historial generado por el nodo IoT.  
+**Sabremos que estamos en lo correcto cuando veamos** que al menos el 70% de los administradores participantes reporta una disminución significativa en el uso de registros manuales y una mejora en su capacidad de supervisar la operación diaria desde un único canal digital.
 
 ##### Hypothesis Statement #5
 
-**Creemos que** facilitar la afiliación progresiva de estacionamientos independientes a la plataforma es un resultado alcanzable.  
-**Sabremos que estamos bien cuando veamos los siguientes comentarios del mercado:** los operadores que participen en etapas iniciales de validación manifiesten interés en mantener el servicio, recomienden la solución a otros operadores y perciban valor claro en términos de visibilidad, reservas y mejora operativa.
+**Creemos que** facilitar la afiliación progresiva de estacionamientos independientes a la plataforma **se logrará si** los operadores **consiguen** percibir beneficios claros de visibilidad, control operativo y potencial incremento de demanda **con** una solución accesible, de bajo costo relativo y sencilla de implementar en negocios de pequeña escala.  
+**Sabremos que estamos en lo correcto cuando veamos** que al menos el 60% de los operadores que participan en etapas iniciales de validación expresa intención de mantener el servicio, y que una parte de ellos manifiesta disposición a recomendar la solución a otros operadores.
 
 ##### Hypothesis Statement #6 *(Técnica)*
 
-**Creemos que** lograr una detección confiable del estado de ocupación de los espacios en condiciones normales de operación es un resultado alcanzable.  
-**Sabremos que estamos bien cuando veamos los siguientes comentarios del mercado:** durante las pruebas del prototipo, el nodo IoT mantenga un nivel aceptable de precisión y minimice falsos positivos y falsos negativos, generando confianza en la actualización del estado de los espacios.
+**Creemos que** lograr una detección confiable del estado de ocupación de los espacios **se logrará si** el sistema **consigue** distinguir de forma consistente entre espacio libre y espacio ocupado **con** sensores ultrasónicos HC-SR04+ conectados a un nodo ESP32 con lógica local de validación y envío de eventos.  
+**Sabremos que estamos en lo correcto cuando veamos** que, durante las pruebas del prototipo, el nodo IoT alcanza una precisión mayor al 90% en la detección del estado de los espacios y mantiene bajos niveles de falsos positivos y falsos negativos en condiciones normales de operación.
 
 ---
 
@@ -482,11 +482,11 @@ A continuación se presenta el Lean UX Canvas elaborado para el proyecto, como s
 **Figura 2**  
 *Lean UX Canvas de ParkingNow para el dominio de gestión de estacionamientos urbanos en Lima Metropolitana*
 
-![alt text](assets/leanuxcanvasoficial.jpeg)
+![alt text](assets/leanuxfinal.jpeg)
 
 **Nota.** Elaboración propia (2026). Iteración 1.
 
-> Según la Figura 1, el Lean UX Canvas identifica como problema central la desconexión entre el estado físico real de los espacios y los canales digitales de información. Esta brecha afecta tanto a conductores urbanos, que pierden tiempo buscando disponibilidad, como a administradores independientes, que operan sin visibilidad ni herramientas digitales.
+> Según la Figura 2, el Lean UX Canvas identifica como problema central la desconexión entre el estado físico real de los espacios y los canales digitales de información. Esta brecha afecta tanto a conductores urbanos, que pierden tiempo buscando disponibilidad, como a administradores independientes, que operan sin visibilidad ni herramientas digitales.
 >
 > Las ideas de solución se articulan en torno a una plataforma distribuida con sensado IoT, reservas anticipadas mediante aplicación móvil y un panel web de monitoreo para el operador. Los *business outcomes* priorizan la mejora en la ocupación de los estacionamientos integrados y la reducción del tiempo de búsqueda del conductor, mientras que los *user benefits* se centran en la confianza, la previsibilidad y la mejora operativa.
 >
