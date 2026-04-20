@@ -524,7 +524,7 @@ En Lima Metropolitana circulan aproximadamente 1.8 millones de automóviles, de 
 Este segmento comprende a dueños y administradores de estacionamientos independientes de Lima Metropolitana que operan entre 2 y 30 espacios, generalmente bajo esquemas manuales o semi-formales y sin herramientas digitales integradas de gestión. Constituyen el cliente pagador principal de ParkingNow y los usuarios directos del panel web de la plataforma, desde el cual podrán registrar su local, configurar sus espacios, monitorear el estado de ocupación en tiempo real, gestionar reservas activas y consultar el historial de eventos generados por el nodo IoT instalado en su establecimiento.
 
 **Características demográficas:**  
-- **Edad:** Entre 35 y 60 años, generalmente propietarios del local o administradores con experiencia operativa en el sector.  
+- **Edad:** Entre 20 y 60 años, incluyendo tanto administradores jóvenes vinculados a negocios familiares como operadores con mayor experiencia en el sector.  
 - **Ubicación:** Operan estacionamientos ubicados en distritos de alta densidad comercial y residencial de Lima, especialmente en zonas próximas a centros empresariales, universidades, hospitales, mercados y áreas de alta concurrencia.  
 - **Nivel tecnológico:** Bajo o intermedio en términos de adopción de herramientas digitales. En muchos casos, la operación todavía se apoya en registros manuales o procedimientos informales.  
 - **Perfil de negocio:** Microempresas o negocios familiares con recursos limitados, sensibilidad al costo de implementación y orientación a resultados concretos, como mayor ocupación, mejor control operativo y mayor captación de clientes.  
@@ -543,17 +543,17 @@ Estos segmentos fueron priorizados porque representan, respectivamente, al usuar
 
 # Capítulo II: Requirements Elicitation & Analysis
 
+En este capítulo se desarrolla el proceso de levantamiento y análisis de requisitos para **ParkingNow**, con el objetivo de traducir las necesidades y expectativas de los segmentos involucrados en un conjunto coherente de requisitos para la solución propuesta. Para ello, se analiza primero el contexto competitivo del mercado en el que participará la startup, y posteriormente se profundizará en la obtención y análisis de información proveniente de los usuarios y del dominio del problema.
+
 ## 2.1. Competidores
 
-ParkingNow compite en el mercado de soluciones digitales para la gestión y búsqueda de estacionamientos urbanos en Lima Metropolitana. Los principales competidores directos con presencia activa en el mercado peruano son **Quadra**, **ParkGo** y **Apparka**. En esta clasificación, **Quadra** y **ParkGo** se consideran competidores más directos en la búsqueda y reserva digital de estacionamientos o cocheras. **Apparka** también compite en la experiencia del conductor, pero desde una red formal y cerrada de estacionamientos perteneciente al grupo Los Portales. En este contexto, ParkingNow participa en el mismo dominio funcional y busca diferenciarse por una propuesta orientada a respaldar la disponibilidad reportada mediante sensado físico IoT y una arquitectura adaptada a operadores independientes de pequeña escala.
+ParkingNow compite en el mercado de soluciones digitales para la gestión y búsqueda de estacionamientos urbanos en Lima Metropolitana. Para el presente análisis se han considerado como competidores relevantes a **Quadra**, **ParkGo** y **Apparka**. En esta clasificación, **Quadra** y **ParkGo** se consideran **competidores directos**, ya que su propuesta visible al mercado se centra en conectar digitalmente la oferta y demanda de espacios de estacionamiento o cocheras. Por su parte, **Apparka** se considera un **competidor indirecto relevante**, debido a que también compite en la experiencia digital del conductor, aunque lo hace dentro de una red formal, cerrada y propia de estacionamientos perteneciente al grupo Los Portales. En este contexto, ParkingNow participa en el mismo dominio funcional y busca diferenciarse por una propuesta orientada a respaldar la disponibilidad reportada mediante sensado físico IoT y una arquitectura adaptada a operadores independientes de pequeña escala.
 
-**Quadra** es una empresa peruana que opera como marketplace y ecosistema digital de estacionamientos, conectando conductores con cocheras privadas, emprendedores y empresas mediante aplicaciones móviles y un componente SaaS. Su comunicación pública destaca reservas, tickets digitales, monitoreo de disponibilidad en tiempo real, automatización, integración con add-ons de hardware y planes empresariales orientados a optimizar ocupación y accesos. Sin embargo, no se identifica en su comunicación pública una propuesta centrada explícitamente en sensado físico por espacio con trazabilidad end-to-end orientada a operadores independientes de 2 a 30 espacios, como la planteada por ParkingNow.
+**Quadra** es una empresa peruana que opera como marketplace y ecosistema digital de estacionamientos, conectando conductores con cocheras privadas, emprendedores y empresas mediante aplicaciones móviles y un componente SaaS. Su comunicación pública destaca reservas, tickets digitales, monitoreo de disponibilidad en tiempo real, automatización, integración con add-ons de hardware y planes empresariales orientados a optimizar ocupación y accesos. Sin embargo, en la información pública revisada no se evidencia una propuesta centrada explícitamente en sensado físico por espacio con trazabilidad end-to-end orientada a operadores independientes de 2 a 30 espacios, como la planteada por ParkingNow.
 
-**ParkGo** es una aplicación peruana creada por Katherinne Oyarce que conecta conductores con cocheras disponibles y busca reducir el tiempo necesario para encontrar estacionamiento. Una nota reciente de *El Comercio* indica que la aplicación suma 4,500 usuarios en Lima Metropolitana, Arequipa, Cusco y Huarmey, y que ha observado un crecimiento del 40% en el último año. Su propuesta visible al mercado se centra en la conexión digital entre oferta y demanda de espacios, sin que se observe en su comunicación pública una capa de sensado físico del espacio equivalente a la propuesta por ParkingNow.
+**ParkGo** es una aplicación peruana creada por Katherinne Oyarce que conecta conductores con cocheras disponibles y busca reducir el tiempo necesario para encontrar estacionamiento. Una nota reciente de *El Comercio* indica que la aplicación suma 4,500 usuarios en Lima Metropolitana, Arequipa, Cusco y Huarmey, y que ha observado un crecimiento del 40% en el último año. Su propuesta visible al mercado se centra en la conexión digital entre oferta y demanda de espacios, sin que en la información pública revisada se evidencie una capa de sensado físico del espacio equivalente a la propuesta por ParkingNow.
 
 **Apparka** es la plataforma digital del grupo Los Portales orientada a la ubicación y gestión de estacionamientos dentro de su propia red. La memoria anual del grupo señala que APPARKA es de uso exclusivo en los estacionamientos de Los Portales y permite ubicar el estacionamiento más cercano, además de realizar pagos desde el celular (Los Portales, 2024). En consecuencia, compite en la experiencia del conductor dentro del mercado formal, pero no está orientada a operadores independientes de pequeña escala.
-
----
 
 ### 2.1.1. Análisis competitivo
 
@@ -578,14 +578,14 @@ ParkingNow compite en el mercado de soluciones digitales para la gestión y bús
     <tr>
       <th rowspan="2" valign="middle">Perfil</th>
       <td><strong>Overview</strong></td>
-      <td>Startup tecnológica peruana con una propuesta de plataforma IoT distribuida: sensores físicos, app móvil para conductores y panel web para administradores independientes, orientada a detectar ocupación y reflejarla digitalmente en tiempo real.</td>
+      <td>Startup tecnológica peruana con una propuesta de plataforma IoT distribuida, compuesta por app móvil para conductores, panel web para administradores independientes y un nodo IoT orientado a detectar ocupación y reflejarla digitalmente en tiempo real.</td>
       <td>Empresa peruana con app para conductores, app para anfitriones/emprendedores y componente SaaS para negocios. Su propuesta visible incluye reservas, tickets digitales, monitoreo de disponibilidad, automatización y add-ons de hardware.</td>
       <td>Aplicación peruana que conecta conductores con cocheras disponibles. La cobertura reportada comprende Lima Metropolitana, Arequipa, Cusco y Huarmey, con 4,500 usuarios y crecimiento anual del 40% según <em>El Comercio</em>.</td>
       <td>Plataforma digital del grupo Los Portales para ubicar y pagar estacionamientos dentro de su propia red. Su uso está restringido a los estacionamientos del grupo.</td>
     </tr>
     <tr>
       <td><strong>Ventaja competitiva</strong><br>¿Qué valor ofrece a los clientes?</td>
-      <td>ParkingNow busca diferenciarse por respaldar la disponibilidad mostrada mediante sensado físico IoT y por estar diseñado para operadores independientes de 2 a 30 espacios con baja inversión tecnológica inicial.</td>
+      <td>Disponibilidad respaldada por detección física IoT y propuesta adaptada a operadores independientes de pequeña escala con baja inversión tecnológica inicial.</td>
       <td>Ofrece un ecosistema digital más amplio para marketplace y gestión, con reservas, tickets digitales, automatización y opciones empresariales.</td>
       <td>Presenta tracción real reciente y una propuesta simple de conexión entre conductores y cocheras disponibles.</td>
       <td>Cuenta con el respaldo financiero y reputacional de Los Portales y opera sobre una red consolidada de estacionamientos formales.</td>
@@ -600,7 +600,7 @@ ParkingNow compite en el mercado de soluciones digitales para la gestión y bús
     </tr>
     <tr>
       <td><strong>Estrategias de marketing</strong></td>
-      <td>Afiliación directa de operadores, propuesta de valor basada en disponibilidad respaldada por sensor, integración con OpenStreetMap para utilidad temprana y presencia digital en zonas de alta demanda.</td>
+      <td>Afiliación directa de operadores, propuesta de valor basada en disponibilidad respaldada por sensado físico, integración con OpenStreetMap para utilidad temprana y presencia digital en zonas de alta demanda.</td>
       <td>Presencia web y aplicaciones para distintos perfiles, posicionamiento en monetización de cocheras y gestión digital del estacionamiento.</td>
       <td>Cobertura mediática reciente y posicionamiento como solución práctica al problema de estacionar en la ciudad.</td>
       <td>Marketing institucional y aprovechamiento de la red y marca del grupo Los Portales.</td>
@@ -608,21 +608,21 @@ ParkingNow compite en el mercado de soluciones digitales para la gestión y bús
     <tr>
       <th rowspan="3" valign="middle">Perfil de Producto</th>
       <td><strong>Productos & Servicios</strong></td>
-      <td>App móvil para conductores, panel web para administradores, nodo IoT físico y sincronización de estados en tiempo real.</td>
+      <td>App móvil para conductores, panel web para administradores, reserva anticipada, monitoreo de espacios y nodo IoT físico con sincronización de estados en tiempo real.</td>
       <td>App para conductores, app para anfitriones/emprendedores, servicios empresariales, tickets digitales, reservas y funcionalidades SaaS con automatización.</td>
       <td>App móvil para ubicar cocheras disponibles y conectar oferta y demanda de espacios.</td>
       <td>Aplicación para ubicar estacionamientos y realizar pagos dentro de la red de Los Portales.</td>
     </tr>
     <tr>
       <td><strong>Precios & Costos</strong></td>
-      <td>Afiliación de bajo costo y despliegue sobre servicios cloud gratuitos o de bajo costo, orientado al alcance académico y a operadores pequeños.</td>
+      <td>Modelo proyectado de suscripción mensual para operadores afiliados, con costo de entrada reducido y eventual costo inicial de instalación del nodo IoT.</td>
       <td>Cuenta con un modelo para emprendedores con comisión por reserva exitosa y planes SaaS empresariales con costos mensuales e instalación.</td>
       <td>La propuesta pública se sostiene en la intermediación entre conductores y cocheras; la nota periodística no detalla una estructura tarifaria técnica completa.</td>
       <td>Las funciones de la app operan dentro del ecosistema comercial del grupo y sus servicios asociados de estacionamiento.</td>
     </tr>
     <tr>
       <td><strong>Canales de distribución</strong><br>(Web y/o Móvil)</td>
-      <td>Web App, Mobile App, Landing Page y nodo IoT instalado en el local afiliado.</td>
+      <td>Landing Page, Web App para administradores y Mobile App para conductores.</td>
       <td>Web, app conductor, app empresario, app persona natural y oferta SaaS.</td>
       <td>Aplicación móvil y presencia digital respaldada por cobertura periodística reciente.</td>
       <td>Aplicación móvil y red física de estacionamientos del grupo Los Portales.</td>
@@ -638,8 +638,8 @@ ParkingNow compite en el mercado de soluciones digitales para la gestión y bús
     <tr>
       <td><strong>Debilidades</strong></td>
       <td>Prototipo académico en etapa inicial; red de afiliados por construir; dependencia de instalación física del nodo IoT en cada local.</td>
-      <td>No se identifica en su comunicación pública una propuesta explícita de sensado físico por espacio orientada a operadores independientes pequeños como la de ParkingNow.</td>
-      <td>No se observa en la información pública revisada una capa de sensado físico del espacio equivalente a la propuesta por ParkingNow.</td>
+      <td>En la información pública revisada no se evidencia una propuesta explícita de sensado físico por espacio orientada a operadores independientes pequeños como la de ParkingNow.</td>
+      <td>En la información pública revisada no se evidencia una capa de sensado físico del espacio equivalente a la propuesta por ParkingNow.</td>
       <td>Limitado a la red formal de Los Portales; no orientado a operadores independientes de pequeña escala.</td>
     </tr>
     <tr>
@@ -659,49 +659,39 @@ ParkingNow compite en el mercado de soluciones digitales para la gestión y bús
   </tbody>
 </table>
 
----
-
 ### 2.1.2. Estrategias y tácticas frente a competidores
 
-A partir del análisis competitivo realizado en la sección anterior, se proponen las siguientes estrategias y tácticas preliminares para afrontar las fortalezas de los competidores, aprovechar sus debilidades y actuar sobre las oportunidades y amenazas identificadas en el mercado de gestión de estacionamientos urbanos en Lima Metropolitana.
-
----
+A partir del análisis SWOT realizado en la sección anterior, se proponen las siguientes estrategias y tácticas preliminares para responder a las fortalezas de los competidores, aprovechar sus debilidades y actuar sobre las oportunidades y amenazas identificadas en el mercado de gestión de estacionamientos urbanos en Lima Metropolitana.
 
 **Estrategia 1: Diferenciación sostenida por disponibilidad respaldada físicamente**
 
-La revisión pública de competidores permite observar propuestas de reserva, marketplace, automatización y gestión digital; sin embargo, ParkingNow puede diferenciarse al comunicar de forma explícita que la disponibilidad mostrada al conductor se encuentra respaldada por detección física del estado del espacio dentro de una arquitectura IoT orientada a operadores independientes de pequeña escala. Esta diferencia puede convertirse en un atributo central de confianza para el usuario.
+Esta estrategia responde a una debilidad observada en Quadra y ParkGo: en la información pública revisada no se evidencia una propuesta centrada explícitamente en sensado físico por espacio orientada a operadores independientes de pequeña escala. En ese escenario, ParkingNow puede diferenciarse al comunicar de forma explícita que la disponibilidad mostrada al conductor se encuentra respaldada por detección física del estado del espacio dentro de una arquitectura IoT adaptada al contexto operativo de este segmento.
 
 - Comunicar en canales digitales que la disponibilidad mostrada por ParkingNow está respaldada por detección física del espacio.
 - Incorporar en la interfaz del conductor un indicador visual que distinga espacios afiliados con verificación IoT de espacios no afiliados cargados desde OpenStreetMap.
 - Desarrollar contenido explicativo sobre la diferencia entre disponibilidad declarativa y disponibilidad respaldada físicamente.
 
----
-
 **Estrategia 2: Penetración directa en el segmento de operadores independientes**
 
-Apparka se concentra en la red de Los Portales y Quadra/ParkGo priorizan el mercado de intermediación digital entre conductores y espacios disponibles. En ese escenario, ParkingNow puede enfocarse de manera más directa en administradores de estacionamientos independientes de 2 a 30 espacios, con una propuesta de digitalización y monitoreo en tiempo real ajustada a sus restricciones operativas y económicas.
+Esta estrategia aprovecha una oportunidad detectada para ParkingNow: la existencia de operadores pequeños con baja digitalización, poco atendidos por soluciones cerradas o por marketplaces más orientados a intermediación general. Mientras Apparka se concentra en la red de Los Portales y Quadra/ParkGo priorizan la conexión digital entre conductores y espacios disponibles, ParkingNow puede enfocarse de manera más directa en administradores de estacionamientos independientes de 2 a 30 espacios.
 
 - Diseñar una propuesta de afiliación de bajo costo de entrada con hardware accesible y onboarding guiado.
 - Elaborar materiales de presentación en lenguaje sencillo para explicar beneficios directos: visibilidad digital, más reservas y monitoreo remoto.
 - Priorizar la afiliación inicial en distritos de alta demanda vehicular como San Isidro, Miraflores y Surco.
 - Evaluar un periodo inicial de prueba o adopción asistida para reducir barreras de entrada.
 
----
+**Estrategia 3: Construcción de utilidad temprana y red inicial mediante OpenStreetMap**
 
-**Estrategia 3: Construcción de red inicial mediante OpenStreetMap**
-
-En etapas tempranas, ParkingNow puede reducir el problema de arranque del marketplace utilizando OpenStreetMap para poblar el mapa con estacionamientos reales de Lima Metropolitana, diferenciando visualmente entre estacionamientos afiliados y no afiliados. Esta táctica permite ofrecer utilidad al conductor desde el primer uso, incluso antes de consolidar una red amplia de afiliados propios.
+Esta estrategia responde al riesgo inicial de contar con una red propia de afiliados todavía reducida. En etapas tempranas, ParkingNow puede disminuir ese problema utilizando OpenStreetMap para poblar el mapa con estacionamientos reales de Lima Metropolitana, diferenciando visualmente entre estacionamientos afiliados y no afiliados. Esta táctica permite ofrecer utilidad al conductor desde el primer uso y, al mismo tiempo, fortalecer la propuesta comercial frente a operadores potenciales.
 
 - Integrar la carga de estacionamientos desde OpenStreetMap desde etapas tempranas de desarrollo.
 - Diferenciar visualmente en el mapa los estacionamientos afiliados con verificación IoT de los no afiliados que solo sirven como referencia.
 - Utilizar la densidad inicial del mapa como argumento de valor en la propuesta comercial para operadores.
 - Actualizar periódicamente los datos cartográficos para mantener la relevancia del mapa frente a la oferta real de la ciudad.
 
----
-
 **Estrategia 4: Posicionamiento local frente a la crisis de movilidad**
 
-El contexto de congestión y presión creciente sobre la infraestructura de estacionamiento en Lima favorece una narrativa de posicionamiento local para ParkingNow. La marca puede presentarse como una solución orientada a reducir fricción en la búsqueda de estacionamiento y a digitalizar una parte poco atendida del ecosistema urbano: los operadores independientes. Esta estrategia debe centrarse más en relevancia local y contenido educativo que en promesas amplias de transformación urbana.
+Esta estrategia aprovecha el contexto local de congestión vehicular y presión creciente sobre la infraestructura de estacionamiento en Lima. Frente a competidores con mayor tracción o respaldo empresarial, ParkingNow puede posicionarse como una solución local, práctica y enfocada en un problema cotidiano no resuelto para conductores y operadores independientes. La narrativa debe centrarse en relevancia local y educación del mercado, más que en promesas amplias de transformación urbana.
 
 - Desarrollar contenido en redes sociales y blog corporativo que vincule el problema de estacionamiento en Lima con la propuesta diferencial de ParkingNow.
 - Tomar como referencia la cobertura mediática obtenida por competidores como ParkGo para evaluar alianzas con medios especializados en movilidad y tecnología.
@@ -818,11 +808,11 @@ A continuación se presenta la relación de preguntas principales y complementar
 
 ### 2.2.2. Registro de entrevistas
 
-En esta sección se presenta el registro de las entrevistas realizadas a representantes de los dos segmentos objetivo de ParkingNow: conductores urbanos de Lima Metropolitana y administradores de estacionamientos independientes. Para cada segmento se realizaron tres entrevistas, haciendo un total de seis entrevistas registradas en video.
+En esta sección se presenta el registro de las entrevistas realizadas a representantes de los dos segmentos objetivo de ParkingNow: conductores urbanos de Lima Metropolitana y administradores de estacionamientos independientes. Hasta el momento, se cuenta con cuatro entrevistas registradas en video, dos por cada segmento, y quedan dos entrevistas pendientes por realizar para completar el mínimo de tres entrevistas por segmento exigido por el curso.
 
 Cada entrevista incluye los datos del entrevistado, una captura de pantalla del video correspondiente, el enlace al video editado publicado en Microsoft Stream, con el timing de inicio y duración de cada entrevista, y un resumen descriptivo que recoge las respuestas principales del entrevistado. Dicho resumen documenta características objetivas —edad, género, distrito, ocupación y dispositivo de preferencia— y características subjetivas —motivaciones, frustraciones, hábitos de uso, referentes digitales y condiciones de confianza—, con el fin de que cada rasgo del arquetipo que se construirá en la sección 2.3 pueda trazarse directamente a los datos recolectados en estas entrevistas.
 
-Las entrevistas fueron conducidas siguiendo el diseño establecido en la sección 2.2.1, respetando el orden general de bloques: perfil demográfico, comportamiento actual, expectativas y motivaciones, perfil tecnológico y cierre. Todos los videos fueron editados en un único archivo y publicados en Microsoft Stream/Clipchamp como evidencia del proceso de needfinding.
+Las entrevistas fueron conducidas siguiendo el diseño establecido en la sección 2.2.1, respetando el orden general de bloques: perfil demográfico, comportamiento actual, expectativas y motivaciones, perfil tecnológico y cierre. Todos los videos deberán consolidarse posteriormente en un único archivo y publicarse en Microsoft Stream/Clipchamp como evidencia final del proceso de needfinding.
 
 **URL del video de entrevistas:**  
 [Enlace al video consolidado — por completar]
@@ -831,97 +821,97 @@ Las entrevistas fueron conducidas siguiendo el diseño establecido en la secció
 
 #### Entrevistas al Segmento 1: Conductores Urbanos
 
-A continuación se registran las tres entrevistas realizadas a conductores urbanos de Lima Metropolitana que utilizan vehículo propio con frecuencia y se han enfrentado de forma recurrente al problema de encontrar estacionamiento disponible en zonas de alta demanda vehicular.
+A continuación se registran las entrevistas realizadas a conductores urbanos de Lima Metropolitana que utilizan vehículo propio con frecuencia y se han enfrentado de forma recurrente al problema de encontrar estacionamiento disponible en zonas de alta demanda vehicular.
 
 #### Entrevista 1
 
 | Campo             | Detalle |
 |-------------------|---------|
-| **Imagen**        | Por completar |
+| **Imagen**        | ![Carlos Mendoza Rios](assets/Carlos.jpeg) |
 | **Entrevistado**  | Carlos Mendoza Ríos |
-| **Entrevistador** | Diego Soto |
+| **Entrevistador** | Rafael Cuya |
 | **Sexo**          | Masculino |
 | **Edad**          | 29 años |
 | **Distrito**      | Surquillo |
 | **Timing**        | Por completar |
-| **Link**          | Por completar |
-| **Resumen**       | Analista de sistemas que usa su auto a diario para trabajar en San Isidro y desplazarse también por Miraflores y Surco. Indica que normalmente tarda entre 15 y 25 minutos en encontrar estacionamiento en zonas de alta demanda y que actualmente solo usa Google Maps para la ruta, sin contar con información previa de disponibilidad. Utiliza Android con Chrome y valora aplicaciones rápidas y simples como Yape. Señala que usaría ParkingNow si la disponibilidad estuviera respaldada por sensor físico y afirma que abandonaría la app si esta falla en su primera experiencia de uso. |
+| **Link**          | https://upcedupe-my.sharepoint.com/:v:/g/personal/u201913495_upc_edu_pe/IQDfA6xK3Jw7QZ7W0eebx3aFAagksUHeYQaJ728iQIWTCug?e=6TbH0r&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D |
+| **Resumen**       | Analista de sistemas que utiliza su auto todos los días para desplazarse a su trabajo en San Isidro y también por zonas como Miraflores y Surco. Señala que suele demorar entre 15 y 25 minutos en encontrar estacionamiento en horas punta y que, actualmente, solo utiliza Google Maps para planificar la ruta, sin contar con una herramienta específica para validar disponibilidad antes de llegar. Usa Android con Chrome y toma como referencia aplicaciones rápidas, directas y sin pasos innecesarios como Yape. Manifiesta una alta disposición a usar ParkingNow siempre que la información esté realmente actualizada y respaldada por sensor físico, y precisa que el proceso de reserva debería resolverse en un máximo de tres pasos. Indica además que dejaría de usar la aplicación si falla en su primera experiencia de uso. |
 
 #### Entrevista 2
 
 | Campo             | Detalle |
 |-------------------|---------|
-| **Imagen**        | Por completar |
+| **Imagen**        | ![Valeria Torres Chavez](assets/valeria.jpeg) |
 | **Entrevistado**  | Valeria Torres Chávez |
-| **Entrevistador** | Rafael Cuya |
+| **Entrevistador** | Gabriel Lapa |
 | **Sexo**          | Femenino |
 | **Edad**          | 34 años |
 | **Distrito**      | La Molina |
 | **Timing**        | Por completar |
-| **Link**          | Por completar |
-| **Resumen**       | Ejecutiva de ventas que se moviliza casi todos los días entre Miraflores, San Borja, Surco y San Isidro. Reporta demoras de 20 a 30 minutos para estacionar en zonas de alta demanda y expresa que la principal dificultad no es solo el tiempo perdido, sino la incertidumbre de no saber si encontrará espacio. Usa iPhone con Safari y toma como referencia la experiencia predecible de Uber. Considera valiosa la reserva anticipada desde el celular, especialmente antes de reuniones importantes, y señala que la validación por sensor físico sería determinante para confiar en la solución. |
+| **Link**          | https://upcedupe-my.sharepoint.com/:v:/g/personal/u202216831_upc_edu_pe/IQBmINpKs2cAS7y94oJga8wuAUus6CMuAxiaSWCAPP48z4U?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=KN09dj |
+| **Resumen**       | Ejecutiva de ventas que se moviliza casi todos los días por distritos como Miraflores, San Borja, Surco y San Isidro debido a sus reuniones de trabajo. Reporta que puede tardar entre 20 y 30 minutos en encontrar estacionamiento en zonas de alta demanda, y destaca que su principal frustración no es solo el tiempo perdido, sino la incertidumbre de no saber si hallará un espacio disponible al llegar. Usa iPhone con Safari y valora experiencias digitales claras y predecibles como la de Uber. Considera especialmente valiosa la posibilidad de reservar desde el celular antes de reuniones importantes, e incluso afirma que estaría dispuesta a pagar por esa garantía. Señala que la validación por sensor físico sería decisiva para confiar en la solución y que abandonaría la aplicación si esta falla en la primera experiencia de uso. |
 
 #### Entrevista 3
 
 | Campo             | Detalle |
 |-------------------|---------|
-| **Imagen**        | Por completar |
+| **Imagen**        | Por realizar |
 | **Entrevistado**  | Rodrigo Palomino Vega |
-| **Entrevistador** | Gabriel Lapa |
+| **Entrevistador** | Por completar |
 | **Sexo**          | Masculino |
 | **Edad**          | 41 años |
 | **Distrito**      | San Miguel |
-| **Timing**        | Por completar |
-| **Link**          | Por completar |
-| **Resumen**       | Docente universitario que usa su auto tres veces por semana para desplazarse principalmente hacia Miraflores y San Isidro. Reporta tiempos de búsqueda entre 20 y 40 minutos y menciona un caso extremo de 45 minutos sin encontrar espacio. Usa Android con Chrome, tiene hábitos de descarga de apps más conservadores y valora que una aplicación cumpla exactamente lo que promete, como sucede con la app del BCP. Indica que reservaría espacios para compromisos fijos y que la confiabilidad del sistema depende de contar con validación por sensor físico, evitando la actualización manual. |
+| **Timing**        | Por realizar |
+| **Link**          | Por realizar |
+| **Resumen**       | Por realizar. Según el guion planificado, corresponde a un docente universitario que utiliza su auto tres veces por semana para desplazarse principalmente hacia Miraflores y San Isidro, y que valora especialmente la confiabilidad del sistema y la validación de disponibilidad mediante sensor físico. |
 
 ---
 
 #### Entrevistas al Segmento 2: Administradores de Estacionamientos Independientes
 
-A continuación se registran las tres entrevistas realizadas a propietarios y administradores de estacionamientos independientes de Lima Metropolitana que operan sus locales de forma manual o semi-formal, sin herramientas digitales de gestión integradas.
+A continuación se registran las entrevistas realizadas a propietarios y administradores de estacionamientos independientes de Lima Metropolitana que operan sus locales de forma manual o semi-formal, sin herramientas digitales de gestión integradas.
 
 #### Entrevista 4
 
 | Campo             | Detalle |
 |-------------------|---------|
-| **Imagen**        | Por completar |
+| **Imagen**        | ![Jorge Huaman Castillo](assets/fiorella.jpeg) |
 | **Entrevistado**  | Jorge Huamán Castillo |
 | **Entrevistador** | Fiorella Vilca |
 | **Sexo**          | Masculino |
 | **Edad**          | 47 años |
 | **Distrito**      | Miraflores |
 | **Timing**        | Por completar |
-| **Link**          | Por completar |
-| **Resumen**       | Administra un estacionamiento de 12 espacios en Miraflores con control manual en cuaderno y apoyo parcial de un trabajador. Indica que no tiene visibilidad remota de la operación, salvo por llamadas o mensajes de WhatsApp, y que una de sus principales frustraciones es depender de su presencia física para mantener el control del negocio. Gestiona principalmente desde el celular y usa herramientas simples como WhatsApp y Yape. Muestra interés en afiliar su local si esto contribuye a captar más clientes y señala que instalaría sensores siempre que no requieran obras ni configuraciones complejas. |
+| **Link**          | https://upcedupe-my.sharepoint.com/:v:/g/personal/u20211e417_upc_edu_pe/IQDuzAnkPRnxQ4_XrYnL-4-hAZw8677ishtmZUsYZHYQN9A?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=S1pabG |
+| **Resumen**       | Administra un estacionamiento de 12 espacios en Miraflores con una operación de control manual y apoyo parcial de un trabajador. Explica que no cuenta con visibilidad remota del estado del local más allá de llamadas o mensajes por WhatsApp, y que una de sus principales dificultades es depender de su presencia física para mantener el control de entradas, salidas y cobros. Gestiona el negocio principalmente desde el celular y utiliza herramientas básicas como WhatsApp y Yape. Muestra interés en afiliar su local a una plataforma digital si esta le ayuda a captar más clientes, pero condiciona su adopción a que los sensores no requieran obras complejas y a que la inversión demuestre resultados concretos antes de asumir un pago recurrente. |
 
 #### Entrevista 5
 
 | Campo             | Detalle |
 |-------------------|---------|
-| **Imagen**        | Por completar |
-| **Entrevistado**  | Patricia Quispe Alvarado |
-| **Entrevistador** | Diego Soto |
-| **Sexo**          | Femenino |
-| **Edad**          | 38 años |
-| **Distrito**      | San Isidro |
+| **Imagen**        | ![Leonardo Delgado Arriola](assets/leonardo.jpeg) |
+| **Entrevistado**  | Leonardo Delgado Arriola |
+| **Entrevistador** | Elverth Vásquez Villalobos |
+| **Sexo**          | Masculino |
+| **Edad**          | 20 años |
+| **Distrito**      | San Miguel |
 | **Timing**        | Por completar |
-| **Link**          | Por completar |
-| **Resumen**       | Administra 20 espacios en San Isidro y gestiona la operación con pizarra física, WhatsApp y apoyo de dos trabajadores, lo que le genera errores frecuentes en reservas y discrepancias de disponibilidad. Usa tanto celular como laptop y requiere que cualquier panel web funcione bien en ambos dispositivos. Señala la necesidad de un sistema simple con control en tiempo real y automatización de disponibilidad. Indica que ya probó una solución previa, pero la descartó por costo y complejidad, por lo que necesita una demostración en vivo en su local para confiar en una nueva plataforma. |
+| **Link**          | https://upcedupe-my.sharepoint.com/:v:/g/personal/u202213070_upc_edu_pe/IQBa0FFhoUqESLmHb8p2sG1UAdDEoM7wCEbIQnglKEjcwtA?e=fSiGYK&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D |
+| **Resumen**       | Administra un estacionamiento en San Miguel con 10 espacios y aproximadamente 2 años de experiencia en la operación del negocio. Señala que la gestión actual es completamente manual y que necesita permanecer presente la mayor parte del tiempo para mantener el control de entradas, salidas y cobros. Expresa interés en una plataforma web que le permita ordenar mejor la operación y atraer más clientes, siempre que sea intuitiva, fácil de usar y de bajo costo. Indica que preferiría gestionar el negocio desde el celular, que actualmente utiliza herramientas básicas como WhatsApp y Yape, y que consideraría instalar sensores si alguien le explica claramente su funcionamiento y si la solución no implica complejidad técnica innecesaria. |
 
 #### Entrevista 6
 
 | Campo             | Detalle |
 |-------------------|---------|
-| **Imagen**        | Por completar |
-| **Entrevistado**  | Manuel Ccoa Ticona |
-| **Entrevistador** | Rafael Cuya |
-| **Sexo**          | Masculino |
-| **Edad**          | 55 años |
-| **Distrito**      | Surco |
-| **Timing**        | Por completar |
-| **Link**          | Por completar |
-| **Resumen**       | Administra 8 espacios en Surco y lleva el control de forma totalmente manual en papel, apoyándose únicamente en llamadas, celular y WhatsApp. Explica que no puede ausentarse sin perder visibilidad del negocio, lo que representa su principal frustración operativa. No usa computadora para gestionar el local y muestra una baja adopción tecnológica, aunque considera útil monitorear espacios desde el celular sin depender de terceros. Estaría dispuesto a instalar sensores si alguien le muestra el funcionamiento de forma clara y el sistema no implica complicaciones técnicas. |
+| **Imagen**        | Por realizar |
+| **Entrevistado**  | Patricia Quispe Alvarado |
+| **Entrevistador** | Por completar |
+| **Sexo**          | Femenino |
+| **Edad**          | 38 años |
+| **Distrito**      | San Isidro |
+| **Timing**        | Por realizar |
+| **Link**          | Por realizar |
+| **Resumen**       | Por realizar. Según el guion planificado, corresponde a una administradora de estacionamiento en San Isidro que opera con apoyo de trabajadores, utiliza herramientas de coordinación básica y requiere una solución simple, accesible y con control de disponibilidad en tiempo real. |
 
 ---
 
