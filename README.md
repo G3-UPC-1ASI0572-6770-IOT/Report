@@ -1220,48 +1220,50 @@ Metropolitana. Cada Empathy Map fue construido a partir de los hallazgos del
 análisis de entrevistas de la sección 2.2.3 y complementa la visión objetiva de
 los User Personas de la sección 2.3.1, añadiendo la capa subjetiva necesaria para
 diseñar experiencias de usuario empáticas y centradas en necesidades reales.
-Los mapas fueron elaborados en UXPressia, vinculados a los User Personas
-correspondientes.
+Los mapas fueron elaborados en UXPressia y se encuentran vinculados a los User
+Personas correspondientes.
 
 ---
 
-Figura 6
+**Figura 6**
 
 *Empathy Map del segmento conductores urbanos de Lima Metropolitana*
 
-![alt text](<assets/Andrés Villanueva Ríos — Conductor Urbano.png>)
+![alt text](assets/AndrésVillanuevaRíosConductorUrbano.png)
 
 *Nota.* Elaboración propia (2026) en UXPressia.
 
 Según la Figura 6, el Empathy Map del conductor urbano revela que su principal
-dolor no es solo el tiempo perdido buscando estacionamiento, sino la incertidumbre
-previa que genera ansiedad desde el momento en que planifica su salida. El
-conductor piensa que debería existir una forma de saber si habrá espacio antes
-de llegar — de la misma manera en que ya existen apps que anticipan el tráfico —
-y su principal ganancia esperada es la certeza respaldada por un mecanismo físico
-verificable, no por datos ingresados manualmente. La tolerancia al error es
-mínima: una sola falla en el primer uso representa la pérdida definitiva de su
-confianza en la plataforma.
+dolor no es solo el tiempo perdido buscando estacionamiento, sino también la
+incertidumbre previa que genera ansiedad desde el momento en que planifica su
+salida. El conductor piensa que debería existir una forma de saber si habrá espacio
+antes de llegar, de la misma manera en que ya existen aplicaciones que anticipan
+el tráfico. Su principal ganancia esperada es contar con certeza sobre la
+disponibilidad, respaldada por un mecanismo físico verificable y no por datos
+ingresados manualmente. Asimismo, la tolerancia al error es mínima, ya que una
+sola falla en el primer uso puede significar la pérdida definitiva de confianza
+en la plataforma. Este mapa sintetiza patrones observados en las Entrevistas 1, 2 y 3.
 
 ---
 
-Figura 7
+**Figura 7**
 
 *Empathy Map del segmento administradores de estacionamientos independientes*
 
-![alt text](<assets/Jorge Quispe Huamán — Administrador Independiente.png>)
+![alt text](assets/JorgeQuispeHuamánAdministradorIndependiente.png)
 
 *Nota.* Elaboración propia (2026) en UXPressia.
 
 Según la Figura 7, el Empathy Map del administrador independiente revela que su
 principal dolor no es técnico sino operativo: la imposibilidad de alejarse de su
 negocio sin perder el control de lo que ocurre en él. El administrador no rechaza
-la tecnología por principio, sino por desconocimiento de que existan soluciones
-accesibles para locales de su escala. Su principal ganancia esperada es poder
-monitorear su operación desde el celular sin necesidad de conocimientos técnicos ni
-realizar inversiones en infraestructura compleja. La prueba social — ver que
-funciona en un negocio similar al suyo — emerge como el mecanismo de conversión
-más relevante para este segmento.
+la tecnología por principio, sino por la percepción de que las soluciones existentes
+pueden ser costosas, complejas o estar orientadas a negocios de mayor escala. Su
+principal ganancia esperada es poder monitorear su operación desde el celular,
+sin necesidad de conocimientos técnicos avanzados ni inversiones en infraestructura
+compleja. Además, la prueba social, es decir, comprobar que la solución funciona
+en un negocio similar al suyo, emerge como uno de los mecanismos de confianza más
+relevantes para este segmento. Este mapa sintetiza patrones observados en las Entrevistas 4, 5 y 6.
 
 ### 2.3.5. As-Is Scenario Mapping
 
