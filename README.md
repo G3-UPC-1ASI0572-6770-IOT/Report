@@ -480,7 +480,7 @@ A continuación se presenta el Lean UX Canvas elaborado para ParkingNow, que sin
 **Figura 1**  
 *Lean UX Canvas de ParkingNow para el dominio de gestión de estacionamientos urbanos en Lima Metropolitana*
 
-![alt text](<assets/leanuxcanvas new.jpeg>)
+![alt text](assets/leanuxcanvasnew.jpeg)
 
 **Nota.** Elaboración propia (2026). Iteración 1. Fecha: 15/04/2026.
 
@@ -1127,7 +1127,7 @@ en UXPressia.
 
 *User Persona del segmento conductores urbanos de Lima Metropolitana*
 
-![alt text](<assets/AndrésVillanueva Ríos.png>)
+![alt text](assets/AndrésVillanuevaRíos.png)
 
 *Nota.* Elaboración propia (2026).
 
@@ -1151,7 +1151,7 @@ primer uso de la plataforma.
 
 *User Persona del segmento administradores de estacionamientos independientes*
 
-![alt text](<assets/JorgeQuispe Huamán.png>)
+![alt text](assets/JorgeQuispeHuamán.png)
 
 *Nota.* Elaboración propia (2026).
 
