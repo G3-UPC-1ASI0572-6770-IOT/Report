@@ -1157,38 +1157,38 @@ Según la Figura 4, el arquetipo del administrador independiente corresponde a u
 
 ### 2.3.2. User Task Matrix
 
-En esta sección se presenta el User Task Matrix de ParkingNow, que concentra las tareas que los User Personas, representativos de cada segmento objetivo, realizan para cumplir sus objetivos dentro del dominio del estacionamiento urbano, independientemente de la existencia de la solución propuesta. Los segmentos considerados son el conductor urbano y el administrador de estacionamiento independiente, representados mediante los arquetipos construidos en la sección 2.3.1. Cada tarea se evalúa en términos de frecuencia e importancia para cada segmento, con el fin de identificar las actividades más críticas, las coincidencias entre ambos perfiles y las diferencias que orientan el diseño de las experiencias de usuario de la plataforma.
+En esta sección se presenta el User Task Matrix de ParkingNow, que concentra las tareas que los User Personas representativos de cada segmento objetivo realizan para cumplir sus objetivos dentro del dominio del estacionamiento urbano, independientemente de la existencia de la solución propuesta. Los segmentos considerados son el conductor urbano y el administrador de estacionamiento independiente, representados mediante los arquetipos construidos en la sección 2.3.1: **Andrés Villanueva Ríos** y **Luis Ramírez Torres**. Cada tarea se evalúa en términos de frecuencia e importancia para cada segmento, con el fin de identificar las actividades más críticas, las coincidencias entre ambos perfiles y las diferencias que orientan el diseño de las experiencias de usuario de la plataforma.
 
-| Tarea | Andrés Villanueva (Frecuencia) | Andrés Villanueva (Importancia) | Jorge Quispe (Frecuencia) | Jorge Quispe (Importancia) |
-|-------|-------------------------------|--------------------------------|--------------------------|--------------------------|
-| Planificar la ruta hacia el destino antes de salir | Frecuentemente | Alta | — | — |
-| Buscar estacionamiento disponible en la zona de destino | Siempre | Alta | — | — |
-| Buscar alternativas ante falta de disponibilidad | Frecuentemente | Alta | — | — |
-| Pagar por el servicio de estacionamiento | Siempre | Alta | — | — |
-| Considerar tiempo adicional por dificultad para estacionar | Frecuentemente | Media | — | — |
-| Salir con anticipación para llegar a tiempo a compromisos | Siempre | Alta | — | — |
-| Controlar entradas y salidas de vehículos en el local | — | — | Siempre | Alta |
-| Registrar manualmente el estado de ocupación de espacios | — | — | Siempre | Alta |
-| Comunicar disponibilidad de espacios a conductores | — | — | Frecuentemente | Alta |
-| Gestionar cobros a clientes al momento de retiro | — | — | Siempre | Alta |
-| Coordinar con el personal de apoyo la operación del local | — | — | Frecuentemente | Alta |
-| Monitorear la operación del local a distancia | — | — | Ocasionalmente | Alta |
-| Atender conductores que llegan sin espacio disponible | — | — | Frecuentemente | Media |
-| Registrar ingresos diarios del negocio | — | — | Siempre | Alta |
+| Tarea | Andrés Villanueva Ríos (Frecuencia) | Andrés Villanueva Ríos (Importancia) | Luis Ramírez Torres (Frecuencia) | Luis Ramírez Torres (Importancia) |
+|-------|-------------------------------------|--------------------------------------|----------------------------------|-----------------------------------|
+| Planificar la ruta hacia el destino antes de salir | Frecuentemente | Alta | Nunca | Baja |
+| Buscar estacionamiento disponible en la zona de destino | Siempre | Alta | Nunca | Baja |
+| Buscar alternativas ante falta de disponibilidad | Frecuentemente | Alta | Nunca | Baja |
+| Salir con anticipación para llegar a tiempo a compromisos | Siempre | Alta | Nunca | Baja |
+| Verificar la disponibilidad real de espacios antes de tomar una decisión | Siempre | Alta | Frecuentemente | Alta |
+| Resolver situaciones cuando no hay disponibilidad de espacios | Frecuentemente | Alta | Frecuentemente | Alta |
+| Gestionar el pago o cobro del servicio de estacionamiento | Siempre | Alta | Siempre | Alta |
+| Controlar entradas y salidas de vehículos en el local | Nunca | Baja | Siempre | Alta |
+| Registrar manualmente el estado de ocupación de espacios | Nunca | Baja | Siempre | Alta |
+| Comunicar disponibilidad de espacios a conductores | Nunca | Baja | Frecuentemente | Alta |
+| Coordinar con el personal de apoyo la operación del local | Nunca | Baja | Frecuentemente | Alta |
+| Monitorear la operación del local a distancia | Nunca | Baja | Ocasionalmente | Alta |
+| Atender conductores que llegan sin espacio disponible | Nunca | Baja | Frecuentemente | Media |
+| Registrar ingresos diarios del negocio | Nunca | Baja | Siempre | Alta |
 
 **Análisis**
 
-La valoración de frecuencia e importancia se estableció a partir de los patrones identificados en las Entrevistas 1 a 6 y de su síntesis en los User Personas de la sección 2.3.1.
+La valoración de frecuencia e importancia se estableció a partir de los patrones identificados en las Entrevistas 1 a 6 y de su síntesis en los User Personas presentados en la sección 2.3.1.
 
-Las tareas con mayor frecuencia e importancia para **Andrés** son buscar estacionamiento disponible, pagar por el servicio y salir con anticipación para llegar a tiempo a sus compromisos, todas con frecuencia `Siempre` e importancia `Alta`. Esto evidencia que el proceso de estacionamiento forma parte crítica de su rutina de movilidad. Asimismo, la tarea `Buscar alternativas ante falta de disponibilidad` aparece con valoración `Frecuentemente / Alta`, lo que confirma que el conductor ya ha incorporado en su comportamiento habitual un mecanismo de contingencia frente a la escasez de espacios.
+Las tareas con mayor frecuencia e importancia para **Andrés Villanueva Ríos** son **Buscar estacionamiento disponible en la zona de destino**, **Verificar la disponibilidad real de espacios antes de tomar una decisión**, **Gestionar el pago del servicio de estacionamiento** y **Salir con anticipación para llegar a tiempo a compromisos**, todas con combinaciones de frecuencia **Siempre** o **Frecuentemente** e importancia **Alta**. Esto evidencia que el proceso de estacionamiento forma parte crítica de su rutina de movilidad y que sus decisiones están fuertemente condicionadas por la incertidumbre de no saber si realmente encontrará un espacio disponible al llegar.
 
-Para **Jorge**, las tareas de mayor frecuencia e importancia son controlar entradas y salidas, registrar manualmente la ocupación, gestionar cobros y registrar ingresos diarios, todas con frecuencia `Siempre` e importancia `Alta`. Esto confirma que la operación del local depende de procesos manuales y de supervisión constante. Destaca además que `Monitorear la operación del local a distancia` presenta importancia `Alta` pero frecuencia `Ocasionalmente`, lo que evidencia que el administrador reconoce su valor, pero no puede realizar esta tarea con regularidad debido a la falta de herramientas adecuadas.
+Para **Luis Ramírez Torres**, las tareas con mayor frecuencia e importancia son **Controlar entradas y salidas de vehículos en el local**, **Registrar manualmente el estado de ocupación de espacios**, **Gestionar el cobro del servicio de estacionamiento** y **Registrar ingresos diarios del negocio**, todas con frecuencia **Siempre** e importancia **Alta**. Esto confirma que la operación del local depende de procesos manuales, supervisión constante y coordinación operativa continua. Asimismo, **Monitorear la operación del local a distancia** presenta importancia **Alta**, pero frecuencia **Ocasionalmente**, lo que evidencia que el administrador reconoce el valor de esta actividad, aunque no puede ejecutarla de forma constante por falta de herramientas adecuadas.
 
-La principal **coincidencia** entre ambos segmentos es la necesidad de contar con visibilidad confiable sobre el estado de ocupación de los espacios. El conductor requiere esa información antes de llegar a su destino, mientras que el administrador necesita conocerla para operar y responder adecuadamente a la demanda. Esta intersección representa uno de los puntos de valor más directos que la solución propuesta busca resolver.
+La principal **coincidencia** entre ambos segmentos se encuentra en la necesidad de **verificar la disponibilidad real de espacios** y **resolver situaciones cuando no existe disponibilidad**. En el caso del conductor, esta necesidad aparece antes de estacionar, ya que busca evitar pérdida de tiempo e incertidumbre. En el caso del administrador, aparece durante la operación del local, porque necesita responder adecuadamente a la demanda y evitar conflictos con los clientes. Asimismo, la tarea **Gestionar el pago o cobro del servicio de estacionamiento** muestra importancia **Alta** para ambos segmentos, aunque desde perspectivas distintas dentro del mismo proceso.
 
-La principal **diferencia** radica en la naturaleza de las tareas realizadas por cada segmento. En el caso del conductor, las actividades se centran en desplazamiento, búsqueda y manejo de incertidumbre. En el caso del administrador, las tareas se enfocan en control operativo, coordinación y registro manual de la actividad diaria del local. Ambos actúan sobre el mismo dominio, pero desde perspectivas complementarias.
+La principal **diferencia** radica en la naturaleza de las tareas realizadas por cada User Persona. En el caso de **Andrés**, las actividades se concentran en desplazamiento, búsqueda, anticipación y toma de decisiones frente a la incertidumbre. En el caso de **Luis**, las tareas se enfocan en control operativo, registro manual, coordinación del local y seguimiento del negocio. Ambos actúan sobre el mismo dominio, pero desde perspectivas complementarias.
 
-Estos hallazgos servirán como base directa para la elaboración de los User Journey Maps en la siguiente sección, donde se representará el recorrido As-Is de cada User Persona en la situación actual, sin la intervención de la solución propuesta.
+Estos hallazgos servirán como base directa para la elaboración de los **User Journey Maps** en la siguiente sección, donde se representará el recorrido **As-Is** de cada User Persona en la situación actual, sin la intervención de la solución propuesta.
 
 ### 2.3.3. User Journey Maps
 
