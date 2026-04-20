@@ -66,7 +66,9 @@ A continuación se presentan las métricas de colaboración extraídas del repos
 
 > *[Insertar aquí captura de pantalla de GitHub Insights: gráfico de contribuciones por miembro, historial de commits y actividad por rama]*
 
-# ABET – EAC - Student Outcome 5
+## Student Outcome
+
+### ABET – EAC - Student Outcome 5
 
 El curso contribuye al cumplimiento del Student Outcome ABET:  
 **ABET – EAC - Student Outcome 5**  
