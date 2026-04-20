@@ -825,45 +825,57 @@ A continuación se registran las entrevistas realizadas a conductores urbanos de
 
 #### Entrevista 1
 
-| Campo             | Detalle |
-|-------------------|---------|
-| **Imagen**        | <img src="assets/Carlos.jpeg" alt="Carlos Mendoza Rios" width="320" /> |
-| **Entrevistado**  | Carlos Mendoza Ríos |
-| **Entrevistador** | Rafael Cuya |
-| **Sexo**          | Masculino |
-| **Edad**          | 29 años |
-| **Distrito**      | Surquillo |
-| **Timing**        | Por completar |
-| **Link**          | https://upcedupe-my.sharepoint.com/:v:/g/personal/u201913495_upc_edu_pe/IQDfA6xK3Jw7QZ7W0eebx3aFAagksUHeYQaJ728iQIWTCug?e=6TbH0r&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D |
-| **Resumen**       | Analista de sistemas que utiliza su auto todos los días para desplazarse a su trabajo en San Isidro y también por zonas como Miraflores y Surco. Señala que suele demorar entre 15 y 25 minutos en encontrar estacionamiento en horas punta y que, actualmente, solo utiliza Google Maps para planificar la ruta, sin contar con una herramienta específica para validar disponibilidad antes de llegar. Usa Android con Chrome y toma como referencia aplicaciones rápidas, directas y sin pasos innecesarios como Yape. Manifiesta una alta disposición a usar ParkingNow siempre que la información esté realmente actualizada y respaldada por sensor físico, y precisa que el proceso de reserva debería resolverse en un máximo de tres pasos. Indica además que dejaría de usar la aplicación si falla en su primera experiencia de uso. |
+<table style="width:100%; table-layout:fixed; border-collapse:collapse;">
+  <tr>
+    <th style="width:24%; text-align:left;">Campo</th>
+    <th style="text-align:left;">Detalle</th>
+  </tr>
+  <tr><td><strong>Imagen</strong></td><td style="overflow-wrap:anywhere;"><img src="assets/Carlos.jpeg" alt="Carlos Mendoza Rios" width="240" /></td></tr>
+  <tr><td><strong>Entrevistado</strong></td><td style="overflow-wrap:anywhere;">Carlos Mendoza Rios</td></tr>
+  <tr><td><strong>Entrevistador</strong></td><td style="overflow-wrap:anywhere;">Rafael Cuya</td></tr>
+  <tr><td><strong>Sexo</strong></td><td style="overflow-wrap:anywhere;">Masculino</td></tr>
+  <tr><td><strong>Edad</strong></td><td style="overflow-wrap:anywhere;">29 anos</td></tr>
+  <tr><td><strong>Distrito</strong></td><td style="overflow-wrap:anywhere;">Surquillo</td></tr>
+  <tr><td><strong>Timing</strong></td><td style="overflow-wrap:anywhere;">Por completar</td></tr>
+  <tr><td><strong>Link</strong></td><td style="overflow-wrap:anywhere;"><a href="https://upcedupe-my.sharepoint.com/:v:/g/personal/u201913495_upc_edu_pe/IQDfA6xK3Jw7QZ7W0eebx3aFAagksUHeYQaJ728iQIWTCug?e=6TbH0r&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D">Ver entrevista</a></td></tr>
+  <tr><td><strong>Resumen</strong></td><td style="overflow-wrap:anywhere;">Analista de sistemas que utiliza su auto todos los dias para desplazarse a su trabajo en San Isidro y tambien por zonas como Miraflores y Surco. Senala que suele demorar entre 15 y 25 minutos en encontrar estacionamiento en horas punta y que, actualmente, solo utiliza Google Maps para planificar la ruta, sin contar con una herramienta especifica para validar disponibilidad antes de llegar. Usa Android con Chrome y toma como referencia aplicaciones rapidas, directas y sin pasos innecesarios como Yape. Manifiesta una alta disposicion a usar ParkingNow siempre que la informacion este realmente actualizada y respaldada por sensor fisico, y precisa que el proceso de reserva deberia resolverse en un maximo de tres pasos. Indica ademas que dejaria de usar la aplicacion si falla en su primera experiencia de uso.</td></tr>
+</table>
 
 #### Entrevista 2
 
-| Campo             | Detalle |
-|-------------------|---------|
-| **Imagen**        | <img src="assets/valeria.jpeg" alt="Valeria Torres Chavez" width="320" /> |
-| **Entrevistado**  | Valeria Torres Chávez |
-| **Entrevistador** | Gabriel Lapa |
-| **Sexo**          | Femenino |
-| **Edad**          | 34 años |
-| **Distrito**      | La Molina |
-| **Timing**        | Por completar |
-| **Link**          | https://upcedupe-my.sharepoint.com/:v:/g/personal/u202216831_upc_edu_pe/IQBmINpKs2cAS7y94oJga8wuAUus6CMuAxiaSWCAPP48z4U?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=KN09dj |
-| **Resumen**       | Ejecutiva de ventas que se moviliza casi todos los días por distritos como Miraflores, San Borja, Surco y San Isidro debido a sus reuniones de trabajo. Reporta que puede tardar entre 20 y 30 minutos en encontrar estacionamiento en zonas de alta demanda, y destaca que su principal frustración no es solo el tiempo perdido, sino la incertidumbre de no saber si hallará un espacio disponible al llegar. Usa iPhone con Safari y valora experiencias digitales claras y predecibles como la de Uber. Considera especialmente valiosa la posibilidad de reservar desde el celular antes de reuniones importantes, e incluso afirma que estaría dispuesta a pagar por esa garantía. Señala que la validación por sensor físico sería decisiva para confiar en la solución y que abandonaría la aplicación si esta falla en la primera experiencia de uso. |
+<table style="width:100%; table-layout:fixed; border-collapse:collapse;">
+  <tr>
+    <th style="width:24%; text-align:left;">Campo</th>
+    <th style="text-align:left;">Detalle</th>
+  </tr>
+  <tr><td><strong>Imagen</strong></td><td style="overflow-wrap:anywhere;"><img src="assets/valeria.jpeg" alt="Valeria Torres Chavez" width="240" /></td></tr>
+  <tr><td><strong>Entrevistado</strong></td><td style="overflow-wrap:anywhere;">Valeria Torres Chavez</td></tr>
+  <tr><td><strong>Entrevistador</strong></td><td style="overflow-wrap:anywhere;">Gabriel Lapa</td></tr>
+  <tr><td><strong>Sexo</strong></td><td style="overflow-wrap:anywhere;">Femenino</td></tr>
+  <tr><td><strong>Edad</strong></td><td style="overflow-wrap:anywhere;">34 anos</td></tr>
+  <tr><td><strong>Distrito</strong></td><td style="overflow-wrap:anywhere;">La Molina</td></tr>
+  <tr><td><strong>Timing</strong></td><td style="overflow-wrap:anywhere;">Por completar</td></tr>
+  <tr><td><strong>Link</strong></td><td style="overflow-wrap:anywhere;"><a href="https://upcedupe-my.sharepoint.com/:v:/g/personal/u202216831_upc_edu_pe/IQBmINpKs2cAS7y94oJga8wuAUus6CMuAxiaSWCAPP48z4U?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=KN09dj">Ver entrevista</a></td></tr>
+  <tr><td><strong>Resumen</strong></td><td style="overflow-wrap:anywhere;">Ejecutiva de ventas que se moviliza casi todos los dias por distritos como Miraflores, San Borja, Surco y San Isidro debido a sus reuniones de trabajo. Reporta que puede tardar entre 20 y 30 minutos en encontrar estacionamiento en zonas de alta demanda, y destaca que su principal frustracion no es solo el tiempo perdido, sino la incertidumbre de no saber si hallara un espacio disponible al llegar. Usa iPhone con Safari y valora experiencias digitales claras y predecibles como la de Uber. Considera especialmente valiosa la posibilidad de reservar desde el celular antes de reuniones importantes, e incluso afirma que estaria dispuesta a pagar por esa garantia. Senala que la validacion por sensor fisico seria decisiva para confiar en la solucion y que abandonaria la aplicacion si esta falla en la primera experiencia de uso.</td></tr>
+</table>
 
 #### Entrevista 3
 
-| Campo             | Detalle |
-|-------------------|---------|
-| **Imagen**        | Por realizar |
-| **Entrevistado**  | Rodrigo Palomino Vega |
-| **Entrevistador** | Por completar |
-| **Sexo**          | Masculino |
-| **Edad**          | 41 años |
-| **Distrito**      | San Miguel |
-| **Timing**        | Por realizar |
-| **Link**          | Por realizar |
-| **Resumen**       | Por realizar. Según el guion planificado, corresponde a un docente universitario que utiliza su auto tres veces por semana para desplazarse principalmente hacia Miraflores y San Isidro, y que valora especialmente la confiabilidad del sistema y la validación de disponibilidad mediante sensor físico. |
+<table style="width:100%; table-layout:fixed; border-collapse:collapse;">
+  <tr>
+    <th style="width:24%; text-align:left;">Campo</th>
+    <th style="text-align:left;">Detalle</th>
+  </tr>
+  <tr><td><strong>Imagen</strong></td><td style="overflow-wrap:anywhere;">Por realizar</td></tr>
+  <tr><td><strong>Entrevistado</strong></td><td style="overflow-wrap:anywhere;">Rodrigo Palomino Vega</td></tr>
+  <tr><td><strong>Entrevistador</strong></td><td style="overflow-wrap:anywhere;">Por completar</td></tr>
+  <tr><td><strong>Sexo</strong></td><td style="overflow-wrap:anywhere;">Masculino</td></tr>
+  <tr><td><strong>Edad</strong></td><td style="overflow-wrap:anywhere;">41 anos</td></tr>
+  <tr><td><strong>Distrito</strong></td><td style="overflow-wrap:anywhere;">San Miguel</td></tr>
+  <tr><td><strong>Timing</strong></td><td style="overflow-wrap:anywhere;">Por realizar</td></tr>
+  <tr><td><strong>Link</strong></td><td style="overflow-wrap:anywhere;">Por realizar</td></tr>
+  <tr><td><strong>Resumen</strong></td><td style="overflow-wrap:anywhere;">Por realizar. Segun el guion planificado, corresponde a un docente universitario que utiliza su auto tres veces por semana para desplazarse principalmente hacia Miraflores y San Isidro, y que valora especialmente la confiabilidad del sistema y la validacion de disponibilidad mediante sensor fisico.</td></tr>
+</table>
 
 ---
 
@@ -873,45 +885,57 @@ A continuación se registran las entrevistas realizadas a propietarios y adminis
 
 #### Entrevista 4
 
-| Campo             | Detalle |
-|-------------------|---------|
-| **Imagen**        | <img src="assets/fiorella.jpeg" alt="Jorge Huaman Castillo" width="320" /> |
-| **Entrevistado**  | Jorge Huamán Castillo |
-| **Entrevistador** | Fiorella Vilca |
-| **Sexo**          | Masculino |
-| **Edad**          | 47 años |
-| **Distrito**      | Miraflores |
-| **Timing**        | Por completar |
-| **Link**          | https://upcedupe-my.sharepoint.com/:v:/g/personal/u20211e417_upc_edu_pe/IQDuzAnkPRnxQ4_XrYnL-4-hAZw8677ishtmZUsYZHYQN9A?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=S1pabG |
-| **Resumen**       | Administra un estacionamiento de 12 espacios en Miraflores con una operación de control manual y apoyo parcial de un trabajador. Explica que no cuenta con visibilidad remota del estado del local más allá de llamadas o mensajes por WhatsApp, y que una de sus principales dificultades es depender de su presencia física para mantener el control de entradas, salidas y cobros. Gestiona el negocio principalmente desde el celular y utiliza herramientas básicas como WhatsApp y Yape. Muestra interés en afiliar su local a una plataforma digital si esta le ayuda a captar más clientes, pero condiciona su adopción a que los sensores no requieran obras complejas y a que la inversión demuestre resultados concretos antes de asumir un pago recurrente. |
+<table style="width:100%; table-layout:fixed; border-collapse:collapse;">
+  <tr>
+    <th style="width:24%; text-align:left;">Campo</th>
+    <th style="text-align:left;">Detalle</th>
+  </tr>
+  <tr><td><strong>Imagen</strong></td><td style="overflow-wrap:anywhere;"><img src="assets/fiorella.jpeg" alt="Jorge Huaman Castillo" width="240" /></td></tr>
+  <tr><td><strong>Entrevistado</strong></td><td style="overflow-wrap:anywhere;">Jorge Huaman Castillo</td></tr>
+  <tr><td><strong>Entrevistador</strong></td><td style="overflow-wrap:anywhere;">Fiorella Vilca</td></tr>
+  <tr><td><strong>Sexo</strong></td><td style="overflow-wrap:anywhere;">Masculino</td></tr>
+  <tr><td><strong>Edad</strong></td><td style="overflow-wrap:anywhere;">47 anos</td></tr>
+  <tr><td><strong>Distrito</strong></td><td style="overflow-wrap:anywhere;">Miraflores</td></tr>
+  <tr><td><strong>Timing</strong></td><td style="overflow-wrap:anywhere;">Por completar</td></tr>
+  <tr><td><strong>Link</strong></td><td style="overflow-wrap:anywhere;"><a href="https://upcedupe-my.sharepoint.com/:v:/g/personal/u20211e417_upc_edu_pe/IQDuzAnkPRnxQ4_XrYnL-4-hAZw8677ishtmZUsYZHYQN9A?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=S1pabG">Ver entrevista</a></td></tr>
+  <tr><td><strong>Resumen</strong></td><td style="overflow-wrap:anywhere;">Administra un estacionamiento de 12 espacios en Miraflores con una operacion de control manual y apoyo parcial de un trabajador. Explica que no cuenta con visibilidad remota del estado del local mas alla de llamadas o mensajes por WhatsApp, y que una de sus principales dificultades es depender de su presencia fisica para mantener el control de entradas, salidas y cobros. Gestiona el negocio principalmente desde el celular y utiliza herramientas basicas como WhatsApp y Yape. Muestra interes en afiliar su local a una plataforma digital si esta le ayuda a captar mas clientes, pero condiciona su adopcion a que los sensores no requieran obras complejas y a que la inversion demuestre resultados concretos antes de asumir un pago recurrente.</td></tr>
+</table>
 
 #### Entrevista 5
 
-| Campo             | Detalle |
-|-------------------|---------|
-| **Imagen**        | <img src="assets/leonardo.jpeg" alt="Leonardo Delgado Arriola" width="320" /> |
-| **Entrevistado**  | Leonardo Delgado Arriola |
-| **Entrevistador** | Elverth Vásquez Villalobos |
-| **Sexo**          | Masculino |
-| **Edad**          | 20 años |
-| **Distrito**      | San Miguel |
-| **Timing**        | Por completar |
-| **Link**          | https://upcedupe-my.sharepoint.com/:v:/g/personal/u202213070_upc_edu_pe/IQBa0FFhoUqESLmHb8p2sG1UAdDEoM7wCEbIQnglKEjcwtA?e=fSiGYK&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D |
-| **Resumen**       | Administra un estacionamiento en San Miguel con 10 espacios y aproximadamente 2 años de experiencia en la operación del negocio. Señala que la gestión actual es completamente manual y que necesita permanecer presente la mayor parte del tiempo para mantener el control de entradas, salidas y cobros. Expresa interés en una plataforma web que le permita ordenar mejor la operación y atraer más clientes, siempre que sea intuitiva, fácil de usar y de bajo costo. Indica que preferiría gestionar el negocio desde el celular, que actualmente utiliza herramientas básicas como WhatsApp y Yape, y que consideraría instalar sensores si alguien le explica claramente su funcionamiento y si la solución no implica complejidad técnica innecesaria. |
+<table style="width:100%; table-layout:fixed; border-collapse:collapse;">
+  <tr>
+    <th style="width:24%; text-align:left;">Campo</th>
+    <th style="text-align:left;">Detalle</th>
+  </tr>
+  <tr><td><strong>Imagen</strong></td><td style="overflow-wrap:anywhere;"><img src="assets/leonardo.jpeg" alt="Leonardo Delgado Arriola" width="240" /></td></tr>
+  <tr><td><strong>Entrevistado</strong></td><td style="overflow-wrap:anywhere;">Leonardo Delgado Arriola</td></tr>
+  <tr><td><strong>Entrevistador</strong></td><td style="overflow-wrap:anywhere;">Elverth Vasquez Villalobos</td></tr>
+  <tr><td><strong>Sexo</strong></td><td style="overflow-wrap:anywhere;">Masculino</td></tr>
+  <tr><td><strong>Edad</strong></td><td style="overflow-wrap:anywhere;">20 anos</td></tr>
+  <tr><td><strong>Distrito</strong></td><td style="overflow-wrap:anywhere;">San Miguel</td></tr>
+  <tr><td><strong>Timing</strong></td><td style="overflow-wrap:anywhere;">Por completar</td></tr>
+  <tr><td><strong>Link</strong></td><td style="overflow-wrap:anywhere;"><a href="https://upcedupe-my.sharepoint.com/:v:/g/personal/u202213070_upc_edu_pe/IQBa0FFhoUqESLmHb8p2sG1UAdDEoM7wCEbIQnglKEjcwtA?e=fSiGYK&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D">Ver entrevista</a></td></tr>
+  <tr><td><strong>Resumen</strong></td><td style="overflow-wrap:anywhere;">Administra un estacionamiento en San Miguel con 10 espacios y aproximadamente 2 anos de experiencia en la operacion del negocio. Senala que la gestion actual es completamente manual y que necesita permanecer presente la mayor parte del tiempo para mantener el control de entradas, salidas y cobros. Expresa interes en una plataforma web que le permita ordenar mejor la operacion y atraer mas clientes, siempre que sea intuitiva, facil de usar y de bajo costo. Indica que preferiria gestionar el negocio desde el celular, que actualmente utiliza herramientas basicas como WhatsApp y Yape, y que consideraria instalar sensores si alguien le explica claramente su funcionamiento y si la solucion no implica complejidad tecnica innecesaria.</td></tr>
+</table>
 
 #### Entrevista 6
 
-| Campo             | Detalle |
-|-------------------|---------|
-| **Imagen**        | Por realizar |
-| **Entrevistado**  | Patricia Quispe Alvarado |
-| **Entrevistador** | Por completar |
-| **Sexo**          | Femenino |
-| **Edad**          | 38 años |
-| **Distrito**      | San Isidro |
-| **Timing**        | Por realizar |
-| **Link**          | Por realizar |
-| **Resumen**       | Por realizar. Según el guion planificado, corresponde a una administradora de estacionamiento en San Isidro que opera con apoyo de trabajadores, utiliza herramientas de coordinación básica y requiere una solución simple, accesible y con control de disponibilidad en tiempo real. |
+<table style="width:100%; table-layout:fixed; border-collapse:collapse;">
+  <tr>
+    <th style="width:24%; text-align:left;">Campo</th>
+    <th style="text-align:left;">Detalle</th>
+  </tr>
+  <tr><td><strong>Imagen</strong></td><td style="overflow-wrap:anywhere;">Por realizar</td></tr>
+  <tr><td><strong>Entrevistado</strong></td><td style="overflow-wrap:anywhere;">Patricia Quispe Alvarado</td></tr>
+  <tr><td><strong>Entrevistador</strong></td><td style="overflow-wrap:anywhere;">Por completar</td></tr>
+  <tr><td><strong>Sexo</strong></td><td style="overflow-wrap:anywhere;">Femenino</td></tr>
+  <tr><td><strong>Edad</strong></td><td style="overflow-wrap:anywhere;">38 anos</td></tr>
+  <tr><td><strong>Distrito</strong></td><td style="overflow-wrap:anywhere;">San Isidro</td></tr>
+  <tr><td><strong>Timing</strong></td><td style="overflow-wrap:anywhere;">Por realizar</td></tr>
+  <tr><td><strong>Link</strong></td><td style="overflow-wrap:anywhere;">Por realizar</td></tr>
+  <tr><td><strong>Resumen</strong></td><td style="overflow-wrap:anywhere;">Por realizar. Segun el guion planificado, corresponde a una administradora de estacionamiento en San Isidro que opera con apoyo de trabajadores, utiliza herramientas de coordinacion basica y requiere una solucion simple, accesible y con control de disponibilidad en tiempo real.</td></tr>
+</table>
 
 ---
 
