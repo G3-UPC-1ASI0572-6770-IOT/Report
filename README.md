@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/UPC_logo_transparente.png" alt="Logo de la UPC" />
+  <img src="./assets/UPC_logo_transparente.png" alt="Logo de la UPC" />
 </p>
 
 <p align="center"><strong>Universidad Peruana de Ciencias Aplicadas</strong></p>
@@ -237,10 +237,10 @@ Ser la plataforma de referencia en gestión inteligente de estacionamientos urba
 
 | **Integrante** | **Datos Académicos** | **Conocimientos y Aporte al Equipo** |
 |----------------|----------------------|--------------------------------------|
-| ![Diego Soto](assets/Diego.jpg) <br>**Diego Ulises Soto Quispe** | **Código:** U202214477<br>**Carrera:** Ingeniería de Software, 7mo ciclo | Cuenta con experiencia en desarrollo frontend, mobile y backend, utilizando tecnologías como **React**, **Flutter**, **Node.js**, **TypeScript**, **Python** y **C++**, además de manejo de herramientas de diseño, documentación y colaboración como **Figma**, **GitHub**, **Postman** y **Docker**. Posee conocimientos en integración de APIs, modelado de soluciones digitales y trabajo con enfoques ágiles. En el proyecto **ParkingNow**, aporta principalmente en la definición funcional del producto, la integración entre aplicaciones y servicios, la estructuración del **Lean UX Process**, y la articulación entre la solución técnica y las necesidades del usuario final. |
-| ![Rafael Cuya](assets/Rafael.jpg) <br>**Rafael Alberto Cuya Villegas** | **Código:** U201913495<br>**Carrera:** Ingeniería de Software, 7mo ciclo | Posee conocimientos en desarrollo backend, seguridad de aplicaciones y gestión de bases de datos, con experiencia en tecnologías como **Python**, **JavaScript**, **SQL** y **MongoDB**. Asimismo, cuenta con criterios para la validación de integridad de datos, revisión de arquitectura y estructuración de componentes técnicos orientados a soluciones conectadas. En **ParkingNow**, aporta en la definición de la arquitectura backend, la revisión de aspectos de seguridad y consistencia de datos, y la construcción de artefactos de diseño estratégico como los **Bounded Contexts**, contribuyendo a la solidez técnica de la solución. |
-| ![Gabriel Lapa](assets/Gabriel.jpg) <br>**Gabriel Omar Lapa De La Cruz** | **Código:** U202216831<br>**Carrera:** Ingeniería de Software, 7mo ciclo | Tiene conocimientos en desarrollo backend y modelado de soluciones de software, con experiencia en tecnologías como **.NET**, **Vue.js**, **JavaScript** y documentación técnica orientada a arquitectura. Posee además criterio para representar componentes, capas y relaciones mediante diagramas técnicos y notación UML. En el proyecto **ParkingNow**, aporta en la documentación del diseño táctico, la elaboración de **Component Level Diagrams**, la representación de capas de aplicación e infraestructura y la validación de consistencia entre los componentes definidos en la arquitectura. |
-| ![Fiorella Vilca](assets/Fiorella.jpg) <br>**Fiorella Angela Vilca Valverde** | **Código:** U20211e417<br>**Carrera:** Ingeniería de Software, 7mo ciclo | Cuenta con conocimientos en **UX/UI**, validación de requisitos, testing y modelado de datos, además de manejo de herramientas como **Figma** para diseño de interfaces y prototipos. Posee criterio para organizar información visualmente, revisar coherencia entre requisitos y experiencia de usuario, y documentar estructuras de datos de manera ordenada. En **ParkingNow**, aporta en el diseño centrado en el usuario, la revisión de consistencia entre necesidades, historias de usuario y criterios de aceptación, así como en la documentación del **Database Design Diagram** y en la organización visual del informe. |
+| ![Diego Soto](./assets/Diego.jpg) <br>**Diego Ulises Soto Quispe** | **Código:** U202214477<br>**Carrera:** Ingeniería de Software, 7mo ciclo | Cuenta con experiencia en desarrollo frontend, mobile y backend, utilizando tecnologías como **React**, **Flutter**, **Node.js**, **TypeScript**, **Python** y **C++**, además de manejo de herramientas de diseño, documentación y colaboración como **Figma**, **GitHub**, **Postman** y **Docker**. Posee conocimientos en integración de APIs, modelado de soluciones digitales y trabajo con enfoques ágiles. En el proyecto **ParkingNow**, aporta principalmente en la definición funcional del producto, la integración entre aplicaciones y servicios, la estructuración del **Lean UX Process**, y la articulación entre la solución técnica y las necesidades del usuario final. |
+| **Rafael Alberto Cuya Villegas** | **Código:** U201913495<br>**Carrera:** Ingeniería de Software, 7mo ciclo | Posee conocimientos en desarrollo backend, seguridad de aplicaciones y gestión de bases de datos, con experiencia en tecnologías como **Python**, **JavaScript**, **SQL** y **MongoDB**. Asimismo, cuenta con criterios para la validación de integridad de datos, revisión de arquitectura y estructuración de componentes técnicos orientados a soluciones conectadas. En **ParkingNow**, aporta en la definición de la arquitectura backend, la revisión de aspectos de seguridad y consistencia de datos, y la construcción de artefactos de diseño estratégico como los **Bounded Contexts**, contribuyendo a la solidez técnica de la solución. |
+| **Gabriel Omar Lapa De La Cruz** | **Código:** U202216831<br>**Carrera:** Ingeniería de Software, 7mo ciclo | Tiene conocimientos en desarrollo backend y modelado de soluciones de software, con experiencia en tecnologías como **.NET**, **Vue.js**, **JavaScript** y documentación técnica orientada a arquitectura. Posee además criterio para representar componentes, capas y relaciones mediante diagramas técnicos y notación UML. En el proyecto **ParkingNow**, aporta en la documentación del diseño táctico, la elaboración de **Component Level Diagrams**, la representación de capas de aplicación e infraestructura y la validación de consistencia entre los componentes definidos en la arquitectura. |
+| **Fiorella Angela Vilca Valverde** | **Código:** U20211e417<br>**Carrera:** Ingeniería de Software, 7mo ciclo | Cuenta con conocimientos en **UX/UI**, validación de requisitos, testing y modelado de datos, además de manejo de herramientas como **Figma** para diseño de interfaces y prototipos. Posee criterio para organizar información visualmente, revisar coherencia entre requisitos y experiencia de usuario, y documentar estructuras de datos de manera ordenada. En **ParkingNow**, aporta en el diseño centrado en el usuario, la revisión de consistencia entre necesidades, historias de usuario y criterios de aceptación, así como en la documentación del **Database Design Diagram** y en la organización visual del informe. |
 
 ---
 
@@ -426,7 +426,7 @@ A continuación se presenta la matriz de priorización de supuestos, elaborada p
 **Figura 1**  
 *Assumptions Priority Matrix de ParkingNow*
 
-![alt text](assets/Assumptionsmatrix.jpeg)
+![alt text](/assets/Assumptionsmatrix.jpeg)
 
 **Nota.** Elaboración propia (2026).
 
@@ -484,7 +484,7 @@ A continuación se presenta el Lean UX Canvas elaborado para el proyecto, como s
 **Figura 2**  
 *Lean UX Canvas de ParkingNow para el dominio de gestión de estacionamientos urbanos en Lima Metropolitana*
 
-![alt text](assets/leanuxfinal.jpeg)
+![alt text](/assets/leanuxfinal.jpeg)
 
 **Nota.** Elaboración propia (2026). Iteración 1.
 
@@ -570,10 +570,10 @@ ParkingNow compite en el mercado de soluciones digitales para la gestión y bús
     </tr>
     <tr>
       <th colspan="2" align="left">(En la cabecera colocar por cada competidor nombre y logo)</th>
-      <th>ParkingNow<br><img src="assets/logoparkingnow.png" alt="Logo ParkingNow" width="90"></th>
-      <th>Quadra<br><img src="assets/quadra.png" alt="Logo Quadra" width="90"></th>
-      <th>ParkGo<br><img src="assets/parkgo.png" alt="Logo ParkGo" width="90"></th>
-      <th>Apparka<br><img src="assets/apparka.png" alt="Logo Apparka" width="90"></th>
+      <th>ParkingNow<br><img src="./assets/logoparkingnow.png" alt="Logo ParkingNow" width="90"></th>
+      <th>Quadra<br><img src="./assets/quadra.png" alt="Logo Quadra" width="90"></th>
+      <th>ParkGo<br><img src="./assets/parkgo.png" alt="Logo ParkGo" width="90"></th>
+      <th>Apparka<br><img src="./assets/apparka.png" alt="Logo Apparka" width="90"></th>
     </tr>
   </thead>
   <tbody>
@@ -816,8 +816,8 @@ Cada entrevista incluye los datos del entrevistado, una captura de pantalla del 
 
 Las entrevistas fueron conducidas siguiendo el diseño establecido en la sección 2.2.1, respetando el orden general de bloques: perfil demográfico, comportamiento actual, expectativas y motivaciones, perfil tecnológico y cierre. Todos los videos deberán consolidarse posteriormente en un único archivo y publicarse en Microsoft Stream/Clipchamp como evidencia final del proceso de needfinding.
 
-**URL del video de entrevistas:**  
-[Enlace al video consolidado — por completar]
+
+**URL del video de entrevistas en general:**  https://upcedupe-my.sharepoint.com/:v:/g/personal/u202214477_upc_edu_pe/IQCMBDZdyMVAQKh_NrFheDDEAfbJMIyo3lVGDKNSnQugT3I?e=Amq8Ep
 
 ---
 
@@ -832,13 +832,13 @@ A continuación se registran las entrevistas realizadas a conductores urbanos de
     <th style="width:24%; text-align:left;">Campo</th>
     <th style="text-align:left;">Detalle</th>
   </tr>
-  <tr><td><strong>Imagen</strong></td><td style="overflow-wrap:anywhere;"><img src="assets/Carlos.jpeg" alt="Carlos Mendoza Ríos" width="240" /></td></tr>
+  <tr><td><strong>Imagen</strong></td><td style="overflow-wrap:anywhere;"><img src="./assets/Carlos.jpeg" alt="Carlos Mendoza Ríos" width="240" /></td></tr>
   <tr><td><strong>Entrevistado</strong></td><td style="overflow-wrap:anywhere;">Carlos Mendoza Ríos</td></tr>
   <tr><td><strong>Entrevistador</strong></td><td style="overflow-wrap:anywhere;">Rafael Cuya</td></tr>
   <tr><td><strong>Sexo</strong></td><td style="overflow-wrap:anywhere;">Masculino</td></tr>
   <tr><td><strong>Edad</strong></td><td style="overflow-wrap:anywhere;">29 años</td></tr>
   <tr><td><strong>Distrito</strong></td><td style="overflow-wrap:anywhere;">Surquillo</td></tr>
-  <tr><td><strong>Timing</strong></td><td style="overflow-wrap:anywhere;">Por completar</td></tr>
+  <tr><td><strong>Timing</strong></td><td style="overflow-wrap:anywhere;">Empieza en el minuto 0 y finaliza en el minuto 3:46</td></tr>
   <tr><td><strong>Link</strong></td><td style="overflow-wrap:anywhere; word-break:break-word; white-space:normal;"><a href="https://upcedupe-my.sharepoint.com/:v:/g/personal/u201913495_upc_edu_pe/IQDfA6xK3Jw7QZ7W0eebx3aFAagksUHeYQaJ728iQIWTCug?e=WGB90a">https://upcedupe-my.sharepoint.com/:v:/g/personal/u201913495_upc_edu_pe/<br>IQDfA6xK3Jw7QZ7W0eebx3aFAagksUHeYQaJ728iQIWTCug?e=WGB90a</a></td></tr>
   <tr><td><strong>Resumen</strong></td><td style="overflow-wrap:anywhere;">Analista de sistemas que utiliza su auto todos los días para desplazarse a su trabajo en San Isidro y también por zonas como Miraflores y Surco. Señala que suele demorar entre 15 y 25 minutos en encontrar estacionamiento en horas punta y que, actualmente, solo utiliza Google Maps para planificar la ruta, sin contar con una herramienta específica para validar disponibilidad antes de llegar. Usa Android con Chrome y toma como referencia aplicaciones rápidas, directas y sin pasos innecesarios como Yape. Manifiesta una alta disposición a usar ParkingNow siempre que la información esté realmente actualizada y respaldada por sensor físico, y precisa que el proceso de reserva debería resolverse en un máximo de tres pasos. Indica además que dejaría de usar la aplicación si falla en su primera experiencia de uso.</td></tr>
 </table>
@@ -850,13 +850,13 @@ A continuación se registran las entrevistas realizadas a conductores urbanos de
     <th style="width:24%; text-align:left;">Campo</th>
     <th style="text-align:left;">Detalle</th>
   </tr>
-  <tr><td><strong>Imagen</strong></td><td style="overflow-wrap:anywhere;"><img src="assets/valeria.jpeg" alt="Valeria Torres Chávez" width="240" /></td></tr>
+  <tr><td><strong>Imagen</strong></td><td style="overflow-wrap:anywhere;"><img src="./assets/valeria.jpeg" alt="Valeria Torres Chávez" width="240" /></td></tr>
   <tr><td><strong>Entrevistado</strong></td><td style="overflow-wrap:anywhere;">Valeria Torres Chávez</td></tr>
   <tr><td><strong>Entrevistador</strong></td><td style="overflow-wrap:anywhere;">Gabriel Lapa</td></tr>
   <tr><td><strong>Sexo</strong></td><td style="overflow-wrap:anywhere;">Femenino</td></tr>
   <tr><td><strong>Edad</strong></td><td style="overflow-wrap:anywhere;">34 años</td></tr>
   <tr><td><strong>Distrito</strong></td><td style="overflow-wrap:anywhere;">La Molina</td></tr>
-  <tr><td><strong>Timing</strong></td><td style="overflow-wrap:anywhere;">Por completar</td></tr>
+  <tr><td><strong>Timing</strong></td><td style="overflow-wrap:anywhere;">Empieza en el minuto 3:57 y finaliza en el minuto 8:00 </td></tr>
   <tr><td><strong>Link</strong></td><td style="overflow-wrap:anywhere; word-break:break-word; white-space:normal;"><a href="https://upcedupe-my.sharepoint.com/:v:/g/personal/u202216831_upc_edu_pe/IQBmINpKs2cAS7y94oJga8wuAUus6CMuAxiaSWCAPP48z4U?e=KN09dj">https://upcedupe-my.sharepoint.com/:v:/g/personal/u202216831_upc_edu_pe/<br>IQBmINpKs2cAS7y94oJga8wuAUus6CMuAxiaSWCAPP48z4U?e=KN09dj</a></td></tr>
   <tr><td><strong>Resumen</strong></td><td style="overflow-wrap:anywhere;">Ejecutiva de ventas que se moviliza casi todos los días por distritos como Miraflores, San Borja, Surco y San Isidro debido a sus reuniones de trabajo. Reporta que puede tardar entre 20 y 30 minutos en encontrar estacionamiento en zonas de alta demanda, y destaca que su principal frustración no es solo el tiempo perdido, sino la incertidumbre de no saber si hallará un espacio disponible al llegar. Usa iPhone con Safari y valora experiencias digitales claras y predecibles como la de Uber. Considera especialmente valiosa la posibilidad de reservar desde el celular antes de reuniones importantes, e incluso afirma que estaría dispuesta a pagar por esa garantía. Señala que la validación por sensor físico sería decisiva para confiar en la solución y que abandonaría la aplicación si esta falla en la primera experiencia de uso.</td></tr>
 </table>
@@ -868,15 +868,15 @@ A continuación se registran las entrevistas realizadas a conductores urbanos de
     <th style="width:24%; text-align:left;">Campo</th>
     <th style="text-align:left;">Detalle</th>
   </tr>
-  <tr><td><strong>Imagen</strong></td><td style="overflow-wrap:anywhere;">Por realizar</td></tr>
+  <tr><td><strong>Imagen</strong></td><td style="overflow-wrap:anywhere;"><img src="./assets/conductor3.jpeg" alt="Rodrigo Palomino Vega" width="240" /></td></tr>
   <tr><td><strong>Entrevistado</strong></td><td style="overflow-wrap:anywhere;">Rodrigo Palomino Vega</td></tr>
   <tr><td><strong>Entrevistador</strong></td><td style="overflow-wrap:anywhere;">Por completar</td></tr>
   <tr><td><strong>Sexo</strong></td><td style="overflow-wrap:anywhere;">Masculino</td></tr>
-  <tr><td><strong>Edad</strong></td><td style="overflow-wrap:anywhere;">41 años</td></tr>
+  <tr><td><strong>Edad</strong></td><td style="overflow-wrap:anywhere;">25 años</td></tr>
   <tr><td><strong>Distrito</strong></td><td style="overflow-wrap:anywhere;">San Miguel</td></tr>
-  <tr><td><strong>Timing</strong></td><td style="overflow-wrap:anywhere;">Por realizar</td></tr>
-  <tr><td><strong>Link</strong></td><td style="overflow-wrap:anywhere;">Por realizar</td></tr>
-  <tr><td><strong>Resumen</strong></td><td style="overflow-wrap:anywhere;">Por realizar. Según el guion planificado, corresponde a un docente universitario que utiliza su auto tres veces por semana para desplazarse principalmente hacia Miraflores y San Isidro, y que valora especialmente la confiabilidad del sistema y la validación de disponibilidad mediante sensor físico.</td></tr>
+  <tr><td><strong>Timing</strong></td><td style="overflow-wrap:anywhere;">Empieza en el minuto 8:01 y finaliza en el minuto 14:04</td></tr>
+  <tr><td><strong>Link</strong></td><td style="overflow-wrap:anywhere;"><a href="https://upcedupe-my.sharepoint.com/:v:/g/personal/u202214477_upc_edu_pe/IQDG-M0KMNOLT7EXxhtoBLxbAWlQHej7X4No4ENvfhibYtQ?e=zwbgwM">https://upcedupe-my.sharepoint.com/:v:/g/personal/u202214477_upc_edu_pe/IQDG-M0KMNOLT7EXxhtoBLxbAWlQHej7X4No4ENvfhibYtQ?e=zwbgwM</a></td></tr>
+  <tr><td><strong>Resumen</strong></td><td style="overflow-wrap:anywhere;">Docente universitario de 25 años, residente en San Miguel, soltero y sin hijos ni personas a su cargo, que se moviliza en auto aproximadamente tres veces por semana hacia distritos como Miraflores y San Isidro por motivos laborales. Indica que estacionar en esas zonas es especialmente problemático y que suele salir con anticipación porque puede tardar entre 20 y 40 minutos en encontrar espacio, llegando incluso a perder compromisos cuando no logra estacionar a tiempo. Usa Android con Chrome y recurre a Google Maps solo para la ruta, ya que no le ofrece información sobre disponibilidad de estacionamientos. Su principal frustración es el tiempo improductivo que pierde buscando dónde dejar el vehículo. Señala que usaría una app móvil con disponibilidad en tiempo real si esta demuestra ser confiable desde los primeros usos, y considera que la validación mediante sensor físico sería clave para creer en la exactitud de la información. También afirma que la posibilidad de reservar desde el celular antes de salir sería especialmente valiosa en actividades programadas como sus clases.</td></tr>
 </table>
 
 ---
@@ -892,14 +892,14 @@ A continuación se registran las entrevistas realizadas a propietarios y adminis
     <th style="width:24%; text-align:left;">Campo</th>
     <th style="text-align:left;">Detalle</th>
   </tr>
-  <tr><td><strong>Imagen</strong></td><td style="overflow-wrap:anywhere;"><img src="assets/fiorella.jpeg" alt="Jorge Huamán Castillo" width="240" /></td></tr>
+  <tr><td><strong>Imagen</strong></td><td style="overflow-wrap:anywhere;"><img src="./assets/fiorella.jpeg" alt="Jorge Huamán Castillo" width="240" /></td></tr>
   <tr><td><strong>Entrevistado</strong></td><td style="overflow-wrap:anywhere;">Jorge Huamán Castillo</td></tr>
   <tr><td><strong>Entrevistador</strong></td><td style="overflow-wrap:anywhere;">Fiorella Vilca</td></tr>
   <tr><td><strong>Sexo</strong></td><td style="overflow-wrap:anywhere;">Masculino</td></tr>
   <tr><td><strong>Edad</strong></td><td style="overflow-wrap:anywhere;">47 años</td></tr>
   <tr><td><strong>Distrito</strong></td><td style="overflow-wrap:anywhere;">Miraflores</td></tr>
-  <tr><td><strong>Timing</strong></td><td style="overflow-wrap:anywhere;">Por completar</td></tr>
-  <tr><td><strong>Link</strong></td><td style="overflow-wrap:anywhere; word-break:break-word;">https://upcedupe-my.sharepoint.com/:v:/g/personal/u20211e417_upc_edu_pe/IQDuzAnkPRnxQ4_XrYnL-4-hAZw8677ishtmZUsYZHYQN9A?e=S1pabG</td></tr>
+  <tr><td><strong>Timing</strong></td><td style="overflow-wrap:anywhere;">Empieza en el minuto 14:05 y finaliza en el minuto 18:42</td></tr>
+  <tr><td><strong>Link</strong></td><td style="overflow-wrap:anywhere; word-break:break-word;"><a href="https://upcedupe-my.sharepoint.com/:v:/g/personal/u20211e417_upc_edu_pe/IQDuzAnkPRnxQ4_XrYnL-4-hAZw8677ishtmZUsYZHYQN9A?e=S1pabG">https://upcedupe-my.sharepoint.com/:v:/g/personal/u20211e417_upc_edu_pe/IQDuzAnkPRnxQ4_XrYnL-4-hAZw8677ishtmZUsYZHYQN9A?e=S1pabG</a></td></tr>
   <tr><td><strong>Resumen</strong></td><td style="overflow-wrap:anywhere;">Administra un estacionamiento de 12 espacios en Miraflores con una operación de control manual y apoyo parcial de un trabajador. Explica que no cuenta con visibilidad remota del estado del local más allá de llamadas o mensajes por WhatsApp, y que una de sus principales dificultades es depender de su presencia física para mantener el control de entradas, salidas y cobros. Gestiona el negocio principalmente desde el celular y utiliza herramientas básicas como WhatsApp y Yape. Muestra interés en afiliar su local a una plataforma digital si esta le ayuda a captar más clientes, pero condiciona su adopción a que los sensores no requieran obras complejas y a que la inversión demuestre resultados concretos antes de asumir un pago recurrente.</td></tr>
 </table>
 
@@ -910,13 +910,13 @@ A continuación se registran las entrevistas realizadas a propietarios y adminis
     <th style="width:24%; text-align:left;">Campo</th>
     <th style="text-align:left;">Detalle</th>
   </tr>
-  <tr><td><strong>Imagen</strong></td><td style="overflow-wrap:anywhere;"><img src="assets/leonardo.jpeg" alt="Leonardo Delgado Arriola" width="240" /></td></tr>
+  <tr><td><strong>Imagen</strong></td><td style="overflow-wrap:anywhere;"><img src="./assets/leonardo.jpeg" alt="Leonardo Delgado Arriola" width="240" /></td></tr>
   <tr><td><strong>Entrevistado</strong></td><td style="overflow-wrap:anywhere;">Leonardo Delgado Arriola</td></tr>
   <tr><td><strong>Entrevistador</strong></td><td style="overflow-wrap:anywhere;">Elverth Vásquez Villalobos</td></tr>
   <tr><td><strong>Sexo</strong></td><td style="overflow-wrap:anywhere;">Masculino</td></tr>
   <tr><td><strong>Edad</strong></td><td style="overflow-wrap:anywhere;">20 años</td></tr>
   <tr><td><strong>Distrito</strong></td><td style="overflow-wrap:anywhere;">San Miguel</td></tr>
-  <tr><td><strong>Timing</strong></td><td style="overflow-wrap:anywhere;">Por completar</td></tr>
+  <tr><td><strong>Timing</strong></td><td style="overflow-wrap:anywhere;">Empieza en el minuto 18:42 y finaliza en el minuto 23:38</td></tr>
   <tr><td><strong>Link</strong></td><td style="overflow-wrap:anywhere; word-break:break-word; white-space:normal;"><a href="https://upcedupe-my.sharepoint.com/:v:/g/personal/u202213070_upc_edu_pe/IQBa0FFhoUqESLmHb8p2sG1UAdDEoM7wCEbIQnglKEjcwtA?e=fSiGYK">https://upcedupe-my.sharepoint.com/:v:/g/personal/u202213070_upc_edu_pe/<br>IQBa0FFhoUqESLmHb8p2sG1UAdDEoM7wCEbIQnglKEjcwtA?e=fSiGYK</a></td></tr>
   <tr><td><strong>Resumen</strong></td><td style="overflow-wrap:anywhere;">Administra un estacionamiento en San Miguel con 10 espacios y aproximadamente 2 años de experiencia en la operación del negocio. Señala que la gestión actual es completamente manual y que necesita permanecer presente la mayor parte del tiempo para mantener el control de entradas, salidas y cobros. Expresa interés en una plataforma web que le permita ordenar mejor la operación y atraer más clientes, siempre que sea intuitiva, fácil de usar y de bajo costo. Indica que preferiría gestionar el negocio desde el celular, que actualmente utiliza herramientas básicas como WhatsApp y Yape, y que consideraría instalar sensores si alguien le explica claramente su funcionamiento y si la solución no implica complejidad técnica innecesaria.</td></tr>
 </table>
@@ -928,15 +928,15 @@ A continuación se registran las entrevistas realizadas a propietarios y adminis
     <th style="width:24%; text-align:left;">Campo</th>
     <th style="text-align:left;">Detalle</th>
   </tr>
-  <tr><td><strong>Imagen</strong></td><td style="overflow-wrap:anywhere;">Por realizar</td></tr>
+  <tr><td><strong>Imagen</strong></td><td style="overflow-wrap:anywhere;"><img src="./assets/dueño3.jpeg" alt="Patricia Quispe Alvarado" width="240" /></td></tr>
   <tr><td><strong>Entrevistado</strong></td><td style="overflow-wrap:anywhere;">Patricia Quispe Alvarado</td></tr>
-  <tr><td><strong>Entrevistador</strong></td><td style="overflow-wrap:anywhere;">Por completar</td></tr>
+  <tr><td><strong>Entrevistador</strong></td><td style="overflow-wrap:anywhere;">Diego Ulises Soto Quispe</td></tr>
   <tr><td><strong>Sexo</strong></td><td style="overflow-wrap:anywhere;">Femenino</td></tr>
-  <tr><td><strong>Edad</strong></td><td style="overflow-wrap:anywhere;">38 años</td></tr>
+  <tr><td><strong>Edad</strong></td><td style="overflow-wrap:anywhere;">30 años</td></tr>
   <tr><td><strong>Distrito</strong></td><td style="overflow-wrap:anywhere;">San Isidro</td></tr>
-  <tr><td><strong>Timing</strong></td><td style="overflow-wrap:anywhere;">Por realizar</td></tr>
-  <tr><td><strong>Link</strong></td><td style="overflow-wrap:anywhere;">Por realizar</td></tr>
-  <tr><td><strong>Resumen</strong></td><td style="overflow-wrap:anywhere;">Por realizar. Según el guion planificado, corresponde a una administradora de estacionamiento en San Isidro que opera con apoyo de trabajadores, utiliza herramientas de coordinación básica y requiere una solución simple, accesible y con control de disponibilidad en tiempo real.</td></tr>
+  <tr><td><strong>Timing</strong></td><td style="overflow-wrap:anywhere;">Empieza en el minuto 23:39 y finaliza en el minuto 29:20</td></tr>
+  <tr><td><strong>Link</strong></td><td style="overflow-wrap:anywhere;"><a href="https://upcedupe-my.sharepoint.com/:v:/g/personal/u202214477_upc_edu_pe/IQArovlfxs-9TZtujH0tXWruAf3RwGMXJwEjFWtLnq_8lzw?e=ynCJIt">https://upcedupe-my.sharepoint.com/:v:/g/personal/u202214477_upc_edu_pe/IQArovlfxs-9TZtujH0tXWruAf3RwGMXJwEjFWtLnq_8lzw?e=ynCJIt</a></td></tr>
+  <tr><td><strong>Resumen</strong></td><td style="overflow-wrap:anywhere;">Administradora de estacionamiento de 30 años, ubicada en San Isidro, responsable de un local con 20 espacios y con cinco años de experiencia en la operación del negocio. Señala que actualmente controla la disponibilidad mediante una pizarra física y coordinación por WhatsApp con sus trabajadores, lo que provoca desactualizaciones frecuentes, reservas cruzadas y conflictos con clientes cuando la información no coincide con la realidad. Indica que una de sus mayores frustraciones es el desorden de las reservas manuales, especialmente cuando los clientes llegan y el espacio ya está ocupado o cuando debe resolver errores generados por falta de actualización o comunicación. Utiliza herramientas como WhatsApp, Google Sheets y aplicaciones bancarias, y manifiesta que le interesa una plataforma web simple que le permita ver en tiempo real lo que sucede en su local tanto desde el celular como desde la computadora. Considera especialmente valiosa la instalación de sensores por espacio para automatizar la actualización de disponibilidad y afirma que confiaría en la solución si puede verla funcionando en vivo en su propio local. También señala que la recomendaría a otros administradores si el sistema funciona correctamente durante los primeros treinta días.</td></tr>
 </table>
 
 ---
@@ -1137,7 +1137,7 @@ A partir del análisis de entrevistas realizado en la sección 2.2.3, el equipo 
 
 *User Persona del segmento conductores urbanos de Lima Metropolitana*
 
-![alt text](assets/AndrésVillanuevaRíos1.png)
+![alt text](/assets/Andr%C3%A9sVillanuevaR%C3%ADos1.png)
 
 *Nota.* Elaboración propia (2026).
 
@@ -1149,7 +1149,7 @@ Según la Figura 3, el arquetipo del conductor urbano corresponde a un profesion
 
 *User Persona del segmento administradores de estacionamientos independientes*
 
-![alt text](assets/LuisRamírezTorres.png)
+![alt text](/assets/LuisRam%C3%ADrezTorres.png)
 
 *Nota.* Elaboración propia (2026).
 
@@ -1202,7 +1202,7 @@ Ambos mapas fueron elaborados en UXPressia, vinculados directamente a los User P
 
 *User Journey Map As-Is del segmento conductores urbanos de Lima Metropolitana*
 
-![User Journey Map As-Is del conductor urbano](assets/JourneyMapAndrésVillanueva(ConductorUrbano).png)
+![User Journey Map As-Is del conductor urbano](/assets/JourneyMapAndr%C3%A9sVillanueva%28ConductorUrbano%29.png)
 
 *Nota.* Elaboración propia (2026) en UXPressia.
 
@@ -1214,7 +1214,7 @@ Según la Figura 5, el journey As-Is del conductor urbano evidencia una experien
 
 *User Journey Map As-Is del segmento administradores de estacionamientos independientes*
 
-![User Journey Map As-Is del administrador independiente](assets/JourneyMapLuisRamírezTorres(AdministradorIndependiente).png)
+![User Journey Map As-Is del administrador independiente](/assets/JourneyMapLuisRam%C3%ADrezTorres%28AdministradorIndependiente%29.png)
 
 *Nota.* Elaboración propia (2026) en UXPressia.
 
@@ -1232,7 +1232,7 @@ Los mapas fueron elaborados en UXPressia a partir de los hallazgos obtenidos en 
 
 *Empathy Map del segmento conductores urbanos de Lima Metropolitana*
 
-![Empathy Map del conductor urbano](assets/EmpathyMapAndrésVillanuevaRíos(ConductorUrbano).png)
+![Empathy Map del conductor urbano](/assets/EmpathyMapAndr%C3%A9sVillanuevaR%C3%ADos%28ConductorUrbano%29.png)
 
 *Nota.* Elaboración propia (2026) en UXPressia.
 
@@ -1246,7 +1246,7 @@ Asimismo, este segmento realiza acciones repetitivas e ineficientes, como salir 
 
 *Empathy Map del segmento administradores de estacionamientos independientes*
 
-![Empathy Map del administrador independiente](assets/LuisRamírezTorresAdministradorIndependiente.png)
+![Empathy Map del administrador independiente](/assets/LuisRam%C3%ADrezTorresAdministradorIndependiente.png)
 
 *Nota.* Elaboración propia (2026) en UXPressia.
 
@@ -1266,7 +1266,7 @@ Es importante precisar que los **Domain Events** se expresan como hechos relevan
 
 *Big Picture EventStorming del dominio ParkingNow*
 
-![alt text](assets/bigpicture.jpeg)
+![alt text](/assets/bigpicture.jpeg)
 
 *Nota.* Elaboración propia (2026).
 
