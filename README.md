@@ -1192,143 +1192,69 @@ Estos hallazgos servirán como base directa para la elaboración de los **User J
 
 ### 2.3.3. User Journey Maps
 
-En esta sección se presentan los User Journey Maps As-Is de los dos segmentos objetivo de ParkingNow. Estos mapas ilustran el recorrido actual de cada User Persona en su contexto real, sin la existencia de la solución, con el propósito de identificar los puntos de mayor fricción, frustración y oportunidad en la experiencia de cada segmento. El journey del conductor urbano recorre el proceso completo desde que planifica su salida hasta que llega a su destino, evidenciando la ausencia total de información verificada sobre disponibilidad de estacionamiento en cada etapa. El journey del administrador independiente recorre su jornada operativa desde la apertura del local hasta el cierre del día, evidenciando la dependencia de procesos manuales y la imposibilidad de monitoreo a distancia.
+En esta sección se presentan los User Journey Maps As-Is de los dos segmentos objetivo identificados para el proyecto. Estos mapas ilustran el recorrido actual de cada User Persona en su contexto real, sin la existencia de la solución propuesta, con el propósito de identificar los puntos de mayor fricción, frustración y oportunidad en la experiencia de cada segmento. El journey del conductor urbano recorre el proceso completo desde que planifica su salida hasta que llega a su destino, evidenciando la ausencia de información confiable sobre disponibilidad de estacionamiento a lo largo del recorrido. Por su parte, el journey del administrador independiente recorre su jornada operativa desde la apertura del local hasta el cierre del día, evidenciando la dependencia de procesos manuales, coordinación informal y limitada visibilidad remota de la operación.
 
-Ambos mapas fueron elaborados en UXPressia, vinculados directamente a los User Personas construidos en la sección 2.3.1, y toman como insumo los hallazgos del análisis de entrevistas de la sección 2.2.3.
-
----
-
-**Figura 4**
-
-*User Journey Map As-Is del segmento conductores urbanos de Lima Metropolitana*
-
-![User Journey Map As-Is del conductor urbano](assets/AsIsJourneyMapAndrésVillanueva(ConductorUrbano).png)
-
-*Nota.* Elaboración propia (2026) en UXPressia.
-
-Según la Figura 4, el journey As-Is del conductor urbano evidencia una experiencia marcada por la ausencia de información confiable en tiempo real durante todas las etapas del recorrido. La curva de experiencia se mantiene en nivel neutral en las etapas de planificación y salida, desciende a sadness en la etapa de búsqueda, donde el conductor pierde entre 15 y 40 minutos dando vueltas sin herramienta alguna que le anticipe la disponibilidad, y alcanza su punto más crítico en la etapa de intento de estacionamiento, donde la frustración llega a nivel rage ante la reiterada falta de espacio disponible al llegar al destino. El journey concluye en nivel sadness, reflejando que el conductor llega a su compromiso laboral con estrés acumulado que afecta su rendimiento posterior. Las oportunidades identificadas en cada etapa apuntan directamente a la propuesta de valor de ParkingNow: anticipar disponibilidad, permitir reserva garantizada y respaldar la información con verificación física mediante sensor IoT. Este journey sintetiza patrones observados en las Entrevistas 1, 2 y 3.
+Ambos mapas fueron elaborados en UXPressia, vinculados directamente a los User Personas construidos en la sección 2.3.1, y toman como insumo los hallazgos obtenidos en el análisis de entrevistas de la sección 2.2.3.
 
 ---
 
 **Figura 5**
 
-*User Journey Map As-Is del segmento administradores de estacionamientos independientes*
+*User Journey Map As-Is del segmento conductores urbanos de Lima Metropolitana*
 
-![User Journey Map As-Is del administrador independiente](assets/AsIsJourneyMapJorgeQuispe(AdministradorIndependiente).png)
+![User Journey Map As-Is del conductor urbano](assets/JourneyMapAndrésVillanueva(ConductorUrbano).png)
 
 *Nota.* Elaboración propia (2026) en UXPressia.
 
-Según la Figura 5, el journey As-Is del administrador independiente evidencia una operación completamente dependiente de la presencia física del dueño y de herramientas informales como cuaderno, pizarra y WhatsApp. La curva de experiencia se mantiene en nivel neutral en las etapas de apertura y operación diaria, desciende a sadness en la etapa de gestión de conductores, donde se producen los conflictos más frecuentes por llegadas sin espacio disponible y reservas fallidas, y alcanza su punto más crítico en la etapa de coordinación a distancia, donde el administrador depende de terceros para saber qué ocurre en su propio local sin poder verificarlo. El journey cierra en nivel sadness, reflejando que el día termina sin reporte ni historial digital de la operación. Las oportunidades identificadas en cada etapa sustentan el diseño del panel web de ParkingNow: monitoreo remoto en tiempo real, actualización automática de disponibilidad mediante sensores y sistema de reservas digitales que elimine la coordinación informal por WhatsApp. Este journey sintetiza patrones observados en las Entrevistas 4, 5 y 6.
-
-### 2.3.4. Empathy Mapping
-
-En esta sección se presentan los Empathy Maps de los dos segmentos objetivo de
-ParkingNow. Estos artefactos profundizan en la dimensión emocional y perceptiva
-de cada User Persona, recogiendo lo que piensan, sienten, escuchan, hacen, sufren
-y esperan ganar en el contexto del problema del estacionamiento urbano en Lima
-Metropolitana. Cada Empathy Map fue construido a partir de los hallazgos del
-análisis de entrevistas de la sección 2.2.3 y complementa la visión objetiva de
-los User Personas de la sección 2.3.1, añadiendo la capa subjetiva necesaria para
-diseñar experiencias de usuario empáticas y centradas en necesidades reales.
-Los mapas fueron elaborados en UXPressia y se encuentran vinculados a los User
-Personas correspondientes.
+Según la Figura 5, el journey As-Is del conductor urbano evidencia una experiencia marcada por la incertidumbre respecto a la disponibilidad de estacionamiento durante todas las etapas del recorrido. La curva de experiencia se mantiene en nivel neutral en las etapas de planificación y salida, desciende a sadness en la etapa de búsqueda, donde el conductor pierde entre 15 y 40 minutos dando vueltas sin información útil ni verificada, y alcanza su punto más crítico en la etapa de intento de estacionamiento, donde la frustración llega a nivel rage al verse obligado a tomar decisiones apresuradas, estacionarse lejos o incluso recurrir a zonas no ideales. El journey concluye en nivel sadness, reflejando que el conductor llega a su destino con retraso o con estrés acumulado, afectando negativamente el inicio de su actividad. Las oportunidades identificadas en el mapa se orientan a reducir la incertidumbre previa al viaje, facilitar la identificación de espacios disponibles y disminuir la carga emocional asociada al proceso de estacionamiento. Este journey sintetiza patrones observados en las Entrevistas 1, 2 y 3.
 
 ---
 
 **Figura 6**
 
-*Empathy Map del segmento conductores urbanos de Lima Metropolitana*
+*User Journey Map As-Is del segmento administradores de estacionamientos independientes*
 
-![alt text](assets/AndrésVillanuevaRíosConductorUrbano.png)
+![User Journey Map As-Is del administrador independiente](assets/JourneyMapLuisRamírezTorres(AdministradorIndependiente).png)
 
 *Nota.* Elaboración propia (2026) en UXPressia.
 
-Según la Figura 6, el Empathy Map del conductor urbano revela que su principal
-dolor no es solo el tiempo perdido buscando estacionamiento, sino también la
-incertidumbre previa que genera ansiedad desde el momento en que planifica su
-salida. El conductor piensa que debería existir una forma de saber si habrá espacio
-antes de llegar, de la misma manera en que ya existen aplicaciones que anticipan
-el tráfico. Su principal ganancia esperada es contar con certeza sobre la
-disponibilidad, respaldada por un mecanismo físico verificable y no por datos
-ingresados manualmente. Asimismo, la tolerancia al error es mínima, ya que una
-sola falla en el primer uso puede significar la pérdida definitiva de confianza
-en la plataforma. Este mapa sintetiza patrones observados en las Entrevistas 1, 2 y 3.
+Según la Figura 6, el journey As-Is del administrador independiente evidencia una operación fuertemente dependiente de la presencia física del dueño y de mecanismos manuales de control, como cuaderno, registro directo, cobro presencial y coordinación por llamadas o WhatsApp. La curva de experiencia se mantiene en nivel neutral en las etapas de apertura y operación diaria, desciende a sadness en la etapa de gestión de conductores, donde comienzan a aparecer conflictos por falta de información clara sobre la ocupación, y alcanza su punto más crítico en la etapa de coordinación a distancia, donde el administrador depende de terceros para saber qué ocurre en el local y se expone a errores de comunicación, reservas fallidas o discrepancias operativas. El journey cierra en nivel sadness, reflejando que la jornada termina sin un historial estructurado ni datos consolidados que permitan revisar tendencias, ingresos o errores del día. Las oportunidades identificadas en el mapa se orientan a mejorar la visibilidad del estado del local, reducir la dependencia del registro manual y facilitar un mayor control operativo al cierre de la jornada. Este journey sintetiza patrones observados en las Entrevistas 4, 5 y 6.
+
+### 2.3.4. Empathy Mapping
+
+En esta sección se presentan los Empathy Maps correspondientes a los dos segmentos objetivo de ParkingNow. Estos artefactos permiten profundizar en la dimensión emocional, perceptiva y conductual de cada User Persona, recogiendo qué piensa, qué siente, qué escucha, qué observa, qué hace, cuáles son sus principales frustraciones y qué beneficios espera obtener frente al problema del estacionamiento urbano en Lima Metropolitana. Su propósito es complementar la visión demográfica y funcional desarrollada en la sección 2.3.1, incorporando una comprensión más empática de las necesidades reales de cada segmento.
+
+Los mapas fueron elaborados en UXPressia a partir de los hallazgos obtenidos en el análisis de entrevistas de la sección 2.2.3 y guardan coherencia directa con los User Personas y User Journey Maps previamente desarrollados. De este modo, cada Empathy Map sintetiza patrones recurrentes observados en las entrevistas y permite identificar con mayor claridad los pains y gains que deberán ser considerados en el diseño de la propuesta de valor y de la experiencia de usuario.
 
 ---
 
 **Figura 7**
 
-*Empathy Map del segmento administradores de estacionamientos independientes*
+*Empathy Map del segmento conductores urbanos de Lima Metropolitana*
 
-![alt text](assets/JorgeQuispeHuamánAdministradorIndependiente.png)
+![Empathy Map del conductor urbano](assets/EmpathyMapAndrésVillanuevaRíos(ConductorUrbano).png)
 
 *Nota.* Elaboración propia (2026) en UXPressia.
 
-Según la Figura 7, el Empathy Map del administrador independiente revela que su
-principal dolor no es técnico sino operativo: la imposibilidad de alejarse de su
-negocio sin perder el control de lo que ocurre en él. El administrador no rechaza
-la tecnología por principio, sino por la percepción de que las soluciones existentes
-pueden ser costosas, complejas o estar orientadas a negocios de mayor escala. Su
-principal ganancia esperada es poder monitorear su operación desde el celular,
-sin necesidad de conocimientos técnicos avanzados ni inversiones en infraestructura
-compleja. Además, la prueba social, es decir, comprobar que la solución funciona
-en un negocio similar al suyo, emerge como uno de los mecanismos de confianza más
-relevantes para este segmento. Este mapa sintetiza patrones observados en las Entrevistas 4, 5 y 6.
+Según la Figura 7, el Empathy Map del conductor urbano evidencia que su experiencia está marcada por una combinación de presión de tiempo, incertidumbre y baja tolerancia al error. El conductor no solo pierde tiempo buscando estacionamiento, sino que además inicia su recorrido con la preocupación de no saber si encontrará un espacio disponible al llegar. En su entorno observa congestión, estacionamientos llenos y ausencia de información verificable sobre disponibilidad real, mientras que en su rutina escucha comentarios frecuentes sobre demoras, tráfico y la dificultad de estacionar en distritos como San Isidro, Miraflores y Surco.
+
+Asimismo, este segmento realiza acciones repetitivas e ineficientes, como salir con anticipación, revisar únicamente rutas o tráfico en aplicaciones de navegación y recorrer varias cuadras esperando que se libere un espacio. Entre sus principales pains destacan la pérdida de entre 15 y 40 minutos en la búsqueda, la ansiedad de llegar tarde, el estrés acumulado y la desconfianza inmediata frente a cualquier falla en la información mostrada. En contraste, sus gains esperados se relacionan con la posibilidad de conocer con anticipación si existe un espacio disponible, reducir el tiempo de búsqueda, tomar decisiones rápidas con información clara y confiar en que la disponibilidad observada corresponda al estado real del estacionamiento. Este mapa sintetiza patrones observados en las Entrevistas 1, 2 y 3.
+
+---
+
+**Figura 8**
+
+*Empathy Map del segmento administradores de estacionamientos independientes*
+
+![Empathy Map del administrador independiente](assets/LuisRamírezTorresAdministradorIndependiente.png)
+
+*Nota.* Elaboración propia (2026) en UXPressia.
+
+Según la Figura 8, el Empathy Map del administrador independiente evidencia que su principal tensión cotidiana se encuentra en la necesidad de mantener el control operativo del negocio sin depender por completo de su presencia física. Este segmento piensa constantemente en cómo evitar errores, mantener el orden de la operación y no perder clientes por una gestión manual poco precisa. En su entorno observa que su local depende de cuadernos, pizarras, llamadas y mensajes, mientras escucha reclamos, coordinaciones imprecisas y comentarios que refuerzan la idea de que las soluciones tecnológicas suelen ser complejas o estar orientadas a negocios de mayor escala.
+
+De igual manera, sus acciones diarias muestran una operación altamente manual: registrar entradas y salidas, coordinar con personal o familiares por WhatsApp, atender consultas presenciales, gestionar cobros directamente y revisar el estado del negocio a distancia mediante llamadas o mensajes. Entre sus principales pains destacan la imposibilidad de ausentarse sin perder control, los errores derivados de registros manuales, la falta de visibilidad en tiempo real, la pérdida de clientes por descoordinación y la ausencia de un historial digital estructurado. Frente a ello, sus gains esperados se concentran en contar con monitoreo remoto desde el celular, reducir errores operativos, captar más conductores, disponer de una solución simple y accesible, y tener mayor tranquilidad al saber qué ocurre en el local incluso cuando no se encuentra físicamente presente. Este mapa sintetiza patrones observados en las Entrevistas 4, 5 y 6.
 
 ### 2.3.5. As-Is Scenario Mapping
-
-En esta sección se presentan los As-Is Scenario Maps de los dos segmentos
-objetivo de ParkingNow. El As-Is Scenario Mapping es una técnica de Design
-Thinking que permite documentar el entendimiento colectivo del equipo sobre
-los flujos de trabajo actuales de los usuarios, registrando en cada paso lo
-que el usuario hace (Doing), piensa (Thinking) y siente (Feeling), sin la
-existencia de la solución propuesta. Su propósito es identificar con precisión
-los puntos de mayor fricción en la experiencia actual de cada segmento, como
-base para definir las oportunidades de diseño que guiarán el desarrollo de
-ParkingNow. Los mapas fueron elaborados a partir de los hallazgos del análisis
-de entrevistas de la sección 2.2.3 y son coherentes con los User Journey Maps
-de la sección 2.3.3.
-
----
-
-Figura 8
-
-*As-Is Scenario Map del segmento conductores urbanos de Lima Metropolitana*
-
-![alt text](<assets/as is conductor.jpeg>)
-
-*Nota.* Elaboración propia (2026).
-
-Según la Figura 8, el As-Is Scenario Map del conductor urbano evidencia que
-la mayor fricción se concentra en los pasos 3 y 4 — búsqueda e intento de
-estacionamiento — donde el usuario combina una acción de alto costo físico
-(dar vueltas en auto por 15 a 40 minutos) con pensamientos de frustración
-creciente y emociones que escalan desde tensión hasta pérdida de control
-del tiempo. El paso 1 revela una brecha crítica de diseño: el conductor
-planifica su salida con Google Maps pero no cuenta con ninguna herramienta
-que le anticipe la disponibilidad de estacionamiento, generando una
-incertidumbre que condiciona negativamente toda la experiencia posterior.
-
----
-
-Figura 9
-
-*As-Is Scenario Map del segmento administradores de estacionamientos independientes*
-
-![alt text](<assets/as is conductor.jpeg>)
-
-*Nota.* Elaboración propia (2026).
-
-Según la Figura 9, el As-Is Scenario Map del administrador independiente
-evidencia que la mayor fricción se concentra en los pasos 4 y 5 — ausencia
-del local y coordinación a distancia — donde el usuario abandona el control
-de su propio negocio al depender exclusivamente de que terceros le informen
-correctamente por WhatsApp o llamada. El paso 6 revela una segunda brecha
-crítica: el administrador cierra el día sin reporte ni historial digital,
-lo que le impide tomar decisiones basadas en datos reales de su operación.
-Ambos mapas confirman la interdependencia entre los dos segmentos: la
-solución que el conductor necesita solo puede existir si el administrador
-tiene herramientas que digitalicen su operación sin complejidad.
 
 
 
