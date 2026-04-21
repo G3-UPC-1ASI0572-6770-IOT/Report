@@ -870,7 +870,7 @@ A continuación se registran las entrevistas realizadas a conductores urbanos de
   </tr>
   <tr><td><strong>Imagen</strong></td><td style="overflow-wrap:anywhere;"><img src="./assets/conductor3.jpeg" alt="Rodrigo Palomino Vega" width="240" /></td></tr>
   <tr><td><strong>Entrevistado</strong></td><td style="overflow-wrap:anywhere;">Rodrigo Palomino Vega</td></tr>
-  <tr><td><strong>Entrevistador</strong></td><td style="overflow-wrap:anywhere;">Por completar</td></tr>
+  <tr><td><strong>Entrevistador</strong></td><td style="overflow-wrap:anywhere;">Diego Ulises Soto Quispe</td></tr>
   <tr><td><strong>Sexo</strong></td><td style="overflow-wrap:anywhere;">Masculino</td></tr>
   <tr><td><strong>Edad</strong></td><td style="overflow-wrap:anywhere;">25 años</td></tr>
   <tr><td><strong>Distrito</strong></td><td style="overflow-wrap:anywhere;">San Miguel</td></tr>
