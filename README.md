@@ -1256,41 +1256,59 @@ De igual manera, sus acciones diarias muestran una operación altamente manual: 
 
 ## 2.4. Big Picture EventStorming
 
-En esta sección se presenta el resultado del taller de **Big Picture EventStorming** realizado para el dominio de **ParkingNow**, con el propósito de construir una visión compartida del flujo principal del negocio antes de profundizar en decisiones de arquitectura y diseño de software. Esta técnica permitió identificar los eventos más relevantes del dominio, ordenar la historia principal del proceso de estacionamiento de extremo a extremo y reconocer los puntos de dolor actuales que justifican la propuesta de valor de la solución.
+En esta sección se presenta el resultado del taller de **Big Picture EventStorming** realizado para el dominio de **ParkingNow**, con el propósito de construir una visión compartida del negocio antes de profundizar en decisiones de arquitectura y diseño de software. Esta técnica permitió identificar los eventos significativos del dominio, ordenar la historia principal del proceso de estacionamiento de extremo a extremo y reconocer los principales puntos de dolor que justifican la propuesta de valor de la solución.
 
-Para el desarrollo de este artefacto, el equipo trabajó a partir de los hallazgos obtenidos en las entrevistas, los User Personas, los User Journey Maps y los Empathy Maps elaborados en las secciones anteriores. A partir de ello, se estructuró el Big Picture EventStorming siguiendo una lógica de apertura, exploración y cierre del dominio. En la fase **Open** se identificaron los eventos iniciales del proceso; en la fase **Explore** se ordenó cronológicamente la historia principal del dominio y se añadieron los principales puntos de dolor; y en la fase **Close** se consolidaron los actores, comandos, vistas de información y sistemas externos que interactúan con el flujo principal del negocio.
+Para la elaboración de este artefacto, el equipo tomó como insumo los hallazgos obtenidos en las entrevistas, los **User Personas**, los **User Journey Maps** y los **Empathy Maps** desarrollados en las secciones previas. A partir de esta información, se construyó una primera aproximación visual de alto nivel del dominio, orientada a representar procesos clave, relaciones entre eventos, problemas actuales y oportunidades de mejora. En concordancia con el enfoque aplicado por el equipo, el trabajo se organizó en tres momentos complementarios: **Open**, **Explore** y **Close**. En **Open** se capturaron los eventos iniciales del dominio; en **Explore** se ordenó la historia principal del negocio y se identificaron los principales pain points; y en **Close** se consolidaron los actores, comandos, vistas de información y sistemas externos que completan el entendimiento global del dominio.
 
-Es importante precisar que los **Domain Events** se expresan como hechos relevantes del dominio, mientras que los **Pain Points** representan fricciones u obstáculos del proceso actual. Por su parte, los **Actors**, **Commands**, **Read Models** y **External Systems** complementan el entendimiento global del negocio y permiten preparar la transición hacia el modelado estratégico y táctico de la solución.
+Es importante precisar que los **Domain Events** representan hechos relevantes que ocurren en el negocio, mientras que los **Pain Points** evidencian fricciones, limitaciones o quiebres del proceso actual. Por su parte, los **Actors**, **Commands**, **Read Models** y **External Systems** enriquecen la comprensión del dominio y permiten preparar la transición hacia el modelado estratégico y táctico de la solución.
 
 **Figura 9**
 
 *Big Picture EventStorming del dominio ParkingNow*
 
-![alt text](/assets/bigpicture.jpeg)
+![Big Picture EventStorming completo](assets/bigpicturefinal.png)
 
 *Nota.* Elaboración propia (2026).
 
-A nivel general, el Big Picture EventStorming permitió representar el dominio de ParkingNow en tres momentos complementarios. En la fase **Open** se capturaron los eventos iniciales asociados a la búsqueda y reserva de estacionamiento desde la perspectiva del conductor. En la fase **Explore** se construyó la historia principal del dominio, ordenando cronológicamente los eventos más relevantes desde la llegada al local hasta el cierre operativo de la transacción, e incorporando los principales puntos de dolor del escenario actual. Finalmente, en la fase **Close** se consolidaron los actores, comandos, vistas de información y sistemas externos que completan el entendimiento global del negocio.
+Según la **Figura 9**, el Big Picture EventStorming permitió representar el dominio de ParkingNow como un flujo integrado en el que intervienen el conductor, el administrador del estacionamiento y el componente IoT. En la fase **Open** se reunieron los eventos iniciales asociados al descubrimiento y reserva de espacios, incorporando también elementos operativos del negocio. En la fase **Explore** se organizó la línea principal del dominio desde la llegada al local hasta el cierre operativo de la transacción, junto con los principales puntos de dolor del escenario actual. Finalmente, en la fase **Close** se consolidaron los elementos complementarios que explican quién interviene en el proceso, qué acciones desencadenan los eventos, qué información se necesita visualizar y qué servicios externos participan en la experiencia.
 
 ---
 
 ### Etapa 1: Open
 
-En esta primera etapa se identificaron los eventos iniciales del dominio relacionados con la interacción temprana del conductor con el problema de estacionamiento. El objetivo fue abrir la discusión y capturar, de forma amplia, los hechos más relevantes que ocurren desde que el usuario inicia la búsqueda hasta que anticipa su llegada al destino. En esta fase se recogieron eventos vinculados a la búsqueda de destino, revisión de disponibilidad, selección de espacio y reserva.
+En esta primera etapa se realizó una exploración inicial del dominio mediante la identificación de eventos significativos relacionados con el inicio de la experiencia del usuario y con la configuración operativa del servicio. El objetivo fue abrir la discusión y capturar, de forma amplia, los hechos más relevantes que ocurren antes de la ejecución principal del proceso, tanto desde la perspectiva del conductor como desde la perspectiva del estacionamiento afiliado.
 
-En esta etapa se identificaron como eventos iniciales del dominio los siguientes: **Destino buscado**, **Estacionamientos visualizados**, **Disponibilidad revisada**, **Espacio seleccionado**, **Reserva registrada**, **Reserva confirmada**, **Disponibilidad consultada** y **Ruta planificada**. En conjunto, estos eventos representan la parte temprana de la historia del conductor urbano, en la que todavía no existe certeza sobre si la información observada coincide realmente con el estado físico de los espacios disponibles.
+**Figura 10**
+
+*Big Picture EventStorming - Etapa Open*
+
+![alt text](assets/open.jpeg)
+
+*Nota.* Elaboración propia (2026).
+
+Según la **Figura 10**, en esta fase se identificaron los siguientes eventos iniciales del dominio: **Estacionamiento afiliado**, **Espacio registrado**, **Destino buscado**, **Estacionamientos visualizados**, **Disponibilidad consultada**, **Espacio seleccionado**, **Reserva registrada**, **Reserva confirmada** y **Llegada prevista**. En conjunto, estos eventos representan la etapa temprana del proceso, en la que el conductor inicia la búsqueda de estacionamiento y el negocio ya dispone de espacios registrados y visibles dentro del ecosistema de la solución.
+
+Asimismo, según la **Figura 10**, esta etapa resulta relevante porque evidencia que el problema no comienza únicamente cuando el usuario llega al local, sino desde el momento en que necesita tomar decisiones sin contar todavía con certeza sobre la disponibilidad real. Del mismo modo, incorpora desde el inicio elementos del lado operativo del negocio, evitando que el dominio quede reducido únicamente a la perspectiva del conductor.
 
 ---
 
 ### Etapa 2: Explore
 
-En esta etapa se construyó la línea principal del dominio, ordenando cronológicamente los eventos de negocio más relevantes desde la llegada del conductor al local hasta el cierre operativo de la transacción. Esta fase permitió comprender mejor la secuencia del proceso principal y, al mismo tiempo, ubicar los puntos de dolor más importantes del escenario actual.
+En esta etapa se construyó la línea principal del dominio, ordenando cronológicamente los eventos de negocio más relevantes desde la llegada del conductor al local hasta el cierre operativo de la transacción. Esta fase permitió comprender con mayor claridad la secuencia del proceso principal y, al mismo tiempo, ubicar los principales puntos de dolor del escenario actual.
 
-La línea principal del dominio quedó conformada por los siguientes eventos: **Conductor llegó al local**, **Disponibilidad verificada**, **Ingreso autorizado**, **Vehículo detectado**, **Espacio ocupado actualizado**, **Vehículo salió**, **Espacio liberado actualizado**, **Cobro registrado** e **Ingreso diario registrado**. Esta secuencia resume el flujo operativo central del negocio, conectando la experiencia del conductor con la operación interna del administrador y la participación del componente IoT en la actualización del estado del espacio.
+**Figura 11**
 
-Asimismo, durante esta etapa se identificaron los principales **Pain Points** del dominio actual: **No existe información confiable antes de salir**, **El conductor da vueltas buscando espacio**, **La disponibilidad no coincide con la realidad**, **El administrador depende de registro manual**, **La operación depende de presencia física** y **No existe historial digital consolidado**. Estos puntos de dolor evidencian que el problema no se limita a la búsqueda de estacionamiento por parte del conductor, sino que también compromete la operación diaria del administrador, quien carece de visibilidad remota, automatización y trazabilidad digital de lo que ocurre en su local.
+*Big Picture EventStorming - Etapa Explore*
 
-En consecuencia, esta etapa permitió identificar con claridad la principal brecha del dominio: la desconexión entre la ocupación física real del espacio y la información que circula entre conductor y administrador. Dicha brecha constituye el problema central que ParkingNow busca resolver mediante integración entre aplicación digital, panel de gestión y detección física con IoT.
+![alt text](assets/explore.jpeg)
+
+*Nota.* Elaboración propia (2026).
+
+Según la **Figura 11**, la línea principal del dominio quedó conformada por los siguientes eventos: **Conductor llegó al local**, **Disponibilidad verificada**, **Reserva validada**, **Ingreso autorizado**, **Vehículo detectado**, **Espacio ocupado actualizado**, **Reserva consumida**, **Evento IoT registrado**, **Vehículo salió**, **Espacio liberado actualizado**, **Cobro registrado** e **Ingreso diario registrado**. Esta secuencia resume el flujo operativo central del negocio, articulando la intención digital de la reserva con la validación operativa del administrador y con la detección física realizada por el componente IoT.
+
+Asimismo, según la **Figura 11**, durante esta etapa se identificaron los principales **Pain Points** del dominio actual: **No existe información confiable antes de salir**, **El conductor da vueltas buscando espacio**, **La disponibilidad no coincide con la realidad**, **El administrador depende de registro manual**, **La operación depende de presencia física**, **Las reservas por WhatsApp se cruzan**, **El estado del espacio se actualiza tarde** y **No existe historial digital consolidado**. Estos puntos de dolor evidencian que el problema no se limita a la dificultad del conductor para encontrar estacionamiento, sino que también compromete la operación diaria del administrador, quien carece de automatización, visibilidad remota y trazabilidad confiable sobre lo que ocurre en su local.
+
+En consecuencia, según la **Figura 11**, esta etapa permitió identificar con claridad la principal brecha del dominio: la desconexión entre el estado físico real del espacio de estacionamiento y la información que circula entre conductor, administrador y sistema digital. Dicha brecha constituye el núcleo del problema que ParkingNow busca resolver mediante la integración entre aplicación móvil, panel de gestión y detección física con IoT.
 
 ---
 
@@ -1298,23 +1316,31 @@ En consecuencia, esta etapa permitió identificar con claridad la principal brec
 
 En la etapa final se consolidaron los elementos que complementan el entendimiento global del dominio: actores, comandos, vistas de información y sistemas externos. Esta fase permitió responder quién interviene en el proceso, qué acciones desencadenan los eventos, qué información necesita visualizar cada participante y qué servicios externos forman parte del ecosistema.
 
-Se identificaron como **Actors** a **Conductor**, **Administrador** y **Nodo IoT**. Estos actores representan, respectivamente, al usuario que busca estacionamiento, al operador que controla el local y al componente físico que detecta la ocupación de los espacios y contribuye a actualizar el estado del sistema.
+**Figura 12**
 
-Como **Commands**, se definieron: **Buscar destino**, **Consultar estacionamientos**, **Seleccionar espacio**, **Registrar reserva**, **Confirmar reserva**, **Validar llegada**, **Detectar vehículo**, **Actualizar estado**, **Registrar salida** y **Registrar cobro**. Estos comandos representan las acciones que desencadenan los hechos del dominio y permiten comprender la interacción entre los actores y la solución tecnológica.
+*Big Picture EventStorming - Etapa Close*
 
-Como **Read Models**, se identificaron: **Mapa de estacionamientos**, **Vista de disponibilidad**, **Panel de ocupación** e **Historial diario**. Estas vistas sintetizan la información necesaria para que conductores y administradores puedan tomar decisiones dentro del flujo del negocio.
+![alt text](assets/close.jpeg)
 
-Finalmente, se reconocieron como **External Systems** a **Google Maps / OpenStreetMap** y **WhatsApp**, ya que forman parte del entorno actual o potencial de interacción del sistema, ya sea para visualización de ubicaciones o para coordinación operativa informal.
+*Nota.* Elaboración propia (2026).
+
+Según la **Figura 12**, se identificaron como **Actors** a **Conductor**, **Administrador** y **Nodo IoT**. Estos actores representan, respectivamente, al usuario que busca y reserva estacionamiento, al operador que administra el local y al componente físico encargado de detectar ocupación y contribuir a la actualización del estado del sistema.
+
+Asimismo, según la **Figura 12**, como **Commands** se definieron: **Buscar destino**, **Consultar estacionamientos**, **Seleccionar espacio**, **Registrar reserva**, **Confirmar reserva**, **Validar llegada**, **Detectar vehículo**, **Actualizar estado**, **Registrar salida**, **Registrar cobro**, **Registrar estacionamiento** y **Registrar espacio**. Estos comandos representan las acciones que desencadenan los hechos del dominio y permiten comprender la interacción entre los actores y la solución tecnológica.
+
+Del mismo modo, según la **Figura 12**, como **Read Models** se identificaron: **Mapa de estacionamientos**, **Vista de disponibilidad**, **Panel de ocupación**, **Historial diario** y **Vista de reservas activas**. Estas vistas sintetizan la información necesaria para que conductores y administradores puedan tomar decisiones dentro del flujo del negocio.
+
+Finalmente, según la **Figura 12**, se reconocieron como **External Systems** a **Google Maps / OpenStreetMap**, **WhatsApp** y **Cámara local**, ya que forman parte del entorno actual o potencial de interacción del sistema, ya sea para visualización de ubicaciones, coordinación operativa informal o apoyo visual en la supervisión del local.
 
 ---
 
 ### Conclusión del Big Picture EventStorming
 
-El Big Picture EventStorming de ParkingNow permitió comprender de manera integral el flujo principal del negocio y evidenciar que el problema central del dominio radica en la falta de sincronización entre el estado físico real del estacionamiento y la información que reciben tanto el conductor como el administrador. Desde la perspectiva del conductor, esto se traduce en incertidumbre, pérdida de tiempo y estrés acumulado. Desde la perspectiva del administrador, se traduce en dependencia de registros manuales, falta de control remoto y ausencia de trazabilidad operativa consolidada.
+Según las **Figuras 9, 10, 11 y 12**, el Big Picture EventStorming de ParkingNow permitió comprender de manera integral el flujo principal del negocio y evidenciar que el problema central del dominio radica en la falta de sincronización entre el estado físico real del estacionamiento y la información que reciben tanto el conductor como el administrador. Desde la perspectiva del conductor, esto se traduce en incertidumbre, pérdida de tiempo y estrés acumulado. Desde la perspectiva del administrador, se traduce en dependencia de registros manuales, falta de control remoto y ausencia de trazabilidad operativa consolidada.
 
-Este artefacto sirvió además para identificar de forma temprana los actores del dominio, los comandos relevantes, las vistas de información necesarias y los sistemas externos que intervienen en la experiencia actual del negocio. En conjunto, estos hallazgos constituyen una base directa para la siguiente etapa del informe, orientada a la definición del **Ubiquitous Language** y, posteriormente, al modelado estratégico y táctico de la solución.
+Asimismo, este artefacto permitió identificar tempranamente los actores del dominio, los comandos relevantes, las vistas de información necesarias y los sistemas externos que intervienen en la experiencia actual del negocio. En conjunto, estos hallazgos constituyen una base directa para la siguiente etapa del informe, orientada a la definición del **Ubiquitous Language** y, posteriormente, al modelado estratégico y táctico de la solución.
 
-**Enlace del Miro: https://miro.com/welcomeonboard/a0k5WEpHWEhzS2tnalUwbVVjaWN4TkpSaEhIc3N0VkxmdlJvTXRMMFk3TUJwODJtdWtOcUpiOUVnSEJ3V3VZSUVZMnJFNEFVeHREN1BYSFkrc21QMkVmQnUraUd4TE1vQmR5bitqV3AzWkM1YjVzRmdGbXA1SDVJUHFhMVlQYmd3VHhHVHd5UWtSM1BidUtUYmxycDRnPT0hdjE=?share_link_id=926119935937**
+**Enlace del Miro: https://miro.com/welcomeonboard/NkhScHNYNmNkT1ZsYTZIcmQybzdnRDRMRk1yRzV2SlMveGh5U0tmQ3RveGg0MDlObDIwUWxDcGhBWVpPOFQvSHArZTZWT3UxWlg2cUV2U0d2TDVacEVmQnUraUd4TE1vQmR5bitqV3AzWkRrMk1aY3N2VURpcWRrQy9YZlcrRHFhWWluRVAxeXRuUUgwWDl3Mk1qRGVRPT0hdjE=?share_link_id=213833676741**
 
 ## 2.5. Ubiquitous Language
 
