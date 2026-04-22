@@ -1388,7 +1388,7 @@ En esta sección se presenta el conjunto de **User Stories** de **ParkingNow**, 
 
 El backlog integrado incluye historias orientadas al **Visitante** del landing page, al **Conductor**, al **Dueño o Administrador** del estacionamiento y al rol técnico **Developer**, incorporando también **Technical Stories**, **Spike Stories** e historias de **Testing y Quality Assurance**. Cada historia se encuentra redactada en formato **Como – quiero – para**, acompañada de criterios de aceptación en notación **Gherkin**, con el propósito de definir de manera clara, comprobable y consistente el alcance esperado del sistema.
 
-A continuación, se presenta la tabla consolidada de épicas y User Stories del proyecto, la cual reúne **120 historias** organizadas en función de los principales bloques funcionales y técnicos de **ParkingNow IoT**.
+A continuación, se presenta la tabla consolidada de épicas y User Stories del proyecto, la cual reúne **120 historias** organizadas en función de los principales bloques funcionales y técnicos de **ParkingNow**.
 
 | Epic / Story ID | Título | Descripción | Criterios de Aceptación | Relacionado con (Epic ID) |
 |---|---|---|---|---|
