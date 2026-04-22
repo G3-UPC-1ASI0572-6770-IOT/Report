@@ -23,6 +23,7 @@ Ciclo: 7mo <br>
 | U201913495   | Cuya Villegas, Rafael Alberto |
 | U202214477   | Soto Quispe, Diego Ulises     |
 | U202216831  | Lapa De La Cruz, Gabriel Omar |
+| U202213070  | Vásquez Villalobos, Elverth Jair |
 | U20211e417  | Vilca Valverde, Fiorella Angela |
 
 </div>
