@@ -1350,24 +1350,27 @@ Los términos incluidos en esta sección corresponden únicamente al dominio de 
 
 | Término | Definición |
 |---|---|
-| **Affiliation** (Afiliación) | Relación formal mediante la cual un operador incorpora su estacionamiento a la red de ParkingNow, permitiendo que sus espacios formen parte de la oferta visible para los conductores. |
-| **Availability** (Disponibilidad) | Condición de un espacio de estacionamiento en un momento determinado que indica si puede ser ocupado por un conductor. |
-| **Booking Window** (Ventana de reserva) | Período de tiempo durante el cual una reserva permanece vigente para un conductor antes de su llegada al estacionamiento. |
+| **Administrator** (Administrador / Dueño) | Persona encargada de gestionar uno o más estacionamientos, controlar la disponibilidad de los espacios y supervisar la operación diaria del local. |
+| **Affiliated Parking Lot** (Estacionamiento afiliado) | Estacionamiento que mantiene una relación formal con ParkingNow y cuyos espacios forman parte de la oferta visible para los conductores dentro de la solución. |
+| **Affiliation** (Afiliación) | Relación formal mediante la cual un administrador incorpora su estacionamiento a la red de ParkingNow, permitiendo que sus espacios sean gestionados y visibles dentro del servicio. |
+| **Availability** (Disponibilidad) | Condición de un espacio de estacionamiento en un momento determinado que indica si puede ser ocupado o reservado por un conductor. |
+| **Booking Window** (Ventana de reserva) | Período de tiempo durante el cual una reserva permanece vigente antes de que el conductor llegue al estacionamiento. |
+| **Consumed Reservation** (Reserva consumida) | Estado que adquiere una reserva cuando el conductor ya hizo uso efectivo del espacio reservado al ingresar y ocuparlo. |
 | **Driver** (Conductor) | Persona que utiliza un vehículo particular y busca un espacio de estacionamiento disponible para llegar a su destino de manera más rápida, predecible y segura. |
 | **Entry** (Ingreso) | Hecho que marca la llegada de un vehículo a un espacio de estacionamiento y el inicio de su uso efectivo. |
 | **Exit** (Salida) | Hecho que marca la liberación de un espacio de estacionamiento cuando el vehículo abandona el lugar. |
 | **Non-Affiliated Parking Lot** (Estacionamiento no afiliado) | Estacionamiento que existe dentro del entorno urbano, pero que no mantiene una relación de afiliación con ParkingNow. Puede ser visible como referencia, pero no forma parte del servicio principal de reserva y disponibilidad verificada. |
 | **Occupancy** (Ocupación) | Estado de un espacio de estacionamiento cuando se encuentra actualmente en uso por un vehículo. |
-| **Operator** (Operador / Administrador) | Persona encargada de gestionar uno o más estacionamientos, controlar su disponibilidad y supervisar la operación diaria del local. |
+| **Occupancy Status** (Estado de ocupación) | Condición en la que se encuentra un espacio de estacionamiento dentro del dominio del negocio. Puede expresarse, según el contexto operativo, como libre, reservado, ocupado o sin conexión. |
 | **Parking Lot** (Estacionamiento) | Establecimiento físico que agrupa uno o más espacios de estacionamiento y ofrece el servicio de parqueo a conductores. |
-| **Parking Session** (Sesión de estacionamiento) | Período completo comprendido entre el ingreso y la salida de un vehículo de un espacio de estacionamiento. |
 | **Parking Space** (Espacio de estacionamiento) | Unidad física individual destinada al estacionamiento de un único vehículo dentro de un estacionamiento. |
 | **Peak Demand** (Alta demanda / Hora punta) | Período del día en el que la cantidad de conductores que busca estacionamiento supera la disponibilidad habitual de espacios en una determinada zona urbana. |
-| **Rate** (Tarifa) | Monto económico asociado al uso de un espacio de estacionamiento durante una sesión de estacionamiento o dentro de un rango de tiempo definido por el operador. |
+| **Rate** (Tarifa) | Monto económico asociado al uso de un espacio de estacionamiento durante una sesión de estacionamiento o dentro de un rango de tiempo definido por el administrador. |
 | **Reservation** (Reserva) | Acuerdo previo mediante el cual un conductor asegura temporalmente un espacio disponible antes de llegar físicamente al estacionamiento. |
 | **Reserved Space** (Espacio reservado) | Espacio de estacionamiento que ha sido asignado temporalmente a un conductor mediante una reserva activa y que, por ello, no debe ser ocupado por otro vehículo durante ese período. |
 | **Search Time** (Tiempo de búsqueda) | Tiempo que transcurre desde que un conductor inicia la búsqueda de estacionamiento hasta que encuentra un espacio disponible o toma una decisión alternativa. |
 | **Urban Zone** (Zona urbana de alta demanda) | Área de la ciudad caracterizada por alta actividad comercial, laboral o de servicios, donde la búsqueda de estacionamiento suele ser más difícil y frecuente. |
-| **Verified Availability** (Disponibilidad verificada) | Disponibilidad de un espacio de estacionamiento que cuenta con respaldo confiable respecto a su estado real de ocupación, reduciendo la incertidumbre tanto para el conductor como para el operador. |
+| **Validated Reservation** (Reserva validada) | Reserva cuya vigencia y correspondencia con el conductor han sido confirmadas al momento de su llegada al estacionamiento, permitiendo autorizar el ingreso. |
+| **Verified Availability** (Disponibilidad verificada) | Disponibilidad de un espacio de estacionamiento que cuenta con respaldo confiable respecto a su estado real de ocupación, reduciendo la incertidumbre tanto para el conductor como para el administrador. |
 
 En conjunto, este lenguaje ubicuo permite establecer una base conceptual común para el dominio de ParkingNow, reduciendo ambigüedades y asegurando que todos los miembros del equipo comprendan de la misma manera los conceptos centrales del negocio. Asimismo, este glosario servirá como referencia para las siguientes secciones del informe, especialmente aquellas vinculadas al modelado del dominio y la arquitectura de la solución.
