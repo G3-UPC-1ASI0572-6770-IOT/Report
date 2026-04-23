@@ -5,7 +5,7 @@
 <p align="center"><strong>Universidad Peruana de Ciencias Aplicadas</strong></p>
 
 <p align="center"><strong>Ingeniería de Software</strong><br>
-Ciclo: 7mo <br>
+Ciclo: 7mo - 2026-10<br>
 1ASI0572 Desarrollo de Soluciones IoT - NRC: 6770 <br>  
 <strong>Profesor: Javier Antonio Prudencio Vidal</strong> </p>
 
@@ -242,6 +242,7 @@ Ser la plataforma de referencia en gestión inteligente de estacionamientos urba
 | ![Diego Soto](./assets/Diego.jpg) <br>**Diego Ulises Soto Quispe** | **Código:** U202214477<br>**Carrera:** Ingeniería de Software, 7mo ciclo | Cuenta con experiencia en desarrollo frontend, mobile y backend, utilizando tecnologías como **React**, **Flutter**, **Node.js**, **TypeScript**, **Python** y **C++**, además de manejo de herramientas de diseño, documentación y colaboración como **Figma**, **GitHub**, **Postman** y **Docker**. Posee conocimientos en integración de APIs, modelado de soluciones digitales y trabajo con enfoques ágiles. En el proyecto **ParkingNow**, aporta principalmente en la definición funcional del producto, la integración entre aplicaciones y servicios, la estructuración del **Lean UX Process**, y la articulación entre la solución técnica y las necesidades del usuario final. |
 |  ![Rafael Cuya](./assets/Rafael.jpg) <br>**Rafael Alberto Cuya Villegas** | **Código:** U201913495<br>**Carrera:** Ingeniería de Software, 7mo ciclo | Posee conocimientos en desarrollo backend, seguridad de aplicaciones y gestión de bases de datos, con experiencia en tecnologías como **Python**, **JavaScript**, **SQL** y **MongoDB**. Asimismo, cuenta con criterios para la validación de integridad de datos, revisión de arquitectura y estructuración de componentes técnicos orientados a soluciones conectadas. En **ParkingNow**, aporta en la definición de la arquitectura backend, la revisión de aspectos de seguridad y consistencia de datos, y la construcción de artefactos de diseño estratégico como los **Bounded Contexts**, contribuyendo a la solidez técnica de la solución. |
 | ![Gabriel Lapa](./assets/Gabriel.jpg) <br>**Gabriel Omar Lapa De La Cruz** | **Código:** U202216831<br>**Carrera:** Ingeniería de Software, 7mo ciclo | Tiene conocimientos en desarrollo backend y modelado de soluciones de software, con experiencia en tecnologías como **.NET**, **Vue.js**, **JavaScript** y documentación técnica orientada a arquitectura. Posee además criterio para representar componentes, capas y relaciones mediante diagramas técnicos y notación UML. En el proyecto **ParkingNow**, aporta en la documentación del diseño táctico, la elaboración de **Component Level Diagrams**, la representación de capas de aplicación e infraestructura y la validación de consistencia entre los componentes definidos en la arquitectura. |
+| **Elverth Jair Vásquez Villalobos** | **Código:** U202213070<br>**Carrera:** Ingeniería de Software, 7mo ciclo | Cuenta con conocimientos en análisis y diseño de soluciones de software, modelado de dominio y documentación técnica. Posee criterio para revisar la coherencia entre requerimientos, flujos del sistema y componentes de arquitectura. En el proyecto **ParkingNow**, aporta en la revisión transversal del **Capítulo IV: Solution Software Design**, la validación de consistencia entre artefactos estratégicos y tácticos, y el apoyo en la integración de elementos de dominio con la propuesta de arquitectura. |
 | **Fiorella Angela Vilca Valverde** | **Código:** U20211e417<br>**Carrera:** Ingeniería de Software, 7mo ciclo | Cuenta con conocimientos en **UX/UI**, validación de requisitos, testing y modelado de datos, además de manejo de herramientas como **Figma** para diseño de interfaces y prototipos. Posee criterio para organizar información visualmente, revisar coherencia entre requisitos y experiencia de usuario, y documentar estructuras de datos de manera ordenada. En **ParkingNow**, aporta en el diseño centrado en el usuario, la revisión de consistencia entre necesidades, historias de usuario y criterios de aceptación, así como en la documentación del **Database Design Diagram** y en la organización visual del informe. |
 
 ---
@@ -335,7 +336,7 @@ En esta sección se aplica el proceso Lean UX sobre el dominio del problema de e
 | **Customer Segments** | Conductores urbanos de Lima Metropolitana que utilizan vehículo particular y se desplazan con frecuencia a zonas de alta demanda vehicular, como San Isidro, Miraflores, Surco, La Molina y el Centro Histórico. |
 | **Pain Points** | Los conductores recorren múltiples cuadras de forma incierta antes de encontrar un espacio libre, lo que genera pérdida de tiempo, incremento de la congestión vehicular, estrés y deterioro de su experiencia de movilidad. |
 | **Gap** | La oferta actual no brinda información suficientemente confiable, oportuna y verificable sobre la disponibilidad real de los espacios, lo que impide al conductor planificar con anticipación su llegada a un estacionamiento. |
-| **Visión / Strategy** | Se requiere mejorar la experiencia de búsqueda y acceso a estacionamientos mediante una solución digital que reduzca la incertidumbre del conductor, permita tomar decisiones con información más confiable y haga más predecible el proceso de estacionamiento. |
+| **Visión / Strategy** | Se requiere mejorar la experiencia de búsqueda y acceso a estacionamientos, reduciendo la incertidumbre del conductor, proporcionando información más confiable y verificable sobre la disponibilidad real de espacios, y haciendo más predecible el proceso de estacionamiento en zonas de alta demanda vehicular. |
 | **Initial Segment** | Conductores urbanos de 25 a 45 años, de nivel socioeconómico B y C, que trabajan o estudian en distritos de alta demanda vehicular y han experimentado de forma recurrente la frustración de perder tiempo buscando estacionamiento. |
 | **Criterio de validación** | Se considerará que este problema empieza a resolverse cuando el tiempo promedio de búsqueda y acceso a un espacio disponible se reduzca de manera perceptible y cuando los usuarios reporten una mejora en la previsibilidad de su experiencia de estacionamiento. |
 
@@ -346,8 +347,8 @@ En esta sección se aplica el proceso Lean UX sobre el dominio del problema de e
 | **Domain** | La gestión de estacionamientos independientes en Lima se caracteriza por operaciones manuales, baja digitalización, escasa visibilidad comercial y limitada capacidad de monitoreo en tiempo real. |
 | **Customer Segments** | Administradores y propietarios de estacionamientos independientes que gestionan entre 2 y 30 espacios en distritos de alta demanda vehicular de Lima Metropolitana, sin herramientas digitales integradas. |
 | **Pain Points** | Los operadores no tienen visibilidad inmediata del estado de sus espacios, carecen de datos históricos para tomar decisiones, dependen de registros manuales y no logran competir con ofertas más visibles o digitalizadas. |
-| **Gap** | Las soluciones actuales del mercado suelen implicar costos elevados, complejidad técnica o esquemas de implementación poco accesibles para operadores pequeños, lo que limita su adopción en este segmento. |
-| **Visión / Strategy** | Se requiere mejorar la gestión operativa y la visibilidad comercial del estacionamiento independiente mediante una solución accesible, comprensible y orientada a reducir carga manual, centralizar información y facilitar la toma de decisiones. |
+| **Gap** | Las alternativas disponibles en el mercado suelen implicar costos elevados, complejidad técnica o esquemas de implementación poco accesibles para operadores pequeños, lo que limita su adopción en este segmento. |
+| **Visión / Strategy** | Se requiere mejorar la gestión operativa y la visibilidad comercial del estacionamiento independiente, reduciendo la dependencia de registros manuales, centralizando la información sobre el estado de los espacios y facilitando la toma de decisiones en tiempo real para operadores de pequeña escala. |
 | **Initial Segment** | Administradores de estacionamientos independientes ubicados en Miraflores, San Isidro y Surco, que operan manualmente entre 2 y 30 espacios y no cuentan actualmente con herramientas digitales de gestión. |
 | **Criterio de validación** | Se considerará que este problema empieza a resolverse cuando los operadores evidencien mejoras en la visibilidad de su operación, reducción de tareas manuales y una mejor capacidad para gestionar la ocupación de sus espacios. |
 
@@ -432,7 +433,22 @@ A continuación se presenta la matriz de priorización de supuestos, elaborada p
 
 **Nota.** Elaboración propia (2026).
 
-A partir de esta priorización, se consideran como supuestos de **alto riesgo y alto nivel de incertidumbre** los siguientes:
+A fin de complementar la lectura de la matriz, la siguiente tabla resume la clasificación de cada assumption según su nivel de riesgo, tomando como referencia directa los cuadrantes de la figura:
+
+| Assumption | Cuadrante | Nivel de riesgo |
+|---|---|---|
+| Los operadores independientes pagarán una suscripción mensual | High Risk / Unknown | Alto |
+| Los conductores confiarán en la reserva anticipada | High Risk / Unknown | Alto |
+| La sincronización en tiempo real mantendrá consistencia entre el estado físico y las apps | High Risk / Unknown | Alto |
+| El sensor HC-SR04+ detectará ocupación con precisión suficiente | High Risk / Unknown | Alto |
+| Los conductores consultan estacionamiento desde el celular antes o durante el trayecto | High Risk / Known | Alto |
+| Los administradores prefieren interfaces simples y visuales | High Risk / Known | Alto |
+| Los usuarios valorarán ver estacionamientos no afiliados como referencia | Low Risk / Unknown | Bajo |
+| La cámara local aportará valor percibido al administrador | Low Risk / Unknown | Bajo |
+| OpenStreetMap permite poblar el mapa inicial con estacionamientos reales de Lima | Low Risk / Known | Bajo |
+| Los administradores necesitan reducir registros manuales | Low Risk / Known | Bajo |
+
+A partir de esta priorización, se consideran como supuestos de **alto riesgo y alto nivel de incertidumbre** los siguientes, por ubicarse en el cuadrante High Risk / Unknown de la matriz:
 
 - Que los operadores independientes estén realmente dispuestos a pagar una suscripción mensual por digitalizar su operación.
 - Que los sensores HC-SR04+ mantengan una detección suficientemente confiable del estado de ocupación en condiciones normales del prototipo.
@@ -501,49 +517,126 @@ A continuación se presenta el Lean UX Canvas elaborado para el proyecto, como s
 
 ## 1.3. Segmentos objetivo
 
-Los segmentos objetivo de **ParkingNow** han sido identificados a partir del análisis del dominio del problema asociado a la gestión de estacionamientos urbanos en Lima Metropolitana. La solución se orienta a dos grupos con necesidades distintas pero complementarias: por un lado, los conductores urbanos que requieren encontrar y reservar estacionamiento de manera más eficiente; por otro, los administradores de estacionamientos independientes que necesitan mejorar la gestión operativa y la visibilidad de sus espacios. A continuación, se presenta la descripción de cada segmento, junto con sus características demográficas e información estadística de sustento.
+Los segmentos objetivo de **ParkingNow** han sido identificados a partir del análisis
+del dominio del problema asociado a la gestión de estacionamientos urbanos en Lima
+Metropolitana. La solución se orienta a dos grupos con necesidades distintas pero
+complementarias: por un lado, los conductores urbanos que requieren encontrar y
+reservar estacionamiento de manera más eficiente; por otro, los administradores de
+estacionamientos independientes que necesitan mejorar la gestión operativa y la
+visibilidad de sus espacios. A continuación, se presenta la descripción de cada
+segmento, junto con sus características demográficas e información estadística de
+sustento.
 
 ---
 
 ### Segmento 1: Conductores urbanos
 
 **Descripción:**  
-Este segmento comprende a personas que se movilizan habitualmente en vehículo particular por Lima Metropolitana y que enfrentan de forma recurrente la dificultad de encontrar estacionamiento disponible en zonas de alta demanda vehicular. Constituyen los usuarios finales de la aplicación móvil de ParkingNow, mediante la cual podrán consultar disponibilidad, ubicar estacionamientos cercanos en el mapa, realizar reservas anticipadas y gestionar su historial de uso.
+Este segmento comprende a personas que se movilizan habitualmente en vehículo
+particular por Lima Metropolitana y que enfrentan de forma recurrente la dificultad
+de encontrar estacionamiento disponible en zonas de alta demanda vehicular.
+Constituyen los usuarios finales de la aplicación móvil de ParkingNow, mediante la
+cual podrán consultar disponibilidad, ubicar estacionamientos cercanos en el mapa,
+realizar reservas anticipadas y gestionar su historial de uso.
 
 **Características demográficas:**  
-- **Edad:** Entre 25 y 45 años, con mayor concentración en población económicamente activa que trabaja o estudia en distritos de alta demanda vehicular.  
+- **Edad:** Entre 25 y 45 años, con mayor concentración en población económicamente
+  activa que trabaja o estudia en distritos de alta demanda vehicular.  
 - **Género:** Hombres y mujeres con vehículo propio o acceso frecuente a uno.  
-- **Ubicación:** Residen, estudian o trabajan en Lima Metropolitana, con desplazamientos frecuentes a distritos como San Isidro, Miraflores, Surco, La Molina, Lince y el Centro Histórico.  
-- **Perfil económico y de movilidad:** Usuarios económicamente activos con uso frecuente de vehículo particular en sus desplazamientos cotidianos.  
-- **Perfil tecnológico:** Usuarios habituales de smartphones con sistema operativo Android o iOS, familiarizados con aplicaciones de mapas, movilidad y servicios digitales como Google Maps, Waze, Uber o Rappi.  
+- **Ubicación:** Residen, estudian o trabajan en Lima Metropolitana, con
+  desplazamientos frecuentes a distritos como San Isidro, Miraflores, Surco,
+  La Molina, Lince y el Centro Histórico.  
+- **Perfil económico y de movilidad:** Usuarios económicamente activos con uso
+  frecuente de vehículo particular en sus desplazamientos cotidianos.  
+- **Perfil tecnológico:** Usuarios habituales de smartphones con sistema operativo
+  Android o iOS, familiarizados con aplicaciones de mapas, movilidad y servicios
+  digitales como Google Maps, Waze, Uber o Rappi.  
 
 **Información estadística de sustento:**  
-En Lima Metropolitana circulan aproximadamente 1.8 millones de automóviles, de los cuales el 11.2% de la población los utiliza para desplazarse al trabajo y el 7.9% para estudiar (El Comercio, 2024). Asimismo, el 51.1% de los encuestados en Lima y Callao considera necesario incrementar los estacionamientos en vía pública, porcentaje que asciende al 70.1% en el sector socioeconómico A, lo que evidencia una alta percepción de insuficiencia en la oferta actual (Lima Cómo Vamos, 2024). A ello se suma que el informe *Cities in Motion 2025* ubicó a Lima en el puesto 176 en movilidad urbana a nivel mundial, reflejando un entorno crítico para el desplazamiento vehicular (Infobae, 2025a). Finalmente, el flujo vehicular nacional acumula 27 meses de crecimiento consecutivo, con un incremento de 3.5% acumulado entre agosto de 2024 y julio de 2025 (AAP, 2025), lo que proyecta una presión creciente sobre la infraestructura de estacionamiento en los próximos años.
+En Lima Metropolitana circulan aproximadamente 1.8 millones de automóviles, de los
+cuales el 11.2% de la población los utiliza para desplazarse al trabajo y el 7.9%
+para estudiar (El Comercio, 2024). Asimismo, el 51.1% de los encuestados en Lima
+y Callao considera necesario incrementar los estacionamientos en vía pública,
+porcentaje que asciende al 70.1% en el sector socioeconómico A, lo que evidencia
+una alta percepción de insuficiencia en la oferta actual (Lima Cómo Vamos, 2024).
+A ello se suma que el informe *Cities in Motion 2025* ubicó a Lima en el puesto 176
+en movilidad urbana a nivel mundial, reflejando un entorno crítico para el
+desplazamiento vehicular (Infobae, 2025a). Finalmente, el flujo vehicular nacional
+acumula 27 meses de crecimiento consecutivo, con un incremento de 3.5% acumulado
+entre agosto de 2024 y julio de 2025 (AAP, 2025), lo que proyecta una presión
+creciente sobre la infraestructura de estacionamiento en los próximos años.
 
 ---
 
 ### Segmento 2: Administradores de estacionamientos independientes
 
 **Descripción:**  
-Este segmento comprende a dueños y administradores de estacionamientos independientes de Lima Metropolitana que operan entre 2 y 30 espacios, generalmente bajo esquemas manuales o semi-formales y sin herramientas digitales integradas de gestión. Constituyen el cliente pagador principal de ParkingNow y los usuarios directos del panel web de la plataforma, desde el cual podrán registrar su local, configurar sus espacios, monitorear el estado de ocupación en tiempo real, gestionar reservas activas y consultar el historial de eventos generados por el nodo IoT instalado en su establecimiento.
+Este segmento comprende a dueños y administradores de estacionamientos
+independientes de Lima Metropolitana que operan entre 2 y 30 espacios,
+generalmente bajo esquemas manuales o semi-formales y sin herramientas digitales
+integradas de gestión. Constituyen el cliente pagador principal de ParkingNow y los
+usuarios directos del panel web de la plataforma, desde el cual podrán registrar su
+local, configurar sus espacios, monitorear el estado de ocupación en tiempo real,
+gestionar reservas activas y consultar el historial de eventos generados por el nodo
+IoT instalado en su establecimiento.
 
 **Características demográficas:**  
-- **Edad:** Entre 20 y 60 años, incluyendo tanto administradores jóvenes vinculados a negocios familiares como operadores con mayor experiencia en el sector.  
-- **Ubicación:** Operan estacionamientos ubicados en distritos de alta densidad comercial y residencial de Lima, especialmente en zonas próximas a centros empresariales, universidades, hospitales, mercados y áreas de alta concurrencia.  
-- **Nivel tecnológico:** Bajo o intermedio en términos de adopción de herramientas digitales. En muchos casos, la operación todavía se apoya en registros manuales o procedimientos informales.  
-- **Perfil de negocio:** Microempresas o negocios familiares con recursos limitados, sensibilidad al costo de implementación y orientación a resultados concretos, como mayor ocupación, mejor control operativo y mayor captación de clientes.  
-- **Necesidad operativa:** Requieren soluciones accesibles, fáciles de usar y con beneficios observables en la gestión diaria del estacionamiento.  
+- **Edad:** Entre 20 y 60 años, incluyendo tanto administradores jóvenes vinculados
+  a negocios familiares como operadores con mayor experiencia en el sector.  
+- **Ubicación:** Operan estacionamientos ubicados en distritos de alta densidad
+  comercial y residencial de Lima, especialmente en zonas próximas a centros
+  empresariales, universidades, hospitales, mercados y áreas de alta concurrencia.  
+- **Nivel tecnológico:** Bajo o intermedio en términos de adopción de herramientas
+  digitales. En muchos casos, la operación todavía se apoya en registros manuales
+  o procedimientos informales.  
+- **Perfil de negocio:** Microempresas o negocios familiares con recursos limitados,
+  sensibilidad al costo de implementación y orientación a resultados concretos,
+  como mayor ocupación, mejor control operativo y mayor captación de clientes.  
+- **Necesidad operativa:** Requieren soluciones accesibles, fáciles de usar y con
+  beneficios observables en la gestión diaria del estacionamiento.  
 
 **Información estadística de sustento:**  
-Lima presenta una informalidad persistente en la gestión del estacionamiento urbano. Reportes periodísticos recientes muestran que, en distintos distritos, la presencia de parqueadores informales y el uso no regulado del espacio urbano han debilitado la operación formal del sector (Infobae, 2024). Esta situación evidencia la existencia de una oferta fragmentada, con baja visibilidad digital y escaso acceso a herramientas tecnológicas de gestión.  
+Lima presenta una informalidad persistente en la gestión del estacionamiento urbano.
+Reportes periodísticos recientes documentan que, en múltiples distritos de la
+capital, la presencia de parqueadores informales y el uso no regulado del espacio
+urbano han debilitado la operación formal del sector (Infobae, 2024). Este fenómeno
+se inscribe en un contexto de alta informalidad estructural: según el Instituto
+Nacional de Estadística e Informática, la tasa de empleo informal en el Perú cerró
+2024 en 70.9%, con Lima Metropolitana concentrando 3.9 millones de trabajadores en
+esa condición (INEI, 2025).
 
-Asimismo, el INEI publicó en 2026 el informe *Región Lima: Estructura Empresarial, 2024*, en el que se observa que las micro y pequeñas empresas del sector servicios representan una parte importante del tejido empresarial regional y enfrentan mayores limitaciones de formalización y digitalización que empresas de mayor escala (INEI, 2026). Este contexto resulta consistente con el perfil de los estacionamientos independientes, que suelen operar con recursos limitados y baja incorporación tecnológica. Desde una perspectiva técnica y económica, la literatura reciente sobre *Smart Parking* respalda la pertinencia de este segmento como usuario objetivo, ya que soluciones basadas en ESP32 y sensores ultrasónicos permiten implementar sistemas de monitoreo de ocupación con costos accesibles y una complejidad técnica adecuada para contextos de pequeña escala (Ruiz Cruzado et al., 2026; Bustamante & Hidrobo, 2024).
+Desde la perspectiva de la adopción tecnológica, los estacionamientos independientes
+operan bajo el mismo perfil que las microempresas del sector servicios, que
+representan el 95.6% del universo empresarial formal peruano (Ministerio de la
+Producción [PRODUCE], 2024a). En julio de 2024, la Encuesta de Transformación
+Digital de las Empresas elaborada por PRODUCE registró que la brecha digital en el
+segmento de microempresas alcanza el 52% respecto a la plena madurez digital,
+frente al 38% de las grandes empresas (PRODUCE, 2024b). Este dato confirma que las
+unidades de pequeña escala enfrentan barreras estructurales significativas para
+incorporar herramientas tecnológicas de gestión, incluso cuando la conectividad
+básica está disponible. Cabe precisar que no existen estadísticas sectoriales
+específicas sobre digitalización en el subsector de estacionamientos independientes
+en Lima; el sustento aquí presentado se apoya en la analogía con el perfil MYPE del
+sector servicios, que resulta consistente con las características operativas
+identificadas en las entrevistas realizadas.
+
+Desde una perspectiva técnica y económica, la literatura reciente sobre *Smart
+Parking* respalda la pertinencia de este segmento como usuario objetivo, ya que
+soluciones basadas en ESP32 y sensores ultrasónicos permiten implementar sistemas
+de monitoreo de ocupación con costos accesibles y una complejidad técnica adecuada
+para contextos de pequeña escala (Ruiz Cruzado et al., 2026; Bustamante &
+Hidrobo, 2024).
 
 ---
 
 ### Priorización de segmentos
 
-Estos segmentos fueron priorizados porque representan, respectivamente, al usuario final que demanda disponibilidad confiable de estacionamiento y al cliente pagador que obtiene valor operativo y económico directo de la solución. En conjunto, ambos permiten articular la propuesta de valor de ParkingNow, donde la capa IoT valida la disponibilidad física, la aplicación móvil reduce la incertidumbre del conductor y el panel web mejora la gestión del administrador.
+Estos segmentos fueron priorizados porque representan, respectivamente, al usuario
+final que demanda disponibilidad confiable de estacionamiento y al cliente pagador
+que obtiene valor operativo y económico directo de la solución. En conjunto, ambos
+permiten articular la propuesta de valor de ParkingNow, donde la capa IoT valida la
+disponibilidad física, la aplicación móvil reduce la incertidumbre del conductor y
+el panel web mejora la gestión del administrador.
 
 # Capítulo II: Requirements Elicitation & Analysis
 
@@ -812,20 +905,39 @@ A continuación se presenta la relación de preguntas principales y complementar
 
 ### 2.2.2. Registro de entrevistas
 
-En esta sección se presenta el registro de las entrevistas realizadas a representantes de los dos segmentos objetivo de ParkingNow: conductores urbanos de Lima Metropolitana y administradores de estacionamientos independientes. Hasta el momento, se cuenta con cuatro entrevistas registradas en video, dos por cada segmento, y quedan dos entrevistas pendientes por realizar para completar el mínimo de tres entrevistas por segmento exigido por el curso.
+En esta sección se presenta el registro de las seis entrevistas realizadas a
+representantes de los dos segmentos objetivo de ParkingNow: conductores urbanos
+de Lima Metropolitana y administradores de estacionamientos independientes. Cada
+segmento cuenta con tres entrevistas registradas en video, completando el mínimo
+exigido por el curso.
 
-Cada entrevista incluye los datos del entrevistado, una captura de pantalla del video correspondiente, el enlace al video editado publicado en Microsoft Stream, con el timing de inicio y duración de cada entrevista, y un resumen descriptivo que recoge las respuestas principales del entrevistado. Dicho resumen documenta características objetivas —edad, género, distrito, ocupación y dispositivo de preferencia— y características subjetivas —motivaciones, frustraciones, hábitos de uso, referentes digitales y condiciones de confianza—, con el fin de que cada rasgo del arquetipo que se construirá en la sección 2.3 pueda trazarse directamente a los datos recolectados en estas entrevistas.
+Cada entrevista incluye los datos del entrevistado, una captura de pantalla del
+video correspondiente, el enlace al video consolidado publicado en Microsoft
+Stream/Clipchamp con el timing de inicio y duración, y un resumen descriptivo que
+recoge las respuestas principales del entrevistado. Dicho resumen documenta
+características objetivas —edad, género, distrito, estado civil, ocupación y
+dispositivo de preferencia— y características subjetivas —motivaciones,
+frustraciones, hábitos de uso, referentes digitales y condiciones de confianza—,
+con el fin de que cada rasgo del arquetipo que se construirá en la sección 2.3
+pueda trazarse directamente a los datos recolectados en estas entrevistas.
 
-Las entrevistas fueron conducidas siguiendo el diseño establecido en la sección 2.2.1, respetando el orden general de bloques: perfil demográfico, comportamiento actual, expectativas y motivaciones, perfil tecnológico y cierre. Todos los videos deberán consolidarse posteriormente en un único archivo y publicarse en Microsoft Stream/Clipchamp como evidencia final del proceso de needfinding.
+Las entrevistas fueron conducidas siguiendo el diseño establecido en la sección
+2.2.1, respetando el orden general de bloques: perfil demográfico, comportamiento
+actual, expectativas y motivaciones, perfil tecnológico y cierre. Todas las
+entrevistas fueron consolidadas en un único video editado y publicado en Microsoft
+Stream/Clipchamp como evidencia del proceso de needfinding.
 
-
-**URL del video de entrevistas en general:**  https://upcedupe-my.sharepoint.com/:v:/g/personal/u202214477_upc_edu_pe/IQCMBDZdyMVAQKh_NrFheDDEAfbJMIyo3lVGDKNSnQugT3I?e=Amq8Ep
+**URL del video consolidado de entrevistas:**
+https://upcedupe-my.sharepoint.com/:v:/g/personal/u202214477_upc_edu_pe/IQCMBDZdyMVAQKh_NrFheDDEAfbJMIyo3lVGDKNSnQugT3I?e=Amq8Ep
 
 ---
 
 #### Entrevistas al Segmento 1: Conductores Urbanos
 
-A continuación se registran las entrevistas realizadas a conductores urbanos de Lima Metropolitana que utilizan vehículo propio con frecuencia y se han enfrentado de forma recurrente al problema de encontrar estacionamiento disponible en zonas de alta demanda vehicular.
+A continuación se registran las entrevistas realizadas a conductores urbanos de
+Lima Metropolitana que utilizan vehículo propio con frecuencia y se han enfrentado
+de forma recurrente al problema de encontrar estacionamiento disponible en zonas
+de alta demanda vehicular.
 
 #### Entrevista 1
 
@@ -834,15 +946,25 @@ A continuación se registran las entrevistas realizadas a conductores urbanos de
     <th style="width:24%; text-align:left;">Campo</th>
     <th style="text-align:left;">Detalle</th>
   </tr>
-  <tr><td><strong>Imagen</strong></td><td style="overflow-wrap:anywhere;"><img src="./assets/Carlos.jpeg" alt="Carlos Mendoza Ríos" width="240" /></td></tr>
-  <tr><td><strong>Entrevistado</strong></td><td style="overflow-wrap:anywhere;">Carlos Mendoza Ríos</td></tr>
-  <tr><td><strong>Entrevistador</strong></td><td style="overflow-wrap:anywhere;">Rafael Cuya</td></tr>
-  <tr><td><strong>Sexo</strong></td><td style="overflow-wrap:anywhere;">Masculino</td></tr>
-  <tr><td><strong>Edad</strong></td><td style="overflow-wrap:anywhere;">29 años</td></tr>
-  <tr><td><strong>Distrito</strong></td><td style="overflow-wrap:anywhere;">Surquillo</td></tr>
-  <tr><td><strong>Timing</strong></td><td style="overflow-wrap:anywhere;">Empieza en el minuto 0 y finaliza en el minuto 3:46</td></tr>
-  <tr><td><strong>Link</strong></td><td style="overflow-wrap:anywhere; word-break:break-word; white-space:normal;"><a href="https://upcedupe-my.sharepoint.com/:v:/g/personal/u201913495_upc_edu_pe/IQDfA6xK3Jw7QZ7W0eebx3aFAagksUHeYQaJ728iQIWTCug?e=WGB90a">https://upcedupe-my.sharepoint.com/:v:/g/personal/u201913495_upc_edu_pe/<br>IQDfA6xK3Jw7QZ7W0eebx3aFAagksUHeYQaJ728iQIWTCug?e=WGB90a</a></td></tr>
-  <tr><td><strong>Resumen</strong></td><td style="overflow-wrap:anywhere;">Analista de sistemas que utiliza su auto todos los días para desplazarse a su trabajo en San Isidro y también por zonas como Miraflores y Surco. Señala que suele demorar entre 15 y 25 minutos en encontrar estacionamiento en horas punta y que, actualmente, solo utiliza Google Maps para planificar la ruta, sin contar con una herramienta específica para validar disponibilidad antes de llegar. Usa Android con Chrome y toma como referencia aplicaciones rápidas, directas y sin pasos innecesarios como Yape. Manifiesta una alta disposición a usar ParkingNow siempre que la información esté realmente actualizada y respaldada por sensor físico, y precisa que el proceso de reserva debería resolverse en un máximo de tres pasos. Indica además que dejaría de usar la aplicación si falla en su primera experiencia de uso.</td></tr>
+  <tr><td><strong>Imagen</strong></td><td><img src="./assets/Carlos.jpeg" alt="Carlos Mendoza Ríos" width="240" /></td></tr>
+  <tr><td><strong>Entrevistado</strong></td><td>Carlos Mendoza Ríos</td></tr>
+  <tr><td><strong>Entrevistador</strong></td><td>Rafael Cuya</td></tr>
+  <tr><td><strong>Sexo</strong></td><td>Masculino</td></tr>
+  <tr><td><strong>Edad</strong></td><td>29 años</td></tr>
+  <tr><td><strong>Estado civil</strong></td><td>Soltero, sin hijos ni personas a su cargo</td></tr>
+  <tr><td><strong>Distrito</strong></td><td>Surquillo</td></tr>
+  <tr><td><strong>Timing</strong></td><td>Empieza en el minuto 0 y finaliza en el minuto 3:46</td></tr>
+  <tr><td><strong>Resumen</strong></td><td>Analista de sistemas que utiliza su auto todos los días de lunes a viernes
+  para desplazarse a su trabajo en San Isidro, y también visita zonas como
+  Miraflores y Surco. Señala que suele demorar entre 15 y 25 minutos en encontrar
+  estacionamiento en horas punta, y que actualmente solo utiliza Google Maps para
+  planificar la ruta, sin contar con una herramienta específica para validar
+  disponibilidad antes de llegar. Usa Android con Chrome y toma como referencia
+  aplicaciones rápidas, directas y sin pasos innecesarios como Yape. Manifiesta
+  una alta disposición a usar ParkingNow siempre que la información esté realmente
+  actualizada y respaldada por sensor físico, y precisa que el proceso de reserva
+  debería resolverse en un máximo de tres pasos. Indica que dejaría de usar la
+  aplicación si falla en su primera experiencia de uso.</td></tr>
 </table>
 
 #### Entrevista 2
@@ -852,15 +974,25 @@ A continuación se registran las entrevistas realizadas a conductores urbanos de
     <th style="width:24%; text-align:left;">Campo</th>
     <th style="text-align:left;">Detalle</th>
   </tr>
-  <tr><td><strong>Imagen</strong></td><td style="overflow-wrap:anywhere;"><img src="./assets/valeria.jpeg" alt="Valeria Torres Chávez" width="240" /></td></tr>
-  <tr><td><strong>Entrevistado</strong></td><td style="overflow-wrap:anywhere;">Valeria Torres Chávez</td></tr>
-  <tr><td><strong>Entrevistador</strong></td><td style="overflow-wrap:anywhere;">Gabriel Lapa</td></tr>
-  <tr><td><strong>Sexo</strong></td><td style="overflow-wrap:anywhere;">Femenino</td></tr>
-  <tr><td><strong>Edad</strong></td><td style="overflow-wrap:anywhere;">34 años</td></tr>
-  <tr><td><strong>Distrito</strong></td><td style="overflow-wrap:anywhere;">La Molina</td></tr>
-  <tr><td><strong>Timing</strong></td><td style="overflow-wrap:anywhere;">Empieza en el minuto 3:57 y finaliza en el minuto 8:00 </td></tr>
-  <tr><td><strong>Link</strong></td><td style="overflow-wrap:anywhere; word-break:break-word; white-space:normal;"><a href="https://upcedupe-my.sharepoint.com/:v:/g/personal/u202216831_upc_edu_pe/IQBmINpKs2cAS7y94oJga8wuAUus6CMuAxiaSWCAPP48z4U?e=KN09dj">https://upcedupe-my.sharepoint.com/:v:/g/personal/u202216831_upc_edu_pe/<br>IQBmINpKs2cAS7y94oJga8wuAUus6CMuAxiaSWCAPP48z4U?e=KN09dj</a></td></tr>
-  <tr><td><strong>Resumen</strong></td><td style="overflow-wrap:anywhere;">Ejecutiva de ventas que se moviliza casi todos los días por distritos como Miraflores, San Borja, Surco y San Isidro debido a sus reuniones de trabajo. Reporta que puede tardar entre 20 y 30 minutos en encontrar estacionamiento en zonas de alta demanda, y destaca que su principal frustración no es solo el tiempo perdido, sino la incertidumbre de no saber si hallará un espacio disponible al llegar. Usa iPhone con Safari y valora experiencias digitales claras y predecibles como la de Uber. Considera especialmente valiosa la posibilidad de reservar desde el celular antes de reuniones importantes, e incluso afirma que estaría dispuesta a pagar por esa garantía. Señala que la validación por sensor físico sería decisiva para confiar en la solución y que abandonaría la aplicación si esta falla en la primera experiencia de uso.</td></tr>
+  <tr><td><strong>Imagen</strong></td><td><img src="./assets/valeria.jpeg" alt="Valeria Torres Chávez" width="240" /></td></tr>
+  <tr><td><strong>Entrevistado</strong></td><td>Valeria Torres Chávez</td></tr>
+  <tr><td><strong>Entrevistador</strong></td><td>Gabriel Lapa</td></tr>
+  <tr><td><strong>Sexo</strong></td><td>Femenino</td></tr>
+  <tr><td><strong>Edad</strong></td><td>34 años</td></tr>
+  <tr><td><strong>Estado civil</strong></td><td>Casada, con un hijo de 5 años</td></tr>
+  <tr><td><strong>Distrito</strong></td><td>La Molina</td></tr>
+  <tr><td><strong>Timing</strong></td><td>Empieza en el minuto 3:57 y finaliza en el minuto 8:00</td></tr>
+  <tr><td><strong>Resumen</strong></td><td>Ejecutiva de ventas que se moviliza casi todos los días por distritos como
+  Miraflores, San Borja, Surco y San Isidro debido a sus reuniones de trabajo.
+  Reporta que puede tardar entre 20 y 30 minutos en encontrar estacionamiento en
+  zonas de alta demanda, y destaca que su principal frustración no es solo el
+  tiempo perdido, sino la incertidumbre de no saber si hallará un espacio
+  disponible al llegar. Usa iPhone con Safari y valora experiencias digitales
+  claras y predecibles como la de Uber. Considera especialmente valiosa la
+  posibilidad de reservar desde el celular antes de reuniones importantes, e
+  incluso afirma que estaría dispuesta a pagar por esa garantía. Señala que la
+  validación por sensor físico sería decisiva para confiar en la solución y que
+  abandonaría la aplicación si esta falla en la primera experiencia de uso.</td></tr>
 </table>
 
 #### Entrevista 3
@@ -870,22 +1002,39 @@ A continuación se registran las entrevistas realizadas a conductores urbanos de
     <th style="width:24%; text-align:left;">Campo</th>
     <th style="text-align:left;">Detalle</th>
   </tr>
-  <tr><td><strong>Imagen</strong></td><td style="overflow-wrap:anywhere;"><img src="./assets/conductor3.jpeg" alt="Rodrigo Palomino Vega" width="240" /></td></tr>
-  <tr><td><strong>Entrevistado</strong></td><td style="overflow-wrap:anywhere;">Rodrigo Palomino Vega</td></tr>
-  <tr><td><strong>Entrevistador</strong></td><td style="overflow-wrap:anywhere;">Diego Ulises Soto Quispe</td></tr>
-  <tr><td><strong>Sexo</strong></td><td style="overflow-wrap:anywhere;">Masculino</td></tr>
-  <tr><td><strong>Edad</strong></td><td style="overflow-wrap:anywhere;">25 años</td></tr>
-  <tr><td><strong>Distrito</strong></td><td style="overflow-wrap:anywhere;">San Miguel</td></tr>
-  <tr><td><strong>Timing</strong></td><td style="overflow-wrap:anywhere;">Empieza en el minuto 8:01 y finaliza en el minuto 14:04</td></tr>
-  <tr><td><strong>Link</strong></td><td style="overflow-wrap:anywhere;"><a href="https://upcedupe-my.sharepoint.com/:v:/g/personal/u202214477_upc_edu_pe/IQDG-M0KMNOLT7EXxhtoBLxbAWlQHej7X4No4ENvfhibYtQ?e=zwbgwM">https://upcedupe-my.sharepoint.com/:v:/g/personal/u202214477_upc_edu_pe/IQDG-M0KMNOLT7EXxhtoBLxbAWlQHej7X4No4ENvfhibYtQ?e=zwbgwM</a></td></tr>
-  <tr><td><strong>Resumen</strong></td><td style="overflow-wrap:anywhere;">Docente universitario de 25 años, residente en San Miguel, soltero y sin hijos ni personas a su cargo, que se moviliza en auto aproximadamente tres veces por semana hacia distritos como Miraflores y San Isidro por motivos laborales. Indica que estacionar en esas zonas es especialmente problemático y que suele salir con anticipación porque puede tardar entre 20 y 40 minutos en encontrar espacio, llegando incluso a perder compromisos cuando no logra estacionar a tiempo. Usa Android con Chrome y recurre a Google Maps solo para la ruta, ya que no le ofrece información sobre disponibilidad de estacionamientos. Su principal frustración es el tiempo improductivo que pierde buscando dónde dejar el vehículo. Señala que usaría una app móvil con disponibilidad en tiempo real si esta demuestra ser confiable desde los primeros usos, y considera que la validación mediante sensor físico sería clave para creer en la exactitud de la información. También afirma que la posibilidad de reservar desde el celular antes de salir sería especialmente valiosa en actividades programadas como sus clases.</td></tr>
+  <tr><td><strong>Imagen</strong></td><td><img src="./assets/conductor3.jpeg" alt="Rodrigo Palomino Vega" width="240" /></td></tr>
+  <tr><td><strong>Entrevistado</strong></td><td>Rodrigo Palomino Vega</td></tr>
+  <tr><td><strong>Entrevistador</strong></td><td>Diego Ulises Soto Quispe</td></tr>
+  <tr><td><strong>Sexo</strong></td><td>Masculino</td></tr>
+  <tr><td><strong>Edad</strong></td><td>25 años</td></tr>
+  <tr><td><strong>Estado civil</strong></td><td>Soltero, sin hijos ni personas a su cargo</td></tr>
+  <tr><td><strong>Distrito</strong></td><td>San Miguel</td></tr>
+  <tr><td><strong>Timing</strong></td><td>Empieza en el minuto 8:01 y finaliza en el minuto 14:04</td></tr>
+  <tr><td><strong>Resumen</strong></td><td>Docente universitario de 25 años, residente en San Miguel, soltero y sin hijos
+  ni personas a su cargo, que se moviliza en auto aproximadamente tres veces por
+  semana hacia distritos como Miraflores y San Isidro por motivos laborales.
+  Indica que estacionar en esas zonas es especialmente problemático y que suele
+  salir con anticipación porque puede tardar entre 20 y 40 minutos en encontrar
+  espacio, llegando incluso a perder compromisos cuando no logra estacionar a
+  tiempo. Usa Android con Chrome y recurre a Google Maps solo para la ruta, ya
+  que no le ofrece información sobre disponibilidad de estacionamientos. Su
+  principal frustración es el tiempo improductivo que pierde buscando dónde dejar
+  el vehículo, dado que como docente su tiempo tiene valor directo. Señala que
+  usaría una app móvil con disponibilidad en tiempo real si esta demuestra ser
+  confiable desde los primeros usos, y considera que la validación mediante sensor
+  físico sería clave para creer en la exactitud de la información. Afirma que la
+  posibilidad de reservar desde el celular antes de salir sería especialmente
+  valiosa en actividades programadas como sus clases.</td></tr>
 </table>
 
 ---
 
 #### Entrevistas al Segmento 2: Administradores de Estacionamientos Independientes
 
-A continuación se registran las entrevistas realizadas a propietarios y administradores de estacionamientos independientes de Lima Metropolitana que operan sus locales de forma manual o semi-formal, sin herramientas digitales de gestión integradas.
+A continuación se registran las entrevistas realizadas a propietarios y
+administradores de estacionamientos independientes de Lima Metropolitana que
+operan sus locales de forma manual o semi-formal, sin herramientas digitales de
+gestión integradas.
 
 #### Entrevista 4
 
@@ -894,15 +1043,25 @@ A continuación se registran las entrevistas realizadas a propietarios y adminis
     <th style="width:24%; text-align:left;">Campo</th>
     <th style="text-align:left;">Detalle</th>
   </tr>
-  <tr><td><strong>Imagen</strong></td><td style="overflow-wrap:anywhere;"><img src="./assets/fiorella.jpeg" alt="Jorge Huamán Castillo" width="240" /></td></tr>
-  <tr><td><strong>Entrevistado</strong></td><td style="overflow-wrap:anywhere;">Jorge Huamán Castillo</td></tr>
-  <tr><td><strong>Entrevistador</strong></td><td style="overflow-wrap:anywhere;">Fiorella Vilca</td></tr>
-  <tr><td><strong>Sexo</strong></td><td style="overflow-wrap:anywhere;">Masculino</td></tr>
-  <tr><td><strong>Edad</strong></td><td style="overflow-wrap:anywhere;">47 años</td></tr>
-  <tr><td><strong>Distrito</strong></td><td style="overflow-wrap:anywhere;">Miraflores</td></tr>
-  <tr><td><strong>Timing</strong></td><td style="overflow-wrap:anywhere;">Empieza en el minuto 14:05 y finaliza en el minuto 18:42</td></tr>
-  <tr><td><strong>Link</strong></td><td style="overflow-wrap:anywhere; word-break:break-word;"><a href="https://upcedupe-my.sharepoint.com/:v:/g/personal/u20211e417_upc_edu_pe/IQDuzAnkPRnxQ4_XrYnL-4-hAZw8677ishtmZUsYZHYQN9A?e=S1pabG">https://upcedupe-my.sharepoint.com/:v:/g/personal/u20211e417_upc_edu_pe/IQDuzAnkPRnxQ4_XrYnL-4-hAZw8677ishtmZUsYZHYQN9A?e=S1pabG</a></td></tr>
-  <tr><td><strong>Resumen</strong></td><td style="overflow-wrap:anywhere;">Administra un estacionamiento de 12 espacios en Miraflores con una operación de control manual y apoyo parcial de un trabajador. Explica que no cuenta con visibilidad remota del estado del local más allá de llamadas o mensajes por WhatsApp, y que una de sus principales dificultades es depender de su presencia física para mantener el control de entradas, salidas y cobros. Gestiona el negocio principalmente desde el celular y utiliza herramientas básicas como WhatsApp y Yape. Muestra interés en afiliar su local a una plataforma digital si esta le ayuda a captar más clientes, pero condiciona su adopción a que los sensores no requieran obras complejas y a que la inversión demuestre resultados concretos antes de asumir un pago recurrente.</td></tr>
+  <tr><td><strong>Imagen</strong></td><td><img src="./assets/fiorella.jpeg" alt="Jorge Huamán Castillo" width="240" /></td></tr>
+  <tr><td><strong>Entrevistado</strong></td><td>Jorge Huamán Castillo</td></tr>
+  <tr><td><strong>Entrevistador</strong></td><td>Fiorella Vilca</td></tr>
+  <tr><td><strong>Sexo</strong></td><td>Masculino</td></tr>
+  <tr><td><strong>Edad</strong></td><td>35 años</td></tr>
+  <tr><td><strong>Distrito</strong></td><td>Miraflores</td></tr>
+  <tr><td><strong>Timing</strong></td><td>Empieza en el minuto 14:05 y finaliza en el minuto 18:42</td></tr>
+  <tr><td><strong>Resumen</strong></td><td>Administra un estacionamiento de 12 espacios en Miraflores, con una operación
+  de control manual y apoyo de un trabajador en el turno de la mañana. Lleva 9
+  años en el negocio, que inició junto a su hermano. Explica que no cuenta con
+  visibilidad remota del estado del local más allá de llamadas o mensajes por
+  WhatsApp, y que una de sus principales dificultades es depender de su presencia
+  física para mantener el control de entradas, salidas y cobros. Gestiona el
+  negocio principalmente desde el celular y usa WhatsApp para coordinación y Yape
+  para pagos. Muestra interés en una plataforma digital si esta le ayuda a captar
+  más clientes, pero condiciona su adopción a que los sensores no requieran obras
+  complejas y a que la inversión demuestre resultados concretos antes de asumir
+  un pago recurrente. Para confiar en una plataforma nueva necesita ver que otros
+  estacionamientos similares ya la usan con buenos resultados.</td></tr>
 </table>
 
 #### Entrevista 5
@@ -912,15 +1071,24 @@ A continuación se registran las entrevistas realizadas a propietarios y adminis
     <th style="width:24%; text-align:left;">Campo</th>
     <th style="text-align:left;">Detalle</th>
   </tr>
-  <tr><td><strong>Imagen</strong></td><td style="overflow-wrap:anywhere;"><img src="./assets/leonardo.jpeg" alt="Leonardo Delgado Arriola" width="240" /></td></tr>
-  <tr><td><strong>Entrevistado</strong></td><td style="overflow-wrap:anywhere;">Leonardo Delgado Arriola</td></tr>
-  <tr><td><strong>Entrevistador</strong></td><td style="overflow-wrap:anywhere;">Elverth Vásquez Villalobos</td></tr>
-  <tr><td><strong>Sexo</strong></td><td style="overflow-wrap:anywhere;">Masculino</td></tr>
-  <tr><td><strong>Edad</strong></td><td style="overflow-wrap:anywhere;">20 años</td></tr>
-  <tr><td><strong>Distrito</strong></td><td style="overflow-wrap:anywhere;">San Miguel</td></tr>
-  <tr><td><strong>Timing</strong></td><td style="overflow-wrap:anywhere;">Empieza en el minuto 18:42 y finaliza en el minuto 23:38</td></tr>
-  <tr><td><strong>Link</strong></td><td style="overflow-wrap:anywhere; word-break:break-word; white-space:normal;"><a href="https://upcedupe-my.sharepoint.com/:v:/g/personal/u202213070_upc_edu_pe/IQBa0FFhoUqESLmHb8p2sG1UAdDEoM7wCEbIQnglKEjcwtA?e=fSiGYK">https://upcedupe-my.sharepoint.com/:v:/g/personal/u202213070_upc_edu_pe/<br>IQBa0FFhoUqESLmHb8p2sG1UAdDEoM7wCEbIQnglKEjcwtA?e=fSiGYK</a></td></tr>
-  <tr><td><strong>Resumen</strong></td><td style="overflow-wrap:anywhere;">Administra un estacionamiento en San Miguel con 10 espacios y aproximadamente 2 años de experiencia en la operación del negocio. Señala que la gestión actual es completamente manual y que necesita permanecer presente la mayor parte del tiempo para mantener el control de entradas, salidas y cobros. Expresa interés en una plataforma web que le permita ordenar mejor la operación y atraer más clientes, siempre que sea intuitiva, fácil de usar y de bajo costo. Indica que preferiría gestionar el negocio desde el celular, que actualmente utiliza herramientas básicas como WhatsApp y Yape, y que consideraría instalar sensores si alguien le explica claramente su funcionamiento y si la solución no implica complejidad técnica innecesaria.</td></tr>
+  <tr><td><strong>Imagen</strong></td><td><img src="./assets/leonardo.jpeg" alt="Leonardo Delgado Arriola" width="240" /></td></tr>
+  <tr><td><strong>Entrevistado</strong></td><td>Leonardo Delgado Arriola</td></tr>
+  <tr><td><strong>Entrevistador</strong></td><td>Elverth Vásquez Villalobos</td></tr>
+  <tr><td><strong>Sexo</strong></td><td>Masculino</td></tr>
+  <tr><td><strong>Edad</strong></td><td>20 años</td></tr>
+  <tr><td><strong>Distrito</strong></td><td>San Miguel</td></tr>
+  <tr><td><strong>Timing</strong></td><td>Empieza en el minuto 18:42 y finaliza en el minuto 23:38</td></tr>
+  <tr><td><strong>Resumen</strong></td><td>Administra un estacionamiento de 10 espacios en San Miguel, cerca de una
+  avenida de alto tránsito. Lleva aproximadamente 2 años en el negocio, que
+  inició apoyando a un familiar. La gestión es completamente manual: registra
+  entradas y salidas en un cuaderno y coordina ocasionalmente con un familiar
+  cuando necesita ausentarse. Señala que su principal dificultad es la necesidad
+  de permanecer presente para mantener el control de la operación. Expresa interés
+  en una plataforma web que le permita ordenar mejor la operación y atraer más
+  clientes, siempre que sea intuitiva, fácil de usar y de bajo costo. Prefiere
+  gestionar desde el celular y actualmente usa WhatsApp y Yape como únicos medios
+  digitales. Consideraría instalar sensores si alguien le explica claramente cómo
+  funcionan y la solución no implica complejidad técnica innecesaria.</td></tr>
 </table>
 
 #### Entrevista 6
@@ -930,22 +1098,42 @@ A continuación se registran las entrevistas realizadas a propietarios y adminis
     <th style="width:24%; text-align:left;">Campo</th>
     <th style="text-align:left;">Detalle</th>
   </tr>
-  <tr><td><strong>Imagen</strong></td><td style="overflow-wrap:anywhere;"><img src="./assets/dueño3.jpeg" alt="Patricia Quispe Alvarado" width="240" /></td></tr>
-  <tr><td><strong>Entrevistado</strong></td><td style="overflow-wrap:anywhere;">Patricia Quispe Alvarado</td></tr>
-  <tr><td><strong>Entrevistador</strong></td><td style="overflow-wrap:anywhere;">Diego Ulises Soto Quispe</td></tr>
-  <tr><td><strong>Sexo</strong></td><td style="overflow-wrap:anywhere;">Femenino</td></tr>
-  <tr><td><strong>Edad</strong></td><td style="overflow-wrap:anywhere;">30 años</td></tr>
-  <tr><td><strong>Distrito</strong></td><td style="overflow-wrap:anywhere;">San Isidro</td></tr>
-  <tr><td><strong>Timing</strong></td><td style="overflow-wrap:anywhere;">Empieza en el minuto 23:39 y finaliza en el minuto 29:20</td></tr>
-  <tr><td><strong>Link</strong></td><td style="overflow-wrap:anywhere;"><a href="https://upcedupe-my.sharepoint.com/:v:/g/personal/u202214477_upc_edu_pe/IQArovlfxs-9TZtujH0tXWruAf3RwGMXJwEjFWtLnq_8lzw?e=ynCJIt">https://upcedupe-my.sharepoint.com/:v:/g/personal/u202214477_upc_edu_pe/IQArovlfxs-9TZtujH0tXWruAf3RwGMXJwEjFWtLnq_8lzw?e=ynCJIt</a></td></tr>
-  <tr><td><strong>Resumen</strong></td><td style="overflow-wrap:anywhere;">Administradora de estacionamiento de 30 años, ubicada en San Isidro, responsable de un local con 20 espacios y con cinco años de experiencia en la operación del negocio. Señala que actualmente controla la disponibilidad mediante una pizarra física y coordinación por WhatsApp con sus trabajadores, lo que provoca desactualizaciones frecuentes, reservas cruzadas y conflictos con clientes cuando la información no coincide con la realidad. Indica que una de sus mayores frustraciones es el desorden de las reservas manuales, especialmente cuando los clientes llegan y el espacio ya está ocupado o cuando debe resolver errores generados por falta de actualización o comunicación. Utiliza herramientas como WhatsApp, Google Sheets y aplicaciones bancarias, y manifiesta que le interesa una plataforma web simple que le permita ver en tiempo real lo que sucede en su local tanto desde el celular como desde la computadora. Considera especialmente valiosa la instalación de sensores por espacio para automatizar la actualización de disponibilidad y afirma que confiaría en la solución si puede verla funcionando en vivo en su propio local. También señala que la recomendaría a otros administradores si el sistema funciona correctamente durante los primeros treinta días.</td></tr>
+  <tr><td><strong>Imagen</strong></td><td><img src="./assets/dueño3.jpeg" alt="Patricia Quispe Alvarado" width="240" /></td></tr>
+  <tr><td><strong>Entrevistado</strong></td><td>Patricia Quispe Alvarado</td></tr>
+  <tr><td><strong>Entrevistador</strong></td><td>Diego Ulises Soto Quispe</td></tr>
+  <tr><td><strong>Sexo</strong></td><td>Femenino</td></tr>
+  <tr><td><strong>Edad</strong></td><td>30 años</td></tr>
+  <tr><td><strong>Distrito</strong></td><td>San Isidro</td></tr>
+  <tr><td><strong>Timing</strong></td><td>Empieza en el minuto 23:39 y finaliza en el minuto 29:20</td></tr>
+  <tr><td><strong>Resumen</strong></td><td>Administradora de 30 años que heredó el negocio de sus padres. Responsable
+  de un local con 20 espacios en San Isidro, cerca de varias oficinas
+  corporativas, con 5 años de experiencia en la operación. Cuenta con dos
+  trabajadores en turnos distintos y supervisa la administración general. Controla
+  la disponibilidad mediante una pizarra física en la entrada que el trabajador
+  actualiza manualmente, complementada por un grupo de WhatsApp interno, lo que
+  provoca desactualizaciones frecuentes, reservas cruzadas y conflictos con
+  clientes. Ha tenido que devolver dinero y disculparse en varias ocasiones por
+  errores derivados de este sistema. Usa WhatsApp, Google Sheets, Instagram y
+  aplicaciones bancarias, y probó un sistema de gestión hace 2 años que abandonó
+  por costo y complejidad. Manifiesta interés en una plataforma web simple que
+  funcione bien tanto en celular como en computadora. Valora especialmente la
+  instalación de sensores que automaticen la disponibilidad sin requerir acción
+  adicional de sus trabajadores. Afirma que confiaría en la solución si puede
+  verla funcionando en vivo en su local, y que la recomendaría a otros
+  administradores de la zona si funciona correctamente durante los primeros treinta
+  días.</td></tr>
 </table>
 
 ---
 
 ### 2.2.3. Análisis de entrevistas
 
-En esta sección se presenta el análisis de las seis entrevistas realizadas, tres por cada segmento objetivo. A partir de las respuestas recopiladas se identifican las características objetivas y subjetivas más representativas de cada segmento, sustentadas con proporciones observadas dentro de la muestra entrevistada. Este análisis constituye la base directa para la construcción de los arquetipos de usuario en la sección 2.3.
+En esta sección se presenta el análisis de las seis entrevistas realizadas, tres
+por cada segmento objetivo. A partir de las respuestas recopiladas se identifican
+las características objetivas y subjetivas más representativas de cada segmento,
+sustentadas con proporciones observadas dentro de la muestra entrevistada. Este
+análisis constituye la base directa para la construcción de los arquetipos de
+usuario en la sección 2.3.
 
 ---
 
@@ -955,27 +1143,50 @@ En esta sección se presenta el análisis de las seis entrevistas realizadas, tr
 
 **Edad y género**
 
-Los tres entrevistados tienen entre 29 y 41 años, con un promedio aproximado de 35 años. Dos de los tres entrevistados son hombres, equivalente al 67% (2/3), y una de las tres entrevistadas es mujer, equivalente al 33% (1/3). Este rango corresponde a población económicamente activa que se desplaza con frecuencia en vehículo propio por Lima Metropolitana. Dentro de la muestra analizada, residen en Surquillo, La Molina y San Miguel.
+Los tres entrevistados tienen entre 25 y 34 años, con un promedio aproximado de
+29 años. Dos de los tres entrevistados son hombres, equivalente al 67% (2/3), y
+una es mujer, equivalente al 33% (1/3). Este rango corresponde a población
+económicamente activa que se desplaza con frecuencia en vehículo propio por Lima
+Metropolitana. Dentro de la muestra analizada, residen en Surquillo, La Molina y
+San Miguel.
 
 **Estado civil y carga familiar**
 
-Dos de los tres entrevistados están casados, equivalente al 67% (2/3), y uno es soltero, equivalente al 33% (1/3). Asimismo, dos de los tres entrevistados, equivalente al 67% (2/3), tienen hijos o personas a su cargo, lo que sugiere que la mayoría combina sus desplazamientos laborales con responsabilidades familiares adicionales.
+Dos de los tres entrevistados son solteros, equivalente al 67% (2/3), y uno está
+casado, equivalente al 33% (1/3). Asimismo, solo uno de los tres entrevistados,
+equivalente al 33% (1/3), tiene personas a su cargo (un hijo de 5 años). Los dos
+restantes, equivalente al 67% (2/3), no tienen dependientes, lo que sugiere que
+en esta muestra predominan perfiles individuales cuya principal responsabilidad
+de movilidad es laboral o académica.
 
 **Ocupación**
 
-En los tres casos entrevistados, equivalente al 100% (3/3), se identificó actividad laboral estable. Las ocupaciones corresponden a un analista de sistemas, una ejecutiva de ventas y un docente universitario. En todos los casos, equivalente al 100% (3/3), el vehículo aparece como un medio importante para cumplir sus responsabilidades laborales y desplazarse hacia zonas de alta demanda vehicular.
+En los tres casos entrevistados, equivalente al 100% (3/3), se identificó
+actividad laboral estable. Las ocupaciones corresponden a un analista de sistemas,
+una ejecutiva de ventas y un docente universitario. En todos los casos, equivalente
+al 100% (3/3), el vehículo aparece como un medio importante para cumplir sus
+responsabilidades laborales y desplazarse hacia zonas de alta demanda vehicular.
 
 **Frecuencia de uso del vehículo**
 
-Los tres entrevistados, equivalente al 100% (3/3), usan su vehículo con frecuencia. Un caso corresponde a uso diario de lunes a viernes, otro a uso casi diario y un tercero a uso tres veces por semana. En todos los casos, equivalente al 100% (3/3), el auto forma parte importante de su rutina de movilidad.
+Los tres entrevistados, equivalente al 100% (3/3), usan su vehículo con frecuencia.
+Un caso corresponde a uso diario de lunes a viernes, otro a uso casi diario y un
+tercero a uso tres veces por semana. En todos los casos, equivalente al 100% (3/3),
+el auto forma parte importante de su rutina de movilidad.
 
 **Zonas de desplazamiento**
 
-En los tres casos, equivalente al 100% (3/3), se repiten San Isidro y Miraflores como zonas de desplazamiento frecuentes. En dos de los tres casos, equivalente al 67% (2/3), también aparece Surco. Estas zonas coinciden con distritos de alta demanda vehicular y alta presión sobre el estacionamiento.
+En los tres casos, equivalente al 100% (3/3), se repiten San Isidro y Miraflores
+como zonas de desplazamiento frecuentes. En dos de los tres casos, equivalente al
+67% (2/3), también aparece Surco. Estas zonas coinciden con distritos de alta
+demanda vehicular y alta presión sobre el estacionamiento.
 
 **Dispositivo y navegador**
 
-Dos de los tres entrevistados, equivalente al 67% (2/3), usan Android con Chrome, mientras que una entrevistada, equivalente al 33% (1/3), usa iPhone con Safari. En la totalidad de la muestra, equivalente al 100% (3/3), el smartphone es el dispositivo principal para aplicaciones de movilidad y servicios.
+Dos de los tres entrevistados, equivalente al 67% (2/3), usan Android con Chrome,
+mientras que una entrevistada, equivalente al 33% (1/3), usa iPhone con Safari.
+En la totalidad de la muestra, equivalente al 100% (3/3), el smartphone es el
+dispositivo principal para aplicaciones de movilidad y servicios.
 
 ---
 
@@ -983,51 +1194,104 @@ Dos de los tres entrevistados, equivalente al 67% (2/3), usan Android con Chrome
 
 **Comportamiento actual al buscar estacionamiento**
 
-En los tres casos entrevistados, equivalente al 100% (3/3), no se identificó una herramienta que les informe de manera anticipada sobre la disponibilidad real de estacionamiento antes de llegar. Dos entrevistados, equivalente al 67% (2/3), usan Google Maps o Waze para planificar la ruta o el tráfico, mientras que una entrevistada, equivalente al 33% (1/3), reconoce que normalmente llega a la zona y busca directamente. Sin embargo, en los tres casos, equivalente al 100% (3/3), se confirma que las herramientas actuales no resuelven el problema de disponibilidad real de espacios.
+En los tres casos entrevistados, equivalente al 100% (3/3), no se identificó una
+herramienta que les informe de manera anticipada sobre la disponibilidad real de
+estacionamiento antes de llegar. Dos entrevistados, equivalente al 67% (2/3), usan
+Google Maps o Waze para planificar la ruta o el tráfico, mientras que un
+entrevistado, equivalente al 33% (1/3), reconoce que normalmente llega a la zona
+y busca directamente. Sin embargo, en los tres casos, equivalente al 100% (3/3),
+se confirma que las herramientas actuales no resuelven el problema de disponibilidad
+real de espacios.
 
 **Tiempo promedio de búsqueda**
 
-En los tres casos, equivalente al 100% (3/3), se reportan tiempos de búsqueda superiores a 15 minutos en zonas de alta demanda. Las respuestas oscilan entre 15 y 40 minutos, con un caso extremo de 45 minutos sin encontrar espacio. Esto evidencia que la búsqueda de estacionamiento representa una pérdida significativa de tiempo para este segmento.
+En los tres casos, equivalente al 100% (3/3), se reportan tiempos de búsqueda
+superiores a 15 minutos en zonas de alta demanda. Las respuestas oscilan entre 15
+y 40 minutos, con un caso extremo de 45 minutos sin encontrar espacio. Esto
+evidencia que la búsqueda de estacionamiento representa una pérdida significativa
+de tiempo para este segmento.
 
 **Frecuencia del problema**
 
-En toda la muestra, equivalente al 100% (3/3), el problema aparece de forma recurrente. Dos entrevistados, equivalente al 67% (2/3), indican que lo viven varias veces por semana, mientras que un tercero, equivalente al 33% (1/3), lo asocia a la mayoría de sus visitas a zonas como Miraflores. Esto sugiere que no se trata de un evento aislado, sino de una fricción habitual en su experiencia de movilidad.
+En toda la muestra, equivalente al 100% (3/3), el problema aparece de forma
+recurrente. Dos entrevistados, equivalente al 67% (2/3), indican que lo viven
+varias veces por semana, mientras que un tercero, equivalente al 33% (1/3), lo
+asocia a la mayoría de sus visitas a zonas como Miraflores. Esto sugiere que no
+se trata de un evento aislado, sino de una fricción habitual en su experiencia
+de movilidad.
 
 **Reacción ante la falta de disponibilidad**
 
-En los tres casos, equivalente al 100% (3/3), la primera reacción consiste en dar vueltas buscando una alternativa cercana. Los tres entrevistados, equivalente al 100% (3/3), contemplan luego el uso de estacionamientos de pago como segunda opción. Además, los tres casos, equivalente al 100% (3/3), mencionan alternativas adicionales cuando la búsqueda falla por completo, como tomar transporte público, usar taxi o replantear el desplazamiento.
+En los tres casos, equivalente al 100% (3/3), la primera reacción consiste en dar
+vueltas buscando una alternativa cercana. Los tres entrevistados, equivalente al
+100% (3/3), contemplan luego el uso de estacionamientos de pago como segunda
+opción. Además, los tres casos, equivalente al 100% (3/3), mencionan alternativas
+adicionales cuando la búsqueda falla por completo, como tomar transporte público,
+usar taxi o replantear el desplazamiento.
 
 **Disposición a usar una app móvil de disponibilidad en tiempo real**
 
-En los tres casos, equivalente al 100% (3/3), se observa disposición a usar una aplicación móvil que muestre disponibilidad en tiempo real. Dos entrevistados, equivalente al 67% (2/3), lo afirman de manera directa e inmediata, mientras que un tercero, equivalente al 33% (1/3), expresa cautela inicial, aunque también muestra apertura si la solución demuestra ser confiable.
+En los tres casos, equivalente al 100% (3/3), se observa disposición a usar una
+aplicación móvil que muestre disponibilidad en tiempo real. Dos entrevistados,
+equivalente al 67% (2/3), lo afirman de manera directa e inmediata, mientras que
+un tercero, equivalente al 33% (1/3), expresa cautela inicial, aunque también
+muestra apertura si la solución demuestra ser confiable desde los primeros usos.
 
 **Disposición a reservar desde el celular**
 
-Los tres entrevistados, equivalente al 100% (3/3), indican que reservarían un espacio desde el celular si eso les garantizara disponibilidad al llegar. Sin embargo, esta disposición está condicionada a que el proceso sea rápido, claro y simple, especialmente en contextos de trabajo o compromisos con horario fijo.
+Los tres entrevistados, equivalente al 100% (3/3), indican que reservarían un
+espacio desde el celular si eso les garantizara disponibilidad al llegar. Sin
+embargo, esta disposición está condicionada a que el proceso sea rápido, claro y
+simple, especialmente en contextos de trabajo o compromisos con horario fijo.
 
 **Importancia del sensor físico para la confianza**
 
-En toda la muestra, equivalente al 100% (3/3), el sensor físico aparece como un factor relevante de confianza. Los entrevistados distinguen claramente entre una disponibilidad declarada manualmente y una disponibilidad respaldada por detección física del estado del espacio. Este hallazgo refuerza el valor diferencial de la propuesta IoT de ParkingNow.
+En toda la muestra, equivalente al 100% (3/3), el sensor físico aparece como un
+factor relevante de confianza. Los entrevistados distinguen claramente entre una
+disponibilidad declarada manualmente y una disponibilidad respaldada por detección
+física del estado del espacio. Este hallazgo refuerza el valor diferencial de la
+propuesta IoT de ParkingNow.
 
 **Aplicaciones móviles de referencia**
 
-En la muestra aparecen de forma recurrente aplicaciones como Google Maps, Waze, Rappi, Uber, Yape y apps bancarias. En cuanto a referentes de experiencia, los entrevistados valoran aplicaciones que sean simples, rápidas, predecibles y funcionales. Este patrón es importante para las decisiones de UX del producto.
+En la muestra aparecen de forma recurrente aplicaciones como Google Maps, Waze,
+Rappi, Uber, Yape y apps bancarias. En cuanto a referentes de experiencia, los
+entrevistados valoran aplicaciones que sean simples, rápidas, predecibles y
+funcionales. Este patrón es importante para las decisiones de UX del producto.
 
 **Principales frustraciones**
 
-La pérdida de tiempo aparece en los tres casos, equivalente al 100% (3/3), como una frustración central. Además, en los tres casos, equivalente al 100% (3/3), también se identifica incertidumbre respecto a si encontrarán o no un espacio disponible al llegar. Esta combinación de tiempo perdido e incertidumbre genera estrés y afecta negativamente actividades laborales o compromisos personales.
+La pérdida de tiempo aparece en los tres casos, equivalente al 100% (3/3), como
+una frustración central. Además, en los tres casos, equivalente al 100% (3/3),
+también se identifica incertidumbre respecto a si encontrarán o no un espacio
+disponible al llegar. Esta combinación de tiempo perdido e incertidumbre genera
+estrés y afecta negativamente actividades laborales o compromisos personales.
 
 **Condición de abandono de la app**
 
-En los tres casos, equivalente al 100% (3/3), se observa una tolerancia muy baja al error. Todos señalan, con distintos matices, que una primera falla importante en la disponibilidad mostrada sería suficiente para abandonar la aplicación. Esto implica que la confianza inicial será crítica para la adopción.
+En los tres casos, equivalente al 100% (3/3), se observa una tolerancia muy baja
+al error. Todos señalan, con distintos matices, que una primera falla importante
+en la disponibilidad mostrada sería suficiente para abandonar la aplicación. Esto
+implica que la confianza inicial será crítica para la adopción.
 
 ---
 
 ##### Conclusiones del segmento 1
 
-Los conductores urbanos entrevistados comparten un perfil relativamente homogéneo: adultos económicamente activos, usuarios frecuentes de vehículo particular y visitantes habituales de distritos con alta demanda vehicular, como Miraflores, San Isidro y Surco. En la muestra analizada, el problema de estacionamiento aparece de forma recurrente, con tiempos de búsqueda que superan de manera consistente los 15 minutos, y sin acceso a herramientas que anticipen la disponibilidad real antes de llegar.
+Los conductores urbanos entrevistados comparten un perfil relativamente homogéneo:
+adultos jóvenes económicamente activos, en su mayoría solteros y sin dependientes,
+usuarios frecuentes de vehículo particular y visitantes habituales de distritos con
+alta demanda vehicular como Miraflores, San Isidro y Surco. En la muestra
+analizada, el problema de estacionamiento aparece de forma recurrente, con tiempos
+de búsqueda que superan de manera consistente los 15 minutos, y sin acceso a
+herramientas que anticipen la disponibilidad real antes de llegar.
 
-Asimismo, se observa disposición a adoptar una app móvil de estacionamiento, siempre que la información mostrada sea confiable y esté respaldada por un mecanismo físico verificable. Dentro de esta muestra, el sensor IoT aparece como un elemento con potencial para generar confianza, mientras que la tolerancia al error en la primera experiencia de uso es muy baja. En consecuencia, la promesa de valor para este segmento debe centrarse en confiabilidad, rapidez y simplicidad.
+Asimismo, se observa disposición a adoptar una app móvil de estacionamiento,
+siempre que la información mostrada sea confiable y esté respaldada por un
+mecanismo físico verificable. Dentro de esta muestra, el sensor IoT aparece como
+un elemento con potencial para generar confianza, mientras que la tolerancia al
+error en la primera experiencia de uso es muy baja. En consecuencia, la promesa
+de valor para este segmento debe centrarse en confiabilidad, rapidez y simplicidad.
 
 ---
 
@@ -1037,23 +1301,53 @@ Asimismo, se observa disposición a adoptar una app móvil de estacionamiento, s
 
 **Edad y género**
 
-Los tres entrevistados tienen entre 20 y 47 años, con un promedio aproximado de 35 años. Dos de los tres entrevistados son hombres, equivalente al 67% (2/3), y una es mujer, equivalente al 33% (1/3). Este rango refleja la presencia tanto de administradores jóvenes vinculados a negocios familiares como de operadores con mayor experiencia en el sector.
+Los tres entrevistados tienen entre 20 y 35 años, con un promedio aproximado de
+28 años. Dos de los tres entrevistados son hombres, equivalente al 67% (2/3), y
+una es mujer, equivalente al 33% (1/3). Este rango refleja la presencia tanto de
+administradores jóvenes vinculados a negocios familiares como de operadores con
+experiencia moderada en el sector.
+
+**Estado civil y carga familiar**
+
+El dato de estado civil no fue recogido de forma sistemática en las tres entrevistas
+del segmento. Esta información deberá completarse en una revisión posterior del
+registro para garantizar la coherencia con los campos documentados en las fichas
+de entrevista de la sección 2.2.2.
 
 **Tamaño y antigüedad del local**
 
-Los estacionamientos entrevistados tienen entre 10 y 20 espacios, con un promedio aproximado de 14 espacios. El tiempo de operación varía entre 2 y 9 años, con un promedio aproximado de 5 años. En los tres casos, equivalente al 100% (3/3), operan en distritos urbanos con actividad vehicular relevante, específicamente Miraflores, San Isidro y San Miguel.
+Los estacionamientos entrevistados tienen entre 10 y 20 espacios, con un promedio
+aproximado de 14 espacios. El tiempo de operación varía entre 2 y 9 años, con un
+promedio aproximado de 5 años. En los tres casos, equivalente al 100% (3/3),
+operan en distritos urbanos con actividad vehicular relevante, específicamente
+Miraflores, San Isidro y San Miguel.
 
 **Personal de apoyo**
 
-La estructura operativa es pequeña y varía entre apoyo familiar, apoyo parcial y apoyo por turnos. Un caso, equivalente al 33% (1/3), opera con apoyo eventual de un familiar, otro, equivalente al 33% (1/3), cuenta con un trabajador y otro, equivalente al 33% (1/3), con dos trabajadores en turnos distintos. En todos los casos, equivalente al 100% (3/3), la coordinación sigue siendo mayormente informal.
+La estructura operativa es pequeña y varía entre apoyo familiar, apoyo parcial y
+apoyo por turnos. Un caso, equivalente al 33% (1/3), opera con apoyo eventual de
+un familiar, otro, equivalente al 33% (1/3), cuenta con un trabajador en turno de
+mañana, y otro, equivalente al 33% (1/3), con dos trabajadores en turnos distintos.
+En todos los casos, equivalente al 100% (3/3), la coordinación sigue siendo
+mayormente informal.
 
 **Dispositivo preferido para gestión**
 
-En los tres casos, equivalente al 100% (3/3), el celular aparece como dispositivo principal o prioritario de gestión. Dos entrevistados, equivalente al 67% (2/3), dependen principalmente de este medio, mientras que una entrevistada, equivalente al 33% (1/3), complementa su uso con laptop. Esto sugiere que la solución debe priorizar accesibilidad, claridad y buen funcionamiento en entorno móvil.
+En los tres casos, equivalente al 100% (3/3), el celular aparece como dispositivo
+principal o prioritario de gestión. Dos entrevistados, equivalente al 67% (2/3),
+dependen principalmente de este medio, mientras que una entrevistada, equivalente
+al 33% (1/3), complementa su uso con laptop o computadora de oficina. Esto sugiere
+que la solución debe priorizar accesibilidad, claridad y buen funcionamiento en
+entorno móvil.
 
 **Herramientas digitales actuales**
 
-En los tres casos, equivalente al 100% (3/3), se usa WhatsApp como herramienta digital básica de coordinación. Dos casos, equivalente al 67% (2/3), usan además Yape para pagos, y un caso, equivalente al 33% (1/3), utiliza Google Sheets para control básico e Instagram de forma ocasional. No se identificó un sistema digital formal de gestión de estacionamientos en uso activo dentro de la muestra entrevistada.
+En los tres casos, equivalente al 100% (3/3), se usa WhatsApp como herramienta
+digital básica de coordinación. Dos casos, equivalente al 67% (2/3), usan además
+Yape para pagos, y un caso, equivalente al 33% (1/3), utiliza Google Sheets para
+control básico e Instagram de forma ocasional. No se identificó un sistema digital
+formal de gestión de estacionamientos en uso activo dentro de la muestra
+entrevistada.
 
 ---
 
@@ -1061,59 +1355,124 @@ En los tres casos, equivalente al 100% (3/3), se usa WhatsApp como herramienta d
 
 **Sistema de control de espacios**
 
-En los tres casos, equivalente al 100% (3/3), el control de espacios sigue siendo manual o semimanual. Se utilizan cuadernos, pizarra física o registros directos sin automatización, lo que evidencia una baja digitalización operativa.
+En los tres casos, equivalente al 100% (3/3), el control de espacios sigue siendo
+manual o semimanual. Se utilizan cuadernos, pizarra física o registros directos
+sin automatización, lo que evidencia una baja digitalización operativa.
 
 **Visibilidad remota de la operación**
 
-En toda la muestra, equivalente al 100% (3/3), se observa ausencia de visibilidad remota real. Cuando el administrador no está físicamente en el local, depende de llamadas, mensajes o de terceros para conocer el estado del negocio. Esta dependencia aparece como una fuente importante de fricción.
+En toda la muestra, equivalente al 100% (3/3), se observa ausencia de visibilidad
+remota real. Cuando el administrador no está físicamente en el local, depende de
+llamadas, mensajes o de terceros para conocer el estado del negocio. Esta
+dependencia aparece como una fuente importante de fricción.
 
 **Conductores llegando sin espacio disponible**
 
-Los tres entrevistados, equivalente al 100% (3/3), reportan situaciones en las que llegan conductores esperando encontrar espacio y este ya no se encuentra disponible. Esto genera incomodidad, pérdida de clientes y, en un caso, incluso problemas con reservas informales mal gestionadas.
+Los tres entrevistados, equivalente al 100% (3/3), reportan situaciones en las que
+llegan conductores esperando encontrar espacio y este ya no se encuentra disponible.
+Esto genera incomodidad, pérdida de clientes y, en un caso, incluso problemas con
+reservas informales mal gestionadas que derivaron en devoluciones de dinero y
+conflictos directos con clientes.
 
 **Mayor fuente de errores operativos**
 
-En los tres casos, equivalente al 100% (3/3), la operación manual aparece como origen de la carga operativa y de los errores cotidianos. Dos entrevistados, equivalente al 67% (2/3), destacan específicamente la necesidad de presencia constante para mantener el control del negocio, mientras que una entrevistada, equivalente al 33% (1/3), señala de forma más específica el desorden en reservas y coordinación manual entre trabajadores y canales de comunicación.
+En los tres casos, equivalente al 100% (3/3), la operación manual aparece como
+origen de la carga operativa y de los errores cotidianos. Dos entrevistados,
+equivalente al 67% (2/3), destacan específicamente la necesidad de presencia
+constante para mantener el control del negocio, mientras que una entrevistada,
+equivalente al 33% (1/3), señala de forma más específica el desorden en reservas
+y la coordinación manual entre trabajadores y canales de comunicación como la
+principal fuente de conflictos.
 
 **Interés en una plataforma web de gestión**
 
-En los tres casos, equivalente al 100% (3/3), se observa interés por una plataforma web de gestión y visibilidad digital. Sin embargo, este interés está condicionado a simplicidad de uso, claridad del beneficio y reducción real de problemas operativos. No hay rechazo al cambio, pero sí cautela.
+En los tres casos, equivalente al 100% (3/3), se observa interés por una plataforma
+web de gestión y visibilidad digital. Sin embargo, este interés está condicionado
+a simplicidad de uso, claridad del beneficio y reducción real de problemas
+operativos. No hay rechazo al cambio, pero sí cautela frente al costo y la
+complejidad de implementación.
 
 **Disposición a instalar sensores**
 
-En los tres casos, equivalente al 100% (3/3), existe apertura a instalar sensores, siempre que la instalación sea simple y no implique obras, electricista ni procesos complejos. Además, en los tres casos, equivalente al 100% (3/3), se requiere explicación clara, demostración o evidencia previa para confiar en esta incorporación tecnológica.
+En los tres casos, equivalente al 100% (3/3), existe apertura a instalar sensores,
+siempre que la instalación sea simple y no implique obras, electricista ni procesos
+complejos. Además, en los tres casos, equivalente al 100% (3/3), se requiere
+explicación clara, demostración o evidencia previa para confiar en esta
+incorporación tecnológica.
 
 **Experiencia previa con herramientas digitales de gestión**
 
-Dos de los tres entrevistados, equivalente al 67% (2/3), nunca han usado un sistema de gestión para estacionamientos, principalmente porque no conocían opciones ajustadas a negocios pequeños. El caso restante, equivalente al 33% (1/3), sí probó una solución anterior, pero la abandonó por complejidad y costo.
+Dos de los tres entrevistados, equivalente al 67% (2/3), nunca han usado un sistema
+de gestión para estacionamientos, principalmente porque no conocían opciones
+ajustadas a negocios pequeños. El caso restante, equivalente al 33% (1/3), sí
+probó una solución anterior, pero la abandonó por complejidad y costo excesivo
+frente al valor ofrecido.
 
 **Beneficio principal esperado**
 
-Los beneficios esperados son concretos y operativos. Dos entrevistados, equivalente al 67% (2/3), mencionan como prioridad captar más clientes o dar mayor visibilidad al local, mientras que dos casos, equivalente al 67% (2/3), también enfatizan la necesidad de ordenar mejor la operación, reducir errores y ganar control en tiempo real. En conjunto, los tres administradores, equivalente al 100% (3/3), priorizan beneficios prácticos antes que atributos tecnológicos abstractos.
+Los beneficios esperados son concretos y operativos. Dos entrevistados, equivalente
+al 67% (2/3), mencionan como prioridad captar más clientes o dar mayor visibilidad
+al local, mientras que dos casos, equivalente al 67% (2/3), también enfatizan la
+necesidad de ordenar mejor la operación, reducir errores y ganar control en tiempo
+real. En conjunto, los tres administradores, equivalente al 100% (3/3), priorizan
+beneficios prácticos antes que atributos tecnológicos abstractos.
 
 **Condición para confiar en la plataforma**
 
-La confianza no depende de marketing general, sino de evidencia tangible. Un entrevistado, equivalente al 33% (1/3), necesita ver que otros negocios similares ya la usan con buenos resultados, otro, equivalente al 33% (1/3), requiere explicación clara y acompañamiento, y una entrevistada, equivalente al 33% (1/3), necesita una demostración en vivo. Esto sugiere que la adopción inicial dependerá de prueba práctica, acompañamiento y validación visible.
+La confianza no depende de marketing general, sino de evidencia tangible. Un
+entrevistado, equivalente al 33% (1/3), necesita ver que otros negocios similares
+ya la usan con buenos resultados, otro, equivalente al 33% (1/3), requiere
+explicación clara y acompañamiento sin complejidad técnica, y una entrevistada,
+equivalente al 33% (1/3), necesita una demostración en vivo en su propio local.
+Esto sugiere que la adopción inicial dependerá de prueba práctica, acompañamiento
+y validación visible.
 
 ---
 
 ##### Conclusiones del segmento 2
 
-Los administradores entrevistados comparten un perfil operativo relativamente homogéneo: propietarios o gestores de locales pequeños o medianos, con una operación todavía fuertemente manual y con baja integración tecnológica. En la muestra analizada, se observa dependencia de la presencia física del dueño o de mecanismos informales de coordinación para conocer el estado del negocio en tiempo real.
+Los administradores entrevistados comparten un perfil operativo relativamente
+homogéneo: propietarios o gestores de locales pequeños o medianos, con una
+operación todavía fuertemente manual y con baja integración tecnológica. En la
+muestra analizada, se observa dependencia de la presencia física del dueño o de
+mecanismos informales de coordinación para conocer el estado del negocio en tiempo
+real.
 
-También se observa apertura a digitalizar la operación, pero esta está claramente condicionada a simplicidad de instalación, bajo costo de entrada y evidencia tangible de valor. Dentro de esta muestra, el sensor IoT es percibido como viable siempre que no introduzca complejidad técnica. En consecuencia, la propuesta de valor para este segmento debe centrarse en control remoto, reducción de errores, facilidad de adopción y generación de beneficios operativos medibles.
+También se observa apertura a digitalizar la operación, pero esta está claramente
+condicionada a simplicidad de instalación, bajo costo de entrada y evidencia
+tangible de valor. Dentro de esta muestra, el sensor IoT es percibido como viable
+siempre que no introduzca complejidad técnica. En consecuencia, la propuesta de
+valor para este segmento debe centrarse en control remoto, reducción de errores,
+facilidad de adopción y generación de beneficios operativos medibles.
 
 ---
 
 #### Conclusiones generales
 
-Los hallazgos del segmento 1 evidencian una necesidad clara de información confiable y verificada en tiempo real sobre la disponibilidad de estacionamientos, así como disposición a reservar desde una app móvil si la plataforma demuestra coherencia entre lo que muestra y lo que el conductor encuentra al llegar. En esta muestra, el sensor físico IoT aparece como un factor importante de confianza.
+Los hallazgos del segmento 1 evidencian una necesidad clara de información confiable
+y verificada en tiempo real sobre la disponibilidad de estacionamientos, así como
+disposición a reservar desde una app móvil si la plataforma demuestra coherencia
+entre lo que muestra y lo que el conductor encuentra al llegar. En esta muestra,
+el sensor físico IoT aparece como un factor importante de confianza.
 
-En el segmento 2, se observa una necesidad igualmente clara de digitalizar una operación que hoy depende en gran medida de la presencia física del dueño y de coordinación informal. En la muestra analizada, los administradores valoran una plataforma web con monitoreo en tiempo real y automatización de disponibilidad, siempre que la instalación sea simple, el costo sea razonable y exista acompañamiento en la adopción inicial.
+En el segmento 2, se observa una necesidad igualmente clara de digitalizar una
+operación que hoy depende en gran medida de la presencia física del dueño y de
+coordinación informal. En la muestra analizada, los administradores valoran una
+plataforma web con monitoreo en tiempo real y automatización de disponibilidad,
+siempre que la instalación sea simple, el costo sea razonable y exista
+acompañamiento en la adopción inicial.
 
-Ambos segmentos se complementan de manera directa: los conductores necesitan información verificada que solo puede sostenerse si los administradores cuentan con mecanismos de actualización confiables, mientras que los administradores necesitan más reservas y visibilidad digital que solo pueden conseguir si los conductores tienen una app confiable que los conecte con sus espacios. Esta interdependencia respalda preliminarmente el modelo de negocio distribuido de ParkingNow y justifica la construcción equilibrada de ambas experiencias de usuario.
+Ambos segmentos se complementan de manera directa: los conductores necesitan
+información verificada que solo puede sostenerse si los administradores cuentan
+con mecanismos de actualización confiables, mientras que los administradores
+necesitan más reservas y visibilidad digital que solo pueden conseguir si los
+conductores tienen una app confiable que los conecte con sus espacios. Esta
+interdependencia respalda preliminarmente el modelo de negocio distribuido de
+ParkingNow y justifica la construcción equilibrada de ambas experiencias de usuario.
 
-Estos hallazgos servirán como base directa para la construcción de los User Personas, Empathy Maps, User Journey Maps y demás artefactos de Needfinding desarrollados en la sección 2.3.
+Estos hallazgos servirán como base directa para la construcción de los User
+Personas, Empathy Maps, User Journey Maps y demás artefactos de Needfinding
+desarrollados en la sección 2.3.
 
 ## 2.3. Needfinding
 
@@ -1346,9 +1705,18 @@ Asimismo, este artefacto permitió identificar tempranamente los actores del dom
 
 ## 2.5. Ubiquitous Language
 
-Para asegurar una comunicación clara, consistente y sin ambigüedades entre todos los miembros del equipo y los stakeholders del proyecto, se ha definido el **Ubiquitous Language** de ParkingNow siguiendo los principios de **Domain-Driven Design (DDD)**. Este lenguaje compartido permite que los conceptos centrales del dominio del negocio sean comprendidos y utilizados de la misma manera en el análisis, el diseño y la construcción de la solución.
+Para asegurar una comunicación clara, consistente y sin ambigüedades entre todos
+los miembros del equipo y los stakeholders del proyecto, se ha definido el
+**Ubiquitous Language** de ParkingNow siguiendo los principios de
+**Domain-Driven Design (DDD)**. Este lenguaje compartido permite que los conceptos
+centrales del dominio del negocio sean comprendidos y utilizados de la misma manera
+en el análisis, el diseño y la construcción de la solución.
 
-Los términos incluidos en esta sección corresponden únicamente al dominio de la gestión de estacionamientos urbanos y al modelo de negocio de ParkingNow. Por ello, no se consideran términos técnicos de implementación o de ingeniería de software. Cada término se presenta en inglés, acompañado de su equivalente en español entre paréntesis, mientras que la definición correspondiente se redacta en español.
+Los términos incluidos en esta sección corresponden únicamente al dominio de la
+gestión de estacionamientos urbanos y al modelo de negocio de ParkingNow. Por ello,
+no se consideran términos técnicos de implementación o de ingeniería de software.
+Cada término se presenta en inglés, acompañado de su equivalente en español entre
+paréntesis, mientras que la definición correspondiente se redacta en español.
 
 | Término | Definición |
 |---|---|
@@ -1357,16 +1725,19 @@ Los términos incluidos en esta sección corresponden únicamente al dominio de 
 | **Affiliation** (Afiliación) | Relación formal mediante la cual un administrador incorpora su estacionamiento a la red de ParkingNow, permitiendo que sus espacios sean gestionados y visibles dentro del servicio. |
 | **Availability** (Disponibilidad) | Condición de un espacio de estacionamiento en un momento determinado que indica si puede ser ocupado o reservado por un conductor. |
 | **Booking Window** (Ventana de reserva) | Período de tiempo durante el cual una reserva permanece vigente antes de que el conductor llegue al estacionamiento. |
+| **Connection Status** (Estado de conexión) | Condición que indica si el nodo IoT instalado en un estacionamiento está reportando activamente al sistema. Un nodo sin conexión implica que el estado de los espacios no se está actualizando en tiempo real. |
 | **Consumed Reservation** (Reserva consumida) | Estado que adquiere una reserva cuando el conductor ya hizo uso efectivo del espacio reservado al ingresar y ocuparlo. |
 | **Driver** (Conductor) | Persona que utiliza un vehículo particular y busca un espacio de estacionamiento disponible para llegar a su destino de manera más rápida, predecible y segura. |
 | **Entry** (Ingreso) | Hecho que marca la llegada de un vehículo a un espacio de estacionamiento y el inicio de su uso efectivo. |
 | **Exit** (Salida) | Hecho que marca la liberación de un espacio de estacionamiento cuando el vehículo abandona el lugar. |
+| **IoT Node** (Nodo IoT) | Dispositivo físico instalado en el estacionamiento que detecta el estado de ocupación de los espacios y comunica esa información al sistema digital en tiempo real. Su presencia distingue a un estacionamiento afiliado de uno de referencia. |
 | **Non-Affiliated Parking Lot** (Estacionamiento no afiliado) | Estacionamiento que existe dentro del entorno urbano, pero que no mantiene una relación de afiliación con ParkingNow. Puede ser visible como referencia, pero no forma parte del servicio principal de reserva y disponibilidad verificada. |
 | **Occupancy** (Ocupación) | Estado de un espacio de estacionamiento cuando se encuentra actualmente en uso por un vehículo. |
 | **Occupancy Status** (Estado de ocupación) | Condición en la que se encuentra un espacio de estacionamiento dentro del dominio del negocio. Puede expresarse, según el contexto operativo, como libre, reservado, ocupado o sin conexión. |
 | **Parking Lot** (Estacionamiento) | Establecimiento físico que agrupa uno o más espacios de estacionamiento y ofrece el servicio de parqueo a conductores. |
 | **Parking Space** (Espacio de estacionamiento) | Unidad física individual destinada al estacionamiento de un único vehículo dentro de un estacionamiento. |
 | **Peak Demand** (Alta demanda / Hora punta) | Período del día en el que la cantidad de conductores que busca estacionamiento supera la disponibilidad habitual de espacios en una determinada zona urbana. |
+| **Physical Detection** (Detección física) | Proceso mediante el cual el nodo IoT determina si un espacio está libre u ocupado, basándose en la lectura de sus sensores. Este mecanismo es el que respalda la disponibilidad verificada que se muestra al conductor. |
 | **Rate** (Tarifa) | Monto económico asociado al uso de un espacio de estacionamiento durante una sesión de estacionamiento o dentro de un rango de tiempo definido por el administrador. |
 | **Reservation** (Reserva) | Acuerdo previo mediante el cual un conductor asegura temporalmente un espacio disponible antes de llegar físicamente al estacionamiento. |
 | **Reserved Space** (Espacio reservado) | Espacio de estacionamiento que ha sido asignado temporalmente a un conductor mediante una reserva activa y que, por ello, no debe ser ocupado por otro vehículo durante ese período. |
@@ -1375,7 +1746,12 @@ Los términos incluidos en esta sección corresponden únicamente al dominio de 
 | **Validated Reservation** (Reserva validada) | Reserva cuya vigencia y correspondencia con el conductor han sido confirmadas al momento de su llegada al estacionamiento, permitiendo autorizar el ingreso. |
 | **Verified Availability** (Disponibilidad verificada) | Disponibilidad de un espacio de estacionamiento que cuenta con respaldo confiable respecto a su estado real de ocupación, reduciendo la incertidumbre tanto para el conductor como para el administrador. |
 
-En conjunto, este lenguaje ubicuo permite establecer una base conceptual común para el dominio de ParkingNow, reduciendo ambigüedades y asegurando que todos los miembros del equipo comprendan de la misma manera los conceptos centrales del negocio. Asimismo, este glosario servirá como referencia para las siguientes secciones del informe, especialmente aquellas vinculadas al modelado del dominio y la arquitectura de la solución.
+En conjunto, este lenguaje ubicuo permite establecer una base conceptual común para
+el dominio de ParkingNow, reduciendo ambigüedades y asegurando que todos los
+miembros del equipo comprendan de la misma manera los conceptos centrales del
+negocio. Asimismo, este glosario servirá como referencia para las siguientes
+secciones del informe, especialmente aquellas vinculadas al modelado del dominio
+y la arquitectura de la solución.
 
 # Capítulo III: Requirements Specification
 
