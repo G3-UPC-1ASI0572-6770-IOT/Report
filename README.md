@@ -1307,13 +1307,6 @@ una es mujer, equivalente al 33% (1/3). Este rango refleja la presencia tanto de
 administradores jóvenes vinculados a negocios familiares como de operadores con
 experiencia moderada en el sector.
 
-**Estado civil y carga familiar**
-
-El dato de estado civil no fue recogido de forma sistemática en las tres entrevistas
-del segmento. Esta información deberá completarse en una revisión posterior del
-registro para garantizar la coherencia con los campos documentados en las fichas
-de entrevista de la sección 2.2.2.
-
 **Tamaño y antigüedad del local**
 
 Los estacionamientos entrevistados tienen entre 10 y 20 espacios, con un promedio
