@@ -1580,11 +1580,11 @@ En esta sección se presenta el **Product Backlog** de **ParkingNow**, entendido
 En ese sentido, las historias relacionadas con el **Landing Page** y con las funcionalidades centrales de valor para los segmentos objetivo fueron ubicadas al inicio del backlog, mientras que las historias de autenticación, soporte técnico, testing y exploración fueron ubicadas posteriormente según su aporte al desarrollo integral del producto. Para la estimación se utilizó la técnica de **Planning Poker**, asignando **Story Points** con la secuencia de Fibonacci **1, 2, 3, 5 y 8**, considerando riesgo, complejidad y repetición.
 
 **A. URL del Product Backlog**  
-**Enlace público:** `[Colocar aquí el enlace público del tablero del Product Backlog en Trello / Jira / GitHub Projects]`
+**Enlace público:** https://parkingnow-backlog.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog?atlOrigin=eyJpIjoiNTM4MTcxOWQyZmY0NDZiNzhiNDlmNzBmMzkyZDMxYjAiLCJwIjoiaiJ9
 
 **B. Captura del tablero del Product Backlog**
 
-![Captura del Product Backlog](./assets/product-backlog.png)
+![alt text](assets/backlog.jpeg)
 
 **C. Listado del Product Backlog**
 
