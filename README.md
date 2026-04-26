@@ -3405,4 +3405,4 @@ Las relaciones principales del diseño son las siguientes:
 
 El diseño utiliza claves primarias de tipo `UUID` para mantener identificadores únicos a nivel de sistema. Las relaciones entre tablas se implementan mediante llaves foráneas, asegurando integridad referencial entre estacionamientos, perfiles, espacios y emparejamientos IoT.
 
-La persistencia se define sobre **PostgreSQL**, pudiendo alojarse en una base de datos administrada como Supabase PostgreSQL. Sin embargo, la lógica de negocio no se implementa en la base de datos ni en Supabase, sino en el **Core REST API** desarrollado con Java y Spring Boot. De esta forma, la base de datos cumple únicamente la responsabilidad de persistencia dentro de la arquitectura
+La persistencia se define sobre **PostgreSQL**, pudiendo alojarse en una base de datos administrada como Supabase PostgreSQL. Sin embargo, la lógica de negocio no se implementa en la base de datos ni en Supabase, sino en el **Core REST API** desarrollado con Java y Spring Boot. De esta forma, la base de datos cumple únicamente la responsabilidad de persistencia dentro de la arquitectura.
