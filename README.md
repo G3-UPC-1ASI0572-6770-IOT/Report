@@ -190,7 +190,7 @@ En el siguiente cuadro se describen las acciones realizadas y las conclusiones d
     - [4.1.3.3. Software Architecture Container Level Diagrams](#4133-software-architecture-container-level-diagrams)
     - [4.1.3.4. Software Architecture Deployment Diagrams](#4134-software-architecture-deployment-diagrams)
 - [4.2. Tactical-Level Domain-Driven Design](#42-tactical-level-domain-driven-design)
-  - [4.2.X. Bounded Context: Parking Management](#42x-bounded-context-parking-management)
+  - [4.2.X. Bounded Context: <Bounded Context Name>](#42x-bounded-context-parking-management)
     - [4.2.X.1. Domain Layer](#42x1-domain-layer)
     - [4.2.X.2. Interface Layer](#42x2-interface-layer)
     - [4.2.X.3. Application Layer](#42x3-application-layer)
@@ -2770,3 +2770,12 @@ El **Parking Lot Local Wi-Fi Network** se mantiene como nodo de despliegue indep
 También se decidió mantener el **ESP32-CAM Local Camera Server** como servicio local. Su función es apoyar visualmente la demostración del prototipo cuando el dueño de estacionamiento se encuentra conectado a la misma red Wi-Fi. No se considera parte crítica del flujo de reserva, ya que la ocupación verificada se determina mediante los sensores ultrasónicos y el procesamiento del firmware.
 
 En conclusión, el **Software Architecture Deployment Diagram** muestra que ParkingNow se despliega como una solución distribuida entre dispositivos móviles, navegador web, servicios cloud, plataforma BaaS y hardware IoT local. Esta configuración permite conectar el evento físico detectado por el ESP32 con la experiencia digital del conductor y del dueño de estacionamiento. Además, el uso de servicios administrados como Vercel, Railway y Supabase reduce la complejidad operativa del MVP y permite concentrar el desarrollo en la lógica de negocio, la experiencia de usuario y la integración IoT.
+
+## 4.2. Tactical-Level Domain-Driven Design
+
+En esta sección se desarrolla el diseño táctico de **Domain-Driven Design** para **ParkingNow**, tomando como base los bounded contexts identificados en el diseño estratégico. Mientras que el nivel estratégico permitió definir los límites principales del dominio y sus relaciones, el nivel táctico permite profundizar en la estructura interna de cada contexto y describir cómo sus reglas de negocio serán representadas en capas, clases, componentes y estructuras de persistencia.
+
+Para ParkingNow, este diseño táctico resulta necesario porque la solución integra procesos digitales y físicos dentro de un mismo flujo: búsqueda de estacionamientos, reserva de espacios, validación de disponibilidad, monitoreo IoT, actualización en tiempo real e identificación de usuarios. Por ello, cada bounded context será desarrollado de manera independiente, manteniendo coherencia con el lenguaje ubicuo del dominio y con la arquitectura definida previamente mediante el modelo C4.
+
+El análisis táctico permitirá precisar las responsabilidades internas de cada contexto, evitando que reglas de negocio distintas se mezclen dentro de una única lógica general. De esta manera, ParkingNow conserva una organización modular, trazable y alineada con el dominio, facilitando su implementación progresiva dentro del **Core API**, el **IoT API**, la capa de persistencia en **Supabase** y el firmware embebido del nodo **ESP32**.
+
