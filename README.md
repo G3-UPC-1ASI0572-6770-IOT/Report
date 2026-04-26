@@ -2270,3 +2270,152 @@ En conclusión, el Candidate Context Discovery permitió transformar los agregad
 
 Enlace del miro: https://miro.com/welcomeonboard/cE81V0lIQ2x2VHg3MktWbXVaTUM4UjJ3ZXhUcEFCUTN5TmdiL3FmNXdoeURwS2YyYlpUS1BMazd1b2JXSnRGZ3l1RGl4cEhMeWJDZVlUd3FHNzNZVVVmQnUraUd4TE1vQmR5bitqV3AzWkExYTNDcmZtd00vRnM1MkY2RWc4MFpNakdSWkpBejJWRjJhRnhhb1UwcS9BPT0hdjE=?share_link_id=425067057750
 
+### 4.1.1.2. Domain Message Flows Modeling
+
+Luego de identificar los bounded contexts candidatos en el **Candidate Context Discovery**, se elaboraron los **Domain Message Flow Diagrams** con el propósito de representar cómo colaboran los contextos del dominio de **ParkingNow** para ejecutar los escenarios principales del negocio. Esta actividad permitió pasar de una vista estructural del dominio a una vista dinámica, donde se observa qué mensajes cruzan los límites entre contextos, actores y sistemas externos.
+
+Para modelar estos flujos se aplicó la técnica de **Domain Storytelling**, representando actores, bounded contexts, sistemas externos y mensajes intercambiados. Los mensajes fueron clasificados en tres tipos: **Commands**, cuando un actor o contexto solicita ejecutar una acción; **Events**, cuando se comunica que algo relevante ya ocurrió en el dominio; y **Queries**, cuando un contexto solicita información para tomar una decisión o continuar el flujo.
+
+Los diagramas se diseñaron manteniendo una notación visual consistente. Los actores se representaron con íconos de persona, los bounded contexts mediante nubes, los sistemas externos mediante íconos de engranaje y los mensajes mediante tarjetas de colores. Las tarjetas azules representan **Commands**, las tarjetas naranjas representan **Events** y las tarjetas verdes representan **Queries**. Además, las líneas punteadas indican la dirección del mensaje entre los participantes del flujo.
+
+Para ParkingNow se modelaron cinco escenarios principales: búsqueda y reserva de espacio, validación de llegada y consumo de reserva, salida del vehículo y actualización del historial operacional, desconexión y recuperación de sincronización IoT, y configuración del estacionamiento con asociación de nodo IoT. Estos escenarios fueron seleccionados porque cruzan varios bounded contexts y representan los procesos más importantes para la operación de la plataforma.
+
+**Figura 33**  
+*Domain Message Flow Diagram: Search and Reserve Parking Space*
+
+![alt text](assets/messageflow1.jpeg)
+
+*Nota.* Elaboración propia (2026) en Miro.
+
+Según la Figura 33, el escenario **Search and Reserve Parking Space** describe la colaboración necesaria para que un conductor busque un estacionamiento, consulte disponibilidad verificada y reserve un espacio. El flujo inicia cuando el **Driver** se autentica mediante el bounded context **Identity & Access Management**. Luego, desde la aplicación móvil, el conductor ejecuta el comando **Search destination**, el cual es procesado por el bounded context **Parking Discovery**.
+
+El bounded context **Parking Discovery** consulta al sistema externo **OpenStreetMap / Overpass API** para resolver referencias cercanas al destino buscado. Después solicita información al bounded context **Parking Management** para obtener espacios activos y consulta al bounded context **IoT Monitoring** para verificar disponibilidad real mediante datos provenientes de sensores. Cuando la disponibilidad verificada es reportada, el conductor puede solicitar una reserva al bounded context **Reservation**.
+
+Finalmente, el bounded context **Reservation** valida el espacio seleccionado, genera el ticket virtual mediante el sistema externo **QR / Ticket Generation Service** y produce el evento **Reservation confirmed**, que es comunicado al bounded context **Operational Notification** para permitir la actualización posterior de las interfaces del sistema. Este flujo evidencia que la reserva de un espacio no depende únicamente de una búsqueda geográfica, sino también de la disponibilidad física verificada y de la coordinación entre los contextos de descubrimiento, gestión, monitoreo IoT y reservas.
+
+| Orden | Tipo de mensaje | Mensaje | Emisor | Receptor |
+|---|---|---|---|---|
+| 1 | Command | Authenticate user | Driver | Identity & Access Management |
+| 2 | Command | Search destination | Mobile App | Parking Discovery |
+| 3 | Query | Resolve nearby parking references | Parking Discovery | OpenStreetMap / Overpass API |
+| 4 | Query | Get active parking spaces | Parking Discovery | Parking Management |
+| 5 | Query | Consult verified availability | Parking Discovery | IoT Monitoring |
+| 6 | Event | Verified availability reported | IoT Monitoring | Parking Discovery |
+| 7 | Command | Request reservation | Driver / Mobile App | Reservation |
+| 8 | Query | Validate selected parking space | Reservation | Parking Management |
+| 9 | Command | Generate virtual ticket | Reservation | QR / Ticket Generation Service |
+| 10 | Event | Reservation confirmed | Reservation | Operational Notification |
+
+**Figura 34**  
+*Domain Message Flow Diagram: Arrival Validation and Reservation Consumption*
+
+![alt text](assets/messageflow2.jpeg)
+
+*Nota.* Elaboración propia (2026) en Miro.
+
+Según la Figura 34, el escenario **Arrival Validation and Reservation Consumption** representa el flujo que ocurre cuando el conductor llega al estacionamiento y debe validar su reserva para ocupar el espacio físico. El proceso inicia con el comando **Validate reservation**, ejecutado por el **Driver** o por el **Administrator**, y recibido por el bounded context **Reservation**. Para validar el ticket virtual, este contexto consulta el sistema externo **QR Scanner / Camera Module** mediante el mensaje **Scan virtual ticket**.
+
+Una vez validada la reserva, el bounded context **Reservation** produce el evento **Reservation validated**, el cual permite que el bounded context **Parking Management** autorice la entrada al estacionamiento. Posteriormente, el sistema externo **ESP32 IoT Node** detecta físicamente el vehículo y envía el evento **Vehicle detected** al bounded context **IoT Monitoring**.
+
+El bounded context **IoT Monitoring** solicita actualizar el estado de ocupación al bounded context **Parking Management** mediante el comando **Update occupancy status**. Cuando el espacio queda marcado como ocupado, se produce el evento **Parking space occupied**, que permite al bounded context **Reservation** ejecutar el comando **Consume reservation**. Finalmente, el evento **Reservation consumed** se comunica al bounded context **Operational Notification**, que publica la actualización operacional hacia la aplicación móvil.
+
+Este flujo es crítico porque conecta la reserva digital con el estado físico real del estacionamiento. La reserva no se considera consumida únicamente por la llegada del usuario, sino cuando existe una validación lógica y una confirmación física de ocupación mediante el nodo IoT.
+
+| Orden | Tipo de mensaje | Mensaje | Emisor | Receptor |
+|---|---|---|---|---|
+| 1 | Command | Validate reservation | Driver / Administrator | Reservation |
+| 2 | Query | Scan virtual ticket | Reservation | QR Scanner / Camera Module |
+| 3 | Event | Reservation validated | Reservation | Parking Management |
+| 4 | Command | Authorize entry | Parking Management | Reservation |
+| 5 | Event | Vehicle detected | ESP32 IoT Node | IoT Monitoring |
+| 6 | Command | Update occupancy status | IoT Monitoring | Parking Management |
+| 7 | Event | Parking space occupied | Parking Management | Reservation |
+| 8 | Command | Consume reservation | Parking Management | Reservation |
+| 9 | Event | Reservation consumed | Reservation | Operational Notification |
+| 10 | Command | Publish operational update | Operational Notification | Mobile App |
+
+**Figura 35**  
+*Domain Message Flow Diagram: Exit and Operational History Update*
+
+![alt text](assets/messageflow3.jpeg)
+
+*Nota.* Elaboración propia (2026) en Miro.
+
+Según la Figura 35, el escenario **Exit and Operational History Update** muestra cómo ParkingNow procesa la salida de un vehículo, libera el espacio ocupado y actualiza el historial operacional. El flujo inicia cuando el **ESP32 IoT Node** detecta que el vehículo salió del espacio y comunica el evento **Vehicle exited** al bounded context **IoT Monitoring**.
+
+A partir de este evento, el bounded context **IoT Monitoring** envía el comando **Release parking space** al bounded context **Parking Management**. Este último actualiza el estado del espacio y produce el evento **Parking space released**. Como consecuencia, el bounded context **Reservation** actualiza el historial de la reserva mediante el comando **Update reservation history** y produce el evento **Reservation history updated**.
+
+Luego, el bounded context **Operational Notification** actualiza el historial operacional diario mediante el comando **Update daily operational history** y comunica el evento **Daily operational history updated**. De forma complementaria, el bounded context **Parking Management** produce el evento **Availability changed**, que debe ser consumido por **Parking Discovery** para reflejar que el espacio vuelve a estar disponible para futuras búsquedas.
+
+Este flujo demuestra cómo un evento físico detectado por el nodo IoT termina impactando en distintos modelos del sistema: el estado del espacio, el historial de la reserva, el historial operacional y la disponibilidad visible para los conductores. Por ello, este escenario es importante para mantener consistencia entre la operación física del estacionamiento y la experiencia digital de búsqueda.
+
+| Orden | Tipo de mensaje | Mensaje | Emisor | Receptor |
+|---|---|---|---|---|
+| 1 | Event | Vehicle exited | ESP32 IoT Node | IoT Monitoring |
+| 2 | Command | Release parking space | IoT Monitoring | Parking Management |
+| 3 | Event | Parking space released | Parking Management | Reservation |
+| 4 | Command | Update reservation history | Reservation | Operational Notification |
+| 5 | Event | Availability changed | Parking Management | Parking Discovery |
+| 6 | Command | Update daily operational history | Operational Notification | Cloud Realtime Database |
+| 7 | Event | Daily operational history updated | Operational Notification | Parking Discovery |
+
+**Figura 36**  
+*Domain Message Flow Diagram: IoT Disconnection and Synchronization Recovery*
+
+![alt text](assets/messageflow.jpeg)
+
+*Nota.* Elaboración propia (2026) en Miro.
+
+Según la Figura 36, el escenario **IoT Disconnection and Synchronization Recovery** representa el comportamiento de ParkingNow cuando un nodo IoT pierde conectividad y posteriormente recupera la sincronización con la plataforma. El flujo inicia cuando el **ESP32 IoT Node** deja de enviar señales de vida dentro del umbral configurado y se produce el evento **Heartbeat timeout detected**, recibido por el bounded context **IoT Monitoring**.
+
+Ante este evento, **IoT Monitoring** ejecuta el comando **Detect IoT disconnection** y produce el evento **IoT node disconnected**. Este evento es relevante para **Operational Notification**, ya que el estado de desconexión debe ser visible en el dashboard operacional. Además, el sistema ejecuta el comando **Buffer data locally** para almacenar eventos en **ESP32 Local Storage**, evitando pérdida de información durante la desconexión.
+
+Mientras el nodo permanece sin conexión, el bounded context **IoT Monitoring** preserva el último estado conocido mediante el comando **Preserve last known status** y produce el evento **Last known status preserved**, que es consumido por **Parking Discovery** para evitar mostrar información inconsistente al conductor. Cuando se recupera la conexión a internet, se produce el evento **Connection recovered**, se ejecuta el comando **Restore synchronization** contra **Cloud Realtime Database** y finalmente se emite el evento **Synchronization restored**, comunicado a **Operational Notification**.
+
+Este flujo evidencia la capacidad de resiliencia del sistema. ParkingNow no depende únicamente de conectividad permanente, sino que mantiene continuidad operacional mediante almacenamiento local, preservación de estado y restauración posterior de sincronización.
+
+| Orden | Tipo de mensaje | Mensaje | Emisor | Receptor |
+|---|---|---|---|---|
+| 1 | Event | Heartbeat timeout detected | ESP32 IoT Node | IoT Monitoring |
+| 2 | Command | Detect IoT disconnection | IoT Monitoring | IoT Monitoring |
+| 3 | Event | IoT node disconnected | IoT Monitoring | Operational Notification |
+| 4 | Command | Buffer data locally | IoT Monitoring | ESP32 Local Storage |
+| 5 | Command | Preserve last known status | IoT Monitoring | IoT Monitoring |
+| 6 | Event | Last known status preserved | IoT Monitoring | Parking Discovery |
+| 7 | Event | Connection recovered | Internet Connection | IoT Monitoring |
+| 8 | Command | Restore synchronization | IoT Monitoring | Cloud Realtime Database |
+| 9 | Event | Synchronization restored | IoT Monitoring | Operational Notification |
+
+**Figura 37**  
+*Domain Message Flow Diagram: Parking Lot Setup and IoT Node Pairing*
+
+
+![alt text](assets/messageflow4.jpeg)
+
+*Nota.* Elaboración propia (2026) en Miro.
+
+Según la Figura 37, el escenario **Parking Lot Setup and IoT Node Pairing** muestra cómo un administrador configura la información inicial de un estacionamiento y asocia un nodo IoT a la operación física del parking. El proceso inicia con el comando **Authenticate administrator**, enviado por el **Administrator** al bounded context **Identity & Access Management**. Luego, el bounded context **Parking Management** consulta la validez del rol mediante el mensaje **Validate administrator role**, ya que solo un administrador autorizado puede registrar y configurar estacionamientos.
+
+Una vez validado el acceso, el administrador ejecuta el comando **Affiliate parking lot** desde el **Web Dashboard**. El bounded context **Parking Management** valida la ubicación del estacionamiento mediante el sistema externo **OpenStreetMap / Nominatim** y continúa con el registro de espacios mediante el comando **Register parking spaces**. Posteriormente, se asignan identificadores únicos a cada espacio con el comando **Assign parking space identifiers**.
+
+Luego, el bounded context **Parking Management** solicita al bounded context **IoT Monitoring** la asociación del nodo mediante el comando **Associate IoT node**. Este contexto interactúa con el sistema externo **ESP32 IoT Node** y produce el evento **IoT node associated**. Finalmente, **Parking Management** emite el evento **Parking lot available for discovery**, que permite al bounded context **Parking Discovery** considerar el estacionamiento dentro de las búsquedas de los conductores.
+
+Este flujo es fundamental porque crea la información base que habilita el resto del sistema. Sin la configuración correcta del estacionamiento, los espacios, sus identificadores y el nodo IoT asociado, no sería posible ofrecer disponibilidad verificada ni reservas confiables.
+
+| Orden | Tipo de mensaje | Mensaje | Emisor | Receptor |
+|---|---|---|---|---|
+| 1 | Command | Authenticate administrator | Administrator | Identity & Access Management |
+| 2 | Query | Validate administrator role | Parking Management | Identity & Access Management |
+| 3 | Command | Affiliate parking lot | Administrator / Web Dashboard | Parking Management |
+| 4 | Query | Validate parking lot location | Parking Management | OpenStreetMap / Nominatim |
+| 5 | Command | Register parking spaces | Administrator / Web Dashboard | Parking Management |
+| 6 | Command | Assign parking space identifiers | Parking Management | Parking Management |
+| 7 | Command | Associate IoT node | Parking Management | IoT Monitoring |
+| 8 | Event | IoT node associated | IoT Monitoring | Parking Management |
+| 9 | Event | Parking lot available for discovery | Parking Management | Parking Discovery |
+
+En conjunto, los cinco Domain Message Flow Diagrams permiten observar cómo los bounded contexts de ParkingNow colaboran para resolver los escenarios principales del negocio. La comunicación entre contextos no se diseñó como llamadas aisladas, sino como intercambio de mensajes de dominio: comandos que solicitan acciones, eventos que comunican cambios relevantes y consultas que permiten recuperar información necesaria para tomar decisiones.
+
+Esta modelación confirma que los bounded contexts descubiertos previamente tienen límites coherentes. **Reservation** concentra el ciclo de vida de la reserva, **IoT Monitoring** gestiona la interacción con sensores y conectividad, **Parking Management** mantiene la configuración del estacionamiento, **Parking Discovery** organiza la búsqueda y disponibilidad, **Operational Notification** propaga cambios relevantes y **Identity & Access Management** protege las acciones del sistema. Por ello, los flujos de mensajes sirven como base para completar los **Bounded Context Canvases** en la siguiente sección.
+
+Enlace de miro: https://miro.com/welcomeonboard/cE81V0lIQ2x2VHg3MktWbXVaTUM4UjJ3ZXhUcEFCUTN5TmdiL3FmNXdoeURwS2YyYlpUS1BMazd1b2JXSnRGZ3l1RGl4cEhMeWJDZVlUd3FHNzNZVVVmQnUraUd4TE1vQmR5bitqV3AzWkQ5ZTExSkU4YkhBWmRTVVJOUEZsU0VBd044SHFHaVlWYWk0d3NxeHNmeG9BPT0hdjE=?share_link_id=852085081677
