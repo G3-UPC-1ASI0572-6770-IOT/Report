@@ -1804,20 +1804,19 @@ En ese sentido, las historias relacionadas con el **Landing Page** y con las fun
 | 124     | TS-WEB.5      | Protección del acceso a información sensible                         | Como Developer, quiero que el cliente web proteja la información sensible del administrador, para evitar que se exponga a usuarios no autorizados en el mismo dispositivo.                                | 2                                |
 | 125     | TS-TST.9      | Validación de autenticación y autorización                           | Como Developer, quiero validar los mecanismos de autenticación y autorización, para asegurar que el acceso a recursos sensibles esté correctamente controlado.                                            | 3                                |
 
-
-# Capítulo IV: Solution Software Design
+## Capítulo IV: Solution Software Design
 
 En este capítulo se desarrolla el diseño de software de **ParkingNow**, tomando como base los hallazgos obtenidos en los capítulos anteriores: el análisis del problema, las entrevistas, los artefactos de needfinding, el Big Picture EventStorming, el Ubiquitous Language, las User Stories, el Impact Mapping y el Product Backlog.
 
 El propósito de este capítulo es transformar los requisitos identificados en una propuesta de diseño coherente, trazable y alineada con el dominio del negocio. Para ello, se aplica el enfoque de **Domain-Driven Design (DDD)**, diferenciando decisiones de diseño estratégico y táctico. En el nivel estratégico, se identifican los límites principales del dominio mediante EventStorming y Candidate Context Discovery. En el nivel táctico, se profundiza en la estructura interna de los Bounded Contexts, sus responsabilidades, reglas de negocio, objetos de dominio y relaciones entre componentes.
 
-ParkingNow plantea una solución distribuida compuesta por una aplicación móvil para conductores, un panel web para administradores, servicios backend, una capa de sincronización en tiempo real y un nodo IoT basado en ESP32 para la detección física de ocupación. Por ello, el diseño de software debe asegurar que cada parte del sistema tenga responsabilidades claras, mantenga un lenguaje coherente con el dominio y permita integrar correctamente los eventos físicos del estacionamiento con las experiencias digitales del conductor y del administrador.
+ParkingNow plantea una solución distribuida compuesta por una aplicación móvil para conductores, un panel web para dueños de estacionamiento, servicios backend, una capa de sincronización en tiempo real y un nodo IoT basado en ESP32 para la detección física de ocupación. Por ello, el diseño de software debe asegurar que cada parte del sistema tenga responsabilidades claras, mantenga un lenguaje coherente con el dominio y permita integrar correctamente los eventos físicos del estacionamiento con las experiencias digitales del conductor y del dueño de estacionamiento.
 
 ## 4.1. Strategic-Level Domain-Driven Design
 
 En esta sección se presenta el diseño estratégico del dominio de **ParkingNow** mediante la aplicación de **Domain-Driven Design (DDD)**. El objetivo de este nivel de diseño es comprender el negocio desde sus conceptos principales, identificar los límites naturales del sistema y definir los contextos candidatos que permitirán organizar la solución de manera coherente.
 
-Para desarrollar este análisis, el equipo tomó como punto de partida los artefactos elaborados en los capítulos anteriores. En primer lugar, el **Big Picture EventStorming** permitió representar el flujo general del dominio, desde la búsqueda de estacionamiento por parte del conductor hasta la actualización del estado físico del espacio mediante el nodo IoT. En segundo lugar, el **Ubiquitous Language** permitió establecer un vocabulario común para conceptos clave como *Parking Lot*, *Parking Space*, *Reservation*, *Verified Availability*, *Occupancy Status*, *Sensor Device* y *Administrator*. Finalmente, las **User Stories**, el **Impact Mapping** y el **Product Backlog** permitieron validar qué funcionalidades generan mayor valor para los segmentos objetivo y qué responsabilidades deben ser consideradas dentro del diseño de la solución.
+Para desarrollar este análisis, el equipo tomó como punto de partida los artefactos elaborados en los capítulos anteriores. En primer lugar, el **Big Picture EventStorming** permitió representar el flujo general del dominio, desde la búsqueda de estacionamiento por parte del conductor hasta la actualización del estado físico del espacio mediante el nodo IoT. En segundo lugar, el **Ubiquitous Language** permitió establecer un vocabulario común para conceptos clave como *Parking Lot*, *Parking Space*, *Reservation*, *Verified Availability*, *Occupancy Status*, *Sensor Device* y *Parking Owner*. Finalmente, las **User Stories**, el **Impact Mapping** y el **Product Backlog** permitieron validar qué funcionalidades generan mayor valor para los segmentos objetivo y qué responsabilidades deben ser consideradas dentro del diseño de la solución.
 
 El diseño estratégico se orienta a evitar una división puramente técnica del sistema. En lugar de organizar ParkingNow únicamente por capas como frontend, backend, base de datos o firmware, el equipo analizó el dominio desde las capacidades del negocio. Esto permitió identificar áreas con responsabilidades diferenciadas, tales como la gestión de estacionamientos, la búsqueda de disponibilidad, el ciclo de vida de reservas, el monitoreo físico de ocupación, la autenticación de usuarios y la notificación operativa de cambios relevantes.
 
@@ -1842,12 +1841,12 @@ Para desarrollar la sesión se definieron roles que permitieron analizar el domi
 | **Facilitator** | Dirige la sesión, mantiene el orden del análisis y asegura que los elementos del EventStorming sean representados correctamente. |
 | **Domain Expert** | Aporta conocimiento del negocio relacionado con estacionamientos, disponibilidad, reservas, validación de ingreso y operación diaria. |
 | **Driver Representative** | Representa las necesidades del conductor que busca estacionamiento, consulta disponibilidad, reserva un espacio y utiliza el servicio. |
-| **Parking Administrator Representative** | Representa al administrador encargado de registrar estacionamientos, configurar espacios, validar reservas y supervisar la operación. |
+| **Parking Parking Owner Representative** | Representa al dueño de estacionamiento encargado de registrar estacionamientos, configurar espacios, validar reservas y supervisar la operación. |
 | **IoT / Embedded Representative** | Aporta la perspectiva técnica del nodo IoT, sensores, heartbeat, conectividad, almacenamiento local y detección física de ocupación. |
 | **Backend / Cloud Representative** | Evalúa la lógica de negocio, APIs, persistencia, sincronización, reglas automáticas y eventos en tiempo real. |
 | **UX / Frontend Representative** | Analiza las pantallas, paneles, dashboard web, vistas móviles y modelos de lectura necesarios para ejecutar comandos. |
 
-A partir de estos roles se identificaron los principales actores operativos del dominio: **Driver**, **Administrator**, **IoT Node** y **System**. Estos actores fueron representados en la pizarra mediante notas amarillas.
+A partir de estos roles se identificaron los principales actores operativos del dominio: **Driver**, **Parking Owner**, **IoT Node** y **System**. Estos actores fueron representados en la pizarra mediante notas amarillas.
 
 #### Notación visual utilizada
 
@@ -1883,7 +1882,7 @@ En el segundo paso, los eventos identificados fueron organizados en líneas de t
 
 A partir de esta organización se definieron seis flujos principales del dominio. El primer flujo corresponde a la configuración del estacionamiento. El segundo flujo corresponde al descubrimiento de estacionamientos y disponibilidad. El tercer flujo corresponde al ciclo de reserva y generación de ticket virtual. El cuarto flujo corresponde a la llegada, validación y ocupación física del espacio. El quinto flujo corresponde a la salida del vehículo y actualización del historial operacional. Finalmente, el sexto flujo corresponde a la conectividad IoT y sincronización de datos.
 
-La gestión de identidad y acceso fue representada como una sección de soporte transversal, debido a que no constituye un flujo operativo principal del estacionamiento, pero sí habilita acciones protegidas para conductores y administradores.
+La gestión de identidad y acceso fue representada como una sección de soporte transversal, debido a que no constituye un flujo operativo principal del estacionamiento, pero sí habilita acciones protegidas para conductores y dueños de estacionamiento.
 
 **Figura 18**  
 *EventStorming Step 2: Timelines*
@@ -1967,7 +1966,7 @@ En ParkingNow se identificaron modelos de lectura como **Affiliation request for
 
 *Nota.* Elaboración propia (2026) en Miro.
 
-La Figura 23 muestra los modelos de lectura del EventStorming de ParkingNow. Estos se representan con notas verdes y permiten visualizar qué información necesita cada actor antes de ejecutar un comando. Este paso fue relevante porque ParkingNow depende de interfaces móviles y web: el conductor requiere disponibilidad, detalle del estacionamiento y ticket virtual; mientras que el administrador requiere vistas de validación, ocupación y operación diaria.
+La Figura 23 muestra los modelos de lectura del EventStorming de ParkingNow. Estos se representan con notas verdes y permiten visualizar qué información necesita cada actor antes de ejecutar un comando. Este paso fue relevante porque ParkingNow depende de interfaces móviles y web: el conductor requiere disponibilidad, detalle del estacionamiento y ticket virtual; mientras que el dueño de estacionamiento requiere vistas de validación, ocupación y operación diaria.
 
 #### Step 8: External Systems
 
@@ -2031,7 +2030,7 @@ La Figura 26 muestra la agrupación final de agregados en bounded contexts candi
 
 *Nota.* Elaboración propia (2026) en Miro.
 
-Según la Figura 27, el **Parking Management Context** agrupa las responsabilidades relacionadas con la administración del estacionamiento. Su propósito es permitir que un administrador afilie un estacionamiento, registre su información, configure su ubicación, registre espacios, asigne identificadores únicos y asocie nodos IoT a los espacios físicos.
+Según la Figura 27, el **Parking Management Context** agrupa las responsabilidades relacionadas con la administración del estacionamiento. Su propósito es permitir que un dueño de estacionamiento afilie un estacionamiento, registre su información, configure su ubicación, registre espacios, asigne identificadores únicos y asocie nodos IoT a los espacios físicos.
 
 Este contexto surge de los agregados **Parking Lot**, **Parking Lot Profile**, **Parking Space** y **IoT Node Pairing**. Estos agregados comparten un lenguaje centrado en la configuración del estacionamiento y en la estructura física que será utilizada posteriormente por otros procesos del sistema.
 
@@ -2103,7 +2102,7 @@ Según la Figura 31, el **Identity & Access Management Context** agrupa las resp
 
 Este contexto surge de los agregados **User Account**, **User Session**, **User Profile** y **Role Access**. Estos agregados comparten un lenguaje centrado en identidad, autenticación, sesión activa, perfil de usuario y permisos de acceso.
 
-La responsabilidad de este contexto es controlar quién puede acceder al sistema y qué acciones puede ejecutar. Por ello, conceptos como **User Account**, **User Session**, **User Profile**, **Role Access**, **Authentication Service**, **Driver**, **Administrator** y **System** pertenecen a este límite.
+La responsabilidad de este contexto es controlar quién puede acceder al sistema y qué acciones puede ejecutar. Por ello, conceptos como **User Account**, **User Session**, **User Profile**, **Role Access**, **Authentication Service**, **Driver**, **Parking Owner** y **System** pertenecen a este límite.
 
 Este bounded context se clasifica como **Generic Domain**, debido a que la autenticación y autorización no representan el diferencial principal de ParkingNow, pero son necesarias para proteger operaciones críticas como registrar estacionamientos, validar reservas o consultar información operacional.
 
@@ -2116,7 +2115,7 @@ Este bounded context se clasifica como **Generic Domain**, debido a que la auten
 
 *Nota.* Elaboración propia (2026) en Miro.
 
-Según la Figura 32, el **Operational Notification Context** agrupa las responsabilidades relacionadas con la publicación de cambios operacionales y la actualización de vistas en tiempo real. Su propósito es notificar cambios relevantes a los consumidores del sistema, como el dashboard web del administrador y la aplicación móvil del conductor.
+Según la Figura 32, el **Operational Notification Context** agrupa las responsabilidades relacionadas con la publicación de cambios operacionales y la actualización de vistas en tiempo real. Su propósito es notificar cambios relevantes a los consumidores del sistema, como el dashboard web del dueño de estacionamiento y la aplicación móvil del conductor.
 
 Este contexto surge de los agregados **Operational History**, **Operational Notification**, **Web Dashboard Update** y **Mobile App Update**. Estos agregados comparten un lenguaje orientado a cambios operacionales, publicación de actualizaciones, actualización de vistas y comunicación de estado hacia interfaces cliente.
 
@@ -2186,7 +2185,7 @@ Finalmente, el bounded context **Reservation** valida el espacio seleccionado, g
 
 *Nota.* Elaboración propia (2026) en Miro.
 
-Según la Figura 34, el escenario **Arrival Validation and Reservation Consumption** representa el flujo que ocurre cuando el conductor llega al estacionamiento y debe validar su reserva para ocupar el espacio físico. El proceso inicia con el comando **Validate reservation**, ejecutado por el **Driver** o por el **Administrator**, y recibido por el bounded context **Reservation**. Para validar el ticket virtual, este contexto consulta el sistema externo **QR Scanner / Camera Module** mediante el mensaje **Scan virtual ticket**.
+Según la Figura 34, el escenario **Arrival Validation and Reservation Consumption** representa el flujo que ocurre cuando el conductor llega al estacionamiento y debe validar su reserva para ocupar el espacio físico. El proceso inicia con el comando **Validate reservation**, ejecutado por el **Driver** o por el **Parking Owner**, y recibido por el bounded context **Reservation**. Para validar el ticket virtual, este contexto consulta el sistema externo **QR Scanner / Camera Module** mediante el mensaje **Scan virtual ticket**.
 
 Una vez validada la reserva, el bounded context **Reservation** produce el evento **Reservation validated**, el cual permite que el bounded context **Parking Management** autorice la entrada al estacionamiento. Posteriormente, el sistema externo **ESP32 IoT Node** detecta físicamente el vehículo y envía el evento **Vehicle detected** al bounded context **IoT Monitoring**.
 
@@ -2196,7 +2195,7 @@ Este flujo es crítico porque conecta la reserva digital con el estado físico r
 
 | Orden | Tipo de mensaje | Mensaje | Emisor | Receptor |
 |---|---|---|---|---|
-| 1 | Command | Validate reservation | Driver / Administrator | Reservation |
+| 1 | Command | Validate reservation | Driver / Parking Owner | Reservation |
 | 2 | Query | Scan virtual ticket | Reservation | QR Scanner / Camera Module |
 | 3 | Event | Reservation validated | Reservation | Parking Management |
 | 4 | Command | Authorize entry | Parking Management | Reservation |
@@ -2267,9 +2266,9 @@ Este flujo evidencia la capacidad de resiliencia del sistema. ParkingNow no depe
 
 *Nota.* Elaboración propia (2026) en Miro.
 
-Según la Figura 37, el escenario **Parking Lot Setup and IoT Node Pairing** muestra cómo un administrador configura la información inicial de un estacionamiento y asocia un nodo IoT a la operación física del parking. El proceso inicia con el comando **Authenticate administrator**, enviado por el **Administrator** al bounded context **Identity & Access Management**. Luego, el bounded context **Parking Management** consulta la validez del rol mediante el mensaje **Validate administrator role**, ya que solo un administrador autorizado puede registrar y configurar estacionamientos.
+Según la Figura 37, el escenario **Parking Lot Setup and IoT Node Pairing** muestra cómo un dueño de estacionamiento configura la información inicial de un estacionamiento y asocia un nodo IoT a la operación física del parking. El proceso inicia con el comando **Authenticate administrator**, enviado por el **Parking Owner** al bounded context **Identity & Access Management**. Luego, el bounded context **Parking Management** consulta la validez del rol mediante el mensaje **Validate administrator role**, ya que solo un dueño de estacionamiento autorizado puede registrar y configurar estacionamientos.
 
-Una vez validado el acceso, el administrador ejecuta el comando **Affiliate parking lot** desde el **Web Dashboard**. El bounded context **Parking Management** valida la ubicación del estacionamiento mediante el sistema externo **OpenStreetMap / Nominatim** y continúa con el registro de espacios mediante el comando **Register parking spaces**. Posteriormente, se asignan identificadores únicos a cada espacio con el comando **Assign parking space identifiers**.
+Una vez validado el acceso, el dueño de estacionamiento ejecuta el comando **Affiliate parking lot** desde el **Web Dashboard**. El bounded context **Parking Management** valida la ubicación del estacionamiento mediante el sistema externo **OpenStreetMap / Nominatim** y continúa con el registro de espacios mediante el comando **Register parking spaces**. Posteriormente, se asignan identificadores únicos a cada espacio con el comando **Assign parking space identifiers**.
 
 Luego, el bounded context **Parking Management** solicita al bounded context **IoT Monitoring** la asociación del nodo mediante el comando **Associate IoT node**. Este contexto interactúa con el sistema externo **ESP32 IoT Node** y produce el evento **IoT node associated**. Finalmente, **Parking Management** emite el evento **Parking lot available for discovery**, que permite al bounded context **Parking Discovery** considerar el estacionamiento dentro de las búsquedas de los conductores.
 
@@ -2277,11 +2276,11 @@ Este flujo es fundamental porque crea la información base que habilita el resto
 
 | Orden | Tipo de mensaje | Mensaje | Emisor | Receptor |
 |---|---|---|---|---|
-| 1 | Command | Authenticate administrator | Administrator | Identity & Access Management |
+| 1 | Command | Authenticate administrator | Parking Owner | Identity & Access Management |
 | 2 | Query | Validate administrator role | Parking Management | Identity & Access Management |
-| 3 | Command | Affiliate parking lot | Administrator / Web Dashboard | Parking Management |
+| 3 | Command | Affiliate parking lot | Parking Owner / Web Dashboard | Parking Management |
 | 4 | Query | Validate parking lot location | Parking Management | OpenStreetMap / Nominatim |
-| 5 | Command | Register parking spaces | Administrator / Web Dashboard | Parking Management |
+| 5 | Command | Register parking spaces | Parking Owner / Web Dashboard | Parking Management |
 | 6 | Command | Assign parking space identifiers | Parking Management | Parking Management |
 | 7 | Command | Associate IoT node | Parking Management | IoT Monitoring |
 | 8 | Event | IoT node associated | IoT Monitoring | Parking Management |
@@ -2352,11 +2351,11 @@ Según la Figura 40, el **Parking Management Context** se encarga de administrar
 
 El lenguaje ubicuo de este contexto está compuesto por términos como **Parking Lot**, **Parking Lot Profile**, **Parking Space**, **Parking Space Identifier**, **Parking Space Setup**, **Parking Lot Location**, **Parking Space Availability**, **IoT Node Pairing**, **Affiliated Parking Lot** y **Parking Configuration**. Estos conceptos pertenecen al modelo administrativo y estructural del estacionamiento, por lo que deben mantenerse separados de la lógica de reserva y monitoreo IoT.
 
-En la comunicación entrante, el contexto recibe comandos administrativos como **Affiliate parking lot**, **Register parking lot** y **Register parking spaces** desde Administrator / Web Dashboard. También recibe la consulta **Validate selected parking space** desde Reservation, el comando **Update occupancy status** desde IoT Monitoring y la consulta **Validate administrator role** desde Identity & Access Management. Esto muestra que Parking Management actúa como dueño de la configuración y disponibilidad base de los espacios.
+En la comunicación entrante, el contexto recibe comandos administrativos como **Affiliate parking lot**, **Register parking lot** y **Register parking spaces** desde Parking Owner / Web Dashboard. También recibe la consulta **Validate selected parking space** desde Reservation, el comando **Update occupancy status** desde IoT Monitoring y la consulta **Validate administrator role** desde Identity & Access Management. Esto muestra que Parking Management actúa como dueño de la configuración y disponibilidad base de los espacios.
 
 En la comunicación saliente, el contexto emite **Parking lot available for discovery** y **Availability changed** hacia Parking Discovery, envía **Associate IoT node** hacia IoT Monitoring, consulta **Validate parking lot location** a OpenStreetMap / Nominatim y comunica **Parking space occupied** hacia Reservation. Estas relaciones evidencian que la configuración del estacionamiento es consumida por distintos contextos para habilitar búsqueda, disponibilidad y validación de reservas.
 
-Las decisiones de negocio indican que cada espacio debe tener un identificador único, un estacionamiento debe registrarse antes de configurar espacios, todo espacio debe pertenecer a un estacionamiento registrado, un nodo IoT solo puede asociarse a un espacio existente, solo administradores pueden configurar estacionamientos y únicamente los estacionamientos completamente configurados pueden publicarse para búsqueda.
+Las decisiones de negocio indican que cada espacio debe tener un identificador único, un estacionamiento debe registrarse antes de configurar espacios, todo espacio debe pertenecer a un estacionamiento registrado, un nodo IoT solo puede asociarse a un espacio existente, solo dueños de estacionamiento pueden configurar estacionamientos y únicamente los estacionamientos completamente configurados pueden publicarse para búsqueda.
 
 Para validar este contexto se definieron métricas como tasa de registro completo, errores de configuración, éxito de asociación IoT, tiempo promedio de configuración, número de espacios configurados y precisión de actualización de disponibilidad. Las preguntas abiertas se enfocan en la edición posterior de espacios, la deshabilitación temporal, la prevención de identificadores duplicados y la posibilidad de que un nodo IoT gestione varios espacios.
 
@@ -2386,17 +2385,17 @@ Las métricas de validación incluyen tiempo de respuesta de búsqueda, tasa de 
 
 *Nota.* Elaboración propia (2026) en Miro.
 
-Según la Figura 42, el **Operational Notification Context** tiene como propósito publicar cambios operacionales y actualizar vistas en tiempo real para el dashboard web del administrador y la aplicación móvil del conductor. Este contexto fue clasificado como **Supporting Domain**, ya que no concentra la lógica principal de reserva ni de monitoreo físico, pero permite que los cambios importantes del sistema sean visibles oportunamente para los usuarios.
+Según la Figura 42, el **Operational Notification Context** tiene como propósito publicar cambios operacionales y actualizar vistas en tiempo real para el dashboard web del dueño de estacionamiento y la aplicación móvil del conductor. Este contexto fue clasificado como **Supporting Domain**, ya que no concentra la lógica principal de reserva ni de monitoreo físico, pero permite que los cambios importantes del sistema sean visibles oportunamente para los usuarios.
 
 El lenguaje ubicuo del contexto incluye términos como **Operational Notification**, **Operational History**, **Realtime Update**, **Dashboard Update**, **Mobile App Update**, **Operational Change**, **Notification Status**, **Daily Operational History**, **Published Update** y **Event Delivery**. Estos conceptos se relacionan con la propagación de cambios y la actualización de interfaces.
 
 En la comunicación entrante, este contexto consume eventos provenientes de Reservation, Parking Management e IoT Monitoring. Entre ellos se encuentran **Reservation confirmed**, **Reservation consumed**, **Parking space released**, **IoT node disconnected**, **Synchronization restored** y **Availability changed**. Estos mensajes representan cambios relevantes que deben ser comunicados o reflejados en las interfaces del sistema.
 
-En la comunicación saliente, Operational Notification produce comandos y eventos como **Update web dashboard**, **Update mobile app**, **Publish operational update**, **Daily operational history updated** y **Operational change notified**. Estos mensajes se dirigen a Web Dashboard, Mobile App, Cloud Realtime Database, Parking Discovery y Administrator. Con ello, el contexto garantiza que los cambios operacionales lleguen a los consumidores adecuados sin acoplar directamente los contextos core con las interfaces.
+En la comunicación saliente, Operational Notification produce comandos y eventos como **Update web dashboard**, **Update mobile app**, **Publish operational update**, **Daily operational history updated** y **Operational change notified**. Estos mensajes se dirigen a Web Dashboard, Mobile App, Cloud Realtime Database, Parking Discovery y Parking Owner. Con ello, el contexto garantiza que los cambios operacionales lleguen a los consumidores adecuados sin acoplar directamente los contextos core con las interfaces.
 
-Las decisiones de negocio establecen que todo cambio operacional relevante debe publicarse en tiempo real, el dashboard debe priorizar visibilidad administrativa, la aplicación móvil debe priorizar disponibilidad y estado de reserva, las alertas de desconexión IoT deben ser visibles para administradores, el consumo de reserva debe generar actualización operacional y la entrega de notificaciones no debe bloquear los procesos core de reserva o monitoreo IoT.
+Las decisiones de negocio establecen que todo cambio operacional relevante debe publicarse en tiempo real, el dashboard debe priorizar visibilidad administrativa, la aplicación móvil debe priorizar disponibilidad y estado de reserva, las alertas de desconexión IoT deben ser visibles para dueños de estacionamiento, el consumo de reserva debe generar actualización operacional y la entrega de notificaciones no debe bloquear los procesos core de reserva o monitoreo IoT.
 
-Para validar este contexto se definieron métricas como latencia de notificación, retraso de actualización del dashboard, retraso de actualización móvil, tasa de notificaciones fallidas, tasa de entrega de eventos y consistencia del historial operacional. Las preguntas abiertas están orientadas a definir si habrá push notifications, qué eventos verá el conductor, cuáles serán exclusivos para administradores y si las notificaciones fallidas deberán reintentarse.
+Para validar este contexto se definieron métricas como latencia de notificación, retraso de actualización del dashboard, retraso de actualización móvil, tasa de notificaciones fallidas, tasa de entrega de eventos y consistencia del historial operacional. Las preguntas abiertas están orientadas a definir si habrá push notifications, qué eventos verá el conductor, cuáles serán exclusivos para dueños de estacionamiento y si las notificaciones fallidas deberán reintentarse.
 
 **Figura 43**  
 *Bounded Context Canvas: Identity & Access Management Context*
@@ -2407,15 +2406,15 @@ Para validar este contexto se definieron métricas como latencia de notificació
 
 Según la Figura 43, el **Identity & Access Management Context** gestiona el registro de usuarios, la autenticación, las sesiones, los perfiles y la validación de roles para proteger operaciones críticas de ParkingNow. Este contexto fue clasificado como **Generic Domain**, ya que la autenticación y autorización son capacidades necesarias para el sistema, pero no constituyen el diferencial principal del producto.
 
-El lenguaje ubicuo de este contexto incluye **User Account**, **User Session**, **User Profile**, **Role Access**, **Authentication**, **Authorization**, **Driver**, **Administrator**, **Active Session**, **Access Validation**, **Protected Action** y **Access Denied**. Estos términos se relacionan con la gestión de identidad, seguridad y permisos dentro de la plataforma.
+El lenguaje ubicuo de este contexto incluye **User Account**, **User Session**, **User Profile**, **Role Access**, **Authentication**, **Authorization**, **Driver**, **Parking Owner**, **Active Session**, **Access Validation**, **Protected Action** y **Access Denied**. Estos términos se relacionan con la gestión de identidad, seguridad y permisos dentro de la plataforma.
 
 En la comunicación entrante, el contexto recibe comandos como **Register user account**, **Authenticate user**, **Authenticate administrator** y **Close session**. También recibe consultas como **Validate administrator role** desde Parking Management y **Validate user session** desde Reservation. Esto evidencia que IAM funciona como proveedor transversal de seguridad para operaciones protegidas dentro del sistema.
 
 En la comunicación saliente, el contexto produce mensajes como **User authenticated**, **Role access validated**, **User session closed**, **User logged in**, **Access denied** y **Verify credentials**. Estos mensajes se comunican hacia Reservation, Parking Management, Operational Notification, Mobile App, Web Dashboard y Authentication Service. De este modo, IAM permite proteger acciones como solicitar reservas, registrar estacionamientos, configurar espacios y acceder a vistas administrativas.
 
-Las decisiones de negocio determinan que solo usuarios autenticados pueden solicitar reservas, solo administradores pueden registrar estacionamientos, las acciones protegidas requieren validación de rol, las sesiones se cierran por acción explícita o timeout, el acceso denegado debe comunicarse a la interfaz solicitante y las actualizaciones de perfil pertenecen únicamente al usuario autenticado.
+Las decisiones de negocio determinan que solo usuarios autenticados pueden solicitar reservas, solo dueños de estacionamiento pueden registrar estacionamientos, las acciones protegidas requieren validación de rol, las sesiones se cierran por acción explícita o timeout, el acceso denegado debe comunicarse a la interfaz solicitante y las actualizaciones de perfil pertenecen únicamente al usuario autenticado.
 
-Las métricas de verificación incluyen tasa de login exitoso, tasa de autenticación fallida, tasa de accesos denegados, frecuencia de expiración de sesión, tiempo promedio de autenticación y precisión de validación de rol. Como preguntas abiertas se identificó la necesidad de decidir si se usará Firebase Auth, Auth0 o autenticación propia, si existirá recuperación de contraseña, si habrá varios niveles de administrador y cuánto tiempo permanecerá activa una sesión.
+Las métricas de verificación incluyen tasa de login exitoso, tasa de autenticación fallida, tasa de accesos denegados, frecuencia de expiración de sesión, tiempo promedio de autenticación y precisión de validación de rol. Como preguntas abiertas se identificó la necesidad de decidir si se usará Firebase Auth, Auth0 o autenticación propia, si existirá recuperación de contraseña, si habrá varios niveles de dueño de estacionamiento y cuánto tiempo permanecerá activa una sesión.
 
 En síntesis, los Bounded Context Canvases permitieron detallar internamente cada contexto candidato de ParkingNow y validar que los límites descubiertos en el Candidate Context Discovery son coherentes con las responsabilidades del dominio. Los contextos **Reservation** e **IoT Monitoring** fueron clasificados como **Core Domain** porque concentran las capacidades de mayor valor: reserva confiable y disponibilidad física verificada. Los contextos **Parking Management**, **Parking Discovery** y **Operational Notification** fueron clasificados como **Supporting Domain**, ya que habilitan y complementan la operación principal. Finalmente, **Identity & Access Management** fue clasificado como **Generic Domain**, debido a que cumple una función transversal de seguridad que puede apoyarse en soluciones estándar.
 
@@ -2458,11 +2457,11 @@ El patrón predominante entre los bounded contexts es **Customer/Supplier**, ya 
 | 4 | IoT Monitoring Context | Parking Discovery Context | Verified availability status | Customer/Supplier | IoT Monitoring provee información verificada de ocupación y último estado conocido. Parking Discovery consume esta información para mostrar disponibilidad confiable al conductor. |
 | 5 | IoT Monitoring Context | Reservation Context | Physical occupancy event | Customer/Supplier | Reservation consume eventos físicos de ocupación provenientes de IoT Monitoring para determinar cuándo una reserva debe ser consumida. |
 | 6 | Reservation Context | Operational Notification Context | Reservation status changed | Customer/Supplier | Operational Notification consume cambios de estado de reserva, como reservas confirmadas, consumidas o expiradas, para publicar actualizaciones en tiempo real. |
-| 7 | IoT Monitoring Context | Operational Notification Context | Operational state changed | Customer/Supplier | Operational Notification consume eventos operativos relacionados con nodos IoT, como desconexiones o restauración de sincronización, para informar al administrador. |
+| 7 | IoT Monitoring Context | Operational Notification Context | Operational state changed | Customer/Supplier | Operational Notification consume eventos operativos relacionados con nodos IoT, como desconexiones o restauración de sincronización, para informar al dueño de estacionamiento. |
 | 8 | Parking Management Context | Operational Notification Context | Availability / space state changed | Customer/Supplier | Parking Management informa cambios de estado de los espacios, como liberación, ocupación o disponibilidad, para que Operational Notification actualice las interfaces correspondientes. |
 | 9 | Identity & Access Management Context | Reservation Context | Authentication and session validation | Open Host Service + Customer/Supplier | IAM expone servicios de autenticación y validación de sesión. Reservation consume estos servicios antes de permitir solicitudes o acciones protegidas sobre reservas. |
-| 10 | Identity & Access Management Context | Parking Management Context | Administrator role validation | Open Host Service + Customer/Supplier | Parking Management depende de IAM para validar que el usuario tenga rol de administrador antes de registrar estacionamientos o configurar espacios. |
-| 11 | Identity & Access Management Context | Operational Notification Context | User/session validation | Open Host Service + Customer/Supplier | Operational Notification puede consumir información de usuario o sesión para dirigir actualizaciones al público correcto, diferenciando notificaciones para conductores y administradores. |
+| 10 | Identity & Access Management Context | Parking Management Context | Parking Owner role validation | Open Host Service + Customer/Supplier | Parking Management depende de IAM para validar que el usuario tenga rol de dueño de estacionamiento antes de registrar estacionamientos o configurar espacios. |
+| 11 | Identity & Access Management Context | Operational Notification Context | User/session validation | Open Host Service + Customer/Supplier | Operational Notification puede consumir información de usuario o sesión para dirigir actualizaciones al público correcto, diferenciando notificaciones para conductores y dueños de estacionamiento. |
 
 Además de las relaciones internas entre bounded contexts, el mapa identifica sistemas externos que participan en la solución. Estas integraciones se modelaron mediante el patrón **Anti-Corruption Layer**, porque cada sistema externo maneja modelos, formatos o reglas técnicas distintas a las del dominio de ParkingNow. La capa anticorrupción permite traducir esas diferencias hacia conceptos propios del dominio, como ubicación validada, ticket virtual generado, evento IoT registrado o sincronización restaurada.
 
@@ -2488,7 +2487,7 @@ La arquitectura de ParkingNow se plantea inicialmente como un **monolito modular
 
 Esta decisión resulta adecuada para el alcance del MVP, ya que permite reducir la complejidad de despliegue, simplificar la integración entre módulos, facilitar las pruebas y acelerar la entrega de valor. Al mismo tiempo, mantiene una estructura arquitectónica preparada para una posible evolución futura, en caso alguno de los módulos requiera mayor autonomía, escalabilidad independiente o despliegue separado.
 
-Desde el punto de vista tecnológico, ParkingNow estará compuesto por aplicaciones cliente, servicios backend, almacenamiento en la nube, sincronización en tiempo real y un componente físico IoT. La solución considera una aplicación móvil para conductores, un panel web para administradores, una landing page informativa, una API backend desarrollada como monolito modular, una API o módulo de ingesta IoT, una base de datos PostgreSQL administrada mediante Supabase, mecanismos de actualización en tiempo real y un nodo ESP32 encargado de detectar la ocupación física de los espacios de estacionamiento.
+Desde el punto de vista tecnológico, ParkingNow se implementa con una **Landing Page** en **HTML5, CSS3 y JavaScript**; una **Parking Owner Web App** en **Angular, TypeScript, HTML, CSS y Angular Material** siguiendo Material Design; una **Driver Mobile App** en **Flutter y Dart**; un **Core REST API** en **Java, Spring Boot, RESTful API y documentación OpenAPI Specification mediante Swagger**; un **Edge API / Edge Service** en **Python, Flask, Peewee ORM y SQLite**; firmware **ESP32** y servidor local **ESP32-CAM** en **C++ / Arduino IDE**; y la plataforma administrada **Supabase** para **PostgreSQL, Supabase Auth y Supabase Realtime**. Esta arquitectura separa aplicaciones cliente, servicios backend, capa edge, persistencia cloud, servicios externos y hardware IoT dentro de las vistas C4.
 
 Asimismo, la arquitectura contempla integraciones con sistemas externos necesarios para completar las capacidades del producto. Entre ellos se consideran servicios de mapas y geocodificación como **OpenStreetMap / Nominatim / Overpass API**, servicios de autenticación, generación de tickets virtuales o QR, y servicios de sincronización en tiempo real. Estas integraciones se mantienen alineadas con el Context Map definido previamente, donde se estableció el uso de patrones como **Customer/Supplier**, **Open Host Service** y **Anti-Corruption Layer** para proteger el modelo de dominio frente a dependencias externas.
 
@@ -2509,7 +2508,7 @@ Para ParkingNow, el ecosistema se organiza en tres grupos principales. El primer
 **Figura 45**  
 *Software Architecture System Landscape Diagram*
 
-![alt text](assets/ParkingNow-SystemLandscape-dark.png)
+![alt text](assets/diegoversio1.png)
 
 *Nota.* Elaboración propia (2026) usando Structurizr DSL.
 
@@ -2578,7 +2577,7 @@ Las principales interacciones representadas en el diagrama son las siguientes:
 | Driver | ParkingNow System | Mobile App | Busca estacionamientos, consulta disponibilidad verificada, reserva espacios y visualiza tickets virtuales. |
 | Parking Owner | ParkingNow System | Web Dashboard | Registra estacionamientos, configura espacios, asigna identificadores, empareja nodos IoT y monitorea ocupación. |
 | ParkingNow System | OpenStreetMap / Nominatim / Overpass API | HTTPS / JSON | Resuelve ubicaciones, valida coordenadas y recupera referencias geográficas cercanas. |
-| ParkingNow System | Supabase Platform | HTTPS / SQL / Realtime | Almacena datos, gestiona autenticación, autorización y sincronización en tiempo real. |
+| ParkingNow System | Supabase Platform | HTTPS / WebSocket | Almacena datos, gestiona autenticación, autorización y sincronización en tiempo real. |
 | ParkingNow System | QR / Ticket Generation Service | HTTPS / JSON | Solicita la generación de tickets virtuales o códigos QR para reservas confirmadas. |
 | ParkingNow System | ESP32 IoT Node | HTTPS / JSON | Registra la configuración de emparejamiento y asocia nodos IoT con espacios de estacionamiento. |
 | ESP32 IoT Node | ParkingNow System | HTTPS / JSON | Envía lecturas de sensores, eventos de ocupación, heartbeats y estados de sincronización. |
@@ -2596,25 +2595,25 @@ Para ParkingNow, el Container Level Diagram resulta especialmente importante por
 **Figura 47**  
 *Software Architecture Container Level Diagram*
 
-![alt text](assets/ParkingNow-ContainerView-dark.png)
+![alt text](assets/diego2.png)
 
 *Nota.* Elaboración propia (2026) usando Structurizr DSL.
 
-Según la Figura 47, **ParkingNow System** se compone de ocho contenedores principales: **Landing Page**, **Parking Owner Web App**, **Driver Mobile App**, **Core API**, **IoT API**, **OSM Parking Reference Loader**, **ESP32 Embedded + Edge Firmware** y **ESP32-CAM Local Camera Server**. Además, el sistema se integra con servicios externos como **OpenStreetMap / Nominatim / Overpass API**, **QR / Ticket Generation Service**, **Supabase Platform** y el hardware físico **ESP32 IoT Node Hardware**.
+Según la Figura 47, **ParkingNow System** se compone de ocho contenedores principales: **Landing Page**, **Parking Owner Web App**, **Driver Mobile App**, **Core REST API**, **Edge API**, **OSM Parking Reference Loader**, **ESP32 Embedded + Edge Firmware** y **ESP32-CAM Local Camera Server**. Además, el sistema se integra con servicios externos como **OpenStreetMap / Nominatim / Overpass API**, **QR / Ticket Generation Service**, **Supabase Platform** y el hardware físico **ESP32 IoT Node Hardware**.
 
-La **Landing Page** corresponde al sitio público de ParkingNow. Está desarrollada con **HTML, CSS y JavaScript**. Su finalidad es presentar la propuesta de valor del producto, explicar los beneficios para conductores y dueños de estacionamiento, y redirigir a cada segmento hacia la experiencia correspondiente. En este nivel, la Landing Page se considera un contenedor independiente porque puede desplegarse y evolucionar de forma separada respecto de las aplicaciones principales.
+La **Landing Page** corresponde al sitio público de ParkingNow. Está desarrollada con **HTML5, CSS3 y JavaScript**. Su finalidad es presentar la propuesta de valor del producto, explicar los beneficios para conductores y dueños de estacionamiento, y redirigir a cada segmento hacia la experiencia correspondiente. En este nivel, la Landing Page se considera un contenedor independiente porque puede desplegarse y evolucionar de forma separada respecto de las aplicaciones principales.
 
-La **Parking Owner Web App** corresponde al panel web utilizado por el dueño de estacionamiento. Está desarrollada con **React, TypeScript, Supabase JS y Tailwind CSS**. Este contenedor permite registrar estacionamientos, configurar espacios, asociar nodos IoT, revisar reservas, monitorear ocupación y consultar historial operativo. La Web App consume el Core API mediante HTTPS/JSON y también se suscribe a Supabase Realtime para recibir cambios de estado en tiempo real.
+La **Parking Owner Web App** corresponde al panel web utilizado por el dueño de estacionamiento. Está desarrollada con **Angular, TypeScript, HTML, CSS y Angular Material**. Este contenedor permite registrar estacionamientos, configurar espacios, asociar nodos IoT, revisar reservas, monitorear ocupación y consultar historial operativo. La Web App consume el Core REST API mediante HTTPS/JSON y también se suscribe a Supabase Realtime para recibir cambios de estado en tiempo real.
 
-La **Driver Mobile App** corresponde a la aplicación móvil utilizada por el conductor. Está desarrollada con **Flutter, Dart y Supabase Flutter**. Este contenedor permite buscar estacionamientos cercanos, consultar disponibilidad verificada, seleccionar un espacio, registrar una reserva y visualizar el ticket virtual asociado. La Mobile App consume el Core API para operaciones de negocio y utiliza Supabase Realtime para recibir actualizaciones sobre disponibilidad, reservas y estado del ticket.
+La **Driver Mobile App** corresponde a la aplicación móvil utilizada por el conductor. Está desarrollada con **Flutter, Dart y Supabase Flutter**. Este contenedor permite buscar estacionamientos cercanos, consultar disponibilidad verificada, seleccionar un espacio, registrar una reserva y visualizar el ticket virtual asociado. La Mobile App consume el Core REST API para operaciones de negocio y utiliza Supabase Realtime para recibir actualizaciones sobre disponibilidad, reservas y estado del ticket.
 
-El **Core API** representa el backend principal de negocio. Está desarrollado con **Node.js, Express y TypeScript**. Este contenedor gestiona las operaciones relacionadas con usuarios, estacionamientos, espacios, reservas, búsqueda de estacionamientos, tickets virtuales y consultas operativas. También se comunica con OpenStreetMap / Nominatim / Overpass API para resolver ubicaciones y referencias geográficas, y con el QR / Ticket Generation Service para generar tickets virtuales o códigos QR asociados a reservas confirmadas.
+El **Core REST API** representa el backend principal de negocio. Está desarrollado con **Java, Spring Boot, RESTful API y documentación OpenAPI Specification mediante Swagger**. Este contenedor gestiona las operaciones relacionadas con usuarios, estacionamientos, espacios, reservas, búsqueda de estacionamientos, tickets virtuales y consultas operativas. También se comunica con OpenStreetMap / Nominatim / Overpass API para resolver ubicaciones y referencias geográficas, y con el QR / Ticket Generation Service para generar tickets virtuales o códigos QR asociados a reservas confirmadas.
 
-El **IoT API** representa el backend especializado en la recepción de eventos físicos provenientes del nodo ESP32. Está desarrollado con **Node.js, Express y TypeScript**. Este contenedor recibe lecturas de sensores, eventos de ocupación, eventos de liberación, heartbeats y estados de sincronización. Además, valida la API Key del dispositivo, actualiza el estado físico del espacio, registra eventos IoT y conserva el último estado conocido cuando se producen desconexiones.
+El **Edge API** representa el backend especializado en la recepción de eventos físicos provenientes del nodo ESP32. Está desarrollado con **Python, Flask, Peewee ORM y SQLite**. Este contenedor recibe lecturas de sensores, eventos de ocupación, eventos de liberación, heartbeats y estados de sincronización. Además, valida la API Key del dispositivo, procesa eventos físicos cerca del dispositivo, conserva eventos temporalmente en SQLite cuando corresponde y reenvía eventos validados al Core REST API.
 
-El **OSM Parking Reference Loader** corresponde a un proceso batch desarrollado con **Node.js y TypeScript**. Su responsabilidad es cargar referencias iniciales de estacionamientos desde OpenStreetMap / Overpass API hacia Supabase. Este contenedor no forma parte del flujo transaccional principal, sino que permite preparar datos de referencia para el proceso de descubrimiento de estacionamientos cercanos. De esta manera, la plataforma puede mostrar estacionamientos afiliados y referencias externas, diferenciando claramente cuáles cuentan con disponibilidad verificada.
+El **OSM Parking Reference Loader** corresponde a un proceso batch desarrollado con **Java y Spring Boot**. Su responsabilidad es cargar referencias iniciales de estacionamientos desde OpenStreetMap / Overpass API hacia Supabase. Este contenedor no forma parte del flujo transaccional principal, sino que permite preparar datos de referencia para el proceso de descubrimiento de estacionamientos cercanos. De esta manera, la plataforma puede mostrar estacionamientos afiliados y referencias externas, diferenciando claramente cuáles cuentan con disponibilidad verificada.
 
-El **ESP32 Embedded + Edge Firmware** corresponde al software embebido ejecutado sobre el nodo ESP32. Está desarrollado en **C++ mediante Arduino IDE**. Este firmware lee los sensores ultrasónicos HC-SR04+, aplica lógica local de debounce, determina cambios de ocupación, controla LEDs, mueve el servo SG90 y reporta eventos relevantes al IoT API mediante HTTP POST con payload JSON y API Key. Este contenedor representa la lógica edge del sistema, ya que procesa información localmente antes de enviarla al backend.
+El **ESP32 Embedded + Edge Firmware** corresponde al software embebido ejecutado sobre el nodo ESP32. Está desarrollado en **C++ mediante Arduino IDE**. Este firmware lee los sensores ultrasónicos HC-SR04+, aplica lógica local de debounce, determina cambios de ocupación, controla LEDs, mueve el servo SG90 y reporta eventos relevantes al Edge API mediante HTTP POST con payload JSON y API Key. Este contenedor representa la lógica edge del sistema, ya que procesa información localmente antes de enviarla al backend.
 
 El **ESP32-CAM Local Camera Server** corresponde a un servidor local de cámara ejecutado sobre la ESP32-CAM. Está desarrollado en **C++ mediante Arduino IDE** y permite acceder a una vista local del entorno físico durante la demostración. Este contenedor se comunica con el hardware de cámara y puede ser consultado desde el navegador cuando el usuario se encuentra conectado a la misma red Wi-Fi local. Su función es brindar soporte visual al prototipo físico, sin reemplazar el flujo principal de detección por sensores.
 
@@ -2627,21 +2626,21 @@ Las responsabilidades principales de cada contenedor se resumen en la siguiente 
 | Contenedor | Tecnología | Responsabilidad principal |
 |---|---|---|
 | Landing Page | HTML, CSS, JavaScript | Presentar el producto y redirigir a los usuarios hacia la experiencia correspondiente. |
-| Parking Owner Web App | React, TypeScript, Supabase JS, Tailwind CSS | Permitir al dueño registrar estacionamientos, configurar espacios, emparejar nodos IoT y monitorear ocupación. |
+| Parking Owner Web App | Angular, TypeScript, HTML, CSS y Angular Material | Permitir al dueño registrar estacionamientos, configurar espacios, emparejar nodos IoT y monitorear ocupación. |
 | Driver Mobile App | Flutter, Dart, Supabase Flutter | Permitir al conductor buscar estacionamientos, consultar disponibilidad, reservar espacios y visualizar tickets virtuales. |
-| Core API | Node.js, Express, TypeScript | Gestionar usuarios, estacionamientos, espacios, reservas, discovery, tickets virtuales y consultas operativas. |
-| IoT API | Node.js, Express, TypeScript | Recibir eventos del ESP32, validar dispositivos, actualizar ocupación y registrar eventos IoT. |
-| OSM Parking Reference Loader | Node.js, TypeScript | Cargar referencias iniciales de estacionamientos desde OpenStreetMap / Overpass API. |
-| ESP32 Embedded + Edge Firmware | C++ / Arduino IDE | Leer sensores, procesar ocupación localmente, controlar actuadores y reportar eventos al IoT API. |
+| Core REST API | Java, Spring Boot, TypeScript | Gestionar usuarios, estacionamientos, espacios, reservas, discovery, tickets virtuales y consultas operativas. |
+| Edge API / Edge Service | Python, Flask, Peewee ORM y SQLite | Recibir eventos del ESP32, validar dispositivos, procesar eventos físicos cerca del dispositivo, conservar eventos temporalmente en SQLite y reenviar eventos validados al Core REST API. |
+| OSM Parking Reference Loader | Java/Spring Boot, TypeScript | Cargar referencias iniciales de estacionamientos desde OpenStreetMap / Overpass API. |
+| ESP32 Embedded + Edge Firmware | C++ / Arduino IDE | Leer sensores, procesar ocupación localmente, controlar actuadores y reportar eventos al Edge API. |
 | ESP32-CAM Local Camera Server | C++ / Arduino IDE | Proporcionar vista local de cámara para soporte visual del prototipo físico. |
 | Supabase Platform | PostgreSQL, Supabase Auth, Supabase Realtime | Persistir datos, gestionar autenticación y propagar cambios en tiempo real. |
 | ESP32 IoT Node Hardware | ESP32 DevKit V1, HC-SR04+, LEDs, SG90, ESP32-CAM | Ejecutar el firmware y capturar eventos físicos del estacionamiento. |
 
 La comunicación entre contenedores se organiza en torno a tres flujos principales. El primer flujo corresponde a la interacción de usuarios. El **Driver** utiliza la **Driver Mobile App** para buscar estacionamientos, consultar disponibilidad y reservar espacios. El **Parking Owner** utiliza la **Parking Owner Web App** para registrar su estacionamiento, configurar espacios, asociar nodos IoT y monitorear la operación.
 
-El segundo flujo corresponde al backend de negocio. La Web App y la Mobile App consumen el **Core API** mediante **HTTPS/JSON**. Este API centraliza las operaciones de negocio y se comunica con **Supabase Platform** para persistencia, autenticación y sincronización. También se integra con **OpenStreetMap / Nominatim / Overpass API** para operaciones geográficas y con **QR / Ticket Generation Service** para generar tickets virtuales o códigos QR.
+El segundo flujo corresponde al backend de negocio. La Web App y la Mobile App consumen el **Core REST API** mediante **HTTPS/JSON**. Este API centraliza las operaciones de negocio y se comunica con **Supabase Platform** para persistencia, autenticación y sincronización. También se integra con **OpenStreetMap / Nominatim / Overpass API** para operaciones geográficas y con **QR / Ticket Generation Service** para generar tickets virtuales o códigos QR.
 
-El tercer flujo corresponde al procesamiento IoT. El **ESP32 Embedded + Edge Firmware** lee los sensores HC-SR04+, procesa localmente el estado de ocupación y envía eventos al **IoT API** mediante **HTTP POST/JSON** con una **API Key**. El IoT API valida el dispositivo, actualiza Supabase y registra el evento. Luego, **Supabase Realtime** propaga el cambio hacia la Web App y la Mobile App, permitiendo que el estado físico del estacionamiento se refleje digitalmente en tiempo real.
+El tercer flujo corresponde al procesamiento IoT. El **ESP32 Embedded + Edge Firmware** lee los sensores HC-SR04+, procesa localmente el estado de ocupación y envía eventos al **Edge API** mediante **HTTP POST/JSON** con una **API Key**. El Edge API valida el dispositivo, procesa el evento cerca del dispositivo, conserva eventos temporalmente en SQLite cuando corresponde y reenvía eventos validados al Core REST API. Luego, **Supabase Realtime** propaga el cambio hacia la Web App y la Mobile App, permitiendo que el estado físico del estacionamiento se refleje digitalmente en tiempo real.
 
 Las principales comunicaciones representadas en el diagrama son las siguientes:
 
@@ -2650,31 +2649,31 @@ Las principales comunicaciones representadas en el diagrama son las siguientes:
 | Driver | Driver Mobile App | Mobile App | Buscar estacionamientos, reservar espacios y visualizar tickets virtuales. |
 | Parking Owner | Parking Owner Web App | Web Browser | Registrar estacionamientos, configurar espacios y monitorear ocupación. |
 | Landing Page | Parking Owner Web App | HTTPS | Redirigir al dueño hacia el panel web. |
-| Driver Mobile App | Core API | HTTPS / JSON | Buscar estacionamientos, consultar disponibilidad, reservar y obtener tickets. |
-| Parking Owner Web App | Core API | HTTPS / JSON | Gestionar estacionamientos, espacios, reservas, nodos IoT e historial operativo. |
-| Core API | Supabase Platform | Supabase JS / SQL / HTTPS | Leer y escribir datos principales del negocio. |
-| IoT API | Supabase Platform | Supabase JS / SQL / HTTPS | Actualizar ocupación, heartbeat, eventos IoT y último estado conocido. |
-| Parking Owner Web App | Supabase Platform | Supabase JS / WebSocket | Autenticar sesión y recibir actualizaciones en tiempo real. |
+| Driver Mobile App | Core REST API | HTTPS / JSON | Buscar estacionamientos, consultar disponibilidad, reservar y obtener tickets. |
+| Parking Owner Web App | Core REST API | HTTPS / JSON | Gestionar estacionamientos, espacios, reservas, nodos IoT e historial operativo. |
+| Core REST API | Supabase Platform | Spring Data JPA / JDBC / PostgreSQL Driver | Leer y escribir datos principales del negocio. |
+| Edge API | Core REST API | HTTPS / JSON | Reenviar eventos IoT validados para su procesamiento de negocio central. |
+| Parking Owner Web App | Supabase Platform | Supabase Auth / Realtime WebSocket | Autenticar sesión y recibir actualizaciones en tiempo real. |
 | Driver Mobile App | Supabase Platform | Supabase Flutter / WebSocket | Autenticar sesión y recibir cambios de disponibilidad, reserva y ticket. |
 | Supabase Platform | Parking Owner Web App | Supabase Realtime / WebSocket | Publicar cambios operativos, reservas, espacios y eventos IoT. |
 | Supabase Platform | Driver Mobile App | Supabase Realtime / WebSocket | Publicar cambios de disponibilidad, reservas y tickets. |
-| Core API | OpenStreetMap / Nominatim / Overpass API | HTTPS / JSON | Resolver ubicaciones, validar coordenadas y obtener referencias geográficas. |
+| Core REST API | OpenStreetMap / Nominatim / Overpass API | HTTPS / JSON | Resolver ubicaciones, validar coordenadas y obtener referencias geográficas. |
 | OSM Parking Reference Loader | OpenStreetMap / Nominatim / Overpass API | HTTPS / JSON | Cargar referencias iniciales de estacionamientos. |
-| OSM Parking Reference Loader | Supabase Platform | Supabase JS / SQL / HTTPS | Guardar referencias externas normalizadas. |
-| Core API | QR / Ticket Generation Service | HTTPS / JSON | Solicitar generación de ticket virtual o código QR. |
+| OSM Parking Reference Loader | Supabase Platform | Spring Data JPA / JDBC / PostgreSQL Driver | Guardar referencias externas normalizadas. |
+| Core REST API | QR / Ticket Generation Service | HTTPS / JSON | Solicitar generación de ticket virtual o código QR. |
 | ESP32 Embedded + Edge Firmware | ESP32 IoT Node Hardware | GPIO / PWM / Camera | Leer sensores y controlar LEDs, servo y cámara. |
 | ESP32-CAM Local Camera Server | ESP32 IoT Node Hardware | CameraWebServer / Local Wi-Fi | Capturar vista local desde la ESP32-CAM. |
 | Parking Owner | ESP32-CAM Local Camera Server | Browser / Local Wi-Fi | Visualizar cámara local durante la demostración física. |
-| ESP32 Embedded + Edge Firmware | IoT API | HTTP POST / JSON + x-api-key | Enviar lecturas, ocupación, heartbeats y estado de sincronización. |
-| IoT API | ESP32 Embedded + Edge Firmware | HTTP / JSON | Retornar resultado de procesamiento y estado de validación. |
+| ESP32 Embedded + Edge Firmware | Edge API | HTTP POST / JSON + x-api-key | Enviar lecturas, ocupación, heartbeats y estado de sincronización. |
+| Edge API | ESP32 Embedded + Edge Firmware | HTTP / JSON | Retornar resultado de procesamiento y estado de validación. |
 
-Una decisión relevante de esta arquitectura es separar el **Core API** y el **IoT API** por responsabilidad. Esta separación no implica adoptar una arquitectura de microservicios compleja, sino diferenciar claramente el tráfico de negocio del tráfico proveniente del hardware físico. El Core API atiende operaciones humanas y de negocio; el IoT API atiende eventos físicos, heartbeats y sincronización del nodo ESP32. Esta división reduce acoplamiento, facilita el control de seguridad mediante API Key y permite aislar el flujo crítico de monitoreo IoT.
+Una decisión relevante de esta arquitectura es separar el **Core REST API** y el **Edge API** por responsabilidad. Esta separación no implica adoptar una arquitectura de microservicios compleja, sino diferenciar claramente el tráfico de negocio del tráfico proveniente del hardware físico. El Core REST API atiende operaciones humanas y de negocio; el Edge API atiende eventos físicos, heartbeats y sincronización del nodo ESP32. Esta división reduce acoplamiento, facilita el control de seguridad mediante API Key y permite aislar el flujo crítico de monitoreo IoT.
 
 Otra decisión importante es colocar el **firmware embebido y edge** dentro del límite de ParkingNow System, mientras que el **hardware ESP32** se mantiene fuera como elemento físico externo. Esto permite diferenciar correctamente entre el software desarrollado por el equipo y el dispositivo sobre el cual dicho software se ejecuta. El firmware forma parte de la solución porque contiene lógica de lectura, filtrado, decisión y comunicación; el hardware, en cambio, representa el entorno físico de ejecución.
 
-También se incorpora el **OSM Parking Reference Loader** como contenedor independiente porque la carga de referencias externas no forma parte del flujo transaccional normal de reservas. Su función es preparar datos geográficos iniciales para enriquecer la experiencia de búsqueda del conductor. Esta separación evita sobrecargar el Core API con tareas batch de importación.
+También se incorpora el **OSM Parking Reference Loader** como contenedor independiente porque la carga de referencias externas no forma parte del flujo transaccional normal de reservas. Su función es preparar datos geográficos iniciales para enriquecer la experiencia de búsqueda del conductor. Esta separación evita sobrecargar el Core REST API con tareas batch de importación.
 
-Finalmente, el uso de **Supabase Realtime** permite evitar la implementación manual de WebSockets. Cuando el IoT API actualiza el estado de un espacio en Supabase, el cambio se propaga automáticamente hacia la Web App y la Mobile App. Esta decisión reduce complejidad técnica y permite cumplir el objetivo principal del sistema: reflejar digitalmente, en tiempo real, la ocupación física detectada por el nodo IoT.
+Finalmente, el uso de **Supabase Realtime** permite evitar la implementación manual de WebSockets. Cuando el Core REST API actualiza el estado de un espacio en Supabase PostgreSQL, el cambio se propaga automáticamente hacia la Web App y la Mobile App. Esta decisión reduce complejidad técnica y permite cumplir el objetivo principal del sistema: reflejar digitalmente, en tiempo real, la ocupación física detectada por el nodo IoT.
 
 En conclusión, el **Software Architecture Container Level Diagram** muestra que ParkingNow se construye como una solución IoT distribuida compuesta por aplicaciones frontend, servicios backend, procesamiento batch, persistencia administrada, sincronización en tiempo real y firmware embebido. Esta arquitectura permite conectar el mundo físico del estacionamiento con la experiencia digital del conductor y del dueño, manteniendo separación de responsabilidades y trazabilidad entre los eventos físicos detectados por el ESP32 y los cambios visibles en las interfaces del sistema.
 
@@ -2689,29 +2688,31 @@ Este diagrama permite evidenciar la naturaleza distribuida de ParkingNow como so
 **Figura 48**  
 *Software Architecture Deployment Diagram*
 
-![alt text](assets/ParkingNow-DeploymentView-dark.png)
+![alt text](assets/diego3.png)
 
 *Nota.* Elaboración propia (2026) usando Structurizr DSL.
 
-Según la Figura 48, el despliegue de ParkingNow se organiza en ocho nodos principales: **Driver Mobile Device**, **Parking Owner Computer**, **Vercel Cloud**, **Railway Cloud**, **Supabase Cloud**, **OpenStreetMap Cloud**, **QR / Ticket Provider Cloud** y **Parking Lot Local Wi-Fi Network**. Cada nodo representa un entorno de ejecución o infraestructura donde se aloja una parte del sistema o de sus dependencias externas.
+Según la Figura 48, el despliegue de ParkingNow se organiza en nueve nodos principales: **Driver Mobile Device**, **Parking Owner Computer**, **Vercel Cloud**, **Cloud Backend Platform (Railway u otra plataforma compatible)**, **Edge Environment / Local Edge Device**, **Supabase Cloud**, **OpenStreetMap Cloud**, **QR / Ticket Provider Cloud** y **Parking Lot Local Wi-Fi Network**. Cada nodo representa un entorno de ejecución o infraestructura donde se aloja una parte del sistema o de sus dependencias externas.
 
-El nodo **Driver Mobile Device** representa el dispositivo móvil personal del conductor, ya sea Android o iOS. En este entorno se ejecuta la **Driver Mobile App**, desarrollada con **Flutter** y **Dart**. Desde este dispositivo, el conductor puede buscar estacionamientos cercanos, consultar disponibilidad verificada, realizar reservas y visualizar tickets virtuales. La aplicación móvil se comunica con el **Core API** mediante HTTPS/JSON y también mantiene suscripciones con **Supabase Realtime** para recibir cambios de disponibilidad o estado de reserva.
+El nodo **Driver Mobile Device** representa el dispositivo móvil personal del conductor, ya sea Android o iOS. En este entorno se ejecuta la **Driver Mobile App**, desarrollada con **Flutter** y **Dart**. Desde este dispositivo, el conductor puede buscar estacionamientos cercanos, consultar disponibilidad verificada, realizar reservas y visualizar tickets virtuales. La aplicación móvil se comunica con el **Core REST API** mediante HTTPS/JSON y también mantiene suscripciones con **Supabase Realtime** para recibir cambios de disponibilidad o estado de reserva.
 
 El nodo **Parking Owner Computer** representa la laptop o computadora de escritorio utilizada por el dueño de estacionamiento. En este nodo no se despliega directamente la Web App, sino que se ejecuta un **Web Browser**, como Chrome, Edge, Safari o Firefox. Desde el navegador, el dueño accede a la **Parking Owner Web App** servida desde Vercel y, durante la demostración física, puede visualizar el stream local del **ESP32-CAM Local Camera Server** si se encuentra conectado a la misma red Wi-Fi local del estacionamiento.
 
 El nodo **Vercel Cloud** representa la plataforma PaaS utilizada para alojar y entregar los activos frontend de ParkingNow. Dentro de este nodo se encuentra **Vercel Edge Network**, donde se despliegan la **Landing Page** y la **Parking Owner Web App**. La Landing Page permite presentar la propuesta de valor del producto y redirigir a cada usuario hacia su experiencia correspondiente. La Web App permite que el dueño de estacionamiento registre su local, configure espacios, asocie nodos IoT y monitoree la operación.
 
-El nodo **Railway Cloud** representa la plataforma PaaS utilizada para alojar los servicios backend. En este entorno se despliegan tres unidades principales: **Core API Service**, **IoT API Service** y **OSM Loader Job**. El **Core API** atiende las operaciones de negocio asociadas a usuarios, estacionamientos, espacios, reservas, tickets virtuales y consultas operativas. El **IoT API** recibe eventos físicos del ESP32, valida dispositivos, actualiza ocupación, registra eventos IoT y conserva el último estado conocido. El **OSM Loader Job** se utiliza para cargar referencias iniciales de estacionamientos desde OpenStreetMap / Overpass hacia Supabase.
+El nodo **Cloud Backend Platform (Railway u otra plataforma cloud compatible)** representa la plataforma utilizada para alojar los servicios backend centrales. En este entorno se despliegan dos unidades principales: **Core REST API Service** y **OSM Loader Job**. El **Core REST API** atiende las operaciones de negocio asociadas a usuarios, estacionamientos, espacios, reservas, tickets virtuales y consultas operativas. El **OSM Loader Job** se utiliza para cargar referencias iniciales de estacionamientos desde OpenStreetMap / Overpass hacia Supabase.
+
+El nodo **Edge Environment / Local Edge Device** representa el entorno local donde se ejecuta el **Edge API / Edge Service** desarrollado con **Python, Flask, Peewee ORM y SQLite**. Este servicio recibe eventos físicos del ESP32, valida dispositivos, conserva eventos temporalmente en SQLite cuando corresponde y reenvía eventos validados hacia el Core REST API.
 
 El nodo **Supabase Cloud** representa la plataforma BaaS utilizada para persistencia, autenticación y sincronización. Dentro de este nodo se consideran tres elementos principales: **Supabase PostgreSQL Database**, **Supabase Auth** y **Supabase Realtime**. PostgreSQL almacena usuarios, estacionamientos, espacios, reservas, eventos IoT, estado de dispositivos e historial operativo. Supabase Auth gestiona sesiones e identidad de conductores y dueños de estacionamiento. Supabase Realtime publica cambios hacia la Web App y la Mobile App mediante WebSockets administrados.
 
 El nodo **OpenStreetMap Cloud** representa la infraestructura externa de mapas, geocodificación y referencias geográficas. En este entorno se ejecuta el servicio **OpenStreetMap / Nominatim / Overpass API**, utilizado por ParkingNow para resolver ubicaciones, validar coordenadas de estacionamientos y cargar referencias externas de estacionamientos cercanos.
 
-El nodo **QR / Ticket Provider Cloud** representa el proveedor externo encargado de generar tickets virtuales o códigos QR para reservas confirmadas. ParkingNow solicita estos tickets desde el Core API cuando una reserva pasa a estado confirmado y debe contar con un mecanismo de validación para la llegada del conductor.
+El nodo **QR / Ticket Provider Cloud** representa el proveedor externo encargado de generar tickets virtuales o códigos QR para reservas confirmadas. ParkingNow solicita estos tickets desde el Core REST API cuando una reserva pasa a estado confirmado y debe contar con un mecanismo de validación para la llegada del conductor.
 
 El nodo **Parking Lot Local Wi-Fi Network** representa el entorno físico de la maqueta o estacionamiento. Dentro de este entorno se encuentra el **Wi-Fi Router**, que proporciona conectividad local al nodo ESP32, y el **ESP32 IoT Node Hardware**, compuesto por **ESP32 DevKit V1**, sensores ultrasónicos **HC-SR04+**, LEDs, servo **SG90** y módulo **ESP32-CAM**. En este hardware se ejecutan dos contenedores de software: **ESP32 Embedded + Edge Firmware** y **ESP32-CAM Local Camera Server**.
 
-El **ESP32 Embedded + Edge Firmware** se ejecuta directamente sobre el ESP32. Este firmware lee los sensores ultrasónicos, aplica lógica de debounce, determina si un espacio está libre u ocupado, controla LEDs y servo, y envía eventos hacia el IoT API mediante HTTP POST/JSON con una API Key. Por su parte, el **ESP32-CAM Local Camera Server** permite capturar y servir una vista local de cámara mediante la red Wi-Fi, útil para la demostración física del prototipo.
+El **ESP32 Embedded + Edge Firmware** se ejecuta directamente sobre el ESP32. Este firmware lee los sensores ultrasónicos, aplica lógica de debounce, determina si un espacio está libre u ocupado, controla LEDs y servo, y envía eventos hacia el Edge API mediante HTTP POST/JSON con una API Key. Por su parte, el **ESP32-CAM Local Camera Server** permite capturar y servir una vista local de cámara mediante la red Wi-Fi, útil para la demostración física del prototipo.
 
 El mapeo de nodos de despliegue se resume en la siguiente tabla:
 
@@ -2720,39 +2721,40 @@ El mapeo de nodos de despliegue se resume en la siguiente tabla:
 | Driver Mobile Device | iOS / Android | Driver Mobile App | Ejecutar la aplicación móvil del conductor para búsqueda, reserva y ticket virtual. |
 | Parking Owner Computer | Windows / macOS / Linux + Web Browser | Web Browser | Acceder a la Web App y visualizar, si corresponde, el stream local del ESP32-CAM. |
 | Vercel Cloud | Vercel PaaS | Landing Page, Parking Owner Web App | Alojar y entregar los activos frontend de ParkingNow. |
-| Railway Cloud | Railway PaaS | Core API, IoT API, OSM Parking Reference Loader | Ejecutar servicios backend y proceso batch de carga geográfica. |
+| Cloud Backend Platform (Railway u otra) | PaaS compatible con Java/Spring Boot | Core REST API, OSM Parking Reference Loader | Ejecutar servicios backend centrales y proceso batch de carga geográfica. |
+| Edge Environment / Local Edge Device | Python, Flask, Peewee ORM, SQLite | Edge API / Edge Service | Procesar telemetría IoT local y reenviar eventos validados al Core REST API. |
 | Supabase Cloud | Supabase BaaS | PostgreSQL, Auth, Realtime | Persistir datos, autenticar usuarios y propagar cambios en tiempo real. |
 | OpenStreetMap Cloud | External Cloud Service | OpenStreetMap / Nominatim / Overpass API | Resolver ubicaciones, validar coordenadas y proporcionar referencias externas. |
 | QR / Ticket Provider Cloud | External Cloud Service | QR / Ticket Generation Service | Generar tickets virtuales o códigos QR para reservas confirmadas. |
 | Parking Lot Local Wi-Fi Network | Wi-Fi LAN | ESP32 IoT Node Hardware, firmware, camera server, sensores, LEDs y servo | Ejecutar detección física de ocupación y comunicación local/cloud. |
 
-La comunicación entre los nodos de despliegue se organiza en torno a los flujos principales del sistema. El **Driver Mobile Device** se comunica con el **Core API** desplegado en Railway mediante **HTTPS/JSON** para buscar estacionamientos, consultar disponibilidad, crear reservas y recuperar tickets. Además, se comunica con **Supabase Cloud** mediante **Supabase Flutter / WebSocket** para autenticación y recepción de actualizaciones en tiempo real.
+La comunicación entre los nodos de despliegue se organiza en torno a los flujos principales del sistema. El **Driver Mobile Device** se comunica con el **Core REST API** desplegado en Railway mediante **HTTPS/JSON** para buscar estacionamientos, consultar disponibilidad, crear reservas y recuperar tickets. Además, se comunica con **Supabase Cloud** mediante **Supabase Flutter / WebSocket** para autenticación y recepción de actualizaciones en tiempo real.
 
-El **Parking Owner Computer** descarga la **Parking Owner Web App** desde **Vercel Cloud** mediante HTTPS. Una vez cargada en el navegador, la aplicación se comunica con el **Core API** mediante HTTPS/JSON para gestionar estacionamientos, espacios, reservas y emparejamientos IoT. También mantiene suscripciones con Supabase Realtime para reflejar cambios de ocupación, reservas y eventos operativos sin recargar la página.
+El **Parking Owner Computer** descarga la **Parking Owner Web App** desde **Vercel Cloud** mediante HTTPS. Una vez cargada en el navegador, la aplicación se comunica con el **Core REST API** mediante HTTPS/JSON para gestionar estacionamientos, espacios, reservas y emparejamientos IoT. También mantiene suscripciones con Supabase Realtime para reflejar cambios de ocupación, reservas y eventos operativos sin recargar la página.
 
-El **Core API** desplegado en Railway se comunica con **Supabase Cloud** para leer y escribir datos de negocio. También se integra con **OpenStreetMap / Nominatim / Overpass API** para resolver ubicaciones y referencias geográficas, y con **QR / Ticket Generation Service** para generar tickets virtuales asociados a reservas confirmadas.
+El **Core REST API** desplegado en Railway se comunica con **Supabase Cloud** para leer y escribir datos de negocio. También se integra con **OpenStreetMap / Nominatim / Overpass API** para resolver ubicaciones y referencias geográficas, y con **QR / Ticket Generation Service** para generar tickets virtuales asociados a reservas confirmadas.
 
-El **IoT API**, también desplegado en Railway, recibe eventos desde el **ESP32 Embedded + Edge Firmware** mediante **HTTP POST/JSON** con una **x-api-key**. Este mecanismo permite validar que los eventos provienen de un dispositivo reconocido. Luego, el IoT API actualiza el estado del espacio, registra eventos IoT y conserva información de heartbeat o último estado conocido en Supabase.
+El **Edge API**, desplegado en el **Edge Environment / Local Edge Device**, recibe eventos desde el **ESP32 Embedded + Edge Firmware** mediante **HTTP POST/JSON** con una **x-api-key**. Este mecanismo permite validar que los eventos provienen de un dispositivo reconocido. Luego, el Edge API procesa la telemetría, conserva eventos temporalmente en SQLite cuando corresponde y reenvía eventos validados al Core REST API.
 
-El flujo IoT completo puede entenderse así: el sensor HC-SR04+ detecta una variación física de distancia; el firmware del ESP32 procesa la lectura localmente; si el cambio es válido, envía el evento al IoT API; el IoT API actualiza Supabase; y Supabase Realtime propaga el cambio hacia la Web App y la Mobile App. De esta forma, el estado físico del estacionamiento queda reflejado digitalmente en las interfaces del sistema.
+El flujo IoT completo puede entenderse así: el sensor HC-SR04+ detecta una variación física de distancia; el firmware del ESP32 procesa la lectura localmente; si el cambio es válido, envía el evento al Edge API; el Edge API valida y reenvía el evento al Core REST API; el Core REST API actualiza Supabase PostgreSQL; y Supabase Realtime propaga el cambio hacia la Web App y la Mobile App. De esta forma, el estado físico del estacionamiento queda reflejado digitalmente en las interfaces del sistema.
 
 Las principales comunicaciones del despliegue se resumen en la siguiente tabla:
 
 | Origen | Destino | Protocolo / Canal | Propósito |
 |---|---|---|---|
-| Driver Mobile Device | Core API en Railway | HTTPS / JSON | Buscar estacionamientos, consultar disponibilidad, reservar y recuperar tickets. |
+| Driver Mobile Device | Core REST API en Railway | HTTPS / JSON | Buscar estacionamientos, consultar disponibilidad, reservar y recuperar tickets. |
 | Driver Mobile Device | Supabase Cloud | Supabase Flutter / WebSocket | Autenticación y recepción de cambios en tiempo real. |
 | Parking Owner Computer | Vercel Cloud | HTTPS | Descargar Landing Page y Parking Owner Web App. |
-| Parking Owner Web App | Core API en Railway | HTTPS / JSON | Gestionar estacionamientos, espacios, reservas, nodos IoT e historial operativo. |
-| Parking Owner Web App | Supabase Cloud | Supabase JS / WebSocket | Autenticación y actualizaciones operativas en tiempo real. |
-| Core API en Railway | Supabase Cloud | Supabase JS / SQL / HTTPS | Leer y escribir datos principales del negocio. |
-| IoT API en Railway | Supabase Cloud | Supabase JS / SQL / HTTPS | Actualizar ocupación, heartbeat, eventos IoT y último estado conocido. |
-| Core API en Railway | OpenStreetMap Cloud | HTTPS / JSON | Resolver ubicaciones, validar coordenadas y obtener referencias. |
+| Parking Owner Web App | Core REST API en Railway | HTTPS / JSON | Gestionar estacionamientos, espacios, reservas, nodos IoT e historial operativo. |
+| Parking Owner Web App | Supabase Cloud | Supabase Auth / Realtime WebSocket | Autenticación y actualizaciones operativas en tiempo real. |
+| Core REST API en Railway | Supabase Cloud | Spring Data JPA / JDBC / PostgreSQL Driver | Leer y escribir datos principales del negocio. |
+| Edge API en Edge Environment | Core REST API en plataforma cloud | HTTPS / JSON | Reenviar eventos IoT validados y telemetría procesada para su consolidación. |
+| Core REST API en Railway | OpenStreetMap Cloud | HTTPS / JSON | Resolver ubicaciones, validar coordenadas y obtener referencias. |
 | OSM Loader Job en Railway | OpenStreetMap Cloud | HTTPS / JSON | Cargar referencias iniciales de estacionamientos. |
-| OSM Loader Job en Railway | Supabase Cloud | Supabase JS / SQL / HTTPS | Guardar referencias externas normalizadas. |
-| Core API en Railway | QR / Ticket Provider Cloud | HTTPS / JSON | Solicitar generación de ticket virtual o código QR. |
-| ESP32 Firmware | IoT API en Railway | HTTP POST / JSON + x-api-key | Enviar lecturas, eventos de ocupación, heartbeat y estado de sincronización. |
-| IoT API en Railway | ESP32 Firmware | HTTP / JSON | Retornar resultado de procesamiento y validación. |
+| OSM Loader Job en Railway | Supabase Cloud | Spring Data JPA / JDBC / PostgreSQL Driver | Guardar referencias externas normalizadas. |
+| Core REST API en Railway | QR / Ticket Provider Cloud | HTTPS / JSON | Solicitar generación de ticket virtual o código QR. |
+| ESP32 Firmware | Edge API en Edge Environment | HTTP POST / JSON + x-api-key | Enviar lecturas, eventos de ocupación, heartbeat y estado de sincronización. |
+| Edge API en Edge Environment | ESP32 Firmware | HTTP / JSON | Retornar resultado de procesamiento y validación. |
 | ESP32 Firmware | Sensores HC-SR04+ | GPIO | Leer distancia para determinar ocupación del espacio. |
 | ESP32 Firmware | LED Indicators | GPIO | Mostrar estado local del espacio. |
 | ESP32 Firmware | SG90 Servo | PWM | Controlar movimiento físico en la maqueta. |
@@ -2761,7 +2763,7 @@ Las principales comunicaciones del despliegue se resumen en la siguiente tabla:
 
 Una decisión importante del despliegue es utilizar **Vercel** para el frontend. Esta plataforma permite publicar la Landing Page y la Web App como activos estáticos o aplicaciones frontend optimizadas, reduciendo la necesidad de administrar servidores web manualmente. Además, facilita el despliegue continuo y permite servir la aplicación desde una infraestructura edge.
 
-Otra decisión relevante es utilizar **Railway** para los servicios backend. Railway permite desplegar aplicaciones Node.js de forma sencilla, gestionar variables de entorno y separar los servicios del Core API, IoT API y OSM Loader Job. Esta separación permite que el tráfico IoT proveniente del ESP32 no se mezcle directamente con las operaciones de negocio del conductor y del dueño de estacionamiento.
+Otra decisión relevante es utilizar una **plataforma cloud compatible (como Railway)** para los servicios backend centrales. Esta plataforma permite desplegar aplicaciones Java/Spring Boot de forma sencilla, gestionar variables de entorno y mantener separados el Core REST API y el OSM Loader Job respecto del procesamiento edge local. Esta separación permite que el tráfico IoT proveniente del ESP32 no se mezcle directamente con las operaciones de negocio del conductor y del dueño de estacionamiento.
 
 El uso de **Supabase Cloud** responde a la necesidad de contar con persistencia relacional, autenticación y sincronización en tiempo real sin implementar infraestructura adicional. Supabase PostgreSQL permite modelar datos estructurados como usuarios, estacionamientos, espacios, reservas y eventos IoT. Supabase Auth facilita la gestión de sesiones. Supabase Realtime permite propagar cambios hacia las aplicaciones cliente sin construir manualmente un servidor WebSocket.
 
@@ -2777,5 +2779,630 @@ En esta sección se desarrolla el diseño táctico de **Domain-Driven Design** p
 
 Para ParkingNow, este diseño táctico resulta necesario porque la solución integra procesos digitales y físicos dentro de un mismo flujo: búsqueda de estacionamientos, reserva de espacios, validación de disponibilidad, monitoreo IoT, actualización en tiempo real e identificación de usuarios. Por ello, cada bounded context será desarrollado de manera independiente, manteniendo coherencia con el lenguaje ubicuo del dominio y con la arquitectura definida previamente mediante el modelo C4.
 
-El análisis táctico permitirá precisar las responsabilidades internas de cada contexto, evitando que reglas de negocio distintas se mezclen dentro de una única lógica general. De esta manera, ParkingNow conserva una organización modular, trazable y alineada con el dominio, facilitando su implementación progresiva dentro del **Core API**, el **IoT API**, la capa de persistencia en **Supabase** y el firmware embebido del nodo **ESP32**.
+El análisis táctico permitirá precisar las responsabilidades internas de cada contexto, evitando que reglas de negocio distintas se mezclen dentro de una única lógica general. De esta manera, ParkingNow conserva una organización modular, trazable y alineada con el dominio, facilitando su implementación progresiva dentro del **Core REST API en Java/Spring Boot**, el **Edge API en Python/Flask/Peewee ORM/SQLite**, la capa de persistencia en **Supabase PostgreSQL** y el firmware embebido del nodo **ESP32**.
 
+### 4.2.1. Bounded Context: Parking Management
+
+El bounded context **Parking Management** agrupa las clases responsables de administrar los estacionamientos registrados en ParkingNow, sus perfiles, espacios físicos, identificadores y asociación con nodos IoT. Este contexto es utilizado principalmente por el **Parking Owner**, quien registra su estacionamiento, configura sus espacios y prepara la infraestructura necesaria para que la plataforma pueda ofrecer disponibilidad verificada.
+
+En este contexto se documentan las clases principales que permiten representar el registro del estacionamiento, la información pública del local, la configuración de espacios y el emparejamiento con el nodo IoT. Estas clases sirven como base para el diseño táctico posterior, donde se detallarán las capas de dominio, aplicación, interfaz e infraestructura.
+
+**Figura 49**  
+*Parking Management Context Class Dictionary*
+
+![alt text](assets/diego5.png)
+
+*Nota.* Elaboración propia (2026).
+
+#### Diccionario de clases
+
+##### ParkingLot
+
+| Campo | Detalle |
+|---|---|
+| Nombre | `ParkingLot` |
+| Relaciones | `ParkingLotProfile`, `ParkingSpace`, `IoTNodePairing` |
+| Descripción | Representa un estacionamiento registrado dentro de ParkingNow, administrado por un Parking Owner. |
+
+| Atributo | Tipo de dato | Visibilidad |
+|---|---|---|
+| `id` | `string` | `private` |
+| `ownerId` | `string` | `private` |
+| `name` | `string` | `private` |
+| `address` | `string` | `private` |
+| `status` | `ParkingLotStatus` | `private` |
+
+| Método | Descripción |
+|---|---|
+| `getParkingLotDetails()` | Obtiene la información principal del estacionamiento. |
+| `updateParkingLotInfo()` | Actualiza los datos generales del estacionamiento. |
+| `activateParkingLot()` | Habilita el estacionamiento para operación. |
+| `deactivateParkingLot()` | Deshabilita temporalmente el estacionamiento. |
+
+##### ParkingLotProfile
+
+| Campo | Detalle |
+|---|---|
+| Nombre | `ParkingLotProfile` |
+| Relaciones | `ParkingLot`, `LocationCoordinates` |
+| Descripción | Contiene la información pública y operativa del estacionamiento, incluyendo descripción, ubicación y horarios. |
+
+| Atributo | Tipo de dato | Visibilidad |
+|---|---|---|
+| `id` | `string` | `private` |
+| `parkingLotId` | `string` | `private` |
+| `description` | `string` | `private` |
+| `location` | `LocationCoordinates` | `private` |
+| `operatingHours` | `string` | `private` |
+
+| Método | Descripción |
+|---|---|
+| `updateProfile()` | Actualiza la información pública del perfil. |
+| `updateLocation()` | Modifica la ubicación geográfica del estacionamiento. |
+| `updateOperatingHours()` | Actualiza los horarios de operación. |
+| `publishProfile()` | Publica el perfil para que pueda aparecer en búsquedas. |
+
+##### ParkingSpace
+
+| Campo | Detalle |
+|---|---|
+| Nombre | `ParkingSpace` |
+| Relaciones | `ParkingLot`, `ParkingSpaceIdentifier`, `OccupancyStatus` |
+| Descripción | Representa un espacio físico individual dentro de un estacionamiento registrado. |
+
+| Atributo | Tipo de dato | Visibilidad |
+|---|---|---|
+| `id` | `string` | `private` |
+| `parkingLotId` | `string` | `private` |
+| `identifier` | `ParkingSpaceIdentifier` | `private` |
+| `status` | `ParkingSpaceStatus` | `private` |
+| `occupancyStatus` | `OccupancyStatus` | `private` |
+
+| Método | Descripción |
+|---|---|
+| `assignIdentifier()` | Asigna un identificador único al espacio. |
+| `markAvailable()` | Marca el espacio como disponible. |
+| `markOccupied()` | Marca el espacio como ocupado. |
+| `disableSpace()` | Deshabilita temporalmente el espacio. |
+
+##### IoTNodePairing
+
+| Campo | Detalle |
+|---|---|
+| Nombre | `IoTNodePairing` |
+| Relaciones | `ParkingLot`, `ParkingSpace`, `IoTNode` |
+| Descripción | Representa la asociación entre un nodo IoT ESP32 y los espacios físicos de un estacionamiento. |
+
+| Atributo | Tipo de dato | Visibilidad |
+|---|---|---|
+| `id` | `string` | `private` |
+| `parkingLotId` | `string` | `private` |
+| `nodeId` | `string` | `private` |
+| `pairedAt` | `Date` | `private` |
+| `status` | `PairingStatus` | `private` |
+
+| Método | Descripción |
+|---|---|
+| `pairNode()` | Asocia el nodo IoT al estacionamiento o espacio. |
+| `unpairNode()` | Elimina la asociación del nodo IoT. |
+| `validatePairing()` | Valida que el nodo pueda asociarse correctamente. |
+| `getPairingStatus()` | Obtiene el estado actual del emparejamiento. |
+
+#### 4.2.1.1. Domain Layer
+
+La **Domain Layer** del bounded context **Parking Management** representa el núcleo de reglas de negocio relacionadas con el registro, configuración y administración de estacionamientos dentro de ParkingNow. Esta capa contiene las clases que modelan los conceptos principales del dominio sin depender de tecnologías externas, frameworks, controladores, bases de datos ni servicios de infraestructura.
+
+En este contexto, el actor principal es el **Parking Owner**, entendido como el dueño o encargado del estacionamiento independiente. Las clases del dominio permiten registrar un estacionamiento, definir su perfil público, configurar espacios físicos, asignar identificadores únicos y establecer la asociación entre espacios y nodos IoT. Aunque algunos estados de ocupación provienen del contexto **IoT Monitoring**, en **Parking Management** solo se mantiene la referencia operativa del estado del espacio, no la lógica física de detección del sensor.
+
+**Figura 50**  
+*Parking Management Context Domain Layer Diagram*
+
+![alt text](assets/diego6.png)
+
+*Nota.* Elaboración propia (2026).
+
+Según la Figura 50, el diseño de dominio de **Parking Management** se organiza alrededor del aggregate **ParkingLotAggregate**, el cual actúa como raíz de consistencia para el registro y administración del estacionamiento. Este aggregate agrupa la información principal del estacionamiento, su perfil, sus espacios físicos y las asociaciones con nodos IoT.
+
+El aggregate **ParkingLotAggregate** permite garantizar que las operaciones críticas del contexto se realicen de manera consistente. Por ejemplo, un espacio no debe configurarse si el estacionamiento no existe, un identificador de espacio debe ser único dentro de un estacionamiento y un nodo IoT solo puede emparejarse con espacios previamente registrados. Por ello, el aggregate concentra operaciones como registrar el estacionamiento, actualizar el perfil, agregar espacios, asignar identificadores y emparejar nodos IoT.
+
+Las entidades principales del contexto son **ParkingLot**, **ParkingLotProfile**, **ParkingSpace** e **IoTNodePairing**. La entidad **ParkingLot** representa el estacionamiento registrado por el Parking Owner. Contiene información esencial como identificador, dueño, nombre, dirección y estado. La entidad **ParkingLotProfile** contiene información pública y operativa del estacionamiento, como descripción, ubicación y horario de atención. La entidad **ParkingSpace** representa cada espacio físico dentro del estacionamiento, incluyendo su identificador, estado operativo y estado de ocupación reflejado. Finalmente, **IoTNodePairing** representa la asociación entre un nodo IoT ESP32 y uno o más espacios físicos del estacionamiento.
+
+Los **Value Objects** del contexto permiten encapsular valores relevantes del dominio. **LocationCoordinates** representa la ubicación geográfica del estacionamiento mediante latitud y longitud. **ParkingSpaceIdentifier** representa el identificador único de un espacio físico. **OperatingHours** define el rango horario de operación del estacionamiento. Además, **ParkingLotStatus**, **ParkingSpaceStatus** y **PairingStatus** representan estados válidos dentro del contexto, evitando el uso de valores arbitrarios o inconsistentes.
+
+La capa de dominio también incluye la fábrica **ParkingLotFactory**, encargada de construir objetos del dominio con una configuración válida desde el inicio. Esta fábrica permite crear un aggregate de estacionamiento, espacios y perfiles sin duplicar reglas de construcción en otras capas del sistema.
+
+Asimismo, se definen servicios de dominio como **ParkingSpaceIdentifierService** e **IoTNodePairingPolicy**. El primero se encarga de generar y validar identificadores únicos de espacios dentro de un estacionamiento. El segundo valida reglas de emparejamiento entre nodos IoT y espacios físicos. Estos servicios se mantienen en la capa de dominio porque representan reglas puras del negocio y no detalles técnicos de persistencia o comunicación.
+
+Finalmente, se definen interfaces de repositorio como **IParkingLotRepository**, **IParkingSpaceRepository** e **IIoTNodePairingRepository**. Estas interfaces expresan las operaciones necesarias para recuperar y guardar aggregates o entidades del contexto, pero no contienen detalles de implementación. La implementación concreta hacia Supabase o PostgreSQL se define posteriormente en la **Infrastructure Layer**.
+
+La clasificación de clases de la Domain Layer se resume en la siguiente tabla:
+
+| Categoría | Clases |
+|---|---|
+| Aggregate | `ParkingLotAggregate` |
+| Entities | `ParkingLot`, `ParkingLotProfile`, `ParkingSpace`, `IoTNodePairing` |
+| Value Objects | `LocationCoordinates`, `ParkingSpaceIdentifier`, `OperatingHours`, `ParkingLotStatus`, `ParkingSpaceStatus`, `PairingStatus` |
+| Factory | `ParkingLotFactory` |
+| Domain Services | `ParkingSpaceIdentifierService`, `IoTNodePairingPolicy` |
+| Repository Interfaces | `IParkingLotRepository`, `IParkingSpaceRepository`, `IIoTNodePairingRepository` |
+
+##### Aggregate
+
+| Clase | Responsabilidad |
+|---|---|
+| `ParkingLotAggregate` | Actuar como raíz de consistencia del contexto, agrupando el estacionamiento, su perfil, espacios y emparejamientos IoT. |
+
+El aggregate **ParkingLotAggregate** asegura que las operaciones internas del contexto respeten las reglas de negocio. Por ejemplo, impide que un espacio se registre sin pertenecer a un estacionamiento, permite validar la unicidad de identificadores y centraliza la asociación de nodos IoT.
+
+##### Entities
+
+| Clase | Responsabilidad |
+|---|---|
+| `ParkingLot` | Representar el estacionamiento registrado por el Parking Owner. |
+| `ParkingLotProfile` | Representar la información pública y operativa del estacionamiento. |
+| `ParkingSpace` | Representar un espacio físico individual dentro de un estacionamiento. |
+| `IoTNodePairing` | Representar la asociación entre un nodo IoT y los espacios físicos. |
+
+Las entidades poseen identidad propia y pueden cambiar de estado durante el ciclo de vida del estacionamiento. Por ejemplo, un **ParkingSpace** puede pasar de disponible a deshabilitado, o un **IoTNodePairing** puede pasar de emparejado a desemparejado.
+
+##### Value Objects
+
+| Clase | Responsabilidad |
+|---|---|
+| `LocationCoordinates` | Encapsular latitud y longitud del estacionamiento. |
+| `ParkingSpaceIdentifier` | Representar el identificador único de un espacio. |
+| `OperatingHours` | Representar el horario de operación del estacionamiento. |
+| `ParkingLotStatus` | Definir los estados válidos del estacionamiento. |
+| `ParkingSpaceStatus` | Definir los estados válidos de un espacio. |
+| `PairingStatus` | Definir los estados válidos de una asociación IoT. |
+
+Los value objects no tienen identidad propia y se comparan por sus valores. Esto permite mantener consistencia en conceptos como coordenadas, identificadores y estados.
+
+##### Factory
+
+| Clase | Responsabilidad |
+|---|---|
+| `ParkingLotFactory` | Crear aggregates, perfiles y espacios con valores iniciales válidos. |
+
+La fábrica evita que otras capas del sistema creen objetos del dominio de manera incompleta o inconsistente. De esta manera, las reglas de construcción permanecen dentro de la capa de dominio.
+
+##### Domain Services
+
+| Clase | Responsabilidad |
+|---|---|
+| `ParkingSpaceIdentifierService` | Generar y validar identificadores únicos para espacios de estacionamiento. |
+| `IoTNodePairingPolicy` | Validar reglas de emparejamiento entre nodos IoT y espacios físicos. |
+
+Los servicios de dominio representan reglas que no pertenecen naturalmente a una sola entidad. En este contexto, la generación de identificadores y la validación de emparejamientos requieren evaluar datos del estacionamiento, espacios y nodos, por lo que se modelan como servicios de dominio.
+
+##### Repository Interfaces
+
+| Interfaz | Responsabilidad |
+|---|---|
+| `IParkingLotRepository` | Definir operaciones de persistencia para el aggregate de estacionamiento. |
+| `IParkingSpaceRepository` | Definir operaciones de consulta y persistencia de espacios. |
+| `IIoTNodePairingRepository` | Definir operaciones de consulta y persistencia de emparejamientos IoT. |
+
+Estas interfaces permiten que la capa de dominio exprese sus necesidades de persistencia sin depender de Supabase, PostgreSQL ni de ningún mecanismo técnico específico. La implementación concreta se desarrolla en la capa de infraestructura.
+
+En conclusión, la **Domain Layer** de **Parking Management** concentra las reglas puras para administrar estacionamientos, configurar espacios y controlar asociaciones con nodos IoT. Esta capa permite mantener el modelo del dominio independiente de detalles técnicos y asegura que las reglas centrales del contexto se mantengan consistentes durante la implementación.
+
+#### 4.2.1.2. Interface Layer
+
+La **Interface Layer** del bounded context **Parking Management** representa el punto de entrada para las operaciones relacionadas con la administración de estacionamientos, espacios físicos y asociación de nodos IoT. Esta capa recibe solicitudes desde el panel web utilizado por el **Parking Owner** y también puede recibir eventos provenientes de otros contextos, como actualizaciones de ocupación o cambios de estado del nodo IoT.
+
+En esta capa no se implementan reglas de negocio. Su responsabilidad se limita a recibir la solicitud, validar superficialmente el formato de entrada, construir los comandos o queries correspondientes y delegar el procesamiento a la **Application Layer**. De esta manera, los controladores se mantienen simples y el comportamiento del negocio permanece concentrado en las capas internas del bounded context.
+
+**Figura 51**  
+*Parking Management Context Interface Layer Diagram*
+
+![alt text](assets/interfacelayer.png)
+
+*Nota.* Elaboración propia (2026).
+
+Según la Figura 51, la capa de interfaz del bounded context **Parking Management** está compuesta por tres controladores REST implementados como **Spring REST Controllers** y un consumidor de eventos. Los controladores exponen las operaciones necesarias para que el **Parking Owner** registre estacionamientos, configure espacios, asigne identificadores y empareje nodos IoT. El consumidor de eventos permite que el contexto reciba cambios relevantes producidos por otros bounded contexts, sin mezclar directamente sus reglas internas.
+
+##### ParkingLotController
+
+La clase `ParkingLotController` expone las operaciones relacionadas con el registro y mantenimiento del estacionamiento. Este controlador recibe solicitudes para crear un estacionamiento, consultar sus detalles, listar los estacionamientos de un Parking Owner, actualizar información general, activar o desactivar el estacionamiento.
+
+| Método | Responsabilidad |
+|---|---|
+| `registerParkingLot(request: RegisterParkingLotRequest): ParkingLotResponse` | Recibe la solicitud para registrar un nuevo estacionamiento. |
+| `getParkingLotDetails(parkingLotId: string): ParkingLotResponse` | Obtiene los datos generales de un estacionamiento. |
+| `getOwnerParkingLots(ownerId: string): List<ParkingLotResponse>` | Lista los estacionamientos asociados a un Parking Owner. |
+| `updateParkingLotInfo(parkingLotId: string, request: UpdateParkingLotRequest): ParkingLotResponse` | Recibe la solicitud de actualización de información del estacionamiento. |
+| `activateParkingLot(parkingLotId: string): void` | Solicita la activación operativa del estacionamiento. |
+| `deactivateParkingLot(parkingLotId: string): void` | Solicita la desactivación temporal del estacionamiento. |
+
+##### ParkingSpaceController
+
+La clase `ParkingSpaceController` concentra las operaciones de entrada relacionadas con los espacios físicos de un estacionamiento. Permite registrar nuevos espacios, consultar los espacios existentes, asignar identificadores y habilitar o deshabilitar espacios según la operación del estacionamiento.
+
+| Método | Responsabilidad |
+|---|---|
+| `registerParkingSpace(parkingLotId: string, request: RegisterParkingSpaceRequest): ParkingSpaceResponse` | Recibe la solicitud para registrar un espacio dentro de un estacionamiento. |
+| `getParkingSpaces(parkingLotId: string): List<ParkingSpaceResponse>` | Consulta los espacios registrados para un estacionamiento. |
+| `assignSpaceIdentifier(spaceId: string, request: AssignSpaceIdentifierRequest): ParkingSpaceResponse` | Recibe la solicitud para asignar un identificador único al espacio. |
+| `disableParkingSpace(spaceId: string): void` | Solicita la deshabilitación temporal de un espacio. |
+| `enableParkingSpace(spaceId: string): void` | Solicita la habilitación de un espacio previamente deshabilitado. |
+
+##### IoTNodePairingController
+
+La clase `IoTNodePairingController` expone las operaciones necesarias para asociar nodos IoT con espacios físicos del estacionamiento. Este controlador no procesa lecturas del sensor ni eventos físicos de ocupación; esa responsabilidad pertenece al bounded context **IoT Monitoring**. En este contexto, su función es recibir solicitudes de configuración y delegarlas a la capa de aplicación.
+
+| Método | Responsabilidad |
+|---|---|
+| `pairIoTNode(parkingLotId: string, request: PairIoTNodeRequest): IoTNodePairingResponse` | Recibe la solicitud para emparejar un nodo IoT con un estacionamiento o espacio. |
+| `unpairIoTNode(pairingId: string): void` | Solicita la eliminación de una asociación IoT existente. |
+| `validatePairing(pairingId: string): PairingValidationResponse` | Solicita la validación de una asociación IoT. |
+| `getPairingStatus(pairingId: string): PairingStatusResponse` | Consulta el estado actual de la asociación IoT. |
+
+##### ParkingManagementEventConsumer
+
+La clase `ParkingManagementEventConsumer` permite que el bounded context **Parking Management** reciba eventos relevantes generados por otros contextos. Por ejemplo, puede recibir una actualización de ocupación producida por **IoT Monitoring** para reflejar el estado operativo de un espacio. Sin embargo, este consumer no interpreta directamente las reglas físicas del sensor; únicamente recibe el evento y delega su procesamiento a la **Application Layer**.
+
+| Método | Responsabilidad |
+|---|---|
+| `consumeOccupancyStatusUpdated(event: OccupancyStatusUpdatedEvent): void` | Recibe eventos de actualización de ocupación de espacios. |
+| `consumeIoTNodePaired(event: IoTNodePairedEvent): void` | Recibe eventos relacionados con el emparejamiento de nodos IoT. |
+| `consumeIoTNodeDisconnected(event: IoTNodeDisconnectedEvent): void` | Recibe eventos cuando un nodo IoT deja de estar disponible. |
+| `delegateToApplicationLayer(event: DomainEvent): void` | Delega el evento recibido a los handlers correspondientes de la capa de aplicación. |
+
+En conclusión, la **Interface Layer** de **Parking Management** actúa como una frontera de entrada para solicitudes HTTP y eventos de dominio. Esta capa permite que el **Parking Owner** interactúe con las funcionalidades de gestión del estacionamiento sin acoplar directamente la interfaz con las reglas del dominio. A su vez, permite que el bounded context reciba eventos relevantes desde otros contextos manteniendo una separación clara entre recepción, orquestación y lógica de negocio.
+
+#### 4.2.1.3. Application Layer
+
+La **Application Layer** del bounded context **Parking Management** contiene las clases encargadas de orquestar los casos de uso relacionados con la administración de estacionamientos, configuración de espacios y asociación de nodos IoT. Esta capa actúa como intermediaria entre la **Interface Layer**, que recibe las solicitudes del exterior, y la **Domain Layer**, donde se encuentran las reglas de negocio puras.
+
+En este contexto, la capa de aplicación procesa comandos generados por las acciones del **Parking Owner**, como registrar un estacionamiento, actualizar su perfil, registrar espacios, asignar identificadores y emparejar nodos IoT. También puede procesar eventos relevantes provenientes de otros contextos, como la actualización del estado de ocupación de un espacio. Sin embargo, esta capa no contiene reglas de negocio complejas; su responsabilidad es coordinar el flujo de ejecución, invocar servicios de dominio, utilizar interfaces de repositorio y devolver el resultado correspondiente.
+
+**Figura 52**  
+*Parking Management Context Application Layer Diagram*
+
+![alt text](<assets/aplication layer.png>)
+
+*Nota.* Elaboración propia (2026).
+
+Según la Figura 52, la **Application Layer** de **Parking Management** está compuesta por command handlers y event handlers. Los command handlers ejecutan acciones solicitadas por el Parking Owner desde el panel web, mientras que el event handler permite reaccionar ante eventos producidos por otros contextos. Estas clases no implementan directamente lógica de negocio; únicamente coordinan objetos del dominio, servicios de dominio e interfaces de repositorio.
+
+##### RegisterParkingLotCommandHandler
+
+La clase `RegisterParkingLotCommandHandler` orquesta el caso de uso de registro de un nuevo estacionamiento. Recibe un comando con los datos iniciales del estacionamiento, utiliza la fábrica del dominio para construir el aggregate correspondiente y delega la persistencia mediante la interfaz `IParkingLotRepository`.
+
+| Elemento | Detalle |
+|---|---|
+| Clase | `RegisterParkingLotCommandHandler` |
+| Tipo | Command Handler |
+| Dependencias | `ParkingLotFactory`, `IParkingLotRepository` |
+| Método principal | `handle(command: RegisterParkingLotCommand): ParkingLotAggregate` |
+| Responsabilidad | Coordinar el registro inicial de un estacionamiento administrado por un Parking Owner. |
+
+Esta clase no valida reglas de negocio por sí misma. La creación válida del aggregate se delega a `ParkingLotFactory`, mientras que la persistencia se realiza mediante la abstracción del repositorio.
+
+##### UpdateParkingLotProfileCommandHandler
+
+La clase `UpdateParkingLotProfileCommandHandler` orquesta la actualización del perfil operativo y público de un estacionamiento. Recibe los datos actualizados del perfil, recupera el aggregate correspondiente y delega la modificación al modelo de dominio.
+
+| Elemento | Detalle |
+|---|---|
+| Clase | `UpdateParkingLotProfileCommandHandler` |
+| Tipo | Command Handler |
+| Dependencias | `IParkingLotRepository` |
+| Método principal | `handle(command: UpdateParkingLotProfileCommand): ParkingLotProfile` |
+| Responsabilidad | Coordinar la actualización del perfil de un estacionamiento registrado. |
+
+Este handler permite modificar información como descripción, ubicación y horarios, pero la consistencia de dichos valores pertenece al **Domain Layer**, no a la capa de aplicación.
+
+##### RegisterParkingSpaceCommandHandler
+
+La clase `RegisterParkingSpaceCommandHandler` orquesta el registro de un nuevo espacio físico dentro de un estacionamiento existente. Para ello, recupera el estacionamiento asociado, utiliza la fábrica del dominio para crear el espacio y delega el guardado mediante `IParkingSpaceRepository`.
+
+| Elemento | Detalle |
+|---|---|
+| Clase | `RegisterParkingSpaceCommandHandler` |
+| Tipo | Command Handler |
+| Dependencias | `IParkingLotRepository`, `IParkingSpaceRepository`, `ParkingLotFactory` |
+| Método principal | `handle(command: RegisterParkingSpaceCommand): ParkingSpace` |
+| Responsabilidad | Coordinar la creación de un espacio físico dentro de un estacionamiento. |
+
+La existencia del estacionamiento y la correcta creación del espacio se coordinan desde esta clase, pero las reglas sobre la validez del espacio pertenecen al aggregate y a los objetos del dominio.
+
+##### AssignSpaceIdentifierCommandHandler
+
+La clase `AssignSpaceIdentifierCommandHandler` orquesta la asignación de un identificador único a un espacio físico. Utiliza el servicio de dominio `ParkingSpaceIdentifierService` para generar o validar el identificador y luego actualiza el espacio mediante la interfaz de repositorio correspondiente.
+
+| Elemento | Detalle |
+|---|---|
+| Clase | `AssignSpaceIdentifierCommandHandler` |
+| Tipo | Command Handler |
+| Dependencias | `IParkingSpaceRepository`, `ParkingSpaceIdentifierService` |
+| Método principal | `handle(command: AssignSpaceIdentifierCommand): ParkingSpace` |
+| Responsabilidad | Coordinar la asignación de identificadores únicos a espacios físicos. |
+
+Esta clase evita duplicar la lógica de generación o validación de identificadores en los controladores. La regla de unicidad se mantiene como responsabilidad del dominio.
+
+##### PairIoTNodeCommandHandler
+
+La clase `PairIoTNodeCommandHandler` orquesta el emparejamiento de un nodo IoT con un espacio físico del estacionamiento. Utiliza `IoTNodePairingPolicy` para validar si la asociación es permitida y luego registra el emparejamiento mediante la interfaz `IIoTNodePairingRepository`.
+
+| Elemento | Detalle |
+|---|---|
+| Clase | `PairIoTNodeCommandHandler` |
+| Tipo | Command Handler |
+| Dependencias | `IParkingSpaceRepository`, `IIoTNodePairingRepository`, `IoTNodePairingPolicy` |
+| Método principal | `handle(command: PairIoTNodeCommand): IoTNodePairing` |
+| Responsabilidad | Coordinar la asociación entre nodos IoT y espacios físicos. |
+
+Este handler no procesa lecturas de sensores ni eventos físicos. Su función se limita a coordinar la configuración del emparejamiento desde el punto de vista administrativo del Parking Owner.
+
+##### OccupancyStatusUpdatedEventHandler
+
+La clase `OccupancyStatusUpdatedEventHandler` procesa eventos de actualización de ocupación provenientes del contexto **IoT Monitoring**. Su responsabilidad es reflejar el nuevo estado operativo del espacio dentro de **Parking Management**, manteniendo actualizada la vista administrativa del estacionamiento.
+
+| Elemento | Detalle |
+|---|---|
+| Clase | `OccupancyStatusUpdatedEventHandler` |
+| Tipo | Event Handler |
+| Dependencias | `IParkingSpaceRepository` |
+| Método principal | `handle(event: OccupancyStatusUpdatedEvent): void` |
+| Responsabilidad | Coordinar la actualización del estado operativo de un espacio cuando cambia su ocupación física. |
+
+Aunque este handler recibe eventos relacionados con ocupación, la detección física y el procesamiento del sensor pertenecen al bounded context **IoT Monitoring**. En **Parking Management**, el evento se utiliza únicamente para mantener sincronizado el estado administrativo del espacio.
+
+##### Resumen de clases de la Application Layer
+
+| Clase | Tipo | Responsabilidad |
+|---|---|---|
+| `RegisterParkingLotCommandHandler` | Command Handler | Orquestar el registro inicial de un estacionamiento. |
+| `UpdateParkingLotProfileCommandHandler` | Command Handler | Orquestar la actualización del perfil del estacionamiento. |
+| `RegisterParkingSpaceCommandHandler` | Command Handler | Orquestar el registro de espacios físicos. |
+| `AssignSpaceIdentifierCommandHandler` | Command Handler | Orquestar la asignación de identificadores únicos a espacios. |
+| `PairIoTNodeCommandHandler` | Command Handler | Orquestar el emparejamiento entre nodos IoT y espacios. |
+| `OccupancyStatusUpdatedEventHandler` | Event Handler | Orquestar la actualización del estado operativo ante eventos de ocupación. |
+
+En conclusión, la **Application Layer** de **Parking Management** mantiene una estructura delgada y orientada a casos de uso. Sus clases coordinan comandos y eventos, invocan reglas del dominio e interactúan con interfaces de repositorio, pero no contienen lógica de negocio pura. Esta separación permite que el bounded context conserve una arquitectura limpia, trazable y alineada con Domain-Driven Design.
+
+#### 4.2.1.4. Infrastructure Layer
+
+La **Infrastructure Layer** del bounded context **Parking Management** contiene las clases técnicas que permiten conectar las reglas del dominio con servicios externos, mecanismos de persistencia y clientes de integración. En esta capa se implementan las interfaces definidas en la **Domain Layer**, principalmente los repositorios encargados de almacenar y recuperar estacionamientos, espacios físicos y emparejamientos IoT.
+
+A diferencia de la **Domain Layer**, esta capa sí depende de tecnologías concretas. Para ParkingNow, la infraestructura del contexto utiliza **Supabase** como plataforma de persistencia sobre PostgreSQL y clientes externos como **OpenStreetMap / Nominatim / Overpass API** para validar ubicaciones y consultar referencias geográficas. Estas dependencias se mantienen fuera del dominio para evitar que las reglas de negocio queden acopladas a una tecnología específica.
+
+**Figura 53**  
+*Parking Management Context Infrastructure Layer Diagram*
+
+![alt text](assets/infraestructurelayer.png)
+
+*Nota.* Elaboración propia (2026).
+
+Según la Figura 53, la **Infrastructure Layer** de **Parking Management** está compuesta por clases que implementan repositorios concretos y clientes de integración externa. Estas clases no contienen reglas de negocio; su responsabilidad es ejecutar operaciones técnicas como consultas, inserciones, actualizaciones, eliminación de registros y comunicación con servicios geográficos externos.
+
+##### JpaParkingLotRepository
+
+La clase `JpaParkingLotRepository` implementa la persistencia concreta del aggregate `ParkingLotAggregate`. Esta clase utiliza **Spring Data JPA**, **JDBC**, **EntityManager** o **PostgreSQL Driver** para leer y escribir información relacionada con estacionamientos registrados por el **Parking Owner**.
+
+| Elemento | Detalle |
+|---|---|
+| Clase | `JpaParkingLotRepository` |
+| Tipo | Repository Implementation |
+| Implementa | `IParkingLotRepository` |
+| Dependencia principal | `Spring Data JPA/EntityManager/PostgreSQL Driver` |
+| Responsabilidad | Persistir y recuperar aggregates de estacionamiento desde Supabase PostgreSQL. |
+
+| Método | Responsabilidad |
+|---|---|
+| `findById(parkingLotId: string): ParkingLotAggregate` | Busca un estacionamiento por su identificador. |
+| `findByOwnerId(ownerId: string): List<ParkingLotAggregate>` | Lista los estacionamientos asociados a un Parking Owner. |
+| `save(aggregate: ParkingLotAggregate): void` | Guarda un nuevo aggregate de estacionamiento. |
+| `update(aggregate: ParkingLotAggregate): void` | Actualiza la información de un estacionamiento existente. |
+| `deleteById(parkingLotId: string): void` | Elimina o desactiva técnicamente un estacionamiento según la política aplicada. |
+
+Esta clase traduce el modelo del dominio hacia estructuras persistentes, pero no decide si un estacionamiento puede activarse, desactivarse o publicarse. Esas reglas pertenecen al dominio.
+
+##### JpaParkingSpaceRepository
+
+La clase `JpaParkingSpaceRepository` implementa la persistencia concreta de los espacios físicos registrados dentro de un estacionamiento. Su función es permitir que la capa de aplicación recupere, guarde y actualice espacios sin conocer detalles de Supabase ni de PostgreSQL.
+
+| Elemento | Detalle |
+|---|---|
+| Clase | `JpaParkingSpaceRepository` |
+| Tipo | Repository Implementation |
+| Implementa | `IParkingSpaceRepository` |
+| Dependencia principal | `Spring Data JPA/EntityManager/PostgreSQL Driver` |
+| Responsabilidad | Persistir y consultar espacios físicos configurados por el Parking Owner. |
+
+| Método | Responsabilidad |
+|---|---|
+| `findByParkingLotId(parkingLotId: string): List<ParkingSpace>` | Obtiene todos los espacios registrados para un estacionamiento. |
+| `findByIdentifier(parkingLotId: string, identifier: ParkingSpaceIdentifier): ParkingSpace` | Busca un espacio por su identificador dentro de un estacionamiento. |
+| `save(space: ParkingSpace): void` | Guarda un nuevo espacio físico. |
+| `update(space: ParkingSpace): void` | Actualiza el estado o configuración de un espacio. |
+| `deleteById(spaceId: string): void` | Elimina o deshabilita técnicamente un espacio según corresponda. |
+
+Esta clase soporta operaciones como registrar espacios, asignar identificadores, habilitar o deshabilitar espacios. La validación de identificadores únicos no pertenece a esta clase; dicha responsabilidad se mantiene en el servicio de dominio `ParkingSpaceIdentifierService`.
+
+##### JpaIoTNodePairingRepository
+
+La clase `JpaIoTNodePairingRepository` implementa la persistencia de las asociaciones entre nodos IoT y espacios físicos. Esta clase permite registrar qué nodo ESP32 está relacionado con un estacionamiento o con espacios específicos.
+
+| Elemento | Detalle |
+|---|---|
+| Clase | `JpaIoTNodePairingRepository` |
+| Tipo | Repository Implementation |
+| Implementa | `IIoTNodePairingRepository` |
+| Dependencia principal | `Spring Data JPA/EntityManager/PostgreSQL Driver` |
+| Responsabilidad | Persistir y consultar emparejamientos entre nodos IoT y espacios físicos. |
+
+| Método | Responsabilidad |
+|---|---|
+| `findByParkingLotId(parkingLotId: string): List<IoTNodePairing>` | Obtiene los emparejamientos asociados a un estacionamiento. |
+| `findByNodeId(nodeId: string): IoTNodePairing` | Busca el emparejamiento asociado a un nodo IoT específico. |
+| `save(pairing: IoTNodePairing): void` | Guarda un nuevo emparejamiento IoT. |
+| `update(pairing: IoTNodePairing): void` | Actualiza el estado de un emparejamiento existente. |
+| `deleteById(pairingId: string): void` | Elimina o desactiva un emparejamiento IoT. |
+
+Esta clase no procesa lecturas de sensores ni eventos físicos. Su alcance se limita a la configuración administrativa del emparejamiento. La detección de ocupación y el procesamiento de eventos del ESP32 pertenecen al bounded context **IoT Monitoring**.
+
+##### OpenStreetMapLocationClient
+
+La clase `OpenStreetMapLocationClient` representa el cliente de infraestructura encargado de comunicarse con servicios geográficos externos como **OpenStreetMap**, **Nominatim** u **Overpass API**. En el contexto **Parking Management**, su función principal es apoyar la validación de ubicación del estacionamiento registrado por el Parking Owner.
+
+| Elemento | Detalle |
+|---|---|
+| Clase | `OpenStreetMapLocationClient` |
+| Tipo | External Service Client |
+| Dependencias principales | `HttpClient`, `baseUrl` |
+| Responsabilidad | Consumir servicios geográficos externos para validar ubicaciones y consultar referencias cercanas. |
+
+| Método | Responsabilidad |
+|---|---|
+| `validateParkingLotLocation(latitude: number, longitude: number): boolean` | Valida si las coordenadas del estacionamiento son consistentes. |
+| `reverseGeocode(latitude: number, longitude: number): LocationAddress` | Obtiene una dirección aproximada a partir de coordenadas. |
+| `searchNearbyParkingReferences(latitude: number, longitude: number): List<ExternalParkingReference>` | Consulta referencias externas de estacionamientos cercanos. |
+| `mapExternalResponse(response: object): LocationValidationResult` | Transforma la respuesta externa a un resultado utilizable por la aplicación. |
+
+Esta clase protege al dominio de la estructura propia de la API externa. Si OpenStreetMap o Nominatim modifican su formato de respuesta, el cambio se controla dentro de esta clase y no afecta directamente a las entidades ni a los aggregates del dominio.
+
+##### Resumen de clases de la Infrastructure Layer
+
+| Clase | Tipo | Responsabilidad |
+|---|---|---|
+| `JpaParkingLotRepository` | Repository Implementation | Implementar la persistencia concreta del aggregate `ParkingLotAggregate`. |
+| `JpaParkingSpaceRepository` | Repository Implementation | Implementar la persistencia concreta de espacios físicos. |
+| `JpaIoTNodePairingRepository` | Repository Implementation | Implementar la persistencia concreta de emparejamientos IoT. |
+| `OpenStreetMapLocationClient` | External Service Client | Validar ubicaciones y consultar referencias geográficas mediante servicios externos. |
+
+En conclusión, la **Infrastructure Layer** de **Parking Management** permite que el bounded context se comunique con tecnologías concretas sin contaminar el dominio. Los repositorios implementan las interfaces definidas en la capa de dominio y el cliente de OpenStreetMap encapsula la comunicación con servicios externos. De esta forma, ParkingNow mantiene una separación clara entre reglas de negocio, orquestación de casos de uso y detalles técnicos de persistencia o integración.
+
+#### 4.2.1.5. Bounded Context Software Architecture Component Level Diagrams
+
+El **Bounded Context Software Architecture Component Level Diagram** permite representar cómo se organizan e interactúan los componentes internos del bounded context **Parking Management** dentro del contenedor **Core REST API**. Este diagrama corresponde al nivel 3 del modelo C4, por lo que no muestra todavía clases de bajo nivel ni tablas de base de datos, sino componentes de software con responsabilidades claras dentro del contexto.
+
+Para ParkingNow, el bounded context **Parking Management** se implementa principalmente dentro del **Core REST API**, desarrollado con **Java, Spring Boot, RESTful API y documentación OpenAPI Specification mediante Swagger**. Este contexto recibe solicitudes desde la **Parking Owner Web App**, orquesta casos de uso relacionados con estacionamientos, espacios y emparejamiento de nodos IoT, aplica reglas del dominio y utiliza adaptadores de infraestructura para persistir información en Supabase PostgreSQL o validar datos geográficos mediante servicios externos.
+
+**Figura 54**  
+*Parking Management Context Component Level Diagram*
+
+![alt text](assets/diego7.png)
+
+*Nota.* Elaboración propia (2026) usando Structurizr DSL.
+
+Según la Figura 54, el bounded context **Parking Management** se organiza en componentes pertenecientes a cuatro capas principales: **Interface Layer**, **Application Layer**, **Domain Layer** e **Infrastructure Layer**. Esta organización permite separar la recepción de solicitudes, la orquestación de casos de uso, las reglas del dominio y los detalles técnicos de persistencia o integración externa.
+
+En la **Interface Layer**, los componentes `ParkingLotController`, `ParkingSpaceController` e `IoTNodePairingController` reciben solicitudes HTTP desde la **Parking Owner Web App**. Estas solicitudes corresponden a acciones como registrar estacionamientos, configurar espacios, asignar identificadores y emparejar nodos IoT. Además, el componente `ParkingManagementEventConsumer` permite recibir eventos relevantes desde otros contextos, como actualizaciones de ocupación o cambios de estado del nodo IoT.
+
+La **Application Layer** contiene los handlers encargados de coordinar los casos de uso del contexto. `RegisterParkingLotCommandHandler` orquesta el registro de un estacionamiento; `UpdateParkingLotProfileCommandHandler` coordina la actualización de la información pública y operativa del estacionamiento; `RegisterParkingSpaceCommandHandler` permite crear espacios físicos; `AssignSpaceIdentifierCommandHandler` coordina la asignación de identificadores únicos; `PairIoTNodeCommandHandler` gestiona la asociación entre espacios y nodos IoT; y `OccupancyStatusUpdatedEventHandler` actualiza el estado operativo del espacio cuando recibe un evento de ocupación.
+
+La **Domain Layer** concentra los componentes que representan el núcleo del negocio. `ParkingLotAggregate` actúa como raíz de consistencia del contexto y agrupa el estacionamiento, su perfil, sus espacios y sus emparejamientos IoT. `ParkingLotFactory` permite crear objetos de dominio con un estado inicial válido. `ParkingSpaceIdentifierService` encapsula la generación y validación de identificadores únicos de espacios. `IoTNodePairingPolicy` valida las reglas de emparejamiento entre nodos IoT y espacios físicos.
+
+La **Infrastructure Layer** contiene las implementaciones concretas de persistencia e integración. `JpaParkingLotRepository`, `JpaParkingSpaceRepository` y `JpaIoTNodePairingRepository` implementan las interfaces de repositorio definidas en la capa de dominio y se encargan de leer y escribir datos en **Supabase PostgreSQL**. Por otro lado, `OpenStreetMapLocationClient` permite validar coordenadas y resolver referencias geográficas mediante servicios externos como **OpenStreetMap / Nominatim / Overpass API**.
+
+La siguiente tabla resume los principales componentes representados en el diagrama:
+
+| Capa | Componente | Responsabilidad |
+|---|---|---|
+| Interface Layer | `ParkingLotController` | Recibir solicitudes relacionadas con registro, consulta, activación y actualización de estacionamientos. |
+| Interface Layer | `ParkingSpaceController` | Recibir solicitudes para registrar espacios, consultar espacios y asignar identificadores. |
+| Interface Layer | `IoTNodePairingController` | Recibir solicitudes para emparejar, desemparejar y validar nodos IoT. |
+| Interface Layer | `ParkingManagementEventConsumer` | Recibir eventos de ocupación o cambios de estado IoT provenientes de otros contextos. |
+| Application Layer | `RegisterParkingLotCommandHandler` | Orquestar el registro de un nuevo estacionamiento. |
+| Application Layer | `UpdateParkingLotProfileCommandHandler` | Orquestar la actualización del perfil público y operativo del estacionamiento. |
+| Application Layer | `RegisterParkingSpaceCommandHandler` | Orquestar el registro de espacios físicos dentro de un estacionamiento. |
+| Application Layer | `AssignSpaceIdentifierCommandHandler` | Orquestar la asignación de identificadores únicos a espacios. |
+| Application Layer | `PairIoTNodeCommandHandler` | Orquestar el emparejamiento entre nodos IoT y espacios físicos. |
+| Application Layer | `OccupancyStatusUpdatedEventHandler` | Reflejar cambios de ocupación física dentro del estado operativo del espacio. |
+| Domain Layer | `ParkingLotAggregate` | Mantener la consistencia del estacionamiento, perfil, espacios y emparejamientos IoT. |
+| Domain Layer | `ParkingLotFactory` | Crear objetos de dominio con estado inicial válido. |
+| Domain Layer | `ParkingSpaceIdentifierService` | Generar y validar identificadores únicos de espacios. |
+| Domain Layer | `IoTNodePairingPolicy` | Validar reglas de emparejamiento entre nodos IoT y espacios físicos. |
+| Domain Layer | `IParkingLotRepository` | Definir operaciones de persistencia para el aggregate de estacionamiento. |
+| Domain Layer | `IParkingSpaceRepository` | Definir operaciones de persistencia para espacios físicos. |
+| Domain Layer | `IIoTNodePairingRepository` | Definir operaciones de persistencia para emparejamientos IoT. |
+| Infrastructure Layer | `JpaParkingLotRepository` | Implementar la persistencia de estacionamientos en Supabase PostgreSQL. |
+| Infrastructure Layer | `JpaParkingSpaceRepository` | Implementar la persistencia de espacios físicos en Supabase PostgreSQL. |
+| Infrastructure Layer | `JpaIoTNodePairingRepository` | Implementar la persistencia de asociaciones entre nodos IoT y espacios. |
+| Infrastructure Layer | `OpenStreetMapLocationClient` | Validar coordenadas y resolver referencias geográficas externas. |
+
+El flujo principal del componente inicia cuando el **Parking Owner** utiliza la **Parking Owner Web App** para registrar o configurar un estacionamiento. La aplicación web envía una solicitud HTTP al controlador correspondiente dentro del **Core REST API**. Luego, el controlador delega la operación a un command handler de la **Application Layer**. Este handler coordina la operación, invoca componentes del dominio cuando se requieren reglas de negocio y utiliza interfaces de repositorio para persistir los cambios.
+
+Por ejemplo, cuando el Parking Owner registra un estacionamiento, `ParkingLotController` recibe la solicitud y la delega a `RegisterParkingLotCommandHandler`. Este handler utiliza `ParkingLotFactory` para crear un `ParkingLotAggregate` válido y luego lo guarda mediante `IParkingLotRepository`. La implementación concreta de esta interfaz es `JpaParkingLotRepository`, encargada de persistir los datos en Supabase PostgreSQL.
+
+En el caso de la configuración de espacios, `ParkingSpaceController` delega los comandos hacia `RegisterParkingSpaceCommandHandler` o `AssignSpaceIdentifierCommandHandler`. Este último utiliza `ParkingSpaceIdentifierService` para validar la unicidad y formato del identificador antes de actualizar el espacio. De esta manera, la regla de negocio no queda en el controlador ni en el repositorio, sino en el dominio.
+
+Para el emparejamiento IoT, `IoTNodePairingController` recibe la solicitud de asociación entre un nodo ESP32 y un espacio físico. Luego, `PairIoTNodeCommandHandler` utiliza `IoTNodePairingPolicy` para validar si el emparejamiento es permitido. Si la operación es válida, el resultado se persiste mediante `IIoTNodePairingRepository`, cuya implementación concreta es `JpaIoTNodePairingRepository`.
+
+El componente `ParkingManagementEventConsumer` permite que este bounded context reciba eventos generados por otros contextos, especialmente desde **IoT Monitoring**. Por ejemplo, cuando el nodo ESP32 reporta un cambio de ocupación, el contexto de monitoreo IoT puede publicar un evento `OccupancyStatusUpdatedEvent`. En Parking Management, este evento es procesado por `OccupancyStatusUpdatedEventHandler`, que actualiza el estado operativo reflejado del espacio. La detección física sigue perteneciendo a IoT Monitoring; Parking Management solo mantiene la vista administrativa actualizada.
+
+En conclusión, el **Component Level Diagram** de **Parking Management** muestra cómo el bounded context estructura internamente sus responsabilidades dentro del **Core REST API**. La separación entre controladores, handlers, dominio e infraestructura permite mantener una arquitectura limpia, donde las reglas de negocio no se mezclan con detalles técnicos. Esta organización facilita la evolución del sistema, reduce el acoplamiento y mantiene coherencia con el diseño táctico de Domain-Driven Design.
+
+#### 4.2.1.6. Bounded Context Software Architecture Code Level Diagrams
+
+En esta sección se presentan los diagramas de nivel de código correspondientes al bounded context **Parking Management**. A diferencia de los diagramas C4 anteriores, que muestran la arquitectura desde una perspectiva de sistema, contenedores y componentes, este bloque profundiza en la estructura interna del contexto a nivel de clases del dominio y diseño físico de base de datos.
+
+Para ello, primero se presenta el **Domain Layer Class Diagram**, donde se detallan las entidades, objetos de valor, agregados, servicios de dominio e interfaces de repositorio que representan las reglas principales del contexto. Luego, se presenta el **Database Design Diagram**, donde se muestra cómo se persisten los datos de este bounded context en una base de datos relacional PostgreSQL, indicando tablas, columnas, llaves primarias, llaves foráneas y relaciones entre entidades.
+
+Estos diagramas permiten cerrar el diseño táctico del bounded context **Parking Management**, asegurando trazabilidad entre el modelo de dominio, las reglas de negocio y la estructura de persistencia utilizada por la solución.
+
+##### 4.2.1.6.1. Bounded Context Domain Layer Class Diagrams
+
+El **Bounded Context Domain Layer Class Diagram** presenta el diseño UML de las clases que forman parte de la capa de dominio del bounded context **Parking Management**. Este diagrama se enfoca únicamente en los elementos que representan reglas de negocio puras, por lo que no incluye controladores, servicios REST, frameworks, repositorios de infraestructura ni detalles de base de datos.
+
+En este contexto, el núcleo del dominio está representado por el aggregate `ParkingLotAggregate`, el cual mantiene la consistencia entre el estacionamiento registrado, su perfil público, sus espacios físicos y las asociaciones con nodos IoT. A partir de este aggregate se organizan las entidades principales, los value objects, los servicios de dominio, la fábrica de creación y las interfaces de repositorio que serán implementadas posteriormente por la capa de infraestructura.
+
+**Figura 55**  
+*Parking Management Context Domain Layer Class Diagram*
+
+![alt text](assets/diego8.png)
+
+*Nota.* Elaboración propia (2026) usando LucidChart / PlantUML.
+
+Según la Figura 55, el aggregate `ParkingLotAggregate` actúa como raíz de consistencia del bounded context **Parking Management**. Este aggregate contiene una entidad `ParkingLot`, un `ParkingLotProfile`, una colección de `ParkingSpace` y una colección de `IoTNodePairing`. Esta estructura permite asegurar que las operaciones principales del contexto, como registrar un estacionamiento, actualizar su perfil, crear espacios físicos o asociar nodos IoT, se realicen bajo reglas consistentes del dominio.
+
+La entidad `ParkingLot` representa el estacionamiento registrado dentro de ParkingNow. Contiene datos como el identificador, el dueño del estacionamiento, el nombre, la dirección y el estado operativo. Su comportamiento permite actualizar información general, activar el estacionamiento o desactivarlo según las reglas del negocio.
+
+La entidad `ParkingLotProfile` representa la información pública y operativa del estacionamiento. Esta clase utiliza los value objects `LocationCoordinates` y `OperatingHours` para modelar la ubicación geográfica y los horarios de operación. De esta manera, la ubicación y los horarios se tratan como objetos inmutables y validados dentro del dominio.
+
+La entidad `ParkingSpace` representa un espacio físico individual dentro de un estacionamiento. Cada espacio contiene un identificador propio, un estado de configuración y un estado de ocupación. Para evitar identificadores duplicados o inválidos, el dominio utiliza el value object `ParkingSpaceIdentifier` y el servicio de dominio `ParkingSpaceIdentifierService`.
+
+La entidad `IoTNodePairing` representa la asociación entre un nodo IoT y un espacio físico del estacionamiento. Esta relación es validada mediante el servicio de dominio `IoTNodePairingPolicy`, el cual define si un nodo puede emparejarse con determinado espacio y si la asociación cumple las reglas del bounded context.
+
+Los objetos de valor definidos en este diagrama permiten encapsular conceptos que no requieren identidad propia, pero sí reglas de validación. `LocationCoordinates` valida latitud y longitud; `OperatingHours` valida los rangos horarios; `ParkingSpaceIdentifier` valida el formato del identificador del espacio; y las enumeraciones `ParkingLotStatus`, `ParkingSpaceStatus`, `OccupancyStatus` y `PairingStatus` restringen los estados permitidos dentro del modelo.
+
+La fábrica `ParkingLotFactory` centraliza la creación de objetos de dominio relevantes, evitando que los aggregates y entidades nazcan en estados inválidos. Esta fábrica permite crear estacionamientos, perfiles y espacios físicos con los datos mínimos necesarios y respetando las reglas iniciales del contexto.
+
+Finalmente, las interfaces `IParkingLotRepository`, `IParkingSpaceRepository` e `IIoTNodePairingRepository` definen las abstracciones de persistencia que el dominio necesita para guardar y recuperar aggregates, espacios y emparejamientos IoT. Estas interfaces pertenecen al Domain Layer porque expresan contratos requeridos por el dominio, pero sus implementaciones concretas se ubican en la Infrastructure Layer.
+
+##### 4.2.1.6.2. Bounded Context Database Design Diagram
+
+El **Bounded Context Database Design Diagram** presenta el diseño físico de base de datos correspondiente al bounded context **Parking Management**. Este diagrama muestra cómo se almacenan las entidades principales del contexto en una base de datos relacional PostgreSQL, detallando tablas, columnas, tipos de datos, llaves primarias, llaves foráneas y relaciones entre registros.
+
+A diferencia del diagrama de clases del dominio, este diagrama representa la estructura de persistencia. Por ello, se utilizan nombres de tablas, columnas y constraints propios de un modelo relacional. Para este contexto se consideran únicamente las tablas necesarias para gestionar estacionamientos, perfiles operativos, espacios físicos y emparejamientos con nodos IoT.
+
+**Figura 56**  
+*Parking Management Context Database Design Diagram*
+
+![alt text](assets/diego9.png)
+
+*Nota.* Elaboración propia (2026) usando LucidChart / Vertabelo.
+
+Según la Figura 56, la tabla principal del bounded context es `parking_lots`, ya que representa el estacionamiento registrado por un **Parking Owner**. Esta tabla contiene información base como el identificador del estacionamiento, el identificador del dueño, el nombre, la dirección, el estado y las fechas de creación y actualización.
+
+La tabla `parking_lot_profiles` almacena la información pública y operativa del estacionamiento. Se relaciona con `parking_lots` mediante la columna `parking_lot_id`, definida como llave foránea. Esta relación permite separar los datos principales del estacionamiento de su perfil publicado, incluyendo descripción, coordenadas geográficas, horario de apertura, horario de cierre y estado de publicación.
+
+La tabla `parking_spaces` almacena los espacios físicos configurados dentro de cada estacionamiento. Cada registro pertenece a un estacionamiento mediante la llave foránea `parking_lot_id`. Además, contiene el identificador visible del espacio, su estado de configuración y su estado de ocupación. Esta tabla permite administrar los espacios disponibles, ocupados, reservados o deshabilitados dentro del estacionamiento.
+
+La tabla `iot_node_pairings` registra la asociación entre un nodo IoT y un espacio físico. Esta tabla contiene referencias hacia `parking_lots` y `parking_spaces`, permitiendo conocer qué nodo está emparejado con qué espacio. También almacena el identificador del nodo, la fecha de emparejamiento y el estado de la asociación.
+
+Las relaciones principales del diseño son las siguientes:
+
+| Relación | Cardinalidad | Descripción |
+|---|---|---|
+| `parking_lots` → `parking_lot_profiles` | 1 a 0..1 | Un estacionamiento puede tener un perfil operativo publicado o pendiente de configuración. |
+| `parking_lots` → `parking_spaces` | 1 a 0..* | Un estacionamiento puede contener múltiples espacios físicos. |
+| `parking_lots` → `iot_node_pairings` | 1 a 0..* | Un estacionamiento puede tener múltiples emparejamientos de nodos IoT. |
+| `parking_spaces` → `iot_node_pairings` | 1 a 0..1 | Un espacio puede estar asociado como máximo a un nodo IoT activo. |
+
+El diseño utiliza claves primarias de tipo `UUID` para mantener identificadores únicos a nivel de sistema. Las relaciones entre tablas se implementan mediante llaves foráneas, asegurando integridad referencial entre estacionamientos, perfiles, espacios y emparejamientos IoT.
+
+La persistencia se define sobre **PostgreSQL**, pudiendo alojarse en una base de datos administrada como Supabase PostgreSQL. Sin embargo, la lógica de negocio no se implementa en la base de datos ni en Supabase, sino en el **Core REST API** desarrollado con Java y Spring Boot. De esta forma, la base de datos cumple únicamente la responsabilidad de persistencia dentro de la arquitectura.
