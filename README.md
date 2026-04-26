@@ -1452,7 +1452,7 @@ El backlog integrado incluye historias orientadas al **Visitante** del landing p
 
 Para mejorar la legibilidad del informe, las épicas y las historias se presentan en tablas separadas. La primera tabla resume las **19 épicas** del proyecto y la segunda consolida las **125 historias** que conforman el backlog de **ParkingNow**.
 
-### 3.1.1. Épicas del proyecto
+### Épicas del proyecto
 
 | Epic ID | Título                                                         | Descripción                                                                                                                                                                                        |
 | ------- | -------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1476,7 +1476,7 @@ Para mejorar la legibilidad del informe, las épicas y las historias se presenta
 | EP18    | Spike Stories — Investigación técnica                          | Agrupa los Spike Stories orientados a reducir incertidumbre técnica en aspectos críticos del proyecto, generando conocimiento verificable mediante prototipos o pruebas de concepto.               |
 | EP19    | Maker Stories — Maqueta física y prototipo IoT                 | Agrupa las historias relacionadas con la construcción, integración física, ordenamiento y documentación de la maqueta IoT utilizada para demostrar el funcionamiento de ParkingNow.                |
 
-### 3.1.2. Historias de usuario, técnicas, spike y maker stories
+### Historias de usuario, técnicas, spike y maker stories
 
 | Story ID  | Título                                                               | Descripción                                                                                                                                                                                               | Criterios de Aceptación                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Relacionado con (Epic ID) |
 | --------- | -------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
@@ -1675,130 +1675,466 @@ En ese sentido, las historias relacionadas con el **Landing Page** y con las fun
 
 **C. Listado del Product Backlog**
 
-| # Orden | User Story Id | Título                                                               | Descripción                                                                                                                                                                                               | Story Points (1 / 2 / 3 / 5 / 8) |
-| ------- | ------------- | -------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
-| 1       | US-LP.1       | Comprender la propuesta de valor del servicio                        | Como Visitante, quiero entender rápidamente qué ofrece ParkingNow, para decidir si el servicio se ajusta a mis necesidades de estacionamiento.                                                            | 2                                |
-| 2       | US-LP.2       | Conocer beneficios del servicio como conductor                       | Como Visitante interesado como conductor, quiero conocer los beneficios específicos para mi perfil, para evaluar si vale la pena instalar la aplicación móvil.                                            | 2                                |
-| 3       | US-LP.3       | Conocer beneficios del servicio como administrador                   | Como Visitante interesado en afiliar su estacionamiento, quiero conocer los beneficios para administradores, para evaluar si el servicio responde a las necesidades operativas de mi negocio.             | 2                                |
-| 4       | US-LP.4       | Entender cómo funciona el servicio de forma simple                   | Como Visitante, quiero comprender de manera sencilla cómo funciona el servicio, para reducir la incertidumbre antes de tomar una decisión.                                                                | 3                                |
-| 5       | US-LP.5       | Percibir confianza y credibilidad del servicio                       | Como Visitante, quiero identificar señales de confianza sobre el servicio, para sentirme más seguro antes de compartir datos o afiliar mi negocio.                                                        | 2                                |
-| 6       | US-LP.6       | Registrar interés mediante formulario de contacto                    | Como Visitante interesado, quiero dejar mis datos de contacto para recibir información adicional, para iniciar una posible relación con el servicio.                                                      | 3                                |
-| 7       | US-LP.7       | Conocer quién está detrás del servicio                               | Como Visitante, quiero saber quién desarrolla el servicio y con qué propósito, para valorar la seriedad de la iniciativa antes de confiar en la plataforma.                                               | 1                                |
-| 8       | US-LP.8       | Resolver dudas frecuentes antes de adoptar el servicio               | Como Visitante, quiero acceder a respuestas claras sobre las dudas más comunes, para tomar una decisión informada sin necesidad de solicitar contacto.                                                    | 2                                |
-| 9       | US-DRV.1      | Identificar estacionamientos cercanos a su ubicación                 | Como Conductor, quiero conocer los estacionamientos disponibles cerca de donde estoy, para tomar una decisión rápida sin recorrer la zona buscando alternativas.                                          | 5                                |
-| 10      | US-DRV.2      | Buscar estacionamientos cerca de un destino específico               | Como Conductor, quiero buscar estacionamientos alrededor de un destino indicado, para planificar con anticipación dónde dejar mi vehículo antes de llegar.                                                | 5                                |
-| 11      | US-DRV.3      | Consultar información relevante de un estacionamiento                | Como Conductor, quiero revisar los datos principales de un estacionamiento, para decidir con mayor criterio si me conviene acercarme a ese lugar.                                                         | 2                                |
-| 12      | US-DRV.7      | Consultar información básica del estacionamiento                     | Como Conductor, quiero conocer información básica como horario o condiciones del estacionamiento, para evitar sorpresas al llegar y ahorrar tiempo.                                                       | 2                                |
-| 13      | US-DRV.4      | Consultar disponibilidad por espacio en un estacionamiento afiliado  | Como Conductor, quiero conocer cuántos espacios están disponibles en un estacionamiento afiliado, para decidir con confianza si me conviene desplazarme a ese lugar.                                      | 3                                |
-| 14      | US-DRV.5      | Distinguir estacionamientos con disponibilidad verificada            | Como Conductor, quiero diferenciar los estacionamientos con disponibilidad verificada por IoT de los que son solo referencia, para priorizar opciones que me dan mayor certeza antes de llegar.           | 3                                |
-| 15      | US-DRV.6      | Filtrar resultados por estacionamientos con disponibilidad           | Como Conductor, quiero acotar los resultados a estacionamientos con espacios disponibles, para reducir opciones poco útiles cuando necesito decidir con rapidez.                                          | 2                                |
-| 16      | US-DRV.8      | Reconocer si un estacionamiento está sin conexión                    | Como Conductor, quiero saber cuándo la disponibilidad no se está actualizando en tiempo real, para ajustar mis expectativas y decidir con información más realista.                                       | 3                                |
-| 17      | US-DRV.9      | Reservar un espacio disponible anticipadamente                       | Como Conductor, quiero reservar un espacio libre antes de llegar al estacionamiento, para asegurar mi llegada sin depender de la disponibilidad del momento.                                              | 5                                |
-| 18      | US-DRV.10     | Recibir confirmación inmediata de la reserva                         | Como Conductor, quiero obtener una confirmación clara cuando mi reserva es aceptada, para tener certeza del compromiso del espacio antes de desplazarme.                                                  | 3                                |
-| 19      | US-DRV.11     | Obtener un ticket virtual de la reserva                              | Como Conductor, quiero contar con un ticket virtual asociado a mi reserva, para acreditar al llegar al estacionamiento que el espacio me fue asignado.                                                    | 3                                |
-| 20      | US-DRV.12     | Consultar el identificador único de su reserva                       | Como Conductor, quiero identificar de forma única mi reserva, para poder referirme a ella con claridad al llegar al estacionamiento.                                                                      | 1                                |
-| 21      | US-DRV.13     | Conocer el tiempo límite para consumir su reserva                    | Como Conductor, quiero saber hasta cuándo es válida mi reserva, para organizarme y llegar a tiempo sin perder el espacio comprometido.                                                                    | 2                                |
-| 22      | US-DRV.14     | Expirar automáticamente la reserva si no se consume a tiempo         | Como Conductor, quiero que el sistema libere el espacio si no llego dentro del tiempo acordado, para que el funcionamiento sea justo y el espacio pueda ofrecerse a otros conductores.                    | 5                                |
-| 23      | US-DRV.15     | Cancelar una reserva antes de utilizarla                             | Como Conductor, quiero cancelar mi reserva cuando mis planes cambien, para liberar el espacio a tiempo y no comprometerme innecesariamente.                                                               | 3                                |
-| 24      | US-DRV.16     | Reconocer que su reserva fue consumida al ocupar el espacio          | Como Conductor, quiero saber que mi reserva se marcó como consumida cuando ocupo el espacio, para confirmar que mi llegada fue reconocida correctamente por el sistema.                                   | 3                                |
-| 25      | US-DRV.17     | Consultar el estado actualizado de su reserva                        | Como Conductor, quiero conocer el estado actual de mi reserva activa, para tener certeza durante mi trayecto de que el espacio continúa asignado a mí.                                                    | 3                                |
-| 26      | US-DRV.18     | Acceder al historial de reservas realizadas                          | Como Conductor, quiero revisar las reservas que he realizado previamente, para tener referencia de los estacionamientos que ya he utilizado.                                                              | 2                                |
-| 27      | US-DRV.19     | Revisar el detalle de una reserva pasada                             | Como Conductor, quiero consultar los datos específicos de una reserva anterior, para recordar en qué estacionamiento estuve y bajo qué condiciones usé el servicio.                                       | 2                                |
-| 28      | US-DRV.20     | Identificar rápidamente sus reservas activas                         | Como Conductor, quiero reconocer cuáles de mis reservas están activas, para saber si actualmente tengo un espacio comprometido sin revisar cada registro.                                                 | 2                                |
-| 29      | US-DRV.21     | Comprender el motivo de cierre de una reserva                        | Como Conductor, quiero saber por qué una reserva finalizó, para entender lo ocurrido sin solicitar información al administrador.                                                                          | 2                                |
-| 30      | US-DRV.22     | Ser informado cuando el espacio reservado pierde sincronización      | Como Conductor, quiero enterarme si el espacio que reservé deja de reportar su estado, para ajustar mis expectativas antes de llegar al estacionamiento.                                                  | 3                                |
-| 31      | US-OWN.1      | Registrar su estacionamiento en la plataforma                        | Como Administrador, quiero dar de alta mi estacionamiento dentro del servicio, para comenzar a gestionar mi operación desde el panel web.                                                                 | 3                                |
-| 32      | US-OWN.2      | Registrar la ubicación del estacionamiento                           | Como Administrador, quiero registrar la ubicación precisa de mi estacionamiento, para que los conductores puedan encontrarlo correctamente en la plataforma.                                              | 2                                |
-| 33      | US-OWN.3      | Registrar los espacios del estacionamiento                           | Como Administrador, quiero configurar los espacios disponibles de mi estacionamiento, para que el sistema los reconozca y pueda monitorearlos individualmente.                                            | 3                                |
-| 34      | US-OWN.4      | Asignar un identificador claro a cada espacio                        | Como Administrador, quiero asociar un identificador reconocible a cada espacio, para diferenciar fácilmente los espacios al operar y revisar su estado.                                                   | 2                                |
-| 35      | US-OWN.5      | Actualizar información del estacionamiento                           | Como Administrador, quiero modificar los datos de mi estacionamiento cuando sea necesario, para mantener actualizada la información que consultan los conductores.                                        | 2                                |
-| 36      | US-OWN.6      | Desactivar temporalmente un espacio                                  | Como Administrador, quiero marcar un espacio como no disponible temporalmente, para gestionar correctamente situaciones como mantenimiento sin eliminar su configuración.                                 | 2                                |
-| 37      | US-OWN.7      | Asociar el nodo IoT a su estacionamiento                             | Como Administrador, quiero vincular el nodo IoT físico a mi estacionamiento, para que los eventos detectados por sus sensores se reflejen correctamente en los espacios.                                  | 3                                |
-| 38      | US-OWN.8      | Conocer el estado actual de cada espacio                             | Como Administrador, quiero conocer en qué estado se encuentra cada espacio de mi estacionamiento, para gestionar la operación sin depender de revisión presencial constante.                              | 3                                |
-| 39      | US-OWN.9      | Monitorear las reservas activas del estacionamiento                  | Como Administrador, quiero saber qué reservas están vigentes en mi local, para anticipar la llegada de conductores y ordenar la operación.                                                                | 3                                |
-| 40      | US-OWN.10     | Consultar el historial de reservas del estacionamiento               | Como Administrador, quiero revisar las reservas que han ocurrido en mi local, para tener trazabilidad del uso del servicio sin depender de registros manuales.                                            | 2                                |
-| 41      | US-OWN.11     | Revisar eventos IoT generados por el nodo                            | Como Administrador, quiero acceder a los eventos generados por el nodo IoT, para contar con trazabilidad operativa de lo que ocurre con los espacios de mi local.                                         | 3                                |
-| 42      | US-OWN.12     | Conocer el estado de conexión del nodo IoT                           | Como Administrador, quiero saber si el nodo IoT de mi estacionamiento está reportando normalmente, para reaccionar oportunamente ante incidentes operativos.                                              | 2                                |
-| 43      | US-OWN.13     | Enterarse de cambios relevantes sin revisión manual permanente       | Como Administrador, quiero enterarme de cambios importantes sin estar revisando el panel todo el tiempo, para reducir la carga operativa y reaccionar solo cuando sea necesario.                          | 3                                |
-| 44      | US-OWN.14     | Apoyar la supervisión con una vista simple de cámara local           | Como Administrador, quiero contar con una vista visual simple del estacionamiento, para complementar la información de ocupación cuando necesite confirmar lo que ocurre.                                 | 5                                |
-| 45      | US-OWN.15     | Comprender discrepancias entre el estado lógico y el físico          | Como Administrador, quiero entender qué sucede cuando un espacio reservado aparece como ocupado físicamente antes de tiempo, para reaccionar con criterio frente a estas situaciones.                     | 3                                |
-| 46      | TS-API.1      | Servicio de consulta de estacionamientos y espacios                  | Como Developer, quiero contar con un servicio que exponga la información de estacionamientos y sus espacios, para que los clientes web y móvil puedan presentarla de manera uniforme.                     | 5                                |
-| 47      | TS-API.2      | Servicio de gestión de reservas                                      | Como Developer, quiero disponer de un servicio que gestione el ciclo de vida de las reservas, para mantener integridad operativa entre la aplicación móvil, el panel web y la información IoT.            | 8                                |
-| 48      | TS-API.3      | Servicio de gestión de estacionamientos por el administrador         | Como Developer, quiero contar con un servicio que permita al administrador gestionar su estacionamiento y sus espacios, para que las operaciones de alta y actualización se realicen de forma controlada. | 5                                |
-| 49      | TS-API.5      | Validación consistente de solicitudes entrantes                      | Como Developer, quiero validar de forma consistente las solicitudes del backend, para rechazar datos inválidos antes de afectar el dominio del sistema.                                                   | 3                                |
-| 50      | TS-API.6      | Manejo uniforme de errores del backend                               | Como Developer, quiero que el backend maneje los errores de manera uniforme, para que los clientes puedan interpretarlos y presentarlos de forma consistente.                                             | 2                                |
-| 51      | TS-API.7      | Servicio de consulta de historial de reservas                        | Como Developer, quiero exponer un servicio de consulta de historial de reservas, para que el conductor y el administrador accedan a su información histórica de forma ordenada.                           | 3                                |
-| 52      | TS-IOT.1      | Ingesta de eventos IoT del nodo                                      | Como Developer, quiero que la IoT API reciba de forma controlada los eventos enviados por el nodo físico, para reflejar de manera confiable los cambios detectados en los espacios.                       | 5                                |
-| 53      | TS-IOT.4      | Aplicación de la regla de precedencia de estados                     | Como Developer, quiero aplicar la regla de precedencia que prioriza el estado físico sobre el lógico, para que el estado visible del espacio refleje coherentemente la realidad del estacionamiento.      | 5                                |
-| 54      | TS-IOT.6      | Exposición del estado consolidado por espacio                        | Como Developer, quiero exponer un estado consolidado por espacio, para que los clientes presenten información coherente sin calcular la regla de precedencia por su cuenta.                               | 5                                |
-| 55      | TS-IOT.7      | Comportamiento ante desconexión del nodo                             | Como Developer, quiero que el sistema maneje de forma predecible la desconexión del nodo, para preservar coherencia en la experiencia del usuario ante fallas de conectividad.                            | 3                                |
-| 56      | TS-IOT.3      | Registro de heartbeat del nodo IoT                                   | Como Developer, quiero registrar el pulso de vida del nodo IoT, para saber si el nodo continúa operando y reportando al sistema.                                                                          | 2                                |
-| 57      | TS-IOT.5      | Persistencia del historial de eventos IoT                            | Como Developer, quiero que los eventos IoT queden registrados en el historial del sistema, para habilitar trazabilidad y validaciones posteriores.                                                        | 3                                |
-| 58      | TS-CLD.1      | Propagación en tiempo real de cambios de estado                      | Como Developer, quiero que los cambios de estado se propaguen en tiempo real a los clientes conectados, para preservar coherencia en la experiencia de conductores y administradores.                     | 5                                |
-| 59      | TS-CLD.2      | Sincronización consistente entre Core API e IoT API                  | Como Developer, quiero que la Core API y la IoT API mantengan información consistente entre sí, para que los clientes observen un estado único y coherente del sistema.                                   | 5                                |
-| 60      | TS-CLD.5      | Mantenimiento del último estado conocido                             | Como Developer, quiero que el sistema conserve el último estado conocido por espacio, para garantizar que los clientes reciban información coherente ante pérdidas de conexión.                           | 3                                |
-| 61      | TS-CLD.7      | Tolerancia a fallas puntuales de conectividad                        | Como Developer, quiero que el sistema tolere fallas puntuales de conectividad entre componentes, para evitar que un incidente aislado degrade toda la experiencia del usuario.                            | 3                                |
-| 62      | TS-CLD.6      | Observabilidad básica de los servicios                               | Como Developer, quiero contar con observabilidad básica sobre los servicios, para identificar tempranamente problemas operativos sin afectar a los usuarios.                                              | 2                                |
-| 63      | TS-CLD.4      | Configuración de servicios por entorno                               | Como Developer, quiero manejar configuración diferenciada por entorno, para separar operación de desarrollo y pruebas de la operación principal.                                                          | 2                                |
-| 64      | TS-CLD.3      | Despliegue controlado de los servicios                               | Como Developer, quiero contar con un mecanismo controlado de despliegue de los servicios, para publicar actualizaciones de forma segura y reversible.                                                     | 3                                |
-| 65      | TS-WEB.1      | Estructura base del panel del administrador                          | Como Developer, quiero contar con una estructura base del panel web, para organizar coherentemente las vistas destinadas al administrador.                                                                | 2                                |
-| 66      | TS-WEB.2      | Consumo consistente de servicios del backend                         | Como Developer, quiero que el cliente web consuma los servicios del backend de forma consistente, para simplificar el mantenimiento y reducir inconsistencias en la experiencia.                          | 3                                |
-| 67      | TS-WEB.3      | Actualización automática de vistas operativas                        | Como Developer, quiero que las vistas operativas se actualicen automáticamente ante cambios relevantes, para que el administrador no deba refrescar manualmente para ver novedades.                       | 3                                |
-| 68      | TS-WEB.4      | Manejo de estados de carga y error                                   | Como Developer, quiero que el cliente web maneje explícitamente los estados de carga y error, para que el administrador comprenda qué ocurre con la información mostrada.                                 | 2                                |
-| 69      | TS-MOB.1      | Estructura base de navegación de la app móvil                        | Como Developer, quiero contar con una estructura base de navegación en la app móvil, para organizar coherentemente las experiencias del conductor.                                                        | 2                                |
-| 70      | TS-MOB.2      | Consumo consistente de servicios del backend desde la app            | Como Developer, quiero que la app móvil consuma los servicios del backend de forma consistente, para ofrecer una experiencia predecible al conductor.                                                     | 3                                |
-| 71      | TS-MOB.3      | Actualización automática del estado de reservas activas              | Como Developer, quiero que la app móvil refleje automáticamente cambios en el estado de la reserva del conductor, para que el usuario reciba información coherente sin acción manual.                     | 3                                |
-| 72      | TS-MOB.4      | Manejo de estados de carga y error en la app móvil                   | Como Developer, quiero que la app exprese con claridad los estados de carga y error, para que el conductor comprenda qué ocurre con la información solicitada.                                            | 2                                |
-| 73      | TS-MOB.5      | Gestión del permiso de ubicación                                     | Como Developer, quiero gestionar correctamente el permiso de ubicación del dispositivo, para habilitar funcionalidades dependientes sin degradar la experiencia cuando el permiso no está concedido.      | 2                                |
-| 74      | TS-EXT.1      | Integración con OpenStreetMap como referencia                        | Como Developer, quiero integrar información de OpenStreetMap para poblar el mapa inicial, para ofrecer utilidad al conductor desde el primer uso.                                                         | 3                                |
-| 75      | TS-EXT.2      | Diferenciar afiliados de referencias externas                        | Como Developer, quiero diferenciar técnicamente estacionamientos afiliados de los externos de referencia, para garantizar que los clientes traten cada caso de forma adecuada.                            | 2                                |
-| 76      | TS-EXT.5      | Normalización de datos externos                                      | Como Developer, quiero normalizar los datos obtenidos desde fuentes externas, para integrarlos de forma coherente con el modelo interno del sistema.                                                      | 2                                |
-| 77      | TS-EXT.4      | Caché básica de información externa                                  | Como Developer, quiero reutilizar información obtenida recientemente de integraciones externas, para reducir consultas innecesarias y mejorar el tiempo de respuesta.                                     | 2                                |
-| 78      | TS-EXT.3      | Manejo de errores de integraciones externas                          | Como Developer, quiero manejar adecuadamente los errores de integraciones externas, para que la experiencia del usuario no se degrade ante fallas ajenas al sistema central.                              | 2                                |
-| 79      | TS-EMB.1      | Lectura periódica del estado del sensor                              | Como Developer, quiero que el firmware del ESP32 lea periódicamente el estado del sensor asociado a cada espacio, para detectar de forma confiable los cambios de ocupación.                              | 3                                |
-| 80      | TS-EMB.2      | Lógica local de estabilización del estado detectado                  | Como Developer, quiero que el firmware aplique una lógica de estabilización antes de considerar un cambio de estado, para reducir falsos positivos por lecturas transitorias.                             | 5                                |
-| 81      | TS-EMB.3      | Envío de eventos del nodo al backend                                 | Como Developer, quiero que el nodo envíe eventos confiables al backend cuando detecte cambios relevantes, para mantener sincronizada la información del espacio.                                          | 5                                |
-| 82      | TS-EMB.4      | Emisión de heartbeat del nodo                                        | Como Developer, quiero que el nodo emita heartbeat periódico al backend, para permitir detectar oportunamente pérdidas de conexión del dispositivo.                                                       | 2                                |
-| 83      | TS-EMB.5      | Actuación local mediante indicadores visuales                        | Como Developer, quiero que el nodo active indicadores físicos locales alineados con el estado del espacio, para ofrecer referencia operativa visible dentro del estacionamiento.                          | 2                                |
-| 84      | TS-EMB.6      | Reconexión automática de red                                         | Como Developer, quiero que el nodo gestione automáticamente la reconexión cuando pierda red, para reducir la intervención manual sobre el dispositivo.                                                    | 3                                |
-| 85      | TS-EMB.7      | Configuración inicial del nodo                                       | Como Developer, quiero que el nodo admita una configuración inicial controlada, para asociarse correctamente a un estacionamiento sin cambios complejos en campo.                                         | 2                                |
-| 86      | MS-01         | Construir la maqueta física del estacionamiento                      | Como Maker, quiero construir una maqueta física con espacios de estacionamiento definidos, para representar de forma tangible el escenario de validación del prototipo IoT.                               | 3                                |
-| 87      | MS-02         | Instalar sensores ultrasónicos en la maqueta                         | Como Maker, quiero instalar sensores ultrasónicos en los espacios de la maqueta, para detectar físicamente la ocupación de cada espacio durante la demostración.                                          | 5                                |
-| 88      | MS-03         | Integrar indicadores visuales locales                                | Como Maker, quiero integrar indicadores visuales en la maqueta, para representar localmente el estado de cada espacio durante la demostración.                                                            | 3                                |
-| 89      | MS-04         | Ordenar cableado y alimentación del prototipo                        | Como Maker, quiero ordenar el cableado y la alimentación del prototipo, para reducir fallas físicas durante la demostración y facilitar su mantenimiento.                                                 | 2                                |
-| 90      | MS-05         | Documentar evidencia física del prototipo IoT                        | Como Maker, quiero documentar la maqueta y sus componentes físicos, para sustentar la implementación del prototipo dentro del informe y la exposición final.                                              | 2                                |
-| 91      | TS-EDG.1      | Procesamiento edge del estado del espacio                            | Como Developer, quiero que el nodo procese localmente el estado del espacio antes de enviarlo al backend, para reducir eventos innecesarios y mejorar la calidad de la información reportada.             | 3                                |
-| 92      | TS-EDG.2      | Persistencia temporal local en el nodo                               | Como Developer, quiero que el nodo guarde localmente sus eventos cuando el backend no esté disponible, para evitar perder información durante una caída momentánea de conexión.                           | 5                                |
-| 93      | TS-EDG.3      | Reenvío de eventos almacenados tras reconexión                       | Como Developer, quiero que el nodo reenvíe los eventos guardados cuando recupera conexión, para mantener la trazabilidad del historial sin intervención manual.                                           | 5                                |
-| 94      | TS-EDG.4      | Orden de envío de eventos pendientes                                 | Como Developer, quiero que el nodo envíe sus eventos pendientes en el orden en que fueron generados, para que el historial del sistema mantenga coherencia cronológica.                                   | 2                                |
-| 95      | TS-EDG.5      | Evitar duplicados en el reenvío                                      | Como Developer, quiero que el nodo no reenvíe eventos ya confirmados por el backend, para que el historial no contenga cambios ficticios.                                                                 | 3                                |
-| 96      | TS-EDG.6      | Sincronización tras recuperación de conexión                         | Como Developer, quiero que el nodo sincronice su estado con el backend al recuperar conexión, para restaurar una visión coherente del espacio en el sistema.                                              | 3                                |
-| 97      | TS-TST.1      | Pruebas unitarias de servicios del backend                           | Como Developer, quiero contar con pruebas unitarias de los servicios del backend, para asegurar el comportamiento esperado de la lógica central de forma aislada.                                         | 3                                |
-| 98      | TS-TST.2      | Pruebas de integración entre Core API e IoT API                      | Como Developer, quiero validar la integración entre la Core API y la IoT API, para asegurar que el estado del sistema se mantenga coherente al atravesar ambos servicios.                                 | 5                                |
-| 99      | TS-TST.3      | Validación de la regla de precedencia de estados                     | Como Developer, quiero validar la regla de precedencia del estado del espacio, para garantizar que la ocupación física prevalece sobre la reserva cuando ambas coexisten.                                 | 3                                |
-| 100     | TS-TST.4      | Validación de sincronización en tiempo real                          | Como Developer, quiero validar que los cambios se propagan a los clientes en tiempo real, para asegurar coherencia en la experiencia del usuario ante actualizaciones del sistema.                        | 5                                |
-| 101     | TS-TST.5      | Validación del comportamiento ante desconexión del nodo              | Como Developer, quiero validar cómo se comporta el sistema ante desconexión del nodo IoT, para asegurar que los usuarios reciben información coherente en ese escenario.                                  | 3                                |
-| 102     | TS-TST.6      | Validación del reenvío de eventos almacenados                        | Como Developer, quiero validar que el nodo reenvía correctamente los eventos almacenados al recuperar conexión, para asegurar integridad del historial operativo.                                         | 3                                |
-| 103     | TS-TST.7      | Validación end-to-end del flujo principal                            | Como Developer, quiero validar de extremo a extremo el flujo central del sistema, para asegurar coherencia en la experiencia completa del conductor.                                                      | 8                                |
-| 104     | TS-TST.8      | Validación de consistencia entre estado físico, lógico y mostrado    | Como Developer, quiero validar que el estado físico, el lógico y el mostrado son coherentes entre sí, para asegurar la confiabilidad de la información en toda la plataforma.                             | 5                                |
-| 105     | TS-TST.10     | Validación del ciclo de vida de la reserva y ticket virtual          | Como Developer, quiero validar el flujo del ticket virtual y la expiración automática de reservas, para garantizar el correcto ciclo de vida de las reservas.                                             | 3                                |
-| 106     | SP-01         | Investigación sobre confiabilidad del sensor ultrasónico             | Como Developer, quiero investigar la confiabilidad del sensor ultrasónico para la detección de ocupación, para decidir con base en evidencia cómo aplicarlo dentro del nodo IoT del proyecto.             | 3                                |
-| 107     | SP-02         | Investigación sobre estrategia de reconexión del nodo                | Como Developer, quiero investigar distintas estrategias de reconexión del nodo ante caídas de conectividad, para elegir la opción más robusta dentro del contexto del proyecto.                           | 3                                |
-| 108     | SP-03         | Investigación sobre viabilidad de cámara local                       | Como Developer, quiero investigar la viabilidad de una vista simple de cámara local para el administrador, para determinar si es realista incorporarla dentro del alcance del proyecto.                   | 5                                |
-| 109     | SP-04         | Investigación sobre persistencia local en el ESP32                   | Como Developer, quiero investigar alternativas de persistencia local temporal en el nodo, para definir cómo conservar eventos ante interrupciones de conectividad.                                        | 3                                |
-| 110     | SP-05         | Investigación sobre comportamiento realtime entre clientes y backend | Como Developer, quiero investigar el comportamiento en tiempo real entre clientes y backend en escenarios representativos, para anticipar riesgos de consistencia y preparar ajustes oportunos.           | 5                                |
-| 111     | US-WEB.1      | Registrarse como administrador en el panel web                       | Como Administrador, quiero crear mi cuenta en el panel web, para acceder a las funcionalidades de gestión de mi estacionamiento.                                                                          | 3                                |
-| 112     | US-MOB.1      | Registrarse como conductor en la app móvil                           | Como Conductor, quiero crear mi cuenta desde la aplicación móvil, para acceder a las funcionalidades de búsqueda y reserva.                                                                               | 3                                |
-| 113     | US-WEB.2      | Iniciar sesión en el panel web                                       | Como Administrador, quiero autenticarme en el panel web con mis credenciales, para acceder a la información y funcionalidades asociadas a mi estacionamiento.                                             | 2                                |
-| 114     | US-MOB.2      | Iniciar sesión en la aplicación móvil                                | Como Conductor, quiero autenticarme rápidamente en la aplicación, para reservar un espacio con la menor fricción posible.                                                                                 | 2                                |
-| 115     | US-WEB.4      | Recuperar acceso ante olvido de credenciales                         | Como Administrador, quiero recuperar el acceso a mi cuenta si olvido mis credenciales, para no perder la gestión de mi estacionamiento cuando no recuerdo mi contraseña.                                  | 2                                |
-| 116     | US-MOB.4      | Mantener su sesión activa entre usos normales                        | Como Conductor, quiero que mi sesión se conserve entre usos regulares de la aplicación, para no tener que autenticarme constantemente al abrir la app.                                                    | 2                                |
-| 117     | US-WEB.3      | Cerrar sesión de forma segura                                        | Como Administrador, quiero cerrar mi sesión cuando lo decida, para evitar que otras personas accedan a mi información desde el mismo equipo.                                                              | 1                                |
-| 118     | US-MOB.3      | Cerrar sesión desde la aplicación móvil                              | Como Conductor, quiero cerrar mi sesión desde mi dispositivo, para evitar que terceros usen mi cuenta si comparto el equipo o lo pierdo.                                                                  | 1                                |
-| 119     | US-WEB.5      | Administrar información básica de perfil                             | Como Administrador, quiero mantener actualizada la información básica de mi cuenta, para que la plataforma refleje datos vigentes de contacto.                                                            | 1                                |
-| 120     | US-MOB.5      | Actualizar información básica de su perfil desde la app              | Como Conductor, quiero mantener al día mi información básica desde la aplicación, para que mis datos en la plataforma sigan siendo útiles y actualizados.                                                 | 1                                |
-| 121     | TS-API.4      | Servicio de autenticación de usuarios                                | Como Developer, quiero contar con un servicio de autenticación consistente, para que los clientes web y móvil verifiquen identidad bajo reglas uniformes.                                                 | 3                                |
-| 122     | TS-API.8      | Control de acceso por roles                                          | Como Developer, quiero que el backend aplique control de acceso según el rol del usuario, para proteger funcionalidades sensibles de operaciones no autorizadas.                                          | 3                                |
-| 123     | TS-IOT.2      | Validación de origen del evento IoT                                  | Como Developer, quiero verificar que los eventos IoT provienen de un nodo autorizado, para impedir que datos externos afecten el estado real del sistema.                                                 | 3                                |
-| 124     | TS-WEB.5      | Protección del acceso a información sensible                         | Como Developer, quiero que el cliente web proteja la información sensible del administrador, para evitar que se exponga a usuarios no autorizados en el mismo dispositivo.                                | 2                                |
-| 125     | TS-TST.9      | Validación de autenticación y autorización                           | Como Developer, quiero validar los mecanismos de autenticación y autorización, para asegurar que el acceso a recursos sensibles esté correctamente controlado.                                            | 3                                |
+| # Orden | User Story Id | Título | Descripción | Story Points (1 / 2 / 3 / 5 / 8) |
+|---|---|---|---|---|
+| 1 | US-LP.1 | Comprender la propuesta de valor del servicio | Como Visitante, quiero entender rápidamente qué ofrece ParkingNow, para decidir si el servicio se ajusta a mis necesidades de estacionamiento. | 2 |
+| 2 | US-LP.2 | Conocer beneficios del servicio como conductor | Como Visitante interesado como conductor, quiero conocer los beneficios específicos para mi perfil, para evaluar si vale la pena instalar la aplicación móvil. | 2 |
+| 3 | US-LP.3 | Conocer beneficios del servicio como administrador | Como Visitante interesado en afiliar su estacionamiento, quiero conocer los beneficios para administradores, para evaluar si el servicio responde a las necesidades operativas de mi negocio. | 2 |
+| 4 | US-LP.4 | Entender cómo funciona el servicio de forma simple | Como Visitante, quiero comprender de manera sencilla cómo funciona el servicio, para reducir la incertidumbre antes de tomar una decisión. | 3 |
+| 5 | US-LP.5 | Percibir confianza y credibilidad del servicio | Como Visitante, quiero identificar señales de confianza sobre el servicio, para sentirme más seguro antes de compartir datos o afiliar mi negocio. | 2 |
+| 6 | US-LP.6 | Registrar interés mediante formulario de contacto | Como Visitante interesado, quiero dejar mis datos de contacto para recibir información adicional, para iniciar una posible relación con el servicio. | 3 |
+| 7 | US-LP.7 | Conocer quién está detrás del servicio | Como Visitante, quiero saber quién desarrolla el servicio y con qué propósito, para valorar la seriedad de la iniciativa antes de confiar en la plataforma. | 1 |
+| 8 | US-LP.8 | Resolver dudas frecuentes antes de adoptar el servicio | Como Visitante, quiero acceder a respuestas claras sobre las dudas más comunes, para tomar una decisión informada sin necesidad de solicitar contacto. | 2 |
+| 9 | US-DRV.1 | Identificar estacionamientos cercanos a su ubicación | Como Conductor, quiero conocer los estacionamientos disponibles cerca de donde estoy, para tomar una decisión rápida sin recorrer la zona buscando alternativas. | 5 |
+| 10 | US-DRV.2 | Buscar estacionamientos cerca de un destino específico | Como Conductor, quiero buscar estacionamientos alrededor de un destino indicado, para planificar con anticipación dónde dejar mi vehículo antes de llegar. | 5 |
+| 11 | US-DRV.3 | Consultar información relevante de un estacionamiento | Como Conductor, quiero revisar los datos principales de un estacionamiento, para decidir con mayor criterio si me conviene acercarme a ese lugar. | 2 |
+| 12 | US-DRV.7 | Consultar información básica del estacionamiento | Como Conductor, quiero conocer información básica como horario o condiciones del estacionamiento, para evitar sorpresas al llegar y ahorrar tiempo. | 2 |
+| 13 | US-DRV.4 | Consultar disponibilidad por espacio en un estacionamiento afiliado | Como Conductor, quiero conocer cuántos espacios están disponibles en un estacionamiento afiliado, para decidir con confianza si me conviene desplazarme a ese lugar. | 3 |
+| 14 | US-DRV.5 | Distinguir estacionamientos con disponibilidad verificada | Como Conductor, quiero diferenciar los estacionamientos con disponibilidad verificada por IoT de los que son solo referencia, para priorizar opciones que me dan mayor certeza antes de llegar. | 3 |
+| 15 | US-DRV.6 | Filtrar resultados por estacionamientos con disponibilidad | Como Conductor, quiero acotar los resultados a estacionamientos con espacios disponibles, para reducir opciones poco útiles cuando necesito decidir con rapidez. | 2 |
+| 16 | US-DRV.8 | Reconocer si un estacionamiento está sin conexión | Como Conductor, quiero saber cuándo la disponibilidad no se está actualizando en tiempo real, para ajustar mis expectativas y decidir con información más realista. | 3 |
+| 17 | US-DRV.9 | Reservar un espacio disponible anticipadamente | Como Conductor, quiero reservar un espacio libre antes de llegar al estacionamiento, para asegurar mi llegada sin depender de la disponibilidad del momento. | 5 |
+| 18 | US-DRV.10 | Recibir confirmación inmediata de la reserva | Como Conductor, quiero obtener una confirmación clara cuando mi reserva es aceptada, para tener certeza del compromiso del espacio antes de desplazarme. | 3 |
+| 19 | US-DRV.11 | Obtener un ticket virtual de la reserva | Como Conductor, quiero contar con un ticket virtual asociado a mi reserva, para acreditar al llegar al estacionamiento que el espacio me fue asignado. | 3 |
+| 20 | US-DRV.12 | Consultar el identificador único de su reserva | Como Conductor, quiero identificar de forma única mi reserva, para poder referirme a ella con claridad al llegar al estacionamiento. | 1 |
+| 21 | US-DRV.13 | Conocer el tiempo límite para consumir su reserva | Como Conductor, quiero saber hasta cuándo es válida mi reserva, para organizarme y llegar a tiempo sin perder el espacio comprometido. | 2 |
+| 22 | US-DRV.14 | Expirar automáticamente la reserva si no se consume a tiempo | Como Conductor, quiero que el sistema libere el espacio si no llego dentro del tiempo acordado, para que el funcionamiento sea justo y el espacio pueda ofrecerse a otros conductores. | 5 |
+| 23 | US-DRV.15 | Cancelar una reserva antes de utilizarla | Como Conductor, quiero cancelar mi reserva cuando mis planes cambien, para liberar el espacio a tiempo y no comprometerme innecesariamente. | 3 |
+| 24 | US-DRV.16 | Reconocer que su reserva fue consumida al ocupar el espacio | Como Conductor, quiero saber que mi reserva se marcó como consumida cuando ocupo el espacio, para confirmar que mi llegada fue reconocida correctamente por el sistema. | 3 |
+| 25 | US-DRV.17 | Consultar el estado actualizado de su reserva | Como Conductor, quiero conocer el estado actual de mi reserva activa, para tener certeza durante mi trayecto de que el espacio continúa asignado a mí. | 3 |
+| 26 | US-DRV.18 | Acceder al historial de reservas realizadas | Como Conductor, quiero revisar las reservas que he realizado previamente, para tener referencia de los estacionamientos que ya he utilizado. | 2 |
+| 27 | US-DRV.19 | Revisar el detalle de una reserva pasada | Como Conductor, quiero consultar los datos específicos de una reserva anterior, para recordar en qué estacionamiento estuve y bajo qué condiciones usé el servicio. | 2 |
+| 28 | US-DRV.20 | Identificar rápidamente sus reservas activas | Como Conductor, quiero reconocer cuáles de mis reservas están activas, para saber si actualmente tengo un espacio comprometido sin revisar cada registro. | 2 |
+| 29 | US-DRV.21 | Comprender el motivo de cierre de una reserva | Como Conductor, quiero saber por qué una reserva finalizó, para entender lo ocurrido sin solicitar información al administrador. | 2 |
+| 30 | US-DRV.22 | Ser informado cuando el espacio reservado pierde sincronización | Como Conductor, quiero enterarme si el espacio que reservé deja de reportar su estado, para ajustar mis expectativas antes de llegar al estacionamiento. | 3 |
+| 31 | US-OWN.1 | Registrar su estacionamiento en la plataforma | Como Administrador, quiero dar de alta mi estacionamiento dentro del servicio, para comenzar a gestionar mi operación desde el panel web. | 3 |
+| 32 | US-OWN.2 | Registrar la ubicación del estacionamiento | Como Administrador, quiero registrar la ubicación precisa de mi estacionamiento, para que los conductores puedan encontrarlo correctamente en la plataforma. | 2 |
+| 33 | US-OWN.3 | Registrar los espacios del estacionamiento | Como Administrador, quiero configurar los espacios disponibles de mi estacionamiento, para que el sistema los reconozca y pueda monitorearlos individualmente. | 3 |
+| 34 | US-OWN.4 | Asignar un identificador claro a cada espacio | Como Administrador, quiero asociar un identificador reconocible a cada espacio, para diferenciar fácilmente los espacios al operar y revisar su estado. | 2 |
+| 35 | US-OWN.5 | Actualizar información del estacionamiento | Como Administrador, quiero modificar los datos de mi estacionamiento cuando sea necesario, para mantener actualizada la información que consultan los conductores. | 2 |
+| 36 | US-OWN.6 | Desactivar temporalmente un espacio | Como Administrador, quiero marcar un espacio como no disponible temporalmente, para gestionar correctamente situaciones como mantenimiento sin eliminar su configuración. | 2 |
+| 37 | US-OWN.7 | Asociar el nodo IoT a su estacionamiento | Como Administrador, quiero vincular el nodo IoT físico a mi estacionamiento, para que los eventos detectados por sus sensores se reflejen correctamente en los espacios. | 3 |
+| 38 | US-OWN.8 | Conocer el estado actual de cada espacio | Como Administrador, quiero conocer en qué estado se encuentra cada espacio de mi estacionamiento, para gestionar la operación sin depender de revisión presencial constante. | 3 |
+| 39 | US-OWN.9 | Monitorear las reservas activas del estacionamiento | Como Administrador, quiero saber qué reservas están vigentes en mi local, para anticipar la llegada de conductores y ordenar la operación. | 3 |
+| 40 | US-OWN.10 | Consultar el historial de reservas del estacionamiento | Como Administrador, quiero revisar las reservas que han ocurrido en mi local, para tener trazabilidad del uso del servicio sin depender de registros manuales. | 2 |
+| 41 | US-OWN.11 | Revisar eventos IoT generados por el nodo | Como Administrador, quiero acceder a los eventos generados por el nodo IoT, para contar con trazabilidad operativa de lo que ocurre con los espacios de mi local. | 3 |
+| 42 | US-OWN.12 | Conocer el estado de conexión del nodo IoT | Como Administrador, quiero saber si el nodo IoT de mi estacionamiento está reportando normalmente, para reaccionar oportunamente ante incidentes operativos. | 2 |
+| 43 | US-OWN.13 | Enterarse de cambios relevantes sin revisión manual permanente | Como Administrador, quiero enterarme de cambios importantes sin estar revisando el panel todo el tiempo, para reducir la carga operativa y reaccionar solo cuando sea necesario. | 3 |
+| 44 | US-OWN.14 | Apoyar la supervisión con una vista simple de cámara local | Como Administrador, quiero contar con una vista visual simple del estacionamiento, para complementar la información de ocupación cuando necesite confirmar lo que ocurre. | 5 |
+| 45 | US-OWN.15 | Comprender discrepancias entre el estado lógico y el físico | Como Administrador, quiero entender qué sucede cuando un espacio reservado aparece como ocupado físicamente antes de tiempo, para reaccionar con criterio frente a estas situaciones. | 3 |
+| 46 | TS-API.1 | Servicio de consulta de estacionamientos y espacios | Como Developer, quiero contar con un servicio que exponga la información de estacionamientos y sus espacios, para que los clientes web y móvil puedan presentarla de manera uniforme. | 5 |
+| 47 | TS-API.2 | Servicio de gestión de reservas | Como Developer, quiero disponer de un servicio que gestione el ciclo de vida de las reservas, para mantener integridad operativa entre la aplicación móvil, el panel web y la información IoT. | 8 |
+| 48 | TS-API.3 | Servicio de gestión de estacionamientos por el administrador | Como Developer, quiero contar con un servicio que permita al administrador gestionar su estacionamiento y sus espacios, para que las operaciones de alta y actualización se realicen de forma controlada. | 5 |
+| 49 | TS-API.5 | Validación consistente de solicitudes entrantes | Como Developer, quiero validar de forma consistente las solicitudes del backend, para rechazar datos inválidos antes de afectar el dominio del sistema. | 3 |
+| 50 | TS-API.6 | Manejo uniforme de errores del backend | Como Developer, quiero que el backend maneje los errores de manera uniforme, para que los clientes puedan interpretarlos y presentarlos de forma consistente. | 2 |
+| 51 | TS-API.7 | Servicio de consulta de historial de reservas | Como Developer, quiero exponer un servicio de consulta de historial de reservas, para que el conductor y el administrador accedan a su información histórica de forma ordenada. | 3 |
+| 52 | TS-IOT.1 | Ingesta de eventos IoT del nodo | Como Developer, quiero que la IoT API reciba de forma controlada los eventos enviados por el nodo físico, para reflejar de manera confiable los cambios detectados en los espacios. | 5 |
+| 53 | TS-IOT.4 | Aplicación de la regla de precedencia de estados | Como Developer, quiero aplicar la regla de precedencia que prioriza el estado físico sobre el lógico, para que el estado visible del espacio refleje coherentemente la realidad del estacionamiento. | 5 |
+| 54 | TS-IOT.6 | Exposición del estado consolidado por espacio | Como Developer, quiero exponer un estado consolidado por espacio, para que los clientes presenten información coherente sin calcular la regla de precedencia por su cuenta. | 5 |
+| 55 | TS-IOT.7 | Comportamiento ante desconexión del nodo | Como Developer, quiero que el sistema maneje de forma predecible la desconexión del nodo, para preservar coherencia en la experiencia del usuario ante fallas de conectividad. | 3 |
+| 56 | TS-IOT.3 | Registro de heartbeat del nodo IoT | Como Developer, quiero registrar el pulso de vida del nodo IoT, para saber si el nodo continúa operando y reportando al sistema. | 2 |
+| 57 | TS-IOT.5 | Persistencia del historial de eventos IoT | Como Developer, quiero que los eventos IoT queden registrados en el historial del sistema, para habilitar trazabilidad y validaciones posteriores. | 3 |
+| 58 | TS-CLD.1 | Propagación en tiempo real de cambios de estado | Como Developer, quiero que los cambios de estado se propaguen en tiempo real a los clientes conectados, para preservar coherencia en la experiencia de conductores y administradores. | 5 |
+| 59 | TS-CLD.2 | Sincronización consistente entre Core API e IoT API | Como Developer, quiero que la Core API y la IoT API mantengan información consistente entre sí, para que los clientes observen un estado único y coherente del sistema. | 5 |
+| 60 | TS-CLD.5 | Mantenimiento del último estado conocido | Como Developer, quiero que el sistema conserve el último estado conocido por espacio, para garantizar que los clientes reciban información coherente ante pérdidas de conexión. | 3 |
+| 61 | TS-CLD.7 | Tolerancia a fallas puntuales de conectividad | Como Developer, quiero que el sistema tolere fallas puntuales de conectividad entre componentes, para evitar que un incidente aislado degrade toda la experiencia del usuario. | 3 |
+| 62 | TS-CLD.6 | Observabilidad básica de los servicios | Como Developer, quiero contar con observabilidad básica sobre los servicios, para identificar tempranamente problemas operativos sin afectar a los usuarios. | 2 |
+| 63 | TS-CLD.4 | Configuración de servicios por entorno | Como Developer, quiero manejar configuración diferenciada por entorno, para separar operación de desarrollo y pruebas de la operación principal. | 2 |
+| 64 | TS-CLD.3 | Despliegue controlado de los servicios | Como Developer, quiero contar con un mecanismo controlado de despliegue de los servicios, para publicar actualizaciones de forma segura y reversible. | 3 |
+| 65 | TS-WEB.1 | Estructura base del panel del administrador | Como Developer, quiero contar con una estructura base del panel web, para organizar coherentemente las vistas destinadas al administrador. | 2 |
+| 66 | TS-WEB.2 | Consumo consistente de servicios del backend | Como Developer, quiero que el cliente web consuma los servicios del backend de forma consistente, para simplificar el mantenimiento y reducir inconsistencias en la experiencia. | 3 |
+| 67 | TS-WEB.3 | Actualización automática de vistas operativas | Como Developer, quiero que las vistas operativas se actualicen automáticamente ante cambios relevantes, para que el administrador no deba refrescar manualmente para ver novedades. | 3 |
+| 68 | TS-WEB.4 | Manejo de estados de carga y error | Como Developer, quiero que el cliente web maneje explícitamente los estados de carga y error, para que el administrador comprenda qué ocurre con la información mostrada. | 2 |
+| 69 | TS-MOB.1 | Estructura base de navegación de la app móvil | Como Developer, quiero contar con una estructura base de navegación en la app móvil, para organizar coherentemente las experiencias del conductor. | 2 |
+| 70 | TS-MOB.2 | Consumo consistente de servicios del backend desde la app | Como Developer, quiero que la app móvil consuma los servicios del backend de forma consistente, para ofrecer una experiencia predecible al conductor. | 3 |
+| 71 | TS-MOB.3 | Actualización automática del estado de reservas activas | Como Developer, quiero que la app móvil refleje automáticamente cambios en el estado de la reserva del conductor, para que el usuario reciba información coherente sin acción manual. | 3 |
+| 72 | TS-MOB.4 | Manejo de estados de carga y error en la app móvil | Como Developer, quiero que la app exprese con claridad los estados de carga y error, para que el conductor comprenda qué ocurre con la información solicitada. | 2 |
+| 73 | TS-MOB.5 | Gestión del permiso de ubicación | Como Developer, quiero gestionar correctamente el permiso de ubicación del dispositivo, para habilitar funcionalidades dependientes sin degradar la experiencia cuando el permiso no está concedido. | 2 |
+| 74 | TS-EXT.1 | Integración con OpenStreetMap como referencia | Como Developer, quiero integrar información de OpenStreetMap para poblar el mapa inicial, para ofrecer utilidad al conductor desde el primer uso. | 3 |
+| 75 | TS-EXT.2 | Diferenciar afiliados de referencias externas | Como Developer, quiero diferenciar técnicamente estacionamientos afiliados de los externos de referencia, para garantizar que los clientes traten cada caso de forma adecuada. | 2 |
+| 76 | TS-EXT.5 | Normalización de datos externos | Como Developer, quiero normalizar los datos obtenidos desde fuentes externas, para integrarlos de forma coherente con el modelo interno del sistema. | 2 |
+| 77 | TS-EXT.4 | Caché básica de información externa | Como Developer, quiero reutilizar información obtenida recientemente de integraciones externas, para reducir consultas innecesarias y mejorar el tiempo de respuesta. | 2 |
+| 78 | TS-EXT.3 | Manejo de errores de integraciones externas | Como Developer, quiero manejar adecuadamente los errores de integraciones externas, para que la experiencia del usuario no se degrade ante fallas ajenas al sistema central. | 2 |
+| 79 | TS-EMB.1 | Lectura periódica del estado del sensor | Como Developer, quiero que el firmware del ESP32 lea periódicamente el estado del sensor asociado a cada espacio, para detectar de forma confiable los cambios de ocupación. | 3 |
+| 80 | TS-EMB.2 | Lógica local de estabilización del estado detectado | Como Developer, quiero que el firmware aplique una lógica de estabilización antes de considerar un cambio de estado, para reducir falsos positivos por lecturas transitorias. | 5 |
+| 81 | TS-EMB.3 | Envío de eventos del nodo al backend | Como Developer, quiero que el nodo envíe eventos confiables al backend cuando detecte cambios relevantes, para mantener sincronizada la información del espacio. | 5 |
+| 82 | TS-EMB.4 | Emisión de heartbeat del nodo | Como Developer, quiero que el nodo emita heartbeat periódico al backend, para permitir detectar oportunamente pérdidas de conexión del dispositivo. | 2 |
+| 83 | TS-EMB.5 | Actuación local mediante indicadores visuales | Como Developer, quiero que el nodo active indicadores físicos locales alineados con el estado del espacio, para ofrecer referencia operativa visible dentro del estacionamiento. | 2 |
+| 84 | TS-EMB.6 | Reconexión automática de red | Como Developer, quiero que el nodo gestione automáticamente la reconexión cuando pierda red, para reducir la intervención manual sobre el dispositivo. | 3 |
+| 85 | TS-EMB.7 | Configuración inicial del nodo | Como Developer, quiero que el nodo admita una configuración inicial controlada, para asociarse correctamente a un estacionamiento sin cambios complejos en campo. | 2 |
+| 86 | MS-01 | Construir la maqueta física del estacionamiento | Como Maker, quiero construir una maqueta física con espacios de estacionamiento definidos, para representar de forma tangible el escenario de validación del prototipo IoT. | 3 |
+| 87 | MS-02 | Instalar sensores ultrasónicos en la maqueta | Como Maker, quiero instalar sensores ultrasónicos en los espacios de la maqueta, para detectar físicamente la ocupación de cada espacio durante la demostración. | 5 |
+| 88 | MS-03 | Integrar indicadores visuales locales | Como Maker, quiero integrar indicadores visuales en la maqueta, para representar localmente el estado de cada espacio durante la demostración. | 3 |
+| 89 | MS-04 | Ordenar cableado y alimentación del prototipo | Como Maker, quiero ordenar el cableado y la alimentación del prototipo, para reducir fallas físicas durante la demostración y facilitar su mantenimiento. | 2 |
+| 90 | MS-05 | Documentar evidencia física del prototipo IoT | Como Maker, quiero documentar la maqueta y sus componentes físicos, para sustentar la implementación del prototipo dentro del informe y la exposición final. | 2 |
+| 91 | TS-EDG.1 | Procesamiento edge del estado del espacio | Como Developer, quiero que el nodo procese localmente el estado del espacio antes de enviarlo al backend, para reducir eventos innecesarios y mejorar la calidad de la información reportada. | 3 |
+| 92 | TS-EDG.2 | Persistencia temporal local en el nodo | Como Developer, quiero que el nodo guarde localmente sus eventos cuando el backend no esté disponible, para evitar perder información durante una caída momentánea de conexión. | 5 |
+| 93 | TS-EDG.3 | Reenvío de eventos almacenados tras reconexión | Como Developer, quiero que el nodo reenvíe los eventos guardados cuando recupera conexión, para mantener la trazabilidad del historial sin intervención manual. | 5 |
+| 94 | TS-EDG.4 | Orden de envío de eventos pendientes | Como Developer, quiero que el nodo envíe sus eventos pendientes en el orden en que fueron generados, para que el historial del sistema mantenga coherencia cronológica. | 2 |
+| 95 | TS-EDG.5 | Evitar duplicados en el reenvío | Como Developer, quiero que el nodo no reenvíe eventos ya confirmados por el backend, para que el historial no contenga cambios ficticios. | 3 |
+| 96 | TS-EDG.6 | Sincronización tras recuperación de conexión | Como Developer, quiero que el nodo sincronice su estado con el backend al recuperar conexión, para restaurar una visión coherente del espacio en el sistema. | 3 |
+| 97 | TS-TST.1 | Pruebas unitarias de servicios del backend | Como Developer, quiero contar con pruebas unitarias de los servicios del backend, para asegurar el comportamiento esperado de la lógica central de forma aislada. | 3 |
+| 98 | TS-TST.2 | Pruebas de integración entre Core API e IoT API | Como Developer, quiero validar la integración entre la Core API y la IoT API, para asegurar que el estado del sistema se mantenga coherente al atravesar ambos servicios. | 5 |
+| 99 | TS-TST.3 | Validación de la regla de precedencia de estados | Como Developer, quiero validar la regla de precedencia del estado del espacio, para garantizar que la ocupación física prevalece sobre la reserva cuando ambas coexisten. | 3 |
+| 100 | TS-TST.4 | Validación de sincronización en tiempo real | Como Developer, quiero validar que los cambios se propagan a los clientes en tiempo real, para asegurar coherencia en la experiencia del usuario ante actualizaciones del sistema. | 5 |
+| 101 | TS-TST.5 | Validación del comportamiento ante desconexión del nodo | Como Developer, quiero validar cómo se comporta el sistema ante desconexión del nodo IoT, para asegurar que los usuarios reciben información coherente en ese escenario. | 3 |
+| 102 | TS-TST.6 | Validación del reenvío de eventos almacenados | Como Developer, quiero validar que el nodo reenvía correctamente los eventos almacenados al recuperar conexión, para asegurar integridad del historial operativo. | 3 |
+| 103 | TS-TST.7 | Validación end-to-end del flujo principal | Como Developer, quiero validar de extremo a extremo el flujo central del sistema, para asegurar coherencia en la experiencia completa del conductor. | 8 |
+| 104 | TS-TST.8 | Validación de consistencia entre estado físico, lógico y mostrado | Como Developer, quiero validar que el estado físico, el lógico y el mostrado son coherentes entre sí, para asegurar la confiabilidad de la información en toda la plataforma. | 5 |
+| 105 | TS-TST.10 | Validación del ciclo de vida de la reserva y ticket virtual | Como Developer, quiero validar el flujo del ticket virtual y la expiración automática de reservas, para garantizar el correcto ciclo de vida de las reservas. | 3 |
+| 106 | SP-01 | Investigación sobre confiabilidad del sensor ultrasónico | Como Developer, quiero investigar la confiabilidad del sensor ultrasónico para la detección de ocupación, para decidir con base en evidencia cómo aplicarlo dentro del nodo IoT del proyecto. | 3 |
+| 107 | SP-02 | Investigación sobre estrategia de reconexión del nodo | Como Developer, quiero investigar distintas estrategias de reconexión del nodo ante caídas de conectividad, para elegir la opción más robusta dentro del contexto del proyecto. | 3 |
+| 108 | SP-03 | Investigación sobre viabilidad de cámara local | Como Developer, quiero investigar la viabilidad de una vista simple de cámara local para el administrador, para determinar si es realista incorporarla dentro del alcance del proyecto. | 5 |
+| 109 | SP-04 | Investigación sobre persistencia local en el ESP32 | Como Developer, quiero investigar alternativas de persistencia local temporal en el nodo, para definir cómo conservar eventos ante interrupciones de conectividad. | 3 |
+| 110 | SP-05 | Investigación sobre comportamiento realtime entre clientes y backend | Como Developer, quiero investigar el comportamiento en tiempo real entre clientes y backend en escenarios representativos, para anticipar riesgos de consistencia y preparar ajustes oportunos. | 5 |
+| 111 | US-WEB.1 | Registrarse como administrador en el panel web | Como Administrador, quiero crear mi cuenta en el panel web, para acceder a las funcionalidades de gestión de mi estacionamiento. | 3 |
+| 112 | US-MOB.1 | Registrarse como conductor en la app móvil | Como Conductor, quiero crear mi cuenta desde la aplicación móvil, para acceder a las funcionalidades de búsqueda y reserva. | 3 |
+| 113 | US-WEB.2 | Iniciar sesión en el panel web | Como Administrador, quiero autenticarme en el panel web con mis credenciales, para acceder a la información y funcionalidades asociadas a mi estacionamiento. | 2 |
+| 114 | US-MOB.2 | Iniciar sesión en la aplicación móvil | Como Conductor, quiero autenticarme rápidamente en la aplicación, para reservar un espacio con la menor fricción posible. | 2 |
+| 115 | US-WEB.4 | Recuperar acceso ante olvido de credenciales | Como Administrador, quiero recuperar el acceso a mi cuenta si olvido mis credenciales, para no perder la gestión de mi estacionamiento cuando no recuerdo mi contraseña. | 2 |
+| 116 | US-MOB.4 | Mantener su sesión activa entre usos normales | Como Conductor, quiero que mi sesión se conserve entre usos regulares de la aplicación, para no tener que autenticarme constantemente al abrir la app. | 2 |
+| 117 | US-WEB.3 | Cerrar sesión de forma segura | Como Administrador, quiero cerrar mi sesión cuando lo decida, para evitar que otras personas accedan a mi información desde el mismo equipo. | 1 |
+| 118 | US-MOB.3 | Cerrar sesión desde la aplicación móvil | Como Conductor, quiero cerrar mi sesión desde mi dispositivo, para evitar que terceros usen mi cuenta si comparto el equipo o lo pierdo. | 1 |
+| 119 | US-WEB.5 | Administrar información básica de perfil | Como Administrador, quiero mantener actualizada la información básica de mi cuenta, para que la plataforma refleje datos vigentes de contacto. | 1 |
+| 120 | US-MOB.5 | Actualizar información básica de su perfil desde la app | Como Conductor, quiero mantener al día mi información básica desde la aplicación, para que mis datos en la plataforma sigan siendo útiles y actualizados. | 1 |
+| 121 | TS-API.4 | Servicio de autenticación de usuarios | Como Developer, quiero contar con un servicio de autenticación consistente, para que los clientes web y móvil verifiquen identidad bajo reglas uniformes. | 3 |
+| 122 | TS-API.8 | Control de acceso por roles | Como Developer, quiero que el backend aplique control de acceso según el rol del usuario, para proteger funcionalidades sensibles de operaciones no autorizadas. | 3 |
+| 123 | TS-IOT.2 | Validación de origen del evento IoT | Como Developer, quiero verificar que los eventos IoT provienen de un nodo autorizado, para impedir que datos externos afecten el estado real del sistema. | 3 |
+| 124 | TS-WEB.5 | Protección del acceso a información sensible | Como Developer, quiero que el cliente web proteja la información sensible del administrador, para evitar que se exponga a usuarios no autorizados en el mismo dispositivo. | 2 |
+| 125 | TS-TST.9 | Validación de autenticación y autorización | Como Developer, quiero validar los mecanismos de autenticación y autorización, para asegurar que el acceso a recursos sensibles esté correctamente controlado. | 3 |
+
+# Capítulo IV: Solution Software Design
+
+En este capítulo se desarrolla el diseño de software de **ParkingNow**, tomando como base los hallazgos obtenidos en los capítulos anteriores: el análisis del problema, las entrevistas, los artefactos de needfinding, el Big Picture EventStorming, el Ubiquitous Language, las User Stories, el Impact Mapping y el Product Backlog.
+
+El propósito de este capítulo es transformar los requisitos identificados en una propuesta de diseño coherente, trazable y alineada con el dominio del negocio. Para ello, se aplica el enfoque de **Domain-Driven Design (DDD)**, diferenciando decisiones de diseño estratégico y táctico. En el nivel estratégico, se identifican los límites principales del dominio mediante EventStorming y Candidate Context Discovery. En el nivel táctico, se profundiza en la estructura interna de los Bounded Contexts, sus responsabilidades, reglas de negocio, objetos de dominio y relaciones entre componentes.
+
+ParkingNow plantea una solución distribuida compuesta por una aplicación móvil para conductores, un panel web para administradores, servicios backend, una capa de sincronización en tiempo real y un nodo IoT basado en ESP32 para la detección física de ocupación. Por ello, el diseño de software debe asegurar que cada parte del sistema tenga responsabilidades claras, mantenga un lenguaje coherente con el dominio y permita integrar correctamente los eventos físicos del estacionamiento con las experiencias digitales del conductor y del administrador.
+
+## 4.1. Strategic-Level Domain-Driven Design
+
+En esta sección se presenta el diseño estratégico del dominio de **ParkingNow** mediante la aplicación de **Domain-Driven Design (DDD)**. El objetivo de este nivel de diseño es comprender el negocio desde sus conceptos principales, identificar los límites naturales del sistema y definir los contextos candidatos que permitirán organizar la solución de manera coherente.
+
+Para desarrollar este análisis, el equipo tomó como punto de partida los artefactos elaborados en los capítulos anteriores. En primer lugar, el **Big Picture EventStorming** permitió representar el flujo general del dominio, desde la búsqueda de estacionamiento por parte del conductor hasta la actualización del estado físico del espacio mediante el nodo IoT. En segundo lugar, el **Ubiquitous Language** permitió establecer un vocabulario común para conceptos clave como *Parking Lot*, *Parking Space*, *Reservation*, *Verified Availability*, *Occupancy Status*, *Sensor Device* y *Administrator*. Finalmente, las **User Stories**, el **Impact Mapping** y el **Product Backlog** permitieron validar qué funcionalidades generan mayor valor para los segmentos objetivo y qué responsabilidades deben ser consideradas dentro del diseño de la solución.
+
+El diseño estratégico se orienta a evitar una división puramente técnica del sistema. En lugar de organizar ParkingNow únicamente por capas como frontend, backend, base de datos o firmware, el equipo analizó el dominio desde las capacidades del negocio. Esto permitió identificar áreas con responsabilidades diferenciadas, tales como la gestión de estacionamientos, la búsqueda de disponibilidad, el ciclo de vida de reservas, el monitoreo físico de ocupación, la autenticación de usuarios y la notificación operativa de cambios relevantes.
+
+Como resultado inicial del análisis estratégico, se identificaron seis **Candidate Bounded Contexts** para ParkingNow: **Parking Management**, **Parking Discovery**, **Reservation**, **IoT Monitoring**, **Identity & Access Management** y **Operational Notification**. Estos contextos no representan todavía una implementación definitiva, sino una propuesta inicial de límites del dominio que será refinada mediante el Design-Level EventStorming y el Candidate Context Discovery.
+
+De esta manera, el diseño estratégico permite establecer una base sólida para las siguientes secciones del capítulo, donde se documentará el proceso de EventStorming de diseño, la identificación de contextos candidatos y la posterior definición de los Bounded Contexts que estructuran la arquitectura de la solución.
+
+### 4.1.1. Design-Level EventStorming
+
+El **Design-Level EventStorming** de ParkingNow se desarrolló con el propósito de representar con mayor detalle el comportamiento del dominio y transformar los requisitos funcionales en una base sólida para el diseño estratégico de la solución. A diferencia del Big Picture EventStorming, cuyo objetivo fue obtener una vista general del negocio, este proceso permitió refinar los eventos principales, ordenar los flujos operativos, identificar problemas, incorporar comandos, políticas, modelos de lectura, sistemas externos y agregados.
+
+La sesión se realizó sobre una pizarra colaborativa tipo Miro y tuvo una duración aproximada de **1 hora y 45 minutos**, manteniéndose dentro del rango recomendado para este tipo de dinámica. Durante el proceso, el equipo trabajó de forma iterativa desde la exploración inicial del dominio hasta la identificación de agregados, siguiendo los pasos del EventStorming hasta el **Step 9: Aggregates**.
+
+El análisis se centró en las capacidades principales de ParkingNow: configuración de estacionamientos, búsqueda de disponibilidad, reserva de espacios, generación de ticket virtual, validación de ingreso, detección física de ocupación mediante IoT, actualización del historial operacional, sincronización de datos, notificación de cambios operativos y gestión de identidad y acceso.
+
+#### Roles considerados durante la sesión
+
+Para desarrollar la sesión se definieron roles que permitieron analizar el dominio desde una perspectiva de negocio, experiencia de usuario y arquitectura técnica. Estos roles ayudaron a identificar los eventos, comandos, reglas, modelos de lectura y sistemas externos necesarios para representar correctamente el comportamiento de ParkingNow.
+
+| Rol | Responsabilidad dentro de la sesión |
+|---|---|
+| **Facilitator** | Dirige la sesión, mantiene el orden del análisis y asegura que los elementos del EventStorming sean representados correctamente. |
+| **Domain Expert** | Aporta conocimiento del negocio relacionado con estacionamientos, disponibilidad, reservas, validación de ingreso y operación diaria. |
+| **Driver Representative** | Representa las necesidades del conductor que busca estacionamiento, consulta disponibilidad, reserva un espacio y utiliza el servicio. |
+| **Parking Administrator Representative** | Representa al administrador encargado de registrar estacionamientos, configurar espacios, validar reservas y supervisar la operación. |
+| **IoT / Embedded Representative** | Aporta la perspectiva técnica del nodo IoT, sensores, heartbeat, conectividad, almacenamiento local y detección física de ocupación. |
+| **Backend / Cloud Representative** | Evalúa la lógica de negocio, APIs, persistencia, sincronización, reglas automáticas y eventos en tiempo real. |
+| **UX / Frontend Representative** | Analiza las pantallas, paneles, dashboard web, vistas móviles y modelos de lectura necesarios para ejecutar comandos. |
+
+A partir de estos roles se identificaron los principales actores operativos del dominio: **Driver**, **Administrator**, **IoT Node** y **System**. Estos actores fueron representados en la pizarra mediante notas amarillas.
+
+#### Notación visual utilizada
+
+Para representar de manera ordenada los elementos del EventStorming, se utilizó una convención visual basada en colores. Esta notación permitió distinguir los elementos del dominio y mantener trazabilidad entre eventos, comandos, actores, políticas, modelos de lectura, sistemas externos y agregados.
+
+**Figura 16**  
+*EventStorming color legend de ParkingNow*
+
+![alt text](assets/legend.jpeg)
+
+*Nota.* Elaboración propia (2026) en Miro.
+
+La Figura 16 muestra la notación visual utilizada durante el Design-Level EventStorming de ParkingNow. Las notas amarillas representan actores, las azules comandos, las naranjas eventos de dominio, las moradas políticas, las verdes modelos de lectura, las rojas sistemas externos y las turquesas agregados. Esta convención visual se mantuvo durante todos los pasos del proceso para que cada elemento del tablero tenga un significado consistente.
+
+#### Step 1: Unstructured Exploration
+
+El primer paso consistió en una exploración no estructurada del dominio. En esta etapa se identificaron eventos relevantes de ParkingNow sin imponer todavía un orden cronológico. El objetivo fue capturar la mayor cantidad posible de hechos significativos que ocurren dentro del sistema.
+
+Los eventos fueron redactados en pasado, ya que representan hechos que ya sucedieron en el dominio. Entre los eventos identificados se encuentran **Parking lot affiliated**, **Parking lot registered**, **Parking space identifiers assigned**, **Destination searched**, **Nearby parking lots displayed**, **Parking lot selected**, **Availability consulted**, **Verified availability displayed**, **Reservation requested**, **Reservation registered**, **Reservation confirmed**, **Virtual ticket generated**, **Reservation identifier assigned**, **Driver arrived at parking lot**, **Reservation validated**, **Vehicle detected**, **Parking space occupied**, **Reservation consumed**, **IoT event registered**, **Vehicle exited**, **Parking space released**, **Reservation history updated**, **IoT heartbeat received**, **IoT node disconnected**, **Data buffered locally**, **Last known status preserved** y **Synchronization restored**.
+
+**Figura 17**  
+*EventStorming Step 1: Unstructured Exploration*
+
+![alt text](assets/paso1.jpeg)
+
+*Nota.* Elaboración propia (2026) en Miro.
+
+La Figura 17 muestra la primera exploración del dominio mediante eventos de dominio representados con notas naranjas. En este punto, el objetivo no fue ordenar todavía el flujo, sino identificar todos los hechos relevantes que ocurren en ParkingNow. Esta exploración permitió visualizar la amplitud del dominio y detectar eventos relacionados con la configuración del estacionamiento, la búsqueda de disponibilidad, la reserva, la validación, la ocupación física y la conectividad IoT.
+
+#### Step 2: Timelines
+
+En el segundo paso, los eventos identificados fueron organizados en líneas de tiempo. Para ello, se ordenaron de izquierda a derecha de acuerdo con la secuencia en la que ocurren dentro de los procesos principales de ParkingNow.
+
+A partir de esta organización se definieron seis flujos principales del dominio. El primer flujo corresponde a la configuración del estacionamiento. El segundo flujo corresponde al descubrimiento de estacionamientos y disponibilidad. El tercer flujo corresponde al ciclo de reserva y generación de ticket virtual. El cuarto flujo corresponde a la llegada, validación y ocupación física del espacio. El quinto flujo corresponde a la salida del vehículo y actualización del historial operacional. Finalmente, el sexto flujo corresponde a la conectividad IoT y sincronización de datos.
+
+La gestión de identidad y acceso fue representada como una sección de soporte transversal, debido a que no constituye un flujo operativo principal del estacionamiento, pero sí habilita acciones protegidas para conductores y administradores.
+
+**Figura 18**  
+*EventStorming Step 2: Timelines*
+
+![alt text](assets/paso2.jpeg)
+
+*Nota.* Elaboración propia (2026) en Miro.
+
+La Figura 18 muestra los eventos de dominio organizados en líneas de tiempo. Cada fila representa un flujo operativo de ParkingNow, ordenado de izquierda a derecha según la secuencia en que ocurren los eventos. Este paso permitió transformar una lista inicial de eventos en una representación cronológica del comportamiento del sistema y facilitó la identificación de dependencias entre configuración, disponibilidad, reserva, validación, ocupación y sincronización.
+
+#### Step 3: Pain Points
+
+En el tercer paso se identificaron los principales **pain points** del dominio. Estos representan problemas, riesgos, ambigüedades o puntos de fricción dentro de los procesos de ParkingNow. En el tablero se representaron mediante notas fucsias con forma de rombo, ubicadas cerca de los eventos o secciones donde aparece el problema.
+
+Entre los pain points identificados se encuentran el riesgo de que el registro manual ralentice la afiliación de estacionamientos, la posibilidad de errores en la configuración de espacios, la desconfianza del conductor frente a información de disponibilidad desactualizada, el riesgo de doble reserva, la necesidad de validar correctamente el ticket virtual, la posibilidad de falsos positivos del sensor y la pérdida de disponibilidad en tiempo real cuando el nodo IoT queda sin conexión.
+
+**Figura 19**  
+*EventStorming Step 3: Pain Points*
+
+![alt text](assets/paso3.jpeg)
+
+*Nota.* Elaboración propia (2026) en Miro.
+
+La Figura 19 muestra los pain points identificados en los flujos principales de ParkingNow. Estos puntos se ubican cerca del evento o sección afectada, pero no forman parte del flujo principal. Este análisis permitió identificar riesgos de negocio y técnicos que debían considerarse en el diseño de la solución, especialmente los relacionados con disponibilidad confiable, doble reserva, validación de ticket y desconexión del nodo IoT.
+
+#### Step 4: Pivotal Points
+
+En el cuarto paso se identificaron los **pivotal points** o puntos fundamentales. Estos representan eventos o momentos del flujo que marcan un cambio importante de fase dentro del dominio. En el tablero se representaron mediante líneas verticales ubicadas sobre eventos clave.
+
+En ParkingNow, los pivotal points ayudaron a distinguir momentos críticos como el registro del estacionamiento, la consulta de disponibilidad, la confirmación de reserva, la generación del ticket virtual, la validación de la reserva, la detección del vehículo, la ocupación del espacio, la liberación del estacionamiento y la recuperación de sincronización.
+
+**Figura 20**  
+*EventStorming Step 4: Pivotal Points*
+
+![alt text](assets/paso4.jpeg)
+
+*Nota.* Elaboración propia (2026) en Miro.
+
+La Figura 20 muestra los puntos fundamentales del dominio de ParkingNow. Las líneas verticales señalan eventos que dividen fases relevantes del proceso. La identificación de estos puntos permitió reconocer cambios importantes en el estado del negocio, como el paso de una intención de reserva a una reserva confirmada, de un espacio libre a uno ocupado físicamente, o de un nodo desconectado a una sincronización restaurada.
+
+#### Step 5: Commands
+
+En el quinto paso se incorporaron los comandos al tablero. Mientras los eventos representan hechos que ya ocurrieron, los comandos representan acciones u órdenes que deben ejecutarse para producir esos eventos. En la pizarra, los comandos fueron representados con notas azules y ubicados antes de los eventos de dominio correspondientes.
+
+Dentro de ParkingNow se identificaron comandos como **Affiliate parking lot**, **Register parking lot**, **Register parking lot location**, **Register parking spaces**, **Assign parking space identifiers**, **Associate IoT node**, **Search destination**, **Display nearby parking lots**, **Select parking lot**, **Consult availability**, **Display verified availability**, **Request reservation**, **Register reservation**, **Confirm reservation**, **Generate virtual ticket**, **Assign reservation identifier**, **Display reservation time limit**, **Validate reservation**, **Authorize entry**, **Detect vehicle**, **Update parking space occupancy**, **Consume reservation**, **Register IoT event**, **Exit parking space**, **Release parking space**, **Update reservation history**, **Update daily operational history**, **Send heartbeat**, **Report node status**, **Synchronize data with platform**, **Detect IoT disconnection**, **Buffer data locally**, **Preserve last known status** y **Restore synchronization**.
+
+**Figura 21**  
+*EventStorming Step 5: Commands*
+
+![alt text](assets/paso5.jpeg)
+
+*Nota.* Elaboración propia (2026) en Miro.
+
+La Figura 21 muestra los comandos incorporados a cada flujo del EventStorming. Las notas azules representan acciones que producen eventos de dominio representados con notas naranjas. Este paso permitió diferenciar claramente entre la intención de ejecutar una operación y el resultado que dicha operación produce dentro del dominio.
+
+#### Step 6: Policies
+
+En el sexto paso se agregaron políticas de automatización. Las políticas representan reglas del dominio que reaccionan ante un evento y disparan un comando sin intervención directa de un actor humano. En el tablero fueron representadas mediante notas moradas.
+
+En ParkingNow, varias reglas del dominio se comportan como políticas. Por ejemplo, cuando se registran espacios de estacionamiento, el sistema requiere identificadores únicos; cuando se consulta disponibilidad, el sistema prioriza disponibilidad verificada por IoT; cuando una reserva es confirmada, se genera un ticket virtual; cuando un ticket virtual se genera, se asigna un identificador único de reserva; cuando el tiempo límite vence y el conductor no llega, la reserva expira; cuando un vehículo es detectado, se actualiza el estado físico de ocupación; cuando una reserva es consumida, se registra el evento IoT correspondiente; y cuando el nodo IoT pierde conexión, se preserva el último estado conocido y se almacenan eventos localmente.
+
+**Figura 22**  
+*EventStorming Step 6: Policies*
+
+![alt text](assets/paso6.jpeg)
+
+*Nota.* Elaboración propia (2026) en Miro.
+
+La Figura 22 muestra las políticas automáticas del dominio representadas con notas moradas. Estas políticas conectan eventos con comandos que deben ejecutarse automáticamente. Su identificación fue clave para modelar reglas críticas como la expiración de reservas, la priorización de disponibilidad verificada por IoT, el consumo de reservas por ocupación física y la preservación del último estado conocido ante desconexión del nodo.
+
+#### Step 7: Read Models
+
+En el séptimo paso se incorporaron los modelos de lectura. Los **read models** representan la información que un actor necesita visualizar antes de ejecutar un comando. En el tablero se representaron con notas verdes y se ubicaron antes de los comandos correspondientes.
+
+En ParkingNow se identificaron modelos de lectura como **Affiliation request form**, **Parking lot profile view**, **Location map preview**, **Parking space setup table**, **Parking space identifier list**, **IoT node pairing status**, **Destination search input**, **Nearby parking map**, **Parking results list**, **Parking lot detail screen**, **Availability status panel**, **Verified availability view**, **Available parking spaces list**, **Selected parking space detail**, **Reservation request summary**, **Reservation confirmation screen**, **Virtual ticket view**, **Reservation identifier detail**, **Reservation countdown view**, **Arrival instructions screen**, **Reservation validation panel**, **Entry authorization screen**, **Sensor reading status**, **Parking space occupancy status**, **Active reservation status**, **IoT event log**, **Occupied parking space status**, **Parking space availability panel**, **Reservation history view**, **Daily operational dashboard**, **Node heartbeat monitor**, **Node connection status panel**, **Synchronization status view**, **Offline node status panel**, **Local event buffer view**, **Last known status view** y **Reconnection status panel**.
+
+**Figura 23**  
+*EventStorming Step 7: Read Models*
+
+![alt text](assets/paso7.jpeg)
+
+*Nota.* Elaboración propia (2026) en Miro.
+
+La Figura 23 muestra los modelos de lectura del EventStorming de ParkingNow. Estos se representan con notas verdes y permiten visualizar qué información necesita cada actor antes de ejecutar un comando. Este paso fue relevante porque ParkingNow depende de interfaces móviles y web: el conductor requiere disponibilidad, detalle del estacionamiento y ticket virtual; mientras que el administrador requiere vistas de validación, ocupación y operación diaria.
+
+#### Step 8: External Systems
+
+En el octavo paso se identificaron los sistemas externos que interactúan con el dominio de ParkingNow. Estos sistemas fueron representados mediante notas rojas o rosadas, ubicadas fuera de la línea principal del flujo y conectadas mediante flechas punteadas.
+
+Los sistemas externos identificados fueron **OpenStreetMap / Nominatim**, **OpenStreetMap / Overpass API**, **Geocoding Service**, **QR / Ticket Generation Service**, **QR Scanner / Camera Module**, **Ultrasonic Sensor**, **ESP32 IoT Node**, **Cloud Database Service**, **Cloud Storage / Database**, **Cloud Realtime Database**, **Wi-Fi Network**, **ESP32 Local Storage**, **Internet Connection** y **Authentication Service**.
+
+**Figura 24**  
+*EventStorming Step 8: External Systems*
+
+![alt text](assets/paso8.jpeg)
+
+*Nota.* Elaboración propia (2026) en Miro.
+
+La Figura 24 muestra los sistemas externos que intervienen en ParkingNow. Estos se ubican fuera del flujo principal y se conectan mediante líneas punteadas hacia los comandos, eventos o modelos de lectura que apoyan. Este paso permitió diferenciar qué responsabilidades pertenecen al dominio principal y cuáles dependen de componentes externos o físicos, como OpenStreetMap, el módulo QR, el sensor ultrasónico, el ESP32 y los servicios cloud.
+
+#### Step 9: Aggregates
+
+En el noveno paso se identificaron los agregados del dominio. Un agregado representa un objeto o grupo lógico de objetos que recibe comandos y produce eventos. En el tablero se representó mediante notas turquesas ubicadas cerca de los grupos de comandos, eventos, políticas y modelos de lectura que gobiernan.
+
+A partir del análisis de los flujos, se identificaron agregados relacionados con la gestión del estacionamiento, la búsqueda, la disponibilidad, las reservas, los tickets virtuales, la validación de ingreso, la ocupación física, el historial operacional, las notificaciones, la conectividad IoT y la identidad de usuarios.
+
+Los agregados identificados fueron **Parking Lot**, **Parking Lot Profile**, **Parking Space**, **IoT Node Pairing**, **Search Session**, **Parking Reference**, **Availability**, **Reservation**, **Virtual Ticket**, **Reservation Validation**, **Occupancy Status**, **IoT Event**, **Operational History**, **Operational Notification**, **Web Dashboard Update**, **Mobile App Update**, **Node Connection**, **Local Event Buffer**, **Last Known Status**, **Synchronization State**, **User Account**, **User Session**, **User Profile** y **Role Access**.
+
+**Figura 25**  
+*EventStorming Step 9: Aggregates*
+
+![alt text](assets/paso9.jpeg)
+
+*Nota.* Elaboración propia (2026) en Miro.
+
+La Figura 25 muestra los agregados identificados en el EventStorming de ParkingNow. Estos se representan mediante notas turquesas y agrupan comandos, eventos, políticas y modelos de lectura relacionados. Este paso permitió pasar desde una secuencia de eventos y comandos hacia una estructura de dominio más clara. Los agregados sirvieron como insumo directo para el Candidate Context Discovery, ya que permitieron observar qué grupos de conceptos tienen alta cohesión funcional y cuáles requieren límites de modelo independientes.
+
+En este punto, el EventStorming de diseño permitió evidenciar la evolución completa de la pizarra desde la exploración inicial hasta la identificación de agregados. El siguiente paso corresponde al descubrimiento de contextos candidatos, donde los agregados son agrupados en bounded contexts de acuerdo con su responsabilidad dentro del dominio.
+
+#### 4.1.1.1. Candidate Context Discovery
+
+El **Candidate Context Discovery** corresponde al décimo paso del proceso de EventStorming. En esta etapa, los agregados identificados en el paso anterior fueron analizados y agrupados para descubrir límites candidatos del dominio. El objetivo fue identificar qué conjuntos de agregados comparten un lenguaje, una responsabilidad funcional y reglas de negocio suficientemente cohesionadas como para formar un **Bounded Context**.
+
+La sesión de descubrimiento de contextos candidatos tuvo una duración aproximada de **1 hora y 30 minutos**, por lo que no superó el límite de dos horas recomendado para esta actividad. En esta sesión no se volvió a construir la pizarra desde eventos, pain points, comandos o políticas, ya que dichos elementos fueron trabajados previamente en el Design-Level EventStorming. En cambio, el equipo tomó como punto de partida los agregados obtenidos en el Step 9 y los agrupó de acuerdo con su cohesión funcional, lenguaje de dominio y relación con los eventos fundamentales del proceso.
+
+Para realizar esta agrupación, se aplicaron tres criterios principales de descubrimiento. Primero, mediante **start-with-value**, se priorizaron las áreas que generan mayor valor para ParkingNow: la reserva de espacios y el monitoreo físico de ocupación mediante IoT. Segundo, mediante **start-with-simple**, se respetó la secuencia natural del dominio: configurar estacionamiento, descubrir disponibilidad, reservar, validar, monitorear y notificar. Tercero, mediante **look-for-pivotal-events**, se tomaron como referencia eventos clave como **Reservation confirmed**, **Virtual ticket generated**, **Vehicle detected**, **Parking space occupied**, **IoT node disconnected** y **Synchronization restored**, ya que estos eventos marcan cambios de estado importantes dentro del negocio.
+
+La evidencia visual del descubrimiento se muestra a partir de la evolución entre los agregados del Step 9 y la agrupación final en bounded contexts del Step 10. En esta última vista, los agregados fueron encerrados mediante fronteras punteadas para representar límites candidatos del dominio.
+
+**Figura 26**  
+*EventStorming Step 10: Bounded Contexts*
+
+![alt text](assets/paso10.jpeg)
+
+*Nota.* Elaboración propia (2026) en Miro.
+
+La Figura 26 muestra la agrupación final de agregados en bounded contexts candidatos para ParkingNow. Las fronteras punteadas delimitan áreas del dominio con responsabilidades, lenguaje y reglas de negocio cohesionadas. Esta vista permite observar cómo los agregados del Step 9 fueron agrupados en seis contextos candidatos: **Parking Management Context**, **Parking Discovery Context**, **Reservation Context**, **IoT Monitoring Context**, **Identity & Access Management Context** y **Operational Notification Context**.
+
+##### Parking Management Context
+
+**Figura 27**  
+*Candidate Bounded Context: Parking Management Context*
+
+![alt text](assets/parkingcontext.jpeg)
+
+*Nota.* Elaboración propia (2026) en Miro.
+
+Según la Figura 27, el **Parking Management Context** agrupa las responsabilidades relacionadas con la administración del estacionamiento. Su propósito es permitir que un administrador afilie un estacionamiento, registre su información, configure su ubicación, registre espacios, asigne identificadores únicos y asocie nodos IoT a los espacios físicos.
+
+Este contexto surge de los agregados **Parking Lot**, **Parking Lot Profile**, **Parking Space** y **IoT Node Pairing**. Estos agregados comparten un lenguaje centrado en la configuración del estacionamiento y en la estructura física que será utilizada posteriormente por otros procesos del sistema.
+
+La responsabilidad de este contexto es mantener la información base del estacionamiento. Por ello, conceptos como **Parking Lot**, **Parking Space**, **Parking Lot Profile**, **Parking Space Identifier** e **IoT Node Pairing** pertenecen a este límite. Sin este contexto, los demás módulos no podrían consultar espacios disponibles, crear reservas válidas ni asociar eventos físicos del nodo IoT con un espacio real.
+
+Este bounded context se clasifica como **Supporting Domain**, debido a que es necesario para que la solución funcione, pero no representa por sí mismo el principal diferenciador competitivo de ParkingNow. Su valor está en habilitar correctamente la operación del estacionamiento.
+
+##### Parking Discovery Context
+
+**Figura 28**  
+*Candidate Bounded Context: Parking Discovery Context*
+
+![alt text](assets/parkingdiscovery.jpeg)
+
+*Nota.* Elaboración propia (2026) en Miro.
+
+Según la Figura 28, el **Parking Discovery Context** agrupa las responsabilidades relacionadas con la búsqueda de estacionamientos y consulta de disponibilidad por parte del conductor. Su propósito es permitir que el usuario busque un destino, visualice estacionamientos cercanos, revise información de referencia y consulte disponibilidad verificada antes de seleccionar un espacio.
+
+Este contexto surge de los agregados **Search Session**, **Parking Reference** y **Availability**. Estos agregados comparten un lenguaje orientado a la exploración y descubrimiento de opciones de estacionamiento, así como a la presentación de información útil para la toma de decisión del conductor.
+
+La responsabilidad de este contexto es transformar datos de ubicación, referencias externas y disponibilidad en información consultable para el usuario. Por ello, se relaciona con sistemas externos como **OpenStreetMap / Overpass API** y **Geocoding Service**, pero mantiene su propio modelo para conceptos como **Search Session**, **Parking Reference**, **Nearby Parking Map**, **Availability Status** y **Verified Availability**.
+
+Este bounded context se clasifica como **Supporting Domain**, ya que facilita la experiencia de búsqueda y selección, pero depende de otros contextos para obtener datos de configuración y ocupación real. En particular, consume información del Parking Management Context y del IoT Monitoring Context.
+
+##### Reservation Context
+
+**Figura 29**  
+*Candidate Bounded Context: Reservation Context*
+
+![alt text](assets/parkingreservation.jpeg)
+
+*Nota.* Elaboración propia (2026) en Miro.
+
+Según la Figura 29, el **Reservation Context** agrupa las responsabilidades relacionadas con el ciclo de vida de la reserva y la generación del ticket virtual. Su propósito es permitir que el conductor solicite una reserva, confirme el uso de un espacio, obtenga un ticket virtual, reciba un identificador único y gestione la expiración o cancelación de la reserva.
+
+Este contexto surge de los agregados **Reservation**, **Virtual Ticket** y **Reservation Validation**. Estos agregados comparten reglas de negocio críticas, como la confirmación de reserva, generación de ticket, asignación de identificador, control de tiempo límite, validación de llegada y consumo de la reserva cuando el vehículo ocupa físicamente el espacio.
+
+La responsabilidad de este contexto es controlar el ciclo de vida lógico de la reserva. Por ello, conceptos como **Reservation**, **Reservation Status**, **Virtual Ticket**, **Reservation Identifier**, **Reservation Time Limit**, **Reservation Validation** y **Active Reservation** pertenecen a este límite.
+
+Este bounded context se clasifica como **Core Domain**, porque representa una de las capacidades diferenciales de ParkingNow. No se trata únicamente de mostrar estacionamientos, sino de permitir al conductor asegurar temporalmente un espacio y vincular esa reserva con la validación física y digital del ingreso.
+
+##### IoT Monitoring Context
+
+**Figura 30**  
+*Candidate Bounded Context: IoT Monitoring Context*
+
+![alt text](assets/parkingiot.jpeg)
+
+*Nota.* Elaboración propia (2026) en Miro.
+
+Según la Figura 30, el **IoT Monitoring Context** agrupa las responsabilidades relacionadas con la detección física de ocupación, registro de eventos IoT, conectividad del nodo, almacenamiento local, último estado conocido y sincronización. Su propósito es conectar los eventos físicos del estacionamiento con el estado digital de la plataforma.
+
+Este contexto surge de los agregados **Occupancy Status**, **IoT Event**, **Node Connection**, **Local Event Buffer**, **Last Known Status** y **Synchronization State**. Estos agregados comparten un lenguaje técnico y de dominio centrado en sensores, ocupación física, heartbeat, desconexión, almacenamiento local y sincronización.
+
+La responsabilidad de este contexto es monitorear el estado real del espacio de estacionamiento. Por ello, conceptos como **Sensor Reading**, **Vehicle Detected**, **Parking Space Occupied**, **IoT Event**, **IoT Heartbeat**, **IoT Node Disconnected**, **Local Event Buffer**, **Last Known Status** y **Synchronization State** pertenecen a este límite.
+
+Este bounded context se clasifica como **Core Domain**, porque representa uno de los principales diferenciadores de ParkingNow frente a soluciones que solo muestran información referencial. La capacidad de verificar disponibilidad mediante sensores físicos permite mejorar la confiabilidad del sistema y reducir inconsistencias entre la reserva lógica y la ocupación real.
+
+##### Identity & Access Management Context
+
+**Figura 31**  
+*Candidate Bounded Context: Identity & Access Management Context*
+
+![alt text](assets/parkingidentity.jpeg)
+
+*Nota.* Elaboración propia (2026) en Miro.
+
+Según la Figura 31, el **Identity & Access Management Context** agrupa las responsabilidades relacionadas con el registro de usuarios, autenticación, sesiones, perfiles y validación de roles. Aunque fue representado en la pizarra como una sección de soporte y no como uno de los seis flujos principales, se identificó como un bounded context independiente debido a que maneja reglas y conceptos transversales del sistema.
+
+Este contexto surge de los agregados **User Account**, **User Session**, **User Profile** y **Role Access**. Estos agregados comparten un lenguaje centrado en identidad, autenticación, sesión activa, perfil de usuario y permisos de acceso.
+
+La responsabilidad de este contexto es controlar quién puede acceder al sistema y qué acciones puede ejecutar. Por ello, conceptos como **User Account**, **User Session**, **User Profile**, **Role Access**, **Authentication Service**, **Driver**, **Administrator** y **System** pertenecen a este límite.
+
+Este bounded context se clasifica como **Generic Domain**, debido a que la autenticación y autorización no representan el diferencial principal de ParkingNow, pero son necesarias para proteger operaciones críticas como registrar estacionamientos, validar reservas o consultar información operacional.
+
+##### Operational Notification Context
+
+**Figura 32**  
+*Candidate Bounded Context: Operational Notification Context*
+
+![alt text](assets/parkingoperational.jpeg)
+
+*Nota.* Elaboración propia (2026) en Miro.
+
+Según la Figura 32, el **Operational Notification Context** agrupa las responsabilidades relacionadas con la publicación de cambios operacionales y la actualización de vistas en tiempo real. Su propósito es notificar cambios relevantes a los consumidores del sistema, como el dashboard web del administrador y la aplicación móvil del conductor.
+
+Este contexto surge de los agregados **Operational History**, **Operational Notification**, **Web Dashboard Update** y **Mobile App Update**. Estos agregados comparten un lenguaje orientado a cambios operacionales, publicación de actualizaciones, actualización de vistas y comunicación de estado hacia interfaces cliente.
+
+La responsabilidad de este contexto es propagar eventos relevantes generados por otros contextos. Por ejemplo, cuando cambia el estado de ocupación, se consume una reserva, se libera un espacio o se actualiza el historial operacional, este contexto se encarga de publicar la información hacia el dashboard web y la aplicación móvil.
+
+Este bounded context se clasifica como **Supporting Domain**, porque no define por sí mismo la lógica central de reserva ni la detección física IoT, pero permite que los cambios del sistema sean visibles oportunamente para los usuarios. Su importancia está en mantener la experiencia operacional actualizada y coherente.
+
+##### Relación entre agregados y bounded contexts
+
+La siguiente tabla resume la relación entre los agregados identificados en el Step 9 y los bounded contexts descubiertos en el Step 10.
+
+| Bounded Context | Agregados relacionados | Clasificación |
+|---|---|---|
+| **Parking Management Context** | Parking Lot, Parking Lot Profile, Parking Space, IoT Node Pairing | Supporting Domain |
+| **Parking Discovery Context** | Search Session, Parking Reference, Availability | Supporting Domain |
+| **Reservation Context** | Reservation, Virtual Ticket, Reservation Validation | Core Domain |
+| **IoT Monitoring Context** | Occupancy Status, IoT Event, Node Connection, Local Event Buffer, Last Known Status, Synchronization State | Core Domain |
+| **Identity & Access Management Context** | User Account, User Session, User Profile, Role Access | Generic Domain |
+| **Operational Notification Context** | Operational History, Operational Notification, Web Dashboard Update, Mobile App Update | Supporting Domain |
+
+La agrupación evidencia que ParkingNow no debe diseñarse como una única aplicación monolítica sin límites claros. Por el contrario, el dominio contiene áreas con modelos, reglas y responsabilidades diferenciadas. La reserva y el monitoreo IoT concentran la lógica más crítica del negocio, mientras que la gestión de estacionamientos, el descubrimiento, la identidad y las notificaciones operacionales cumplen funciones necesarias para completar la experiencia del producto.
+
+En conclusión, el Candidate Context Discovery permitió transformar los agregados del Design-Level EventStorming en seis bounded contexts candidatos. Estos límites serán utilizados como base para las siguientes decisiones de diseño táctico, incluyendo la definición de responsabilidades internas, objetos de dominio, servicios, APIs, integración entre contextos y componentes arquitectónicos de ParkingNow.
