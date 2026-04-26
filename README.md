@@ -2419,3 +2419,131 @@ En conjunto, los cinco Domain Message Flow Diagrams permiten observar cómo los 
 Esta modelación confirma que los bounded contexts descubiertos previamente tienen límites coherentes. **Reservation** concentra el ciclo de vida de la reserva, **IoT Monitoring** gestiona la interacción con sensores y conectividad, **Parking Management** mantiene la configuración del estacionamiento, **Parking Discovery** organiza la búsqueda y disponibilidad, **Operational Notification** propaga cambios relevantes y **Identity & Access Management** protege las acciones del sistema. Por ello, los flujos de mensajes sirven como base para completar los **Bounded Context Canvases** en la siguiente sección.
 
 Enlace de miro: https://miro.com/welcomeonboard/cE81V0lIQ2x2VHg3MktWbXVaTUM4UjJ3ZXhUcEFCUTN5TmdiL3FmNXdoeURwS2YyYlpUS1BMazd1b2JXSnRGZ3l1RGl4cEhMeWJDZVlUd3FHNzNZVVVmQnUraUd4TE1vQmR5bitqV3AzWkQ5ZTExSkU4YkhBWmRTVVJOUEZsU0VBd044SHFHaVlWYWk0d3NxeHNmeG9BPT0hdjE=?share_link_id=852085081677
+
+### 4.1.1.3. Bounded Context Canvases
+
+Luego de modelar los flujos de mensajes entre bounded contexts, se elaboraron los **Bounded Context Canvases** de ParkingNow. Esta actividad permitió documentar con mayor precisión el propósito, la clasificación estratégica, las responsabilidades internas, el lenguaje ubicuo, las reglas de negocio, las comunicaciones entrantes y salientes, los supuestos, las métricas de validación y las preguntas abiertas de cada contexto identificado previamente en el Candidate Context Discovery.
+
+El desarrollo de los canvases se realizó tomando como base los bounded contexts descubiertos en la sección anterior y los mensajes definidos en los **Domain Message Flow Diagrams**. De esta manera, cada canvas no fue construido como una ficha aislada, sino como una representación detallada de un contexto que participa activamente en los escenarios principales de ParkingNow.
+
+Para ordenar el análisis, los bounded contexts fueron trabajados según su importancia estratégica dentro del dominio. Primero se documentaron los contextos de mayor valor para el negocio, **Reservation Context** e **IoT Monitoring Context**, clasificados como **Core Domain**. Luego se desarrollaron los contextos de soporte: **Parking Management Context**, **Parking Discovery Context** y **Operational Notification Context**. Finalmente, se documentó **Identity & Access Management Context**, clasificado como **Generic Domain**, debido a que cumple una función necesaria pero no representa una capacidad diferencial del producto.
+
+El llenado de cada canvas siguió un proceso iterativo compuesto por cuatro actividades principales. Primero, se definió el propósito del contexto y su clasificación estratégica. Segundo, se capturó el lenguaje ubicuo y las reglas de negocio internas. Tercero, se identificaron las comunicaciones entrantes y salientes, reutilizando los comandos, eventos y consultas definidos en los flujos de mensajes. Finalmente, se realizó una revisión crítica de cada contexto mediante supuestos, métricas de verificación y preguntas abiertas.
+
+**Figura 38**  
+*Bounded Context Canvas: Reservation Context*
+
+![alt text](assets/canvasreservation.jpeg)
+
+*Nota.* Elaboración propia (2026) en Miro.
+
+Según la Figura 38, el **Reservation Context** concentra la lógica relacionada con el ciclo de vida de una reserva de estacionamiento. Este contexto permite gestionar la solicitud, confirmación, cancelación, expiración, generación de ticket virtual, asignación de identificador, validación y consumo de una reserva. Por esta razón, fue clasificado como **Core Domain**, ya que representa una de las capacidades centrales de ParkingNow: permitir que el conductor asegure temporalmente un espacio disponible y pueda utilizarlo mediante una validación digital.
+
+El lenguaje ubicuo de este contexto incluye términos como **Reservation**, **Active Reservation**, **Reservation Status**, **Reservation Time Limit**, **Virtual Ticket**, **Reservation Identifier**, **Reservation Validation**, **Reservation Expiration**, **Reservation Consumption** y **Cancelled Reservation**. Estos conceptos delimitan claramente el modelo de negocio de la reserva y evitan mezclarlo con responsabilidades de búsqueda, administración del estacionamiento o monitoreo físico.
+
+En cuanto a la comunicación entrante, el contexto recibe mensajes como **Request reservation** desde la aplicación móvil del conductor, **Parking space selected** desde Parking Discovery, **Parking space occupied** desde Parking Management, **Scan virtual ticket** desde el módulo QR o cámara y **Reservation time limit elapsed** desde un temporizador del sistema. Estos mensajes evidencian que el contexto Reservation no trabaja de forma aislada, sino que depende de la selección previa de un espacio, la disponibilidad operacional y la validación del ticket.
+
+Respecto a la comunicación saliente, el contexto produce eventos y comandos como **Reservation confirmed**, **Reservation consumed**, **Reservation validated**, **Generate virtual ticket** y **Reservation expired**. Estos mensajes son consumidos por otros contextos o sistemas, como Operational Notification, Parking Management, QR / Ticket Generation Service y Mobile App. Esto permite que los demás contextos reaccionen ante cambios importantes en el estado de la reserva.
+
+Las principales decisiones de negocio establecen que una reserva solo puede confirmarse si el espacio seleccionado está disponible, toda reserva confirmada debe generar un ticket virtual, cada ticket debe tener un identificador único, la reserva expira si el conductor no llega dentro del tiempo límite y una reserva solo se consume cuando el espacio reservado queda físicamente ocupado. Estas reglas justifican que Reservation sea un contexto independiente, ya que posee invariantes propias y controla estados críticos del negocio.
+
+Como criterio de validación, se definieron métricas como la tasa de reservas confirmadas, la tasa de reservas expiradas, el tiempo promedio de validación, los conflictos por doble reserva y la precisión del consumo de reserva. Además, se identificaron preguntas abiertas relacionadas con el tiempo límite por defecto, la posibilidad de configurarlo por estacionamiento, la extensión de reservas activas y el manejo de llegadas tardías.
+
+**Figura 39**  
+*Bounded Context Canvas: IoT Monitoring Context*
+
+![alt text](assets/canvasesiot.jpeg)
+
+*Nota.* Elaboración propia (2026) en Miro.
+
+Según la Figura 39, el **IoT Monitoring Context** agrupa las responsabilidades relacionadas con la detección física de ocupación, el registro de eventos IoT, el control de heartbeat, la detección de desconexiones, el almacenamiento local de eventos y la restauración de sincronización con la plataforma. Este contexto fue clasificado como **Core Domain**, debido a que la disponibilidad verificada mediante sensores físicos es uno de los principales diferenciales de ParkingNow frente a soluciones que solo muestran disponibilidad declarativa o manual.
+
+El lenguaje ubicuo de este contexto incluye conceptos como **IoT Node**, **ESP32**, **Sensor Reading**, **Occupancy Status**, **Vehicle Detection**, **IoT Heartbeat**, **Node Connection**, **IoT Disconnection**, **Local Event Buffer**, **Last Known Status** y **Synchronization State**. Estos términos reflejan una mezcla entre el dominio de estacionamientos y la capa física IoT, por lo que resultó necesario mantenerlos dentro de un contexto especializado.
+
+En la comunicación entrante, el contexto recibe eventos del **ESP32 IoT Node**, tales como **Vehicle detected**, **IoT heartbeat received** y **Heartbeat timeout detected**. También recibe el evento **Connection recovered** desde Internet Connection y el comando **Associate IoT node** desde Parking Management. Esto demuestra que IoT Monitoring es responsable tanto de interpretar señales físicas como de mantener la relación entre el nodo IoT y la operación del sistema.
+
+En la comunicación saliente, el contexto envía mensajes como **Update occupancy status** hacia Parking Management, **Parking space occupied** hacia Reservation, **IoT node disconnected** y **Synchronization restored** hacia Operational Notification, **Last known status preserved** hacia Parking Discovery y **Restore synchronization** hacia Cloud Realtime Database. Estos mensajes permiten que los cambios físicos detectados por el sensor se reflejen en la disponibilidad, las reservas, el dashboard operacional y la experiencia del conductor.
+
+Las decisiones de negocio establecen que si no se recibe heartbeat dentro del umbral configurado, el nodo debe marcarse como desconectado; si el nodo está offline, los eventos físicos deben almacenarse localmente; el sistema debe preservar el último estado conocido durante la desconexión; y cuando se recupera la conexión, los eventos almacenados deben sincronizarse. Además, las lecturas del sensor solo deben actualizar la ocupación cuando tengan un nivel aceptable de confianza, evitando inconsistencias causadas por falsos positivos.
+
+Las métricas de verificación definidas para este contexto incluyen uptime del nodo IoT, tiempo promedio de resincronización, tasa de falsos positivos, latencia de detección de ocupación y pérdida de eventos almacenados. Como preguntas abiertas, se identificó la necesidad de definir el umbral exacto de heartbeat, el mecanismo para filtrar falsos positivos, la capacidad local de almacenamiento del ESP32 y el comportamiento del sistema ante fallos repetidos de sincronización.
+
+**Figura 40**  
+*Bounded Context Canvas: Parking Management Context*
+
+![alt text](assets/canvasesparking.jpeg)
+
+*Nota.* Elaboración propia (2026) en Miro.
+
+Según la Figura 40, el **Parking Management Context** se encarga de administrar el registro de estacionamientos, el perfil del parking lot, la ubicación, la configuración de espacios, los identificadores únicos y la asociación de nodos IoT. Este contexto fue clasificado como **Supporting Domain**, ya que habilita la operación principal de ParkingNow, pero no representa por sí mismo el mayor diferencial competitivo del producto.
+
+El lenguaje ubicuo de este contexto está compuesto por términos como **Parking Lot**, **Parking Lot Profile**, **Parking Space**, **Parking Space Identifier**, **Parking Space Setup**, **Parking Lot Location**, **Parking Space Availability**, **IoT Node Pairing**, **Affiliated Parking Lot** y **Parking Configuration**. Estos conceptos pertenecen al modelo administrativo y estructural del estacionamiento, por lo que deben mantenerse separados de la lógica de reserva y monitoreo IoT.
+
+En la comunicación entrante, el contexto recibe comandos administrativos como **Affiliate parking lot**, **Register parking lot** y **Register parking spaces** desde Administrator / Web Dashboard. También recibe la consulta **Validate selected parking space** desde Reservation, el comando **Update occupancy status** desde IoT Monitoring y la consulta **Validate administrator role** desde Identity & Access Management. Esto muestra que Parking Management actúa como dueño de la configuración y disponibilidad base de los espacios.
+
+En la comunicación saliente, el contexto emite **Parking lot available for discovery** y **Availability changed** hacia Parking Discovery, envía **Associate IoT node** hacia IoT Monitoring, consulta **Validate parking lot location** a OpenStreetMap / Nominatim y comunica **Parking space occupied** hacia Reservation. Estas relaciones evidencian que la configuración del estacionamiento es consumida por distintos contextos para habilitar búsqueda, disponibilidad y validación de reservas.
+
+Las decisiones de negocio indican que cada espacio debe tener un identificador único, un estacionamiento debe registrarse antes de configurar espacios, todo espacio debe pertenecer a un estacionamiento registrado, un nodo IoT solo puede asociarse a un espacio existente, solo administradores pueden configurar estacionamientos y únicamente los estacionamientos completamente configurados pueden publicarse para búsqueda.
+
+Para validar este contexto se definieron métricas como tasa de registro completo, errores de configuración, éxito de asociación IoT, tiempo promedio de configuración, número de espacios configurados y precisión de actualización de disponibilidad. Las preguntas abiertas se enfocan en la edición posterior de espacios, la deshabilitación temporal, la prevención de identificadores duplicados y la posibilidad de que un nodo IoT gestione varios espacios.
+
+**Figura 41**  
+*Bounded Context Canvas: Parking Discovery Context*
+
+![alt text](assets/canvasesdiscovery.jpeg)
+
+*Nota.* Elaboración propia (2026) en Miro.
+
+Según la Figura 41, el **Parking Discovery Context** permite que el conductor busque estacionamientos cercanos, consulte referencias externas, revise disponibilidad verificada y seleccione un espacio disponible. Este contexto fue clasificado como **Supporting Domain**, debido a que mejora directamente la experiencia del conductor, pero depende de otros contextos para obtener información de estacionamientos, disponibilidad y estado físico.
+
+El lenguaje ubicuo de este contexto incluye **Search Session**, **Destination Search**, **Nearby Parking Map**, **Parking Reference**, **Parking Results List**, **Availability**, **Verified Availability**, **Available Parking Spaces**, **Parking Lot Detail** y **Parking Space Selection**. Estos términos reflejan la experiencia de descubrimiento y selección previa a la reserva.
+
+En la comunicación entrante, Parking Discovery recibe el comando **Search destination** desde Driver / Mobile App, así como eventos provenientes de Parking Management e IoT Monitoring. Entre ellos se encuentran **Parking lot available for discovery**, **Availability changed**, **Last known status preserved** y **Verified availability reported**. Estos mensajes permiten que el contexto construya una vista confiable de estacionamientos disponibles para el usuario.
+
+En la comunicación saliente, este contexto consulta **Resolve nearby parking references** a OpenStreetMap / Overpass API, solicita **Get active parking spaces** a Parking Management, ejecuta **Consult verified availability** sobre IoT Monitoring, comunica **Parking space selected** hacia Reservation y muestra **Verified availability displayed** hacia Mobile App. Este flujo confirma que Parking Discovery actúa como contexto de consulta, composición y presentación de información útil para la toma de decisión del conductor.
+
+Las decisiones de negocio establecen que la disponibilidad verificada por IoT tiene prioridad sobre disponibilidad estática, las referencias no afiliadas solo se muestran como información auxiliar, un espacio solo puede seleccionarse si está disponible, los resultados deben combinar ubicación y disponibilidad, la disponibilidad desactualizada debe evitarse o degradarse, y el detalle del estacionamiento debe mostrarse antes de seleccionar un espacio.
+
+Las métricas de validación incluyen tiempo de respuesta de búsqueda, tasa de selección de espacio, precisión de disponibilidad verificada, búsquedas con resultados disponibles y tasa de inconsistencia de disponibilidad. Las preguntas abiertas se relacionan con la visualización de estacionamientos no afiliados, el criterio de ordenamiento de resultados, la vigencia de la disponibilidad consultada y la posibilidad de mostrar un nivel de confianza al conductor.
+
+**Figura 42**  
+*Bounded Context Canvas: Operational Notification Context*
+
+![alt text](assets/canvasesnotificacion.jpeg)
+
+*Nota.* Elaboración propia (2026) en Miro.
+
+Según la Figura 42, el **Operational Notification Context** tiene como propósito publicar cambios operacionales y actualizar vistas en tiempo real para el dashboard web del administrador y la aplicación móvil del conductor. Este contexto fue clasificado como **Supporting Domain**, ya que no concentra la lógica principal de reserva ni de monitoreo físico, pero permite que los cambios importantes del sistema sean visibles oportunamente para los usuarios.
+
+El lenguaje ubicuo del contexto incluye términos como **Operational Notification**, **Operational History**, **Realtime Update**, **Dashboard Update**, **Mobile App Update**, **Operational Change**, **Notification Status**, **Daily Operational History**, **Published Update** y **Event Delivery**. Estos conceptos se relacionan con la propagación de cambios y la actualización de interfaces.
+
+En la comunicación entrante, este contexto consume eventos provenientes de Reservation, Parking Management e IoT Monitoring. Entre ellos se encuentran **Reservation confirmed**, **Reservation consumed**, **Parking space released**, **IoT node disconnected**, **Synchronization restored** y **Availability changed**. Estos mensajes representan cambios relevantes que deben ser comunicados o reflejados en las interfaces del sistema.
+
+En la comunicación saliente, Operational Notification produce comandos y eventos como **Update web dashboard**, **Update mobile app**, **Publish operational update**, **Daily operational history updated** y **Operational change notified**. Estos mensajes se dirigen a Web Dashboard, Mobile App, Cloud Realtime Database, Parking Discovery y Administrator. Con ello, el contexto garantiza que los cambios operacionales lleguen a los consumidores adecuados sin acoplar directamente los contextos core con las interfaces.
+
+Las decisiones de negocio establecen que todo cambio operacional relevante debe publicarse en tiempo real, el dashboard debe priorizar visibilidad administrativa, la aplicación móvil debe priorizar disponibilidad y estado de reserva, las alertas de desconexión IoT deben ser visibles para administradores, el consumo de reserva debe generar actualización operacional y la entrega de notificaciones no debe bloquear los procesos core de reserva o monitoreo IoT.
+
+Para validar este contexto se definieron métricas como latencia de notificación, retraso de actualización del dashboard, retraso de actualización móvil, tasa de notificaciones fallidas, tasa de entrega de eventos y consistencia del historial operacional. Las preguntas abiertas están orientadas a definir si habrá push notifications, qué eventos verá el conductor, cuáles serán exclusivos para administradores y si las notificaciones fallidas deberán reintentarse.
+
+**Figura 43**  
+*Bounded Context Canvas: Identity & Access Management Context*
+
+![alt text](assets/canvasesindenti.jpeg)
+
+*Nota.* Elaboración propia (2026) en Miro.
+
+Según la Figura 43, el **Identity & Access Management Context** gestiona el registro de usuarios, la autenticación, las sesiones, los perfiles y la validación de roles para proteger operaciones críticas de ParkingNow. Este contexto fue clasificado como **Generic Domain**, ya que la autenticación y autorización son capacidades necesarias para el sistema, pero no constituyen el diferencial principal del producto.
+
+El lenguaje ubicuo de este contexto incluye **User Account**, **User Session**, **User Profile**, **Role Access**, **Authentication**, **Authorization**, **Driver**, **Administrator**, **Active Session**, **Access Validation**, **Protected Action** y **Access Denied**. Estos términos se relacionan con la gestión de identidad, seguridad y permisos dentro de la plataforma.
+
+En la comunicación entrante, el contexto recibe comandos como **Register user account**, **Authenticate user**, **Authenticate administrator** y **Close session**. También recibe consultas como **Validate administrator role** desde Parking Management y **Validate user session** desde Reservation. Esto evidencia que IAM funciona como proveedor transversal de seguridad para operaciones protegidas dentro del sistema.
+
+En la comunicación saliente, el contexto produce mensajes como **User authenticated**, **Role access validated**, **User session closed**, **User logged in**, **Access denied** y **Verify credentials**. Estos mensajes se comunican hacia Reservation, Parking Management, Operational Notification, Mobile App, Web Dashboard y Authentication Service. De este modo, IAM permite proteger acciones como solicitar reservas, registrar estacionamientos, configurar espacios y acceder a vistas administrativas.
+
+Las decisiones de negocio determinan que solo usuarios autenticados pueden solicitar reservas, solo administradores pueden registrar estacionamientos, las acciones protegidas requieren validación de rol, las sesiones se cierran por acción explícita o timeout, el acceso denegado debe comunicarse a la interfaz solicitante y las actualizaciones de perfil pertenecen únicamente al usuario autenticado.
+
+Las métricas de verificación incluyen tasa de login exitoso, tasa de autenticación fallida, tasa de accesos denegados, frecuencia de expiración de sesión, tiempo promedio de autenticación y precisión de validación de rol. Como preguntas abiertas se identificó la necesidad de decidir si se usará Firebase Auth, Auth0 o autenticación propia, si existirá recuperación de contraseña, si habrá varios niveles de administrador y cuánto tiempo permanecerá activa una sesión.
+
+En síntesis, los Bounded Context Canvases permitieron detallar internamente cada contexto candidato de ParkingNow y validar que los límites descubiertos en el Candidate Context Discovery son coherentes con las responsabilidades del dominio. Los contextos **Reservation** e **IoT Monitoring** fueron clasificados como **Core Domain** porque concentran las capacidades de mayor valor: reserva confiable y disponibilidad física verificada. Los contextos **Parking Management**, **Parking Discovery** y **Operational Notification** fueron clasificados como **Supporting Domain**, ya que habilitan y complementan la operación principal. Finalmente, **Identity & Access Management** fue clasificado como **Generic Domain**, debido a que cumple una función transversal de seguridad que puede apoyarse en soluciones estándar.
+
+Esta definición servirá como base para los siguientes artefactos de diseño, especialmente el **Context Mapping**, donde se representarán las relaciones entre bounded contexts, sus dependencias y los patrones de integración más adecuados para la arquitectura de ParkingNow.
