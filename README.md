@@ -3405,7 +3405,1053 @@ El diseño utiliza claves primarias de tipo `UUID` para mantener identificadores
 
 La persistencia se define sobre **PostgreSQL**, pudiendo alojarse en una base de datos administrada como Supabase PostgreSQL. Sin embargo, la lógica de negocio no se implementa en la base de datos ni en Supabase, sino en el **Core REST API** desarrollado con Java y Spring Boot. De esta forma, la base de datos cumple únicamente la responsabilidad de persistencia dentro de la arquitectura.
 
-## 4.2.2. Bounded Context: Reservation
+### 4.2.2. Bounded Context: Parking Discovery
+
+El bounded context **Parking Discovery** agrupa las clases responsables de permitir que el conductor busque estacionamientos cercanos, consulte referencias externas, revise disponibilidad verificada y seleccione un espacio disponible dentro de ParkingNow. Este contexto es utilizado principalmente por el **Driver**, quien interactúa desde la aplicación móvil para encontrar una alternativa de estacionamiento según su destino, ubicación y disponibilidad actual.
+
+Este contexto cumple un rol de **supporting domain**, ya que apoya el proceso principal de reserva conectando información proveniente de otros bounded contexts y servicios externos. Por un lado, obtiene estacionamientos y espacios activos desde **Parking Management**; por otro, consulta disponibilidad verificada proveniente de **IoT Monitoring**. Además, puede apoyarse en servicios externos como **OpenStreetMap / Overpass API** para resolver referencias cercanas o estacionamientos no afiliados.
+
+El objetivo principal de **Parking Discovery** es reducir la incertidumbre del conductor al buscar un estacionamiento. Para ello, el contexto organiza la búsqueda por destino, construye resultados cercanos, combina referencias externas con disponibilidad interna y muestra al conductor una lista de opciones para que pueda seleccionar un estacionamiento o un espacio disponible.
+
+**Figura 57**  
+*Parking Discovery Context Class Dictionary*
+
+![alt text](./assets/bounded2-boundedContext.jpg)
+
+#### Diccionario de clases
+
+##### SearchSession
+
+| Campo | Detalle |
+|---|---|
+| Nombre | `SearchSession` |
+| Relaciones | `DestinationSearch`, `NearbyParkingMap`, `ParkingResultsList` |
+| Descripción | Representa una sesión de búsqueda iniciada por el conductor desde la aplicación móvil. |
+
+| Atributo | Tipo de dato | Visibilidad |
+|---|---|---|
+| `id` | `string` | `private` |
+| `driverId` | `string` | `private` |
+| `destination` | `DestinationSearch` | `private` |
+| `startedAt` | `Date` | `private` |
+| `status` | `SearchSessionStatus` | `private` |
+
+| Método | Descripción |
+|---|---|
+| `startSearch()` | Inicia una búsqueda de estacionamientos cercanos. |
+| `updateDestination()` | Actualiza el destino consultado por el conductor. |
+| `closeSearch()` | Finaliza la sesión de búsqueda. |
+| `getSearchSummary()` | Obtiene el resumen de la búsqueda realizada. |
+
+##### DestinationSearch
+
+| Campo | Detalle |
+|---|---|
+| Nombre | `DestinationSearch` |
+| Relaciones | `SearchSession`, `LocationCoordinates` |
+| Descripción | Representa el destino ingresado por el conductor para encontrar estacionamientos cercanos. |
+
+| Atributo | Tipo de dato | Visibilidad |
+|---|---|---|
+| `id` | `string` | `private` |
+| `queryText` | `string` | `private` |
+| `coordinates` | `LocationCoordinates` | `private` |
+| `resolvedAddress` | `string` | `private` |
+| `resolvedAt` | `Date` | `private` |
+
+| Método | Descripción |
+|---|---|
+| `resolveDestination()` | Convierte el texto ingresado en coordenadas geográficas. |
+| `updateCoordinates()` | Actualiza las coordenadas del destino. |
+| `getResolvedAddress()` | Devuelve la dirección resuelta del destino. |
+
+##### NearbyParkingMap
+
+| Campo | Detalle |
+|---|---|
+| Nombre | `NearbyParkingMap` |
+| Relaciones | `ParkingReference`, `ParkingResultsList` |
+| Descripción | Representa el mapa de estacionamientos cercanos generado a partir del destino del conductor. |
+
+| Atributo | Tipo de dato | Visibilidad |
+|---|---|---|
+| `id` | `string` | `private` |
+| `searchSessionId` | `string` | `private` |
+| `centerLocation` | `LocationCoordinates` | `private` |
+| `radiusMeters` | `number` | `private` |
+| `generatedAt` | `Date` | `private` |
+
+| Método | Descripción |
+|---|---|
+| `generateNearbyMap()` | Genera el mapa de estacionamientos cercanos. |
+| `filterByRadius()` | Filtra referencias según el radio de búsqueda. |
+| `getMapResults()` | Obtiene los resultados mostrados en el mapa. |
+
+##### ParkingReference
+
+| Campo | Detalle |
+|---|---|
+| Nombre | `ParkingReference` |
+| Relaciones | `NearbyParkingMap`, `ExternalParkingReference`, `VerifiedAvailability` |
+| Descripción | Representa una referencia de estacionamiento encontrada durante la búsqueda, ya sea afiliada o externa. |
+
+| Atributo | Tipo de dato | Visibilidad |
+|---|---|---|
+| `id` | `string` | `private` |
+| `parkingLotId` | `string` | `private` |
+| `name` | `string` | `private` |
+| `location` | `LocationCoordinates` | `private` |
+| `source` | `ParkingReferenceSource` | `private` |
+| `availability` | `VerifiedAvailability` | `private` |
+
+| Método | Descripción |
+|---|---|
+| `markAsAffiliated()` | Marca la referencia como estacionamiento afiliado. |
+| `markAsExternal()` | Marca la referencia como estacionamiento externo. |
+| `attachAvailability()` | Asocia disponibilidad verificada a la referencia. |
+| `getReferenceDetails()` | Obtiene los detalles principales de la referencia. |
+
+##### VerifiedAvailability
+
+| Campo | Detalle |
+|---|---|
+| Nombre | `VerifiedAvailability` |
+| Relaciones | `ParkingReference`, `AvailableParkingSpace` |
+| Descripción | Representa la disponibilidad validada de un estacionamiento o espacio a partir de información interna e IoT. |
+
+| Atributo | Tipo de dato | Visibilidad |
+|---|---|---|
+| `id` | `string` | `private` |
+| `parkingLotId` | `string` | `private` |
+| `availableSpacesCount` | `number` | `private` |
+| `confidenceLevel` | `AvailabilityConfidenceLevel` | `private` |
+| `verifiedAt` | `Date` | `private` |
+
+| Método | Descripción |
+|---|---|
+| `isAvailable()` | Indica si existe disponibilidad para el conductor. |
+| `updateAvailability()` | Actualiza la disponibilidad verificada. |
+| `degradeAvailability()` | Reduce el nivel de confianza si la información está desactualizada. |
+| `getAvailableSpacesCount()` | Devuelve la cantidad de espacios disponibles. |
+
+##### AvailableParkingSpace
+
+| Campo | Detalle |
+|---|---|
+| Nombre | `AvailableParkingSpace` |
+| Relaciones | `VerifiedAvailability`, `ParkingSpaceSelection` |
+| Descripción | Representa un espacio disponible que puede ser seleccionado por el conductor. |
+
+| Atributo | Tipo de dato | Visibilidad |
+|---|---|---|
+| `id` | `string` | `private` |
+| `parkingLotId` | `string` | `private` |
+| `spaceId` | `string` | `private` |
+| `identifier` | `string` | `private` |
+| `status` | `AvailabilityStatus` | `private` |
+
+| Método | Descripción |
+|---|---|
+| `markSelectable()` | Marca el espacio como seleccionable. |
+| `markUnavailable()` | Marca el espacio como no disponible. |
+| `getSpaceIdentifier()` | Obtiene el identificador visible del espacio. |
+
+##### ParkingResultsList
+
+| Campo | Detalle |
+|---|---|
+| Nombre | `ParkingResultsList` |
+| Relaciones | `SearchSession`, `ParkingReference`, `ParkingLotDetail` |
+| Descripción | Representa la lista de resultados de estacionamientos mostrada al conductor. |
+
+| Atributo | Tipo de dato | Visibilidad |
+|---|---|---|
+| `id` | `string` | `private` |
+| `searchSessionId` | `string` | `private` |
+| `results` | `List<ParkingReference>` | `private` |
+| `sortCriteria` | `ParkingResultSortCriteria` | `private` |
+| `generatedAt` | `Date` | `private` |
+
+| Método | Descripción |
+|---|---|
+| `addResult()` | Agrega una referencia de estacionamiento a la lista. |
+| `sortResults()` | Ordena los resultados por distancia, disponibilidad o relevancia. |
+| `filterUnavailable()` | Oculta resultados sin disponibilidad utilizable. |
+| `getResults()` | Devuelve la lista de resultados disponibles. |
+
+##### ParkingLotDetail
+
+| Campo | Detalle |
+|---|---|
+| Nombre | `ParkingLotDetail` |
+| Relaciones | `ParkingReference`, `VerifiedAvailability`, `AvailableParkingSpace` |
+| Descripción | Representa el detalle de un estacionamiento antes de que el conductor seleccione un espacio. |
+
+| Atributo | Tipo de dato | Visibilidad |
+|---|---|---|
+| `id` | `string` | `private` |
+| `parkingLotId` | `string` | `private` |
+| `name` | `string` | `private` |
+| `address` | `string` | `private` |
+| `availability` | `VerifiedAvailability` | `private` |
+| `availableSpaces` | `List<AvailableParkingSpace>` | `private` |
+
+| Método | Descripción |
+|---|---|
+| `loadDetails()` | Carga los datos principales del estacionamiento. |
+| `showVerifiedAvailability()` | Muestra disponibilidad verificada. |
+| `showAvailableSpaces()` | Muestra los espacios disponibles para selección. |
+
+##### ParkingSpaceSelection
+
+| Campo | Detalle |
+|---|---|
+| Nombre | `ParkingSpaceSelection` |
+| Relaciones | `AvailableParkingSpace`, `Reservation` |
+| Descripción | Representa la selección de un espacio disponible por parte del conductor antes de iniciar una reserva. |
+
+| Atributo | Tipo de dato | Visibilidad |
+|---|---|---|
+| `id` | `string` | `private` |
+| `driverId` | `string` | `private` |
+| `parkingLotId` | `string` | `private` |
+| `spaceId` | `string` | `private` |
+| `selectedAt` | `Date` | `private` |
+
+| Método | Descripción |
+|---|---|
+| `selectSpace()` | Selecciona un espacio disponible. |
+| `validateSelection()` | Valida que el espacio siga disponible antes de continuar. |
+| `cancelSelection()` | Cancela la selección del espacio. |
+| `sendToReservation()` | Envía la selección al contexto de reservas. |
+
+#### 4.2.2.1. Domain Layer
+
+La **Domain Layer** del bounded context **Parking Discovery** representa el núcleo de reglas de negocio relacionadas con la búsqueda, consulta y selección de estacionamientos disponibles dentro de ParkingNow. Esta capa contiene las clases que modelan el proceso mediante el cual un conductor busca estacionamientos cercanos, revisa referencias externas, consulta disponibilidad verificada y selecciona un espacio disponible antes de iniciar una reserva.
+
+En este contexto, el actor principal es el **Driver**, quien utiliza la aplicación móvil para buscar estacionamientos según su destino o ubicación. La capa de dominio permite representar conceptos como la sesión de búsqueda, el destino consultado, el mapa de estacionamientos cercanos, la lista de resultados, la disponibilidad verificada y la selección de espacios. Aunque este contexto consulta información proveniente de **Parking Management**, **IoT Monitoring** y servicios externos como **OpenStreetMap / Overpass API**, la lógica interna de Parking Discovery se mantiene independiente de los detalles técnicos de esas integraciones.
+
+**Figura 58**  
+*Parking Discovery Context Domain Layer Diagram*
+
+![alt text](./assets/bounded2-domain.jpg)
+
+*Nota.* Elaboración propia (2026).
+
+El diseño de dominio de **Parking Discovery** se organiza alrededor del aggregate **ParkingSearchAggregate**, el cual actúa como raíz de consistencia del contexto. Este aggregate agrupa la sesión de búsqueda, el destino ingresado por el conductor, las referencias de estacionamiento encontradas, la disponibilidad verificada y la selección de espacios disponibles.
+
+El aggregate **ParkingSearchAggregate** permite garantizar que las operaciones críticas del contexto se realicen de manera consistente. Por ejemplo, una búsqueda no debe generar resultados sin un destino válido, una referencia externa debe identificarse como auxiliar si no pertenece a la plataforma, la disponibilidad verificada por IoT debe tener prioridad sobre la disponibilidad estática y un espacio solo puede ser seleccionado si se encuentra disponible al momento de la consulta.
+
+Las entidades principales del contexto son **SearchSession**, **DestinationSearch**, **NearbyParkingMap**, **ParkingReference**, **VerifiedAvailability**, **AvailableParkingSpace**, **ParkingResultsList**, **ParkingLotDetail** y **ParkingSpaceSelection**. La entidad **SearchSession** representa la búsqueda iniciada por el conductor. **DestinationSearch** representa el destino o ubicación consultada. **NearbyParkingMap** permite organizar las referencias cercanas dentro de un radio de búsqueda. **ParkingReference** representa un estacionamiento encontrado, ya sea afiliado o externo. **VerifiedAvailability** contiene la disponibilidad validada del estacionamiento. **AvailableParkingSpace** representa un espacio disponible para selección. **ParkingResultsList** organiza los resultados mostrados al conductor. **ParkingLotDetail** muestra información detallada antes de seleccionar un espacio. Finalmente, **ParkingSpaceSelection** representa la selección temporal de un espacio disponible antes de pasar al contexto de reservas.
+
+Los **Value Objects** del contexto permiten encapsular valores relevantes para la búsqueda y la disponibilidad. **LocationCoordinates** representa la ubicación geográfica usada para búsquedas y referencias. **SearchRadius** define el radio de búsqueda permitido. **AvailabilityConfidenceLevel** representa el nivel de confianza de la disponibilidad consultada. **ParkingReferenceSource** diferencia si una referencia proviene de ParkingNow o de un servicio externo. **ParkingResultSortCriteria** define el criterio de ordenamiento de resultados, como distancia, disponibilidad o relevancia. Además, **SearchSessionStatus** y **AvailabilityStatus** restringen los estados válidos dentro del flujo de descubrimiento.
+
+La capa de dominio también incluye la fábrica **ParkingSearchFactory**, encargada de crear sesiones de búsqueda, resultados y selecciones iniciales con valores válidos. Esta fábrica evita que otras capas creen objetos incompletos o inconsistentes.
+
+Asimismo, se definen servicios de dominio como **ParkingDiscoveryPolicy**, **AvailabilityPrioritizationService** y **ParkingResultRankingService**. El primero valida reglas generales de búsqueda y selección. El segundo establece que la disponibilidad verificada por IoT tiene prioridad sobre disponibilidad estática o desactualizada. El tercero ordena los resultados según criterios como cercanía, disponibilidad y relevancia para el conductor.
+
+Finalmente, se definen interfaces de repositorio como **ISearchSessionRepository**, **IParkingReferenceRepository** e **IAvailabilityRepository**. Estas interfaces expresan las operaciones necesarias para guardar sesiones de búsqueda, recuperar referencias y consultar disponibilidad, sin depender de implementaciones técnicas concretas. Las implementaciones reales hacia el Core REST API, PostgreSQL, OpenStreetMap o servicios internos se desarrollan posteriormente en la **Infrastructure Layer**.
+
+La clasificación de clases de la Domain Layer se resume en la siguiente tabla:
+
+| Categoría | Clases |
+|---|---|
+| Aggregate | `ParkingSearchAggregate` |
+| Entities | `SearchSession`, `DestinationSearch`, `NearbyParkingMap`, `ParkingReference`, `VerifiedAvailability`, `AvailableParkingSpace`, `ParkingResultsList`, `ParkingLotDetail`, `ParkingSpaceSelection` |
+| Value Objects | `LocationCoordinates`, `SearchRadius`, `AvailabilityConfidenceLevel`, `ParkingReferenceSource`, `ParkingResultSortCriteria`, `SearchSessionStatus`, `AvailabilityStatus` |
+| Factory | `ParkingSearchFactory` |
+| Domain Services | `ParkingDiscoveryPolicy`, `AvailabilityPrioritizationService`, `ParkingResultRankingService` |
+| Repository Interfaces | `ISearchSessionRepository`, `IParkingReferenceRepository`, `IAvailabilityRepository` |
+
+##### Aggregate
+
+| Clase | Responsabilidad |
+|---|---|
+| `ParkingSearchAggregate` | Actuar como raíz de consistencia del contexto, agrupando la sesión de búsqueda, el destino, las referencias, la disponibilidad verificada y la selección del espacio. |
+
+El aggregate **ParkingSearchAggregate** asegura que las operaciones internas del contexto respeten las reglas del negocio. Por ejemplo, impide generar resultados sin una búsqueda válida, evita mostrar disponibilidad desactualizada como información principal y valida que un espacio solo pueda seleccionarse si se encuentra disponible.
+
+##### Entities
+
+| Clase | Responsabilidad |
+|---|---|
+| `SearchSession` | Representar la sesión de búsqueda iniciada por el conductor. |
+| `DestinationSearch` | Representar el destino o ubicación ingresada por el conductor. |
+| `NearbyParkingMap` | Representar el mapa de estacionamientos cercanos al destino consultado. |
+| `ParkingReference` | Representar una referencia de estacionamiento encontrada, afiliada o externa. |
+| `VerifiedAvailability` | Representar la disponibilidad validada de un estacionamiento o espacio. |
+| `AvailableParkingSpace` | Representar un espacio disponible para ser seleccionado. |
+| `ParkingResultsList` | Organizar la lista de resultados mostrados al conductor. |
+| `ParkingLotDetail` | Representar el detalle de un estacionamiento antes de seleccionar un espacio. |
+| `ParkingSpaceSelection` | Representar la selección temporal de un espacio disponible antes de generar una reserva. |
+
+Las entidades poseen identidad propia y pueden cambiar durante el flujo de búsqueda. Por ejemplo, una **SearchSession** puede pasar de activa a cerrada, una **ParkingReference** puede enriquecerse con disponibilidad verificada y una **ParkingSpaceSelection** puede confirmarse o cancelarse antes de iniciar la reserva.
+
+##### Value Objects
+
+| Clase | Responsabilidad |
+|---|---|
+| `LocationCoordinates` | Encapsular latitud y longitud del destino o estacionamiento. |
+| `SearchRadius` | Definir el radio permitido para buscar estacionamientos cercanos. |
+| `AvailabilityConfidenceLevel` | Representar el nivel de confianza de la disponibilidad consultada. |
+| `ParkingReferenceSource` | Identificar si la referencia proviene de ParkingNow o de un servicio externo. |
+| `ParkingResultSortCriteria` | Definir el criterio de ordenamiento de resultados. |
+| `SearchSessionStatus` | Definir los estados válidos de una sesión de búsqueda. |
+| `AvailabilityStatus` | Definir los estados válidos de disponibilidad de un espacio. |
+
+Los value objects no tienen identidad propia y se comparan por sus valores. Esto permite mantener consistencia en datos como coordenadas, radio de búsqueda, fuente de referencia y nivel de confianza de disponibilidad.
+
+##### Factory
+
+| Clase | Responsabilidad |
+|---|---|
+| `ParkingSearchFactory` | Crear sesiones de búsqueda, resultados y selecciones con valores iniciales válidos. |
+
+La fábrica evita que otras capas creen objetos del dominio de manera incompleta. Por ejemplo, una sesión de búsqueda debe tener conductor, destino y estado inicial válido antes de generar resultados.
+
+##### Domain Services
+
+| Clase | Responsabilidad |
+|---|---|
+| `ParkingDiscoveryPolicy` | Validar reglas generales para búsqueda, visualización y selección de estacionamientos. |
+| `AvailabilityPrioritizationService` | Priorizar la disponibilidad verificada por IoT sobre información estática o desactualizada. |
+| `ParkingResultRankingService` | Ordenar resultados según distancia, disponibilidad, relevancia o criterios definidos. |
+
+Los servicios de dominio representan reglas que no pertenecen naturalmente a una sola entidad. En este contexto, priorizar disponibilidad, ordenar resultados y validar selección requiere evaluar información de diferentes entidades, por lo que se modelan como servicios de dominio.
+
+##### Repository Interfaces
+
+| Interfaz | Responsabilidad |
+|---|---|
+| `ISearchSessionRepository` | Definir operaciones de persistencia para sesiones de búsqueda. |
+| `IParkingReferenceRepository` | Definir operaciones de consulta y persistencia de referencias de estacionamiento. |
+| `IAvailabilityRepository` | Definir operaciones de consulta de disponibilidad verificada y espacios disponibles. |
+
+Estas interfaces permiten que la capa de dominio exprese sus necesidades de persistencia y consulta sin depender de tecnologías concretas. Las implementaciones hacia bases de datos, APIs externas o servicios internos se ubican en la **Infrastructure Layer**.
+
+En conclusión, la **Domain Layer** de **Parking Discovery** concentra las reglas puras relacionadas con la búsqueda y selección de estacionamientos. Esta capa permite que el conductor consulte opciones cercanas, revise disponibilidad verificada y seleccione un espacio de forma consistente, manteniendo el modelo del dominio independiente de detalles técnicos como APIs externas, base de datos o frameworks.
+
+#### 4.2.2.2. Interface Layer
+
+La **Interface Layer** del bounded context **Parking Discovery** representa el punto de entrada para las operaciones relacionadas con la búsqueda de estacionamientos, consulta de disponibilidad y selección de espacios por parte del **Driver**. Esta capa recibe solicitudes desde la **Mobile App**, así como posibles eventos provenientes de otros contextos, y se encarga de transformarlas en comandos o queries que serán procesados por la **Application Layer**.
+
+En esta capa no se implementan reglas de negocio. Su responsabilidad es validar superficialmente los datos de entrada, mapear requests hacia objetos del dominio (comandos o queries) y delegar la ejecución a la capa de aplicación. De esta forma, se mantiene una separación clara entre la interfaz de usuario y la lógica del dominio.
+
+**Figura 59**  
+*Parking Discovery Context Interface Layer Diagram*
+
+![alt text](./assets/bounded2-interface.jpg)
+
+*Nota.* Elaboración propia (2026).
+
+La Interface Layer de **Parking Discovery** está compuesta principalmente por controladores REST que exponen funcionalidades para iniciar búsquedas, consultar resultados, revisar detalles de estacionamientos y seleccionar espacios disponibles. Además, puede incluir consumidores de eventos para reaccionar ante cambios relevantes en disponibilidad o referencias externas.
+
+##### ParkingSearchController
+
+La clase `ParkingSearchController` expone las operaciones principales relacionadas con la búsqueda de estacionamientos cercanos. Este controlador recibe solicitudes del conductor cuando inicia una búsqueda o actualiza su destino.
+
+| Método | Responsabilidad |
+|---|---|
+| `startSearch(request: StartSearchRequest): SearchSessionResponse` | Inicia una nueva sesión de búsqueda con el destino ingresado por el conductor. |
+| `updateSearchDestination(searchId: string, request: UpdateDestinationRequest): SearchSessionResponse` | Actualiza el destino de una búsqueda activa. |
+| `getSearchResults(searchId: string): ParkingResultsResponse` | Obtiene la lista de resultados de estacionamientos cercanos. |
+| `closeSearch(searchId: string): void` | Finaliza una sesión de búsqueda activa. |
+
+Este controlador actúa como el primer punto de interacción del conductor con el sistema de descubrimiento.
+
+##### ParkingResultsController
+
+La clase `ParkingResultsController` permite gestionar y consultar los resultados generados durante una búsqueda. Este controlador se encarga de devolver información organizada y filtrada al conductor.
+
+| Método | Responsabilidad |
+|---|---|
+| `getNearbyParking(searchId: string): List<ParkingReferenceResponse>` | Obtiene los estacionamientos cercanos generados en la búsqueda. |
+| `sortResults(searchId: string, criteria: SortCriteriaRequest): List<ParkingReferenceResponse>` | Ordena los resultados según distancia, disponibilidad u otros criterios. |
+| `filterAvailable(searchId: string): List<ParkingReferenceResponse>` | Filtra los resultados mostrando solo estacionamientos disponibles. |
+| `getParkingDetail(parkingLotId: string): ParkingLotDetailResponse` | Obtiene el detalle completo de un estacionamiento. |
+
+Este controlador permite que la experiencia del usuario sea dinámica, ajustando resultados según preferencias o condiciones de disponibilidad.
+
+##### ParkingSelectionController
+
+La clase `ParkingSelectionController` expone las operaciones relacionadas con la selección de espacios disponibles dentro de un estacionamiento.
+
+| Método | Responsabilidad |
+|---|---|
+| `selectParkingSpace(request: SelectParkingSpaceRequest): ParkingSelectionResponse` | Permite al conductor seleccionar un espacio disponible. |
+| `validateSelection(selectionId: string): ValidationResponse` | Verifica que el espacio seleccionado siga disponible. |
+| `cancelSelection(selectionId: string): void` | Cancela la selección realizada por el conductor. |
+| `proceedToReservation(selectionId: string): void` | Envía la selección al contexto de reservas para continuar el flujo. |
+
+Este controlador asegura que la selección del espacio sea válida antes de pasar a la siguiente etapa del proceso.
+
+##### ParkingDiscoveryEventConsumer
+
+La clase `ParkingDiscoveryEventConsumer` permite que el bounded context **Parking Discovery** reciba eventos provenientes de otros contextos, principalmente relacionados con disponibilidad y cambios en referencias externas.
+
+| Método | Responsabilidad |
+|---|---|
+| `consumeAvailabilityUpdated(event: AvailabilityUpdatedEvent): void` | Recibe actualizaciones de disponibilidad desde IoT Monitoring. |
+| `consumeParkingReferenceUpdated(event: ParkingReferenceUpdatedEvent): void` | Recibe actualizaciones de referencias externas o internas. |
+| `consumeParkingLotStatusChanged(event: ParkingLotStatusChangedEvent): void` | Recibe cambios en el estado de estacionamientos desde Parking Management. |
+| `delegateToApplicationLayer(event: DomainEvent): void` | Delega el procesamiento del evento a la capa de aplicación. |
+
+Este componente permite mantener sincronizada la información mostrada al conductor sin acoplar directamente las reglas de negocio entre contextos.
+
+##### Resumen de la Interface Layer
+
+| Componente | Tipo | Responsabilidad |
+|---|---|---|
+| `ParkingSearchController` | REST Controller | Gestionar la creación y control de sesiones de búsqueda. |
+| `ParkingResultsController` | REST Controller | Gestionar la consulta, filtrado y ordenamiento de resultados. |
+| `ParkingSelectionController` | REST Controller | Gestionar la selección de espacios disponibles. |
+| `ParkingDiscoveryEventConsumer` | Event Consumer | Procesar eventos externos relacionados con disponibilidad y referencias. |
+
+En conclusión, la **Interface Layer** de **Parking Discovery** actúa como una frontera de entrada entre el usuario (Driver) y el sistema. Esta capa permite recibir solicitudes desde la aplicación móvil y eventos desde otros contextos, manteniendo los controladores simples y delegando toda la lógica al nivel de aplicación. Esto garantiza una arquitectura desacoplada, clara y alineada con los principios de Domain-Driven Design.
+
+#### 4.2.2.3. Application Layer
+
+La **Application Layer** del bounded context **Parking Discovery** contiene las clases encargadas de orquestar los casos de uso relacionados con la búsqueda de estacionamientos, consulta de disponibilidad y selección de espacios por parte del **Driver**. Esta capa actúa como intermediaria entre la **Interface Layer**, que recibe las solicitudes desde la aplicación móvil, y la **Domain Layer**, donde se encuentran las reglas de negocio puras.
+
+En este contexto, la capa de aplicación procesa comandos generados por acciones del conductor, como iniciar una búsqueda, actualizar un destino, consultar resultados, visualizar detalles de un estacionamiento y seleccionar un espacio disponible. Asimismo, también puede procesar eventos provenientes de otros bounded contexts, como actualizaciones de disponibilidad desde **IoT Monitoring** o cambios de estado desde **Parking Management**. Sin embargo, esta capa no contiene lógica de negocio compleja; su responsabilidad es coordinar el flujo, invocar servicios del dominio y utilizar interfaces de repositorio.
+
+**Figura 60**  
+*Parking Discovery Context Application Layer Diagram*
+
+![alt text](./assets/bounded2-application.jpg)
+
+*Nota.* Elaboración propia (2026).
+
+La **Application Layer** de **Parking Discovery** está compuesta por command handlers, query handlers y event handlers, los cuales ejecutan y coordinan los diferentes casos de uso del contexto.
+
+##### StartSearchCommandHandler
+
+La clase `StartSearchCommandHandler` orquesta el inicio de una sesión de búsqueda de estacionamientos. Recibe el destino ingresado por el conductor, utiliza la fábrica del dominio para crear una nueva sesión y la persiste mediante el repositorio correspondiente.
+
+| Elemento | Detalle |
+|---|---|
+| Clase | `StartSearchCommandHandler` |
+| Tipo | Command Handler |
+| Dependencias | `ParkingSearchFactory`, `ISearchSessionRepository` |
+| Método principal | `handle(command: StartSearchCommand): SearchSession` |
+| Responsabilidad | Coordinar la creación de una nueva sesión de búsqueda para el conductor. |
+
+Este handler asegura que la búsqueda inicie con un estado válido, delegando la construcción al dominio.
+
+##### UpdateSearchDestinationCommandHandler
+
+La clase `UpdateSearchDestinationCommandHandler` permite actualizar el destino de una búsqueda activa. Recupera la sesión existente y delega la actualización al dominio.
+
+| Elemento | Detalle |
+|---|---|
+| Clase | `UpdateSearchDestinationCommandHandler` |
+| Tipo | Command Handler |
+| Dependencias | `ISearchSessionRepository` |
+| Método principal | `handle(command: UpdateSearchDestinationCommand): SearchSession` |
+| Responsabilidad | Coordinar la actualización del destino de una búsqueda en curso. |
+
+##### GetNearbyParkingQueryHandler
+
+La clase `GetNearbyParkingQueryHandler` orquesta la obtención de estacionamientos cercanos a partir de un destino. Consulta referencias internas y externas, y construye la lista de resultados.
+
+| Elemento | Detalle |
+|---|---|
+| Clase | `GetNearbyParkingQueryHandler` |
+| Tipo | Query Handler |
+| Dependencias | `IParkingReferenceRepository`, `ParkingResultRankingService` |
+| Método principal | `handle(query: GetNearbyParkingQuery): List<ParkingReference>` |
+| Responsabilidad | Obtener y organizar los estacionamientos cercanos al destino del conductor. |
+
+Este handler no define cómo ordenar resultados, sino que utiliza servicios de dominio para ello.
+
+##### GetParkingLotDetailQueryHandler
+
+La clase `GetParkingLotDetailQueryHandler` permite consultar el detalle completo de un estacionamiento antes de seleccionar un espacio.
+
+| Elemento | Detalle |
+|---|---|
+| Clase | `GetParkingLotDetailQueryHandler` |
+| Tipo | Query Handler |
+| Dependencias | `IParkingReferenceRepository`, `IAvailabilityRepository` |
+| Método principal | `handle(query: GetParkingLotDetailQuery): ParkingLotDetail` |
+| Responsabilidad | Obtener la información detallada de un estacionamiento, incluyendo disponibilidad. |
+
+##### SelectParkingSpaceCommandHandler
+
+La clase `SelectParkingSpaceCommandHandler` orquesta la selección de un espacio disponible por parte del conductor. Valida la disponibilidad antes de confirmar la selección.
+
+| Elemento | Detalle |
+|---|---|
+| Clase | `SelectParkingSpaceCommandHandler` |
+| Tipo | Command Handler |
+| Dependencias | `IAvailabilityRepository`, `ParkingDiscoveryPolicy` |
+| Método principal | `handle(command: SelectParkingSpaceCommand): ParkingSpaceSelection` |
+| Responsabilidad | Coordinar la selección de un espacio disponible dentro de un estacionamiento. |
+
+Este handler asegura que el espacio esté disponible al momento de la selección.
+
+##### ValidateSelectionCommandHandler
+
+La clase `ValidateSelectionCommandHandler` valida que un espacio previamente seleccionado siga disponible antes de continuar hacia la reserva.
+
+| Elemento | Detalle |
+|---|---|
+| Clase | `ValidateSelectionCommandHandler` |
+| Tipo | Command Handler |
+| Dependencias | `IAvailabilityRepository` |
+| Método principal | `handle(command: ValidateSelectionCommand): ValidationResult` |
+| Responsabilidad | Verificar que el espacio seleccionado sigue disponible. |
+
+##### AvailabilityUpdatedEventHandler
+
+La clase `AvailabilityUpdatedEventHandler` procesa eventos provenientes de **IoT Monitoring**, reflejando cambios en la disponibilidad de estacionamientos o espacios.
+
+| Elemento | Detalle |
+|---|---|
+| Clase | `AvailabilityUpdatedEventHandler` |
+| Tipo | Event Handler |
+| Dependencias | `IAvailabilityRepository` |
+| Método principal | `handle(event: AvailabilityUpdatedEvent): void` |
+| Responsabilidad | Actualizar la disponibilidad en el contexto de descubrimiento. |
+
+##### ParkingLotStatusChangedEventHandler
+
+La clase `ParkingLotStatusChangedEventHandler` procesa eventos provenientes de **Parking Management**, reflejando cambios en el estado de estacionamientos.
+
+| Elemento | Detalle |
+|---|---|
+| Clase | `ParkingLotStatusChangedEventHandler` |
+| Tipo | Event Handler |
+| Dependencias | `IParkingReferenceRepository` |
+| Método principal | `handle(event: ParkingLotStatusChangedEvent): void` |
+| Responsabilidad | Actualizar el estado de las referencias de estacionamientos. |
+
+##### Resumen de clases de la Application Layer
+
+| Clase | Tipo | Responsabilidad |
+|---|---|---|
+| `StartSearchCommandHandler` | Command Handler | Iniciar una sesión de búsqueda. |
+| `UpdateSearchDestinationCommandHandler` | Command Handler | Actualizar el destino de búsqueda. |
+| `GetNearbyParkingQueryHandler` | Query Handler | Obtener estacionamientos cercanos. |
+| `GetParkingLotDetailQueryHandler` | Query Handler | Obtener detalles de un estacionamiento. |
+| `SelectParkingSpaceCommandHandler` | Command Handler | Seleccionar un espacio disponible. |
+| `ValidateSelectionCommandHandler` | Command Handler | Validar selección antes de reservar. |
+| `AvailabilityUpdatedEventHandler` | Event Handler | Procesar cambios de disponibilidad. |
+| `ParkingLotStatusChangedEventHandler` | Event Handler | Procesar cambios de estado de estacionamientos. |
+
+En conclusión, la **Application Layer** de **Parking Discovery** se encarga de coordinar los casos de uso del sistema, sin implementar reglas de negocio complejas. Esta capa recibe comandos y queries desde la interfaz, invoca servicios del dominio y utiliza repositorios para acceder a datos, manteniendo una arquitectura clara, desacoplada y alineada con Domain-Driven Design.
+
+#### 4.2.2.4. Infrastructure Layer
+
+La **Infrastructure Layer** del bounded context **Parking Discovery** contiene las clases técnicas encargadas de conectar las reglas del dominio con servicios externos, fuentes de datos y mecanismos de persistencia. En esta capa se implementan las interfaces definidas en la **Domain Layer**, principalmente los repositorios de sesiones de búsqueda, referencias de estacionamientos y disponibilidad.
+
+A diferencia de la capa de dominio, esta capa sí depende de tecnologías concretas. En el caso de ParkingNow, **Parking Discovery** interactúa con múltiples fuentes: el **Core REST API (Spring Boot)** para obtener estacionamientos registrados, el contexto **IoT Monitoring** para consultar disponibilidad verificada y servicios externos como **OpenStreetMap / Nominatim / Overpass API** para resolver ubicaciones y referencias cercanas. Además, puede utilizar una base de datos como **PostgreSQL (Supabase)** para persistir sesiones de búsqueda o resultados temporales.
+
+**Figura 61**  
+*Parking Discovery Context Infrastructure Layer Diagram*
+
+![alt text](./assets/bounded2-infrastructure .jpg)
+
+La **Infrastructure Layer** no contiene reglas de negocio; su responsabilidad es ejecutar operaciones técnicas como consumo de APIs, consultas a base de datos, mapeo de respuestas externas y adaptación de datos hacia el modelo del dominio.
+
+##### JpaSearchSessionRepository
+
+La clase `JpaSearchSessionRepository` implementa la persistencia concreta de las sesiones de búsqueda iniciadas por los conductores.
+
+| Elemento | Detalle |
+|---|---|
+| Clase | `JpaSearchSessionRepository` |
+| Tipo | Repository Implementation |
+| Implementa | `ISearchSessionRepository` |
+| Dependencia principal | `Spring Data JPA / PostgreSQL Driver` |
+| Responsabilidad | Persistir y recuperar sesiones de búsqueda del conductor. |
+
+| Método | Responsabilidad |
+|---|---|
+| `findById(searchId: string): SearchSession` | Busca una sesión de búsqueda por su identificador. |
+| `findByDriverId(driverId: string): List<SearchSession>` | Obtiene las búsquedas realizadas por un conductor. |
+| `save(session: SearchSession): void` | Guarda una nueva sesión de búsqueda. |
+| `update(session: SearchSession): void` | Actualiza una sesión existente. |
+| `deleteById(searchId: string): void` | Elimina o cierra una sesión de búsqueda. |
+
+##### JpaParkingReferenceRepository
+
+La clase `JpaParkingReferenceRepository` implementa la persistencia de referencias de estacionamientos afiliados dentro del sistema.
+
+| Elemento | Detalle |
+|---|---|
+| Clase | `JpaParkingReferenceRepository` |
+| Tipo | Repository Implementation |
+| Implementa | `IParkingReferenceRepository` |
+| Dependencia principal | `Spring Data JPA / PostgreSQL Driver` |
+| Responsabilidad | Persistir y consultar referencias internas de estacionamientos. |
+
+| Método | Responsabilidad |
+|---|---|
+| `findNearby(coordinates: LocationCoordinates, radius: number): List<ParkingReference>` | Obtiene estacionamientos cercanos registrados en ParkingNow. |
+| `findById(parkingLotId: string): ParkingReference` | Busca una referencia específica. |
+| `save(reference: ParkingReference): void` | Guarda una referencia interna. |
+| `update(reference: ParkingReference): void` | Actualiza información de referencia. |
+
+##### AvailabilityApiClient
+
+La clase `AvailabilityApiClient` representa el cliente encargado de consultar la disponibilidad verificada desde el bounded context **IoT Monitoring** o desde el Core API.
+
+| Elemento | Detalle |
+|---|---|
+| Clase | `AvailabilityApiClient` |
+| Tipo | External Service Client |
+| Dependencias principales | `HttpClient`, `REST API` |
+| Responsabilidad | Consultar disponibilidad de estacionamientos y espacios en tiempo real. |
+
+| Método | Responsabilidad |
+|---|---|
+| `getAvailability(parkingLotId: string): VerifiedAvailability` | Obtiene la disponibilidad de un estacionamiento. |
+| `getAvailableSpaces(parkingLotId: string): List<AvailableParkingSpace>` | Obtiene espacios disponibles dentro de un estacionamiento. |
+| `mapResponse(response: object): VerifiedAvailability` | Convierte la respuesta externa al modelo del dominio. |
+
+Este cliente permite desacoplar el dominio de la estructura de la API de IoT Monitoring.
+
+##### OpenStreetMapClient
+
+La clase `OpenStreetMapClient` permite interactuar con servicios externos para resolver destinos y obtener referencias de estacionamientos cercanos no afiliados.
+
+| Elemento | Detalle |
+|---|---|
+| Clase | `OpenStreetMapClient` |
+| Tipo | External Service Client |
+| Dependencias principales | `HttpClient`, `OpenStreetMap API`, `Nominatim`, `Overpass API` |
+| Responsabilidad | Resolver ubicaciones y obtener referencias externas de estacionamientos. |
+
+| Método | Responsabilidad |
+|---|---|
+| `geocode(query: string): LocationCoordinates` | Convierte texto de búsqueda en coordenadas geográficas. |
+| `searchNearbyParking(coordinates: LocationCoordinates): List<ExternalParkingReference>` | Obtiene referencias externas cercanas. |
+| `reverseGeocode(lat: number, lon: number): string` | Obtiene dirección a partir de coordenadas. |
+| `mapExternalResponse(response: object): List<ParkingReference>` | Convierte datos externos al modelo del dominio. |
+
+##### ParkingDiscoveryCache
+
+La clase `ParkingDiscoveryCache` permite almacenar temporalmente resultados de búsqueda para mejorar el rendimiento y reducir llamadas a servicios externos.
+
+| Elemento | Detalle |
+|---|---|
+| Clase | `ParkingDiscoveryCache` |
+| Tipo | Cache Component |
+| Dependencias principales | `Redis / In-Memory Cache` |
+| Responsabilidad | Almacenar resultados de búsqueda y disponibilidad temporalmente. |
+
+| Método | Responsabilidad |
+|---|---|
+| `getCachedResults(key: string): ParkingResultsList` | Obtiene resultados desde caché. |
+| `storeResults(key: string, results: ParkingResultsList): void` | Guarda resultados en caché. |
+| `invalidateCache(key: string): void` | Invalida resultados desactualizados. |
+
+##### Resumen de clases de la Infrastructure Layer
+
+| Clase | Tipo | Responsabilidad |
+|---|---|---|
+| `JpaSearchSessionRepository` | Repository Implementation | Persistir sesiones de búsqueda. |
+| `JpaParkingReferenceRepository` | Repository Implementation | Persistir y consultar referencias internas. |
+| `AvailabilityApiClient` | External Service Client | Consultar disponibilidad en tiempo real. |
+| `OpenStreetMapClient` | External Service Client | Resolver ubicaciones y referencias externas. |
+| `ParkingDiscoveryCache` | Cache Component | Optimizar rendimiento mediante caché de resultados. |
+
+En conclusión, la **Infrastructure Layer** de **Parking Discovery** permite integrar el contexto con múltiples fuentes de información sin afectar el dominio. Esta capa implementa repositorios, clientes de APIs y mecanismos de caché, asegurando que el sistema pueda consultar datos en tiempo real, combinar información interna y externa, y ofrecer resultados eficientes al conductor, manteniendo una arquitectura desacoplada y alineada con Domain-Driven Design.
+
+#### 4.2.2.5. Bounded Context Software Architecture Component Level Diagrams
+
+El **Bounded Context Software Architecture Component Level Diagram** permite representar cómo se organizan e interactúan los componentes internos del bounded context **Parking Discovery** dentro del contenedor **Core REST API**. Este diagrama corresponde al nivel 3 del modelo C4, por lo que muestra componentes de software con responsabilidades claras, sin llegar todavía al detalle de clases, métodos internos o tablas de base de datos.
+
+Para ParkingNow, el bounded context **Parking Discovery** se implementa principalmente dentro del **Core REST API**, desarrollado con **Java, Spring Boot, RESTful API y documentación OpenAPI Specification mediante Swagger**. Este contexto recibe solicitudes desde la **Driver Mobile App**, permite iniciar búsquedas de estacionamientos, consultar resultados cercanos, obtener detalles de estacionamientos, validar disponibilidad y seleccionar un espacio antes de continuar hacia el flujo de reserva.
+
+**Figura 62**  
+*Parking Discovery Context Component Level Diagram*
+
+![alt text](./assets/bounded2-Component-Level-Diagrams.jpg)
+
+*Nota.* Elaboración propia (2026) usando Structurizr DSL.
+
+Además, este contexto se integra con otros bounded contexts y servicios externos. Desde **Parking Management** obtiene información de estacionamientos registrados y activos. Desde **IoT Monitoring** obtiene disponibilidad actualizada o verificada mediante sensores. Desde servicios externos como **OpenStreetMap / Nominatim / Overpass API**, puede resolver destinos, coordenadas y referencias externas de estacionamientos cercanos.
+
+El objetivo del diagrama de componentes es mostrar cómo **Parking Discovery** separa la recepción de solicitudes, la orquestación de casos de uso, las reglas de dominio y los detalles técnicos de infraestructura. Esta organización mantiene una arquitectura limpia y facilita la futura implementación del contexto en el backend.
+
+Según el diseño propuesto, el bounded context **Parking Discovery** se organiza en cuatro capas principales: **Interface Layer**, **Application Layer**, **Domain Layer** e **Infrastructure Layer**.
+
+##### Interface Layer
+
+La **Interface Layer** representa la entrada al bounded context. En esta capa se ubican los controladores REST y consumidores de eventos que reciben solicitudes desde la aplicación móvil del conductor o eventos provenientes de otros contextos.
+
+| Componente | Responsabilidad |
+|---|---|
+| `ParkingSearchController` | Recibe solicitudes para iniciar, actualizar o cerrar una sesión de búsqueda de estacionamientos. |
+| `ParkingResultsController` | Expone operaciones para consultar estacionamientos cercanos, filtrar resultados y obtener detalles de estacionamientos. |
+| `ParkingSelectionController` | Recibe solicitudes para seleccionar un espacio disponible y validar la selección antes de reservar. |
+| `ParkingDiscoveryEventConsumer` | Recibe eventos externos relacionados con disponibilidad, cambios de estado de estacionamientos o referencias actualizadas. |
+
+El componente `ParkingSearchController` es utilizado cuando el conductor inicia una búsqueda desde la aplicación móvil. Por ejemplo, cuando el usuario ingresa un destino o usa su ubicación actual, este controlador recibe la solicitud y la delega a la capa de aplicación.
+
+El componente `ParkingResultsController` permite consultar los resultados generados durante la búsqueda. Este componente devuelve al conductor una lista de estacionamientos cercanos, ordenados por criterios como distancia, disponibilidad o relevancia.
+
+El componente `ParkingSelectionController` participa cuando el conductor decide elegir un espacio disponible. Su función es recibir la selección y solicitar la validación correspondiente antes de enviar el flujo hacia el contexto de reservas.
+
+El componente `ParkingDiscoveryEventConsumer` permite que el contexto reaccione ante eventos externos, como cambios en la disponibilidad reportados por **IoT Monitoring** o cambios de estado de estacionamientos reportados por **Parking Management**.
+
+##### Application Layer
+
+La **Application Layer** contiene los componentes que orquestan los casos de uso del bounded context. Estos componentes no contienen reglas de negocio puras, sino que coordinan comandos, queries, servicios de dominio y repositorios.
+
+| Componente | Responsabilidad |
+|---|---|
+| `StartSearchCommandHandler` | Coordina el inicio de una nueva sesión de búsqueda para el conductor. |
+| `UpdateSearchDestinationCommandHandler` | Coordina la actualización del destino de una búsqueda activa. |
+| `GetNearbyParkingQueryHandler` | Obtiene estacionamientos cercanos combinando referencias internas y externas. |
+| `GetParkingLotDetailQueryHandler` | Recupera el detalle de un estacionamiento, incluyendo disponibilidad y espacios disponibles. |
+| `SelectParkingSpaceCommandHandler` | Coordina la selección de un espacio disponible por parte del conductor. |
+| `ValidateSelectionCommandHandler` | Verifica que el espacio seleccionado siga disponible antes de continuar con la reserva. |
+| `AvailabilityUpdatedEventHandler` | Procesa eventos de disponibilidad provenientes de IoT Monitoring. |
+| `ParkingLotStatusChangedEventHandler` | Procesa eventos de cambios de estado provenientes de Parking Management. |
+
+El componente `StartSearchCommandHandler` recibe la solicitud de inicio de búsqueda desde `ParkingSearchController`. Luego utiliza la fábrica del dominio para crear una sesión válida y la persiste mediante el repositorio correspondiente.
+
+El componente `GetNearbyParkingQueryHandler` representa uno de los casos de uso más importantes del contexto. Su responsabilidad es obtener estacionamientos cercanos al destino del conductor, combinando datos internos de ParkingNow con referencias externas y aplicando criterios de ordenamiento.
+
+El componente `GetParkingLotDetailQueryHandler` permite cargar la información específica de un estacionamiento antes de que el conductor tome una decisión. Esta información puede incluir nombre, dirección, ubicación, disponibilidad verificada y espacios disponibles.
+
+El componente `SelectParkingSpaceCommandHandler` se activa cuando el conductor selecciona un espacio. Este handler valida la selección utilizando las reglas del dominio y consulta la disponibilidad más reciente antes de permitir continuar hacia el flujo de reserva.
+
+Los event handlers permiten mantener actualizada la información de descubrimiento sin mezclar responsabilidades entre contextos. Por ejemplo, si **IoT Monitoring** reporta que un espacio cambió a ocupado, `AvailabilityUpdatedEventHandler` actualiza la disponibilidad que luego verá el conductor en la aplicación móvil.
+
+##### Domain Layer
+
+La **Domain Layer** contiene los componentes que representan el núcleo del negocio dentro del contexto **Parking Discovery**. Aquí se ubican el aggregate, la fábrica, los servicios de dominio y las interfaces de repositorio.
+
+| Componente | Responsabilidad |
+|---|---|
+| `ParkingSearchAggregate` | Mantiene la consistencia de la sesión de búsqueda, destino, resultados, disponibilidad y selección. |
+| `ParkingSearchFactory` | Crea sesiones de búsqueda, resultados y selecciones con valores iniciales válidos. |
+| `ParkingDiscoveryPolicy` | Valida reglas de búsqueda, visualización y selección de estacionamientos. |
+| `AvailabilityPrioritizationService` | Prioriza disponibilidad verificada por IoT sobre información estática o desactualizada. |
+| `ParkingResultRankingService` | Ordena resultados por distancia, disponibilidad, relevancia o criterios definidos. |
+| `ISearchSessionRepository` | Define operaciones necesarias para persistir sesiones de búsqueda. |
+| `IParkingReferenceRepository` | Define operaciones para consultar referencias de estacionamientos. |
+| `IAvailabilityRepository` | Define operaciones para consultar disponibilidad verificada y espacios disponibles. |
+
+El componente `ParkingSearchAggregate` actúa como raíz de consistencia del contexto. Permite asegurar que una búsqueda tenga un destino válido, que los resultados estén asociados a una sesión activa y que una selección de espacio solo ocurra cuando exista disponibilidad.
+
+El componente `ParkingDiscoveryPolicy` define reglas del dominio como validar que una búsqueda tenga coordenadas correctas, que un resultado sea mostrable al conductor o que una selección no continúe si el espacio ya no está disponible.
+
+El componente `AvailabilityPrioritizationService` es importante porque el sistema puede recibir disponibilidad desde distintas fuentes. Cuando exista información verificada por sensores IoT, esta debe tener mayor prioridad que información estática o externa.
+
+El componente `ParkingResultRankingService` permite ordenar los resultados que ve el conductor. Por ejemplo, puede priorizar estacionamientos más cercanos, con mayor disponibilidad o con mejor relevancia según el destino ingresado.
+
+Las interfaces de repositorio expresan contratos que necesita el dominio, pero no definen cómo se implementa la persistencia ni de dónde provienen los datos. Esa responsabilidad pertenece a la capa de infraestructura.
+
+##### Infrastructure Layer
+
+La **Infrastructure Layer** contiene los adaptadores técnicos necesarios para persistir datos y conectarse con servicios externos. Esta capa implementa las interfaces definidas en la capa de dominio y encapsula detalles técnicos de base de datos, APIs externas, caché y comunicación HTTP.
+
+| Componente | Responsabilidad |
+|---|---|
+| `JpaSearchSessionRepository` | Implementa la persistencia de sesiones de búsqueda en PostgreSQL / Supabase. |
+| `JpaParkingReferenceRepository` | Consulta y persiste referencias internas de estacionamientos registrados. |
+| `AvailabilityApiClient` | Consulta disponibilidad en tiempo real desde IoT Monitoring o servicios internos. |
+| `OpenStreetMapClient` | Resuelve destinos, coordenadas y referencias externas usando OpenStreetMap / Nominatim / Overpass API. |
+| `ParkingDiscoveryCache` | Almacena temporalmente resultados y disponibilidad para mejorar rendimiento. |
+
+El componente `JpaSearchSessionRepository` guarda y recupera sesiones de búsqueda iniciadas por los conductores. Esto permite tener trazabilidad de las búsquedas y recuperar información asociada a una sesión.
+
+El componente `JpaParkingReferenceRepository` permite consultar estacionamientos registrados en ParkingNow. Estas referencias provienen principalmente del bounded context **Parking Management**, pero son adaptadas para el flujo de descubrimiento del conductor.
+
+El componente `AvailabilityApiClient` se comunica con **IoT Monitoring** para obtener disponibilidad actualizada de estacionamientos o espacios. Su función es transformar la respuesta técnica de ese contexto en objetos utilizables por **Parking Discovery**.
+
+El componente `OpenStreetMapClient` se conecta con servicios externos para resolver ubicaciones ingresadas por el usuario. Por ejemplo, si el conductor busca una dirección o zona, este cliente puede convertirla en coordenadas y consultar referencias cercanas.
+
+El componente `ParkingDiscoveryCache` permite mejorar el rendimiento del sistema almacenando resultados temporales. Esto evita consultar repetidamente servicios externos cuando varios conductores buscan estacionamientos en zonas similares.
+
+##### Relaciones principales entre componentes
+
+El flujo principal inicia cuando el **Driver** utiliza la **Driver Mobile App** para buscar estacionamientos cercanos. La aplicación envía una solicitud HTTP al `ParkingSearchController`, el cual delega la operación hacia `StartSearchCommandHandler`.
+
+Luego, `StartSearchCommandHandler` utiliza `ParkingSearchFactory` para crear una sesión de búsqueda válida y la guarda mediante `ISearchSessionRepository`, cuya implementación concreta es `JpaSearchSessionRepository`.
+
+Después, cuando el conductor solicita resultados cercanos, `ParkingResultsController` delega la consulta a `GetNearbyParkingQueryHandler`. Este componente consulta referencias internas mediante `IParkingReferenceRepository`, cuya implementación concreta es `JpaParkingReferenceRepository`, y también puede consultar referencias externas mediante `OpenStreetMapClient`.
+
+Para enriquecer los resultados con disponibilidad, `GetNearbyParkingQueryHandler` utiliza `IAvailabilityRepository` o `AvailabilityApiClient`. Luego, el servicio de dominio `AvailabilityPrioritizationService` decide qué disponibilidad debe mostrarse como principal, priorizando la información verificada por IoT. Finalmente, `ParkingResultRankingService` ordena los resultados antes de enviarlos a la aplicación móvil.
+
+Cuando el conductor abre el detalle de un estacionamiento, `ParkingResultsController` invoca `GetParkingLotDetailQueryHandler`. Este handler recupera la referencia del estacionamiento, consulta su disponibilidad y devuelve una vista detallada con espacios disponibles.
+
+Cuando el conductor selecciona un espacio, la solicitud llega a `ParkingSelectionController`, que delega la acción a `SelectParkingSpaceCommandHandler`. Este handler utiliza `ParkingDiscoveryPolicy` y `IAvailabilityRepository` para verificar que el espacio siga disponible. Si la selección es válida, se genera una `ParkingSpaceSelection` que puede ser enviada posteriormente al bounded context de reservas.
+
+El contexto también se mantiene actualizado mediante eventos. Si **IoT Monitoring** publica un evento de actualización de disponibilidad, `ParkingDiscoveryEventConsumer` lo recibe y lo delega a `AvailabilityUpdatedEventHandler`. Si **Parking Management** informa que un estacionamiento fue desactivado o actualizado, el evento se delega a `ParkingLotStatusChangedEventHandler`.
+
+##### Resumen de componentes del diagrama
+
+| Capa | Componente | Responsabilidad |
+|---|---|---|
+| Interface Layer | `ParkingSearchController` | Recibir solicitudes para iniciar, actualizar o cerrar búsquedas. |
+| Interface Layer | `ParkingResultsController` | Recibir solicitudes para consultar, ordenar y filtrar resultados. |
+| Interface Layer | `ParkingSelectionController` | Recibir solicitudes para seleccionar y validar espacios disponibles. |
+| Interface Layer | `ParkingDiscoveryEventConsumer` | Recibir eventos externos de disponibilidad y cambios de estado. |
+| Application Layer | `StartSearchCommandHandler` | Orquestar el inicio de una sesión de búsqueda. |
+| Application Layer | `UpdateSearchDestinationCommandHandler` | Orquestar la actualización del destino buscado. |
+| Application Layer | `GetNearbyParkingQueryHandler` | Orquestar la consulta de estacionamientos cercanos. |
+| Application Layer | `GetParkingLotDetailQueryHandler` | Orquestar la consulta del detalle de un estacionamiento. |
+| Application Layer | `SelectParkingSpaceCommandHandler` | Orquestar la selección de un espacio disponible. |
+| Application Layer | `ValidateSelectionCommandHandler` | Validar que el espacio seleccionado siga disponible. |
+| Application Layer | `AvailabilityUpdatedEventHandler` | Procesar eventos de disponibilidad desde IoT Monitoring. |
+| Application Layer | `ParkingLotStatusChangedEventHandler` | Procesar eventos de cambios desde Parking Management. |
+| Domain Layer | `ParkingSearchAggregate` | Mantener la consistencia de búsqueda, resultados, disponibilidad y selección. |
+| Domain Layer | `ParkingSearchFactory` | Crear objetos de búsqueda con estado inicial válido. |
+| Domain Layer | `ParkingDiscoveryPolicy` | Validar reglas de búsqueda y selección. |
+| Domain Layer | `AvailabilityPrioritizationService` | Priorizar disponibilidad verificada por IoT. |
+| Domain Layer | `ParkingResultRankingService` | Ordenar resultados según criterios del dominio. |
+| Domain Layer | `ISearchSessionRepository` | Definir persistencia de sesiones de búsqueda. |
+| Domain Layer | `IParkingReferenceRepository` | Definir consulta de referencias de estacionamiento. |
+| Domain Layer | `IAvailabilityRepository` | Definir consulta de disponibilidad verificada. |
+| Infrastructure Layer | `JpaSearchSessionRepository` | Implementar persistencia de sesiones en PostgreSQL / Supabase. |
+| Infrastructure Layer | `JpaParkingReferenceRepository` | Implementar consulta de referencias internas. |
+| Infrastructure Layer | `AvailabilityApiClient` | Consultar disponibilidad en tiempo real desde IoT Monitoring. |
+| Infrastructure Layer | `OpenStreetMapClient` | Resolver ubicaciones y referencias externas. |
+| Infrastructure Layer | `ParkingDiscoveryCache` | Almacenar resultados temporales para mejorar rendimiento. |
+
+##### Flujo sugerido para representar en C4 Component Diagram
+
+Para construir posteriormente el diagrama en **Structurizr DSL** o **PlantUML**, se recomienda representar los siguientes elementos:
+
+| Elemento C4 | Nombre sugerido | Descripción |
+|---|---|---|
+| Person | `Driver` | Usuario que busca estacionamientos desde la aplicación móvil. |
+| Container externo | `Driver Mobile App` | Aplicación móvil usada por el conductor. |
+| Container principal | `Core REST API` | Backend principal donde se implementa Parking Discovery. |
+| Component | `ParkingSearchController` | Controlador REST para búsquedas. |
+| Component | `ParkingResultsController` | Controlador REST para resultados y detalles. |
+| Component | `ParkingSelectionController` | Controlador REST para selección de espacios. |
+| Component | `ParkingDiscoveryEventConsumer` | Consumidor de eventos de disponibilidad y estado. |
+| Component | `StartSearchCommandHandler` | Caso de uso para iniciar búsqueda. |
+| Component | `GetNearbyParkingQueryHandler` | Caso de uso para obtener estacionamientos cercanos. |
+| Component | `GetParkingLotDetailQueryHandler` | Caso de uso para obtener detalles. |
+| Component | `SelectParkingSpaceCommandHandler` | Caso de uso para seleccionar espacio. |
+| Component | `ParkingSearchAggregate` | Aggregate principal del dominio. |
+| Component | `ParkingDiscoveryPolicy` | Reglas de búsqueda y selección. |
+| Component | `ParkingResultRankingService` | Ordenamiento de resultados. |
+| Component | `AvailabilityPrioritizationService` | Priorización de disponibilidad verificada. |
+| Component | `JpaSearchSessionRepository` | Persistencia de sesiones. |
+| Component | `JpaParkingReferenceRepository` | Consulta de referencias internas. |
+| Component | `AvailabilityApiClient` | Cliente para disponibilidad IoT. |
+| Component | `OpenStreetMapClient` | Cliente para servicios geográficos externos. |
+| Component | `ParkingDiscoveryCache` | Caché de resultados. |
+| Sistema externo | `IoT Monitoring Context` | Provee disponibilidad verificada por sensores. |
+| Sistema externo | `Parking Management Context` | Provee estacionamientos registrados y activos. |
+| Sistema externo | `OpenStreetMap / Nominatim / Overpass API` | Provee coordenadas y referencias externas. |
+| Base de datos | `Supabase PostgreSQL` | Persiste sesiones, referencias y datos relacionados. |
+
+##### Relaciones sugeridas para el diagrama
+
+| Origen | Destino | Relación |
+|---|---|---|
+| `Driver` | `Driver Mobile App` | Busca estacionamientos cercanos y selecciona espacios. |
+| `Driver Mobile App` | `ParkingSearchController` | Envía solicitudes HTTP para iniciar búsquedas. |
+| `Driver Mobile App` | `ParkingResultsController` | Consulta resultados y detalles de estacionamientos. |
+| `Driver Mobile App` | `ParkingSelectionController` | Envía selección de espacio disponible. |
+| `ParkingSearchController` | `StartSearchCommandHandler` | Delega inicio de búsqueda. |
+| `ParkingSearchController` | `UpdateSearchDestinationCommandHandler` | Delega actualización del destino. |
+| `ParkingResultsController` | `GetNearbyParkingQueryHandler` | Solicita resultados cercanos. |
+| `ParkingResultsController` | `GetParkingLotDetailQueryHandler` | Solicita detalle de estacionamiento. |
+| `ParkingSelectionController` | `SelectParkingSpaceCommandHandler` | Delega selección de espacio. |
+| `ParkingSelectionController` | `ValidateSelectionCommandHandler` | Valida disponibilidad antes de reservar. |
+| `StartSearchCommandHandler` | `ParkingSearchFactory` | Crea sesión de búsqueda válida. |
+| `StartSearchCommandHandler` | `ISearchSessionRepository` | Guarda sesión de búsqueda. |
+| `GetNearbyParkingQueryHandler` | `IParkingReferenceRepository` | Consulta referencias internas. |
+| `GetNearbyParkingQueryHandler` | `OpenStreetMapClient` | Consulta referencias externas y coordenadas. |
+| `GetNearbyParkingQueryHandler` | `AvailabilityApiClient` | Consulta disponibilidad actualizada. |
+| `GetNearbyParkingQueryHandler` | `AvailabilityPrioritizationService` | Prioriza disponibilidad verificada. |
+| `GetNearbyParkingQueryHandler` | `ParkingResultRankingService` | Ordena resultados. |
+| `SelectParkingSpaceCommandHandler` | `ParkingDiscoveryPolicy` | Valida reglas de selección. |
+| `SelectParkingSpaceCommandHandler` | `IAvailabilityRepository` | Verifica disponibilidad del espacio. |
+| `ParkingDiscoveryEventConsumer` | `AvailabilityUpdatedEventHandler` | Delega eventos de disponibilidad. |
+| `ParkingDiscoveryEventConsumer` | `ParkingLotStatusChangedEventHandler` | Delega eventos de cambios de estado. |
+| `JpaSearchSessionRepository` | `Supabase PostgreSQL` | Lee y escribe sesiones de búsqueda. |
+| `JpaParkingReferenceRepository` | `Supabase PostgreSQL` | Consulta referencias internas. |
+| `AvailabilityApiClient` | `IoT Monitoring Context` | Consulta disponibilidad verificada. |
+| `OpenStreetMapClient` | `OpenStreetMap / Nominatim / Overpass API` | Resuelve ubicaciones y referencias externas. |
+| `ParkingDiscoveryCache` | `GetNearbyParkingQueryHandler` | Entrega resultados temporales si están disponibles. |
+
+En conclusión, el **Component Level Diagram** de **Parking Discovery** muestra cómo el bounded context organiza sus componentes internos para permitir la búsqueda de estacionamientos, consulta de disponibilidad y selección de espacios. La separación entre controladores, handlers, dominio e infraestructura facilita que el contexto se mantenga desacoplado, reutilizable y alineado con Domain-Driven Design. Esta estructura también permite construir posteriormente un diagrama C4 claro en Structurizr o PlantUML, representando las relaciones entre la aplicación móvil, el Core REST API, los servicios externos, los contextos internos y la base de datos.
+
+#### 4.2.2.6. Bounded Context Software Architecture Code Level Diagrams
+
+En esta sección se presentan los diagramas de nivel de código correspondientes al bounded context **Parking Discovery**. A diferencia de los diagramas C4 anteriores, que muestran la arquitectura desde una perspectiva de sistema, contenedores y componentes, este bloque profundiza en la estructura interna del contexto a nivel de clases del dominio y diseño físico de base de datos.
+
+Para ello, primero se presenta el **Domain Layer Class Diagram**, donde se detallan las entidades, objetos de valor, agregados, servicios de dominio e interfaces de repositorio que representan las reglas principales del contexto. Luego, se presenta el **Database Design Diagram**, donde se muestra cómo se persisten los datos de este bounded context en una base de datos relacional PostgreSQL, indicando tablas, columnas, llaves primarias, llaves foráneas y relaciones entre entidades.
+
+Estos diagramas permiten cerrar el diseño táctico del bounded context **Parking Discovery**, asegurando trazabilidad entre el modelo de dominio, las reglas de negocio y la estructura de persistencia utilizada por la solución.
+
+##### 4.2.2.6.1. Bounded Context Domain Layer Class Diagrams
+
+El **Bounded Context Domain Layer Class Diagram** presenta el diseño UML de las clases que forman parte de la capa de dominio del bounded context **Parking Discovery**. Este diagrama se enfoca exclusivamente en los elementos que representan reglas de negocio puras, por lo que no incluye controladores, servicios REST, frameworks, implementaciones de repositorios ni detalles de base de datos.
+
+En este contexto, el núcleo del dominio está representado por el aggregate **`ParkingSearchAggregate`**, el cual actúa como raíz de consistencia del proceso de descubrimiento. Este aggregate agrupa los elementos principales que intervienen en la búsqueda de estacionamientos: la sesión de búsqueda, el destino consultado, las referencias encontradas, la disponibilidad verificada y la selección de espacios.
+
+**Figura 63**  
+*Parking Discovery Context Domain Layer Class Diagram*
+
+![alt text](./assets/bounded2-class.jpg)
+
+*Nota.* Elaboración propia (2026) usando LucidChart / PlantUML.
+
+El aggregate **`ParkingSearchAggregate`** contiene una entidad `SearchSession`, un objeto `DestinationSearch`, una colección de `ParkingReference`, una estructura de `VerifiedAvailability`, una colección de `AvailableParkingSpace` y una entidad `ParkingSpaceSelection`. Esta organización permite garantizar que las operaciones de búsqueda, visualización y selección se realicen de manera consistente dentro del contexto.
+
+La entidad **`SearchSession`** representa la sesión de búsqueda iniciada por el conductor. Contiene información como el identificador de la sesión, el identificador del conductor, el destino consultado y el estado de la búsqueda. Su comportamiento permite iniciar, actualizar y finalizar el proceso de búsqueda.
+
+La entidad **`DestinationSearch`** representa el destino ingresado por el conductor. Esta clase utiliza el value object `LocationCoordinates` para encapsular la latitud y longitud, asegurando que las búsquedas se realicen sobre ubicaciones válidas.
+
+La entidad **`ParkingReference`** representa una referencia de estacionamiento encontrada durante la búsqueda. Puede corresponder a un estacionamiento afiliado (proveniente de ParkingNow) o a una referencia externa (proveniente de OpenStreetMap u otros servicios). Esta entidad puede enriquecerse con información de disponibilidad.
+
+La entidad **`VerifiedAvailability`** representa la disponibilidad validada de un estacionamiento o de sus espacios. Esta información puede provenir del contexto **IoT Monitoring**, por lo que incluye un nivel de confianza representado mediante el value object `AvailabilityConfidenceLevel`.
+
+La entidad **`AvailableParkingSpace`** representa un espacio físico disponible dentro de un estacionamiento. Contiene el identificador del espacio, su estado y su capacidad de ser seleccionado por el conductor.
+
+La entidad **`ParkingResultsList`** organiza los resultados obtenidos durante la búsqueda. Permite aplicar filtros y criterios de ordenamiento antes de mostrar la información al conductor.
+
+La entidad **`ParkingLotDetail`** representa el detalle completo de un estacionamiento, incluyendo información descriptiva y disponibilidad de espacios.
+
+La entidad **`ParkingSpaceSelection`** representa la selección temporal de un espacio realizada por el conductor antes de iniciar el proceso de reserva.
+
+Los **Value Objects** definidos en este diagrama permiten encapsular valores relevantes del dominio sin necesidad de identidad propia. Entre ellos se encuentran:
+
+- `LocationCoordinates`, que encapsula latitud y longitud
+- `SearchRadius`, que define el radio de búsqueda
+- `AvailabilityConfidenceLevel`, que representa el nivel de confianza de la disponibilidad
+- `ParkingReferenceSource`, que identifica si la referencia es interna o externa
+- `ParkingResultSortCriteria`, que define el criterio de ordenamiento de resultados
+- `SearchSessionStatus`, que define los estados válidos de una sesión de búsqueda
+- `AvailabilityStatus`, que define los estados válidos de disponibilidad de un espacio
+
+Estos value objects permiten mantener consistencia en conceptos clave del dominio y evitar el uso de valores arbitrarios.
+
+La capa de dominio también incluye la fábrica **`ParkingSearchFactory`**, encargada de crear objetos del dominio con un estado inicial válido. Esta fábrica permite construir sesiones de búsqueda, resultados y selecciones sin duplicar reglas de inicialización en otras capas.
+
+Asimismo, se definen servicios de dominio como **`ParkingDiscoveryPolicy`**, **`AvailabilityPrioritizationService`** y **`ParkingResultRankingService`**. El primero valida reglas generales del proceso de búsqueda y selección, el segundo prioriza la disponibilidad verificada por IoT frente a información estática, y el tercero permite ordenar los resultados según criterios relevantes para el conductor.
+
+Finalmente, se incluyen las interfaces de repositorio **`ISearchSessionRepository`**, **`IParkingReferenceRepository`** e **`IAvailabilityRepository`**, que definen los contratos necesarios para persistir y consultar datos del dominio. Estas interfaces no contienen detalles de implementación, los cuales se definen en la capa de infraestructura.
+
+En conjunto, este diagrama de clases permite visualizar cómo se estructura internamente el dominio de **Parking Discovery**, asegurando que las reglas de negocio relacionadas con la búsqueda de estacionamientos, la consulta de disponibilidad y la selección de espacios se mantengan coherentes, desacopladas y alineadas con los principios de Domain-Driven Design.
+
+##### 4.2.2.6.2. Bounded Context Database Design Diagram
+
+El **Bounded Context Database Design Diagram** presenta el diseño físico de base de datos correspondiente al bounded context **Parking Discovery**. Este diagrama muestra cómo se almacenan las entidades principales del contexto en una base de datos relacional PostgreSQL, detallando tablas, columnas, tipos de datos, llaves primarias, llaves foráneas y relaciones entre registros.
+
+A diferencia del diagrama de clases del dominio, este diagrama representa la estructura de persistencia. Por ello, se utilizan nombres de tablas y columnas propios de un modelo relacional, siguiendo buenas prácticas como el uso de `snake_case`, identificadores únicos tipo `UUID` y relaciones mediante claves foráneas.
+
+**Figura 64**  
+*Parking Discovery Context Database Design Diagram*
+
+![alt text](./assets/bounded2-database.jpg)
+
+*Nota.* Elaboración propia (2026) usando LucidChart / Vertabelo.
+
+En este contexto, se consideran únicamente las tablas necesarias para soportar el proceso de búsqueda, consulta de resultados y selección de espacios por parte del conductor.
+
+---
+
+##### Tabla `search_sessions`
+
+Esta tabla almacena las sesiones de búsqueda iniciadas por los conductores.
+
+| Columna | Tipo de dato | Descripción |
+|---|---|---|
+| `id` | `UUID` | Identificador único de la sesión de búsqueda. |
+| `driver_id` | `UUID` | Identificador del conductor. |
+| `destination_text` | `TEXT` | Texto del destino ingresado. |
+| `latitude` | `DECIMAL` | Latitud del destino. |
+| `longitude` | `DECIMAL` | Longitud del destino. |
+| `status` | `VARCHAR` | Estado de la sesión (activa, finalizada). |
+| `created_at` | `TIMESTAMP` | Fecha de creación. |
+| `updated_at` | `TIMESTAMP` | Fecha de actualización. |
+
+---
+
+##### Tabla `parking_references`
+
+Esta tabla almacena las referencias de estacionamientos obtenidas durante la búsqueda. Puede incluir tanto referencias internas (ParkingNow) como externas (OpenStreetMap).
+
+| Columna | Tipo de dato | Descripción |
+|---|---|---|
+| `id` | `UUID` | Identificador de la referencia. |
+| `parking_lot_id` | `UUID` | Referencia al estacionamiento interno (nullable si es externo). |
+| `name` | `TEXT` | Nombre del estacionamiento. |
+| `latitude` | `DECIMAL` | Latitud. |
+| `longitude` | `DECIMAL` | Longitud. |
+| `source` | `VARCHAR` | Fuente de la referencia (INTERNAL / EXTERNAL). |
+| `created_at` | `TIMESTAMP` | Fecha de creación. |
+
+---
+
+##### Tabla `verified_availability`
+
+Esta tabla almacena la disponibilidad validada de los estacionamientos, generalmente proveniente del contexto **IoT Monitoring**.
+
+| Columna | Tipo de dato | Descripción |
+|---|---|---|
+| `id` | `UUID` | Identificador único. |
+| `parking_lot_id` | `UUID` | Estacionamiento asociado. |
+| `available_spaces_count` | `INT` | Cantidad de espacios disponibles. |
+| `confidence_level` | `VARCHAR` | Nivel de confianza de la disponibilidad. |
+| `verified_at` | `TIMESTAMP` | Fecha de verificación. |
+
+---
+
+##### Tabla `available_parking_spaces`
+
+Esta tabla representa los espacios disponibles dentro de un estacionamiento específico.
+
+| Columna | Tipo de dato | Descripción |
+|---|---|---|
+| `id` | `UUID` | Identificador del espacio. |
+| `parking_lot_id` | `UUID` | Estacionamiento al que pertenece. |
+| `space_identifier` | `VARCHAR` | Identificador visible del espacio. |
+| `status` | `VARCHAR` | Estado del espacio (AVAILABLE / UNAVAILABLE). |
+
+---
+
+##### Tabla `parking_space_selections`
+
+Esta tabla almacena las selecciones de espacios realizadas por los conductores antes de iniciar el proceso de reserva.
+
+| Columna | Tipo de dato | Descripción |
+|---|---|---|
+| `id` | `UUID` | Identificador de la selección. |
+| `driver_id` | `UUID` | Identificador del conductor. |
+| `parking_lot_id` | `UUID` | Estacionamiento seleccionado. |
+| `space_id` | `UUID` | Espacio seleccionado. |
+| `selected_at` | `TIMESTAMP` | Fecha de selección. |
+
+---
+
+##### Relaciones principales
+
+| Relación | Cardinalidad | Descripción |
+|---|---|---|
+| `search_sessions` → `parking_references` | 1 a 0..* | Una sesión puede generar múltiples referencias. |
+| `parking_references` → `verified_availability` | 1 a 0..1 | Una referencia puede tener disponibilidad verificada. |
+| `parking_references` → `available_parking_spaces` | 1 a 0..* | Un estacionamiento puede tener múltiples espacios. |
+| `available_parking_spaces` → `parking_space_selections` | 1 a 0..1 | Un espacio puede ser seleccionado una vez. |
+
+---
+
+##### Consideraciones de diseño
+
+- Se utilizan identificadores tipo **UUID** para garantizar unicidad global.
+- Las relaciones se implementan mediante **llaves foráneas**, asegurando integridad referencial.
+- La disponibilidad (`verified_availability`) puede actualizarse frecuentemente, por lo que se maneja separada de las referencias.
+- Las referencias externas no siempre tendrán `parking_lot_id`, lo que permite integrar datos híbridos (internos + externos).
+- Las selecciones son temporales y pueden eliminarse o invalidarse si el espacio deja de estar disponible.
+
+---
+
+En conclusión, el diseño de base de datos del bounded context **Parking Discovery** permite soportar de manera eficiente el flujo de búsqueda de estacionamientos, consulta de disponibilidad y selección de espacios. La estructura mantiene coherencia con el modelo de dominio, separa responsabilidades y permite integrar información proveniente tanto de sistemas internos como de servicios externos, asegurando escalabilidad y consistencia en la solución.
+### 4.2.3. Bounded Context: Reservation
 
 El bounded context **Reservation** agrupa las responsabilidades relacionadas con el ciclo de vida de la reserva dentro de ParkingNow. Su propósito es permitir que el conductor solicite una reserva, confirme el uso de un espacio, obtenga un ticket virtual, reciba un identificador único y gestione la expiración o cancelación de la reserva. Este contexto nace de los agregados **Reservation**, **Virtual Ticket** y **Reservation Validation**, y se clasifica como **Core Domain** porque concentra una de las capacidades más críticas de la solución: convertir la disponibilidad en un compromiso real y controlado.
 
@@ -3494,13 +4540,13 @@ La clase **Reservation** representa la entidad central del contexto porque conce
 
 Además, este planteamiento mantiene el límite del contexto bien definido frente a otros bounded contexts. **Parking Discovery** solo entrega el espacio seleccionado, **Parking Management** valida que el espacio exista y luego informa su ocupación, **IoT Monitoring** participa indirectamente mediante eventos físicos, e **Operational Notification** consume los cambios de estado para reflejarlos en la aplicación. Por ello, las clases propuestas para Reservation se centran únicamente en la consistencia del ciclo de vida de la reserva y no en otras responsabilidades externas.
 
-#### 4.2.2.1. Domain Layer
+#### 4.2.3.1. Domain Layer
 
 La **Domain Layer** del bounded context **Reservation** representa el núcleo de reglas de negocio relacionadas con la creación, confirmación, validación, cancelación, expiración y consumo de reservas dentro de ParkingNow. Esta capa concentra únicamente los conceptos del negocio y sus invariantes, sin depender de controladores, frameworks, base de datos o servicios externos. Su objetivo es asegurar que una reserva solo exista si el espacio seleccionado puede comprometerse temporalmente, que toda reserva confirmada genere un ticket virtual y que su ciclo de vida se mantenga consistente hasta su validación, cancelación, expiración o consumo. Estas responsabilidades se desprenden del propio diseño estratégico del proyecto, donde el contexto Reservation nace de los agregados **Reservation**, **Virtual Ticket** y **Reservation Validation**, y coordina mensajes como **Request reservation**, **Reservation confirmed**, **Reservation validated**, **Reservation consumed** y **Reservation expired**.
 
 A diferencia de otros bounded contexts, aquí el foco no está en descubrir estacionamientos ni en detectar ocupación física mediante sensores. El foco está en proteger la consistencia de la promesa hecha al conductor: reservar un espacio por un tiempo limitado, emitir un comprobante digital único y controlar qué ocurre cuando el conductor llega, cancela o no se presenta a tiempo. Por ello, la Domain Layer se organiza alrededor de la entidad principal **Reservation**, la cual actúa como **aggregate root** del contexto y agrupa las reglas críticas necesarias para controlar el ciclo de vida completo de la reserva. Esta forma de organización sigue la misma lógica usada en el bounded context **Parking Management**, donde la capa de dominio se estructura a partir de un aggregate root, entidades, value objects, factory, servicios de dominio e interfaces de repositorio.
 
-**Figura X** _Reservation Context Domain Layer Diagram_
+**Figura 65** _Reservation Context Domain Layer Diagram_
 
 ![Domain Layer Diagram Reservation](./assets/Domain-Layer-Reservation.png)
 
@@ -3582,13 +4628,13 @@ Finalmente, las **interfaces de repositorio** se ubican en la Domain Layer porqu
 
 En conclusión, la **Domain Layer** de **Reservation** se estructura alrededor de `Reservation` como **aggregate root** del contexto. A partir de esta raíz se controlan las reglas del ciclo de vida de la reserva, mientras que `VirtualTicket` y `ReservationValidation` funcionan como entidades relacionadas que dependen de su consistencia. Los value objects encapsulan estados, identificadores y restricciones temporales; la factory asegura creaciones válidas; los domain services resuelven políticas transversales del negocio; y las interfaces de repositorio definen los contratos que luego implementará la infraestructura. De esta forma, el bounded context mantiene una base táctica clara, coherente con el diseño estratégico de ParkingNow y alineada con un modelado DDD más natural para este caso.
 
-#### 4.2.2.2. Interface Layer
+#### 4.2.3.2. Interface Layer
 
 La **Interface Layer** del bounded context **Reservation** representa el punto de entrada para las operaciones relacionadas con la solicitud, consulta, validación, cancelación y seguimiento de reservas dentro de ParkingNow. Esta capa recibe solicitudes principalmente desde la aplicación móvil utilizada por el **Driver**, y también puede recibir acciones operativas desde la interfaz del **Parking Owner** cuando este necesita revisar reservas activas o validar la llegada de un conductor. Además, el contexto Reservation intercambia eventos con otros bounded contexts, ya que en el diseño estratégico del proyecto participa en mensajes como **Request reservation**, **Reservation confirmed**, **Reservation validated**, **Reservation consumed**, **Reservation expired** y **Parking space occupied**.
 
 Al igual que en el bounded context **Parking Management**, en esta capa no se implementan reglas de negocio. Su responsabilidad se limita a recibir la solicitud, validar superficialmente el formato de entrada, construir los **commands** o **queries** correspondientes y delegar el procesamiento a la **Application Layer**. De esta forma, los controladores permanecen ligeros y el comportamiento del negocio sigue concentrado en las capas internas del contexto. Este criterio es consistente con la estructura ya usada en la sección **4.2.1.2 Interface Layer** del contexto anterior.
 
-**Figura X** _Reservation Context Interface Layer Diagram_
+**Figura 66** _Reservation Context Interface Layer Diagram_
 
 ![Interface Layer Diagram Reservation](./assets/Interface-Layer-Reservation.png)
 
@@ -3677,13 +4723,13 @@ Para mantener desacoplada la Interface Layer respecto del dominio, los controlad
 
 En conclusión, la **Interface Layer** del bounded context **Reservation** actúa como la frontera de entrada del contexto y canaliza las interacciones del **Driver**, del **Parking Owner** y de eventos externos relevantes hacia la **Application Layer**. Su estructura puede organizarse en controladores REST especializados en reservas, tickets y validaciones, además de consumidores de eventos para ocupación física y vencimiento del tiempo límite. Así, el contexto conserva una interfaz clara, alineada con el flujo funcional del proyecto y con el mismo estilo arquitectónico ya utilizado en **Parking Management**.
 
-#### 4.2.2.3. Application Layer
+#### 4.2.3.3. Application Layer
 
 La **Application Layer** del bounded context **Reservation** contiene las clases encargadas de orquestar los casos de uso relacionados con la creación, consulta, cancelación, validación, expiración y consumo de reservas dentro de ParkingNow. Esta capa actúa como intermediaria entre la **Interface Layer**, que recibe solicitudes HTTP y eventos externos, y la **Domain Layer**, donde se encuentran las reglas de negocio puras del contexto. Su función principal es coordinar el flujo de ejecución, invocar fábricas, servicios de dominio y repositorios, y devolver el resultado correspondiente sin incorporar lógica de negocio compleja. Esta misma función de orquestación es la que ya se observa en la **Application Layer** del bounded context **Parking Management**, donde los handlers coordinan comandos y eventos sin contaminar el dominio con detalles de interfaz o infraestructura
 
 En el caso de **Reservation**, esta capa debe responder a los mensajes estratégicos identificados en la solución, como **Request reservation**, **Generate virtual ticket**, **Reservation validated**, **Reservation consumed** y **Reservation expired**. Por ello, su diseño se organiza principalmente en **command handlers**, **query handlers** y **event handlers**, cada uno enfocado en un caso de uso específico del ciclo de vida de la reserva. Este enfoque también es coherente con el planteamiento general del proyecto, donde la reserva es el mecanismo que transforma la disponibilidad de un espacio en un compromiso temporal verificable mediante ticket digital y validación posterior.
 
-**Figura X** _Reservation Context Application Layer Diagram_
+**Figura 67** _Reservation Context Application Layer Diagram_
 
 ![Application Layer Diagram Reservation](./assets/Application%20Layer.png)
 
@@ -3808,13 +4854,13 @@ Para mantener separadas las responsabilidades, la **Application Layer** trabaja 
 
 En conclusión, la **Application Layer** del bounded context **Reservation** mantiene una estructura delgada, orientada a casos de uso y coherente con el estilo arquitectónico del repositorio. Sus handlers reciben comandos, consultas y eventos; coordinan fábricas, servicios de dominio y repositorios; y devuelven respuestas útiles para la interfaz o actualizan el estado del contexto según eventos externos. Así, esta capa permite que ParkingNow mantenga separadas la orquestación del negocio, las reglas puras del dominio y los detalles técnicos de infraestructura, siguiendo el mismo enfoque aplicado previamente en **Parking Management**.
 
-#### 4.2.2.4. Infrastructure Layer
+#### 4.2.3.4. Infrastructure Layer
 
 La **Infrastructure Layer** del bounded context **Reservation** agrupa los componentes técnicos que permiten materializar en software las operaciones definidas en las capas superiores del contexto. Mientras la **Domain Layer** expresa las reglas del negocio y la **Application Layer** coordina los casos de uso, la infraestructura se encarga de resolver aspectos concretos como la persistencia en base de datos, la publicación y consumo de eventos, la integración con generadores de tickets y la implementación real de los contratos definidos por el dominio. En otras palabras, esta capa no define qué debe hacer el negocio, sino **cómo se soporta técnicamente su ejecución**.
 
 Siguiendo el mismo enfoque usado en el bounded context anterior, la **Infrastructure Layer** no debe contener reglas del dominio. Su responsabilidad es implementar los repositorios declarados en la Domain Layer, configurar el acceso a datos, persistir entidades como `Reservation`, `VirtualTicket` y `ReservationValidation`, y proporcionar adaptadores para interactuar con mecanismos externos del sistema. Así, el bounded context mantiene una separación clara entre lógica de negocio y detalles tecnológicos, lo cual es coherente con una arquitectura basada en DDD.
 
-**Figura X** _Reservation Context Infrastructure Layer Diagram_
+**Figura 68** _Reservation Context Infrastructure Layer Diagram_
 
 ![Infrastructure Layer Diagram Reservation](./assets/Infrastructure%20Layer%20Reservation.png)
 
@@ -3927,7 +4973,7 @@ Este flujo conserva la independencia del dominio y mantiene los detalles tecnol�
 
 En conclusión, la **Infrastructure Layer** del bounded context **Reservation** concentra todos los elementos técnicos necesarios para soportar la ejecución real del contexto sin contaminar la lógica del dominio. Sus repositorios implementan los contratos definidos por la Domain Layer, sus mappers traducen entidades y value objects a estructuras persistentes, sus adaptadores aíslan integraciones externas y sus componentes de mensajería permiten la comunicación orientada a eventos con otros módulos del sistema. De esta manera, el contexto Reservation conserva una arquitectura limpia, coherente con DDD y alineada con la estructura ya utilizada en el bounded context previamente desarrollado.
 
-#### 4.2.2.5. Bounded Context Software Architecture Component Level Diagrams
+#### 4.2.3.5. Bounded Context Software Architecture Component Level Diagrams
 
 El **Bounded Context Software Architecture Component Level Diagram** del bounded context **Reservation** permite representar cómo se organizan e interactúan sus componentes internos dentro del contenedor **Core REST API**. Este diagrama corresponde al **nivel 3 del modelo C4**, por lo que muestra componentes de software con responsabilidades claras dentro del contexto, sin llegar todavía al detalle de clases, atributos o tablas de base de datos. Este mismo enfoque ya se utiliza en la documentación del proyecto para otros bounded contexts, donde los diagramas de componente muestran la descomposición interna de cada contexto siguiendo la separación por capas.
 
@@ -3935,11 +4981,11 @@ Para ParkingNow, el bounded context **Reservation** se implementa principalmente
 
 Este contexto recibe solicitudes desde la **Driver Mobile App** y desde el **Parking Owner Web Dashboard**. Desde la aplicación móvil, el conductor puede crear una reserva, consultar sus reservas activas y revisar el ticket virtual generado. Desde la interfaz web, el administrador puede validar la llegada del conductor y consultar el historial de validaciones. Además, el contexto también recibe eventos externos relevantes, como la ocupación física de un espacio y el vencimiento del tiempo límite de una reserva, para reflejar correctamente su ciclo de vida dentro del sistema.
 
-**Figura X** _Reservation Context Component Level Diagram_  
+**Figura 69** _Reservation Context Component Level Diagram_  
 ![alt text](./assets/ReservationContextComponents-dark.png)  
 _Nota._ Elaboración propia (2026).
 
-Según la Figura X, el bounded context **Reservation** se organiza en componentes pertenecientes a cuatro capas principales: **Interface Layer**, **Application Layer**, **Domain Layer** e **Infrastructure Layer**. Esta distribución mantiene coherencia con el estilo de diseño táctico ya aplicado en el repositorio, ya que permite separar claramente la recepción de solicitudes, la orquestación de casos de uso, las reglas puras del dominio y los mecanismos técnicos de persistencia o integración externa.
+Según la Figura 69, el bounded context **Reservation** se organiza en componentes pertenecientes a cuatro capas principales: **Interface Layer**, **Application Layer**, **Domain Layer** e **Infrastructure Layer**. Esta distribución mantiene coherencia con el estilo de diseño táctico ya aplicado en el repositorio, ya que permite separar claramente la recepción de solicitudes, la orquestación de casos de uso, las reglas puras del dominio y los mecanismos técnicos de persistencia o integración externa.
 
 En la **Interface Layer** se ubican los componentes de entrada del contexto, principalmente `ReservationController`, `VirtualTicketController`, `ReservationValidationController` y el componente `ReservationEventConsumer`. Estos elementos reciben solicitudes HTTP o eventos externos y los traducen hacia comandos, consultas o eventos internos que luego serán atendidos por la capa de aplicación. De esta manera, la interfaz actúa como frontera del contexto sin mezclar lógica de negocio con detalles de transporte o exposición. Esta organización es consistente con la lógica de controladores y consumidores de eventos ya descrita en otros bounded contexts del proyecto.
 En la **Application Layer** se agrupan los handlers que coordinan los casos de uso del contexto. Entre ellos destacan `CreateReservationCommandHandler`, `CancelReservationCommandHandler`, `ValidateReservationCommandHandler`, `GetReservationByIdQueryHandler`, `GetDriverReservationsQueryHandler`, `GetVirtualTicketByReservationIdQueryHandler`, `GetReservationValidationHistoryQueryHandler`, `ReservationTimeLimitElapsedEventHandler` y `ParkingSpaceOccupiedEventHandler`. Estos componentes no implementan reglas de negocio puras, sino que orquestan la ejecución de operaciones del dominio, consultan repositorios y coordinan la respuesta del sistema frente a solicitudes o eventos. Esta separación por handlers sigue el mismo criterio táctico usado en la documentación existente del proyecto.
@@ -3952,7 +4998,7 @@ Además, el diagrama de componentes muestra que **Reservation** no opera de form
 
 En conclusión, el **Component Level Diagram** del bounded context **Reservation** muestra cómo este módulo estructura internamente sus responsabilidades dentro del **Core REST API**. La separación entre controladores, handlers, dominio e infraestructura permite mantener una arquitectura limpia y coherente con Domain-Driven Design, donde las reglas de negocio no se mezclan con detalles técnicos y cada componente cumple una responsabilidad específica dentro del ciclo de vida de la reserva. Esta organización facilita la evolución del sistema, reduce el acoplamiento y asegura trazabilidad entre el diseño estratégico, el diseño táctico y la futura implementación del contexto.
 
-#### 4.2.2.6. Bounded Context Software Architecture Code Level Diagrams
+#### 4.2.3.6. Bounded Context Software Architecture Code Level Diagrams
 
 Los **Bounded Context Software Architecture Code Level Diagrams** del bounded context **Reservation** permiten representar el diseño interno del contexto con un nivel de detalle mayor al mostrado en los diagramas de componentes. Mientras el **Component Level Diagram** presenta la organización general de controladores, handlers, servicios de dominio, repositorios y adaptadores, los diagramas de nivel de código buscan aterrizar cómo se estructura técnicamente el bounded context a partir de sus clases principales y de su modelo de persistencia.
 
@@ -3966,17 +5012,17 @@ De esta manera, los diagramas de nivel de código permiten cerrar la transición
 
 En las subsecciones siguientes se presenta, primero, el diagrama de clases de la capa de dominio y, después, el diagrama de diseño de base de datos correspondiente al bounded context.
 
-##### 4.2.2.6.1. Bounded Context Domain Layer Class Diagrams
+##### 4.2.3.6.1. Bounded Context Domain Layer Class Diagrams
 
 El **Bounded Context Domain Layer Class Diagram** del bounded context **Reservation** permite representar, a nivel de código, las clases principales que conforman la capa de dominio y las relaciones existentes entre ellas. A diferencia del diagrama de componentes, que muestra una vista más general de las responsabilidades del contexto dentro del sistema, este diagrama se enfoca en la estructura interna del modelo de dominio, mostrando el **aggregate root**, las entidades asociadas, los value objects, la factory, los domain services y las interfaces de repositorio que sostienen la lógica del negocio.
 
 En el caso de **Reservation**, este diagrama es especialmente importante porque el contexto no se limita a una sola entidad aislada, sino que articula varios conceptos que deben mantenerse consistentes entre sí durante todo el ciclo de vida de la reserva. La reserva principal debe controlar estados, tiempos de vigencia, generación de ticket virtual, validación de llegada, cancelación, expiración y consumo. Por ello, el diagrama de clases de dominio permite visualizar con claridad cómo se distribuyen estas responsabilidades dentro del modelo y qué relaciones estructurales existen entre sus elementos.
 
-**Figura X** _Reservation Context Domain Layer Class Diagram_  
+**Figura 70** _Reservation Context Domain Layer Class Diagram_  
 ![alt text](./assets/Reservation%20Class%20Diagram.png)  
 _Nota._ Elaboración propia (2026).
 
-Según la Figura X, la clase central del bounded context es **`Reservation`**, la cual actúa como **aggregate root**. Esta clase representa la reserva realizada por un conductor sobre un espacio de estacionamiento y concentra la consistencia principal del contexto. Desde ella se gobiernan las operaciones más importantes del dominio, como confirmar la reserva, cancelarla, expirar su vigencia, validarla y finalmente consumirla cuando el espacio reservado pasa a estar físicamente ocupado. Modelar a `Reservation` como raíz del agregado permite mantener bajo un mismo límite de consistencia todo aquello que afecta directamente el ciclo de vida de la reserva.
+Según la Figura 70, la clase central del bounded context es **`Reservation`**, la cual actúa como **aggregate root**. Esta clase representa la reserva realizada por un conductor sobre un espacio de estacionamiento y concentra la consistencia principal del contexto. Desde ella se gobiernan las operaciones más importantes del dominio, como confirmar la reserva, cancelarla, expirar su vigencia, validarla y finalmente consumirla cuando el espacio reservado pasa a estar físicamente ocupado. Modelar a `Reservation` como raíz del agregado permite mantener bajo un mismo límite de consistencia todo aquello que afecta directamente el ciclo de vida de la reserva.
 
 Relacionadas con esta raíz del agregado aparecen las entidades **`VirtualTicket`** y **`ReservationValidation`**. La primera representa el ticket virtual generado luego de confirmar una reserva y contiene el identificador único que permitirá su validación posterior. La segunda representa el proceso de validación de la reserva cuando el conductor llega al estacionamiento y presenta su ticket. Ambas son entidades porque poseen identidad propia y evolucionan con el tiempo, pero permanecen subordinadas a la consistencia definida por `Reservation`.
 
@@ -3990,17 +5036,17 @@ Finalmente, el diagrama incluye las interfaces **`IReservationRepository`**, **`
 
 En conjunto, el **Domain Layer Class Diagram** del bounded context **Reservation** muestra un modelo centrado en la consistencia del ciclo de vida de la reserva, donde `Reservation` gobierna el agregado principal y se apoya en entidades relacionadas, objetos de valor, servicios de dominio, una fábrica y contratos de repositorio. Esta estructura resulta coherente con el enfoque de **Domain-Driven Design** adoptado por ParkingNow, ya que permite reflejar el lenguaje del negocio directamente en el diseño del software y preparar una base sólida para la implementación posterior del contexto.
 
-##### 4.2.2.6.2. Bounded Context Database Design Diagram
+##### 4.2.3.6.2. Bounded Context Database Design Diagram
 
 El **Bounded Context Database Design Diagram** del bounded context **Reservation** representa la traducción del modelo de dominio a una estructura relacional de persistencia. Su propósito es mostrar cómo los conceptos principales del negocio, previamente modelados en la **Domain Layer**, se almacenan en tablas, columnas y relaciones dentro de la base de datos. A diferencia del diagrama de clases, que se enfoca en la lógica y organización del dominio, este diagrama se orienta a la persistencia y permite visualizar de forma concreta cómo se guardará la información de reservas, tickets virtuales y validaciones dentro del sistema.
 
 En el contexto **Reservation**, este diagrama resulta clave porque la reserva no se limita a un solo registro aislado. El modelo necesita almacenar la reserva principal, el ticket virtual asociado y el historial o registro de validación vinculado a dicha reserva. Además, debe reflejar correctamente atributos importantes del negocio, como el conductor que realiza la reserva, el estacionamiento y espacio reservado, el estado actual de la reserva, la vigencia temporal y el resultado de las validaciones. Por ello, el diseño de base de datos debe mantener coherencia con el aggregate root `Reservation` y con las entidades relacionadas del dominio.
 
-**Figura X** _Reservation Context Database Design Diagram_  
+**Figura 71** _Reservation Context Database Design Diagram_  
 ![alt text](./assets/database%20diagram%20reservation.png)  
 _Nota._ Elaboración propia (2026).
 
-Según la Figura X, la tabla principal del bounded context es **`reservations`**, ya que representa al aggregate root `Reservation` y concentra la información central de cada reserva realizada dentro de la plataforma. Esta tabla almacena el identificador único de la reserva, el identificador del conductor, el identificador del estacionamiento y del espacio reservado, el estado actual de la reserva, la fecha de creación, la fecha de expiración y los datos que componen la ventana temporal de vigencia. Al ubicarse como tabla principal del contexto, `reservations` funciona como el eje de consistencia del diseño persistente.
+Según la Figura 71, la tabla principal del bounded context es **`reservations`**, ya que representa al aggregate root `Reservation` y concentra la información central de cada reserva realizada dentro de la plataforma. Esta tabla almacena el identificador único de la reserva, el identificador del conductor, el identificador del estacionamiento y del espacio reservado, el estado actual de la reserva, la fecha de creación, la fecha de expiración y los datos que componen la ventana temporal de vigencia. Al ubicarse como tabla principal del contexto, `reservations` funciona como el eje de consistencia del diseño persistente.
 
 Relacionada con esta tabla aparece **`virtual_tickets`**, la cual representa la persistencia de la entidad `VirtualTicket`. Esta tabla guarda el identificador del ticket, la referencia a la reserva asociada, el código único del ticket, su estado, la fecha de generación y, si corresponde, la fecha de invalidación o consumo. La relación entre `reservations` y `virtual_tickets` se modela normalmente como una relación **uno a cero o uno**, ya que una reserva confirmada puede generar un ticket virtual, pero no toda reserva necesariamente tendrá uno en todos los estados posibles del ciclo de vida.
 
@@ -4015,3 +5061,954 @@ A nivel de claves, la tabla `reservations` utiliza una **primary key** propia pa
 En términos de implementación, este diseño resulta consistente con el uso de un almacenamiento relacional como **Supabase PostgreSQL**, el cual ya forma parte de la arquitectura general documentada para ParkingNow. Además, la separación de tablas y relaciones permite que los repositorios del contexto trabajen de manera clara con las entidades persistentes, manteniendo alineación entre el modelo del dominio y la infraestructura de datos.
 
 En conclusión, el **Database Design Diagram** del bounded context **Reservation** muestra cómo el modelo de dominio se proyecta de manera coherente a un diseño relacional compuesto principalmente por `reservations`, `virtual_tickets` y `reservation_validations`. La tabla `reservations` funciona como núcleo del contexto, mientras que las demás tablas extienden la persistencia necesaria para soportar ticketing y validación. De esta forma, el diseño de base de datos conserva la lógica del aggregate root, respeta las relaciones del dominio y proporciona una base técnica sólida para la implementación del bounded context dentro de la solución ParkingNow.
+### 4.2.4. Bounded Context: IoT Monitoring Context
+
+El bounded context **IoT Monitoring Context** concentra las capacidades relacionadas con el monitoreo operativo de los nodos IoT instalados en los espacios de estacionamiento. Este contexto permite recibir lecturas físicas provenientes del dispositivo ESP32, validar mediciones del sensor ultrasónico, detectar cambios de ocupación, registrar eventos operativos, controlar el estado de conexión del nodo y sincronizar los eventos procesados hacia el backend principal de ParkingNow.
+
+A diferencia del **Parking Management Context**, que se encarga de registrar estacionamientos, configurar espacios y asociar nodos IoT, el **IoT Monitoring Context** se enfoca en el comportamiento operativo del dispositivo una vez instalado. Su responsabilidad principal es convertir señales físicas del prototipo IoT en eventos confiables para el sistema, evitando que lecturas inválidas, pérdidas temporales de conexión o estados inconsistentes afecten la disponibilidad mostrada a los usuarios.
+
+Desde la perspectiva tecnológica, este contexto se implementa principalmente en el **Edge API / Edge Service**, desarrollado con **Python, Flask, Peewee ORM y SQLite**, debido a que el procesamiento inicial debe realizarse cerca del dispositivo físico. Este contexto también se integra con el **ESP32 Embedded Firmware**, desarrollado en **C++ / Arduino IDE**, y con el **Core REST API**, desarrollado con **Java y Spring Boot**, para sincronizar eventos validados hacia la capa cloud de ParkingNow.
+
+**Figura 72**  
+*IoT Monitoring Context Class Dictionary*
+
+![alt text](./assets/iotcontext.png)
+
+*Nota.* Elaboración propia (2026) usando LucidChart.
+
+A continuación, se presenta el diccionario de clases identificado para el bounded context **IoT Monitoring Context**.
+
+| Clase | Tipo | Propósito | Relaciones principales |
+|---|---|---|---|
+| `IoTMonitoringAggregate` | Aggregate | Agrupa el estado operativo de un nodo IoT, sus lecturas, eventos de ocupación, heartbeats y estado de sincronización. | Contiene `IoTNode`, `SensorReading`, `OccupancyEvent`, `DeviceHeartbeat` y `EdgeSyncState`. |
+| `IoTNode` | Entity | Representa un nodo físico ESP32 instalado para monitorear un espacio de estacionamiento. | Usa `NodeIdentifier`, `DeviceConnectionStatus` y `DeviceOperationalStatus`. |
+| `SensorReading` | Entity | Representa una lectura generada por el sensor ultrasónico HC-SR04+. | Usa `NodeIdentifier`, `SensorDistance` y `ReadingValidationStatus`. |
+| `OccupancyEvent` | Entity | Representa un cambio físico de ocupación detectado a partir de una lectura válida. | Usa `OccupancyStatus` y se genera desde `SensorReading`. |
+| `DeviceHeartbeat` | Entity | Representa una señal periódica enviada por el nodo IoT para indicar que sigue conectado y operativo. | Se relaciona con `IoTNode`. |
+| `EdgeSyncState` | Entity | Representa el estado de sincronización local de eventos pendientes, enviados o fallidos. | Usa `SynchronizationStatus`. |
+| `NodeIdentifier` | Value Object | Encapsula el identificador único del nodo IoT. | Es usado por `IoTNode`, `SensorReading`, `OccupancyEvent` y `DeviceHeartbeat`. |
+| `SensorDistance` | Value Object | Representa la distancia medida por el sensor ultrasónico y valida rangos físicos aceptables. | Es usado por `SensorReading`. |
+| `OccupancyStatus` | Enumeration | Define los estados físicos posibles de un espacio monitoreado. | Es usado por `OccupancyEvent`. |
+| `DeviceConnectionStatus` | Enumeration | Define el estado de conexión del nodo IoT. | Es usado por `IoTNode`. |
+| `DeviceOperationalStatus` | Enumeration | Define el estado operativo del dispositivo físico. | Es usado por `IoTNode`. |
+| `ReadingValidationStatus` | Enumeration | Define si una lectura es válida, inválida o sospechosa. | Es usado por `SensorReading`. |
+| `SynchronizationStatus` | Enumeration | Define si un evento local está pendiente, sincronizado o fallido. | Es usado por `EdgeSyncState`. |
+| `SensorReadingFactory` | Factory | Crea lecturas de sensor a partir del payload recibido desde el ESP32. | Crea `SensorReading` y `SensorDistance`. |
+| `OccupancyEventFactory` | Factory | Crea eventos de ocupación a partir de lecturas validadas. | Crea `OccupancyEvent`. |
+| `SensorReadingValidationService` | Domain Service | Valida si una lectura del sensor se encuentra dentro de rangos físicos aceptables. | Usa `SensorReading` y `SensorDistance`. |
+| `OccupancyDetectionPolicy` | Domain Service | Determina si una lectura representa un cambio real de ocupación. | Usa `SensorReading` y `OccupancyStatus`. |
+| `HeartbeatMonitoringPolicy` | Domain Service | Determina si un nodo debe considerarse conectado, desconectado o inestable. | Usa `DeviceHeartbeat` y `DeviceConnectionStatus`. |
+| `IIoTNodeMonitoringRepository` | Repository Interface | Define operaciones de persistencia para el estado operativo del nodo IoT. | Es implementada en Infrastructure Layer. |
+| `ISensorReadingRepository` | Repository Interface | Define operaciones de persistencia para lecturas de sensores. | Es implementada en Infrastructure Layer. |
+| `IOccupancyEventRepository` | Repository Interface | Define operaciones de persistencia para eventos de ocupación. | Es implementada en Infrastructure Layer. |
+| `IDeviceHeartbeatRepository` | Repository Interface | Define operaciones de persistencia para heartbeats del dispositivo. | Es implementada en Infrastructure Layer. |
+| `IEdgeSyncStateRepository` | Repository Interface | Define operaciones de persistencia para estados de sincronización local. | Es implementada en Infrastructure Layer. |
+
+#### 4.2.4.1. Domain Layer
+
+La **Domain Layer** del **IoT Monitoring Context** contiene las clases que representan las reglas centrales del monitoreo físico de espacios de estacionamiento. Esta capa modela el estado del nodo IoT, las lecturas generadas por sensores, los eventos de ocupación, los heartbeats del dispositivo y las reglas necesarias para validar si un evento físico debe considerarse confiable.
+
+Esta capa no depende de frameworks, controladores, bases de datos ni servicios externos. Su responsabilidad es definir el comportamiento del dominio IoT de forma independiente de la tecnología utilizada para implementarlo. Por ello, aquí se incluyen entidades, objetos de valor, enumeraciones, fábricas, servicios de dominio e interfaces de repositorio.
+
+**Figura 73**  
+*IoT Monitoring Context Domain Layer*
+
+![alt text](./assets/iotdomain.png)
+
+*Nota.* Elaboración propia (2026) usando LucidChart / PlantUML.
+
+El aggregate principal de este contexto es `IoTMonitoringAggregate`, encargado de mantener la consistencia entre el nodo IoT, sus lecturas, sus eventos de ocupación, sus heartbeats y el estado de sincronización local. Este aggregate permite que las operaciones relacionadas con el monitoreo físico se procesen bajo reglas coherentes antes de ser persistidas o sincronizadas hacia el Core REST API.
+
+La entidad `IoTNode` representa el nodo físico ESP32 instalado en un espacio de estacionamiento. Esta clase mantiene información sobre el identificador del nodo, su estado de conexión y su estado operativo. Su comportamiento permite actualizar su estado cuando se reciben lecturas válidas, heartbeats o eventos de desconexión.
+
+La entidad `SensorReading` representa una lectura física enviada por el sensor ultrasónico HC-SR04+. Esta lectura incluye el identificador del nodo, la distancia medida, el momento de captura y el estado de validación. El dominio utiliza `SensorDistance` para encapsular la medición y evitar valores inválidos, como distancias negativas o fuera del rango físico esperado.
+
+La entidad `OccupancyEvent` representa un cambio de ocupación detectado a partir de una lectura válida. Este evento permite determinar si un espacio físico se encuentra libre, ocupado o en estado desconocido. La creación de este evento se apoya en `OccupancyDetectionPolicy`, que define las reglas para interpretar las lecturas del sensor.
+
+La entidad `DeviceHeartbeat` representa una señal periódica enviada por el ESP32 para indicar que el nodo sigue conectado. Esta información es utilizada por `HeartbeatMonitoringPolicy`, que permite determinar si el dispositivo debe considerarse conectado, desconectado o inestable.
+
+La entidad `EdgeSyncState` representa el estado de sincronización de los eventos locales procesados por el Edge API. Esto permite manejar escenarios donde la conectividad con el Core REST API sea intermitente, evitando la pérdida de eventos físicos importantes.
+
+Dentro de los objetos de valor se encuentran `NodeIdentifier` y `SensorDistance`. El primero asegura que el identificador del nodo tenga un formato válido y consistente. El segundo encapsula la medición del sensor y valida que la distancia se encuentre dentro de los límites permitidos.
+
+Las enumeraciones `OccupancyStatus`, `DeviceConnectionStatus`, `DeviceOperationalStatus`, `ReadingValidationStatus` y `SynchronizationStatus` restringen los estados permitidos dentro del modelo, evitando inconsistencias al representar la ocupación física, la conexión del dispositivo, su operación, la validez de las lecturas y el estado de sincronización.
+
+Las fábricas `SensorReadingFactory` y `OccupancyEventFactory` centralizan la creación de lecturas y eventos, evitando que estas entidades se construyan en estados inválidos. Los servicios de dominio `SensorReadingValidationService`, `OccupancyDetectionPolicy` y `HeartbeatMonitoringPolicy` encapsulan reglas que no pertenecen a una sola entidad, pero que son necesarias para mantener la coherencia del contexto.
+
+Finalmente, las interfaces `IIoTNodeMonitoringRepository`, `ISensorReadingRepository`, `IOccupancyEventRepository`, `IDeviceHeartbeatRepository` e `IEdgeSyncStateRepository` representan contratos de persistencia requeridos por el dominio. Sus implementaciones concretas se ubican en la Infrastructure Layer.
+
+#### 4.2.4.2. Interface Layer
+
+La **Interface Layer** del **IoT Monitoring Context** representa el punto de entrada para las solicitudes y eventos provenientes del entorno físico IoT. Esta capa está compuesta por controladores REST y consumidores de eventos encargados de recibir payloads generados por el ESP32, peticiones de sincronización y señales operativas del dispositivo.
+
+En este contexto, los controladores se implementan principalmente dentro del **Edge API / Edge Service**, desarrollado con **Python y Flask**. Su responsabilidad es recibir solicitudes HTTP, validar superficialmente la estructura del payload y delegar el procesamiento hacia la Application Layer. Esta capa no contiene lógica de negocio pura ni reglas de detección de ocupación.
+
+**Figura 74**  
+*IoT Monitoring Context Interface Layer*
+
+![alt text](./assets/iotinterface.png)
+
+*Nota.* Elaboración propia (2026) usando LucidChart.
+
+Las clases consideradas para esta capa son las siguientes:
+
+| Clase | Tipo | Propósito |
+|---|---|---|
+| `SensorReadingController` | REST Controller | Recibe lecturas de sensores enviadas por el ESP32 mediante HTTP/JSON. |
+| `DeviceHeartbeatController` | REST Controller | Recibe heartbeats periódicos del dispositivo para validar su estado de conexión. |
+| `EdgeSyncController` | REST Controller | Expone operaciones para consultar y reenviar eventos pendientes de sincronización. |
+| `OccupancyEventConsumer` | Event Consumer | Consume eventos internos generados por el procesamiento de lecturas válidas. |
+
+La clase `SensorReadingController` recibe las lecturas enviadas por el firmware del ESP32. Su responsabilidad consiste en validar que el payload tenga los campos mínimos requeridos, como identificador del nodo, distancia medida y timestamp. Luego delega el procesamiento al `RegisterSensorReadingCommandHandler`.
+
+La clase `DeviceHeartbeatController` recibe señales periódicas del nodo IoT. Estas señales permiten conocer si el dispositivo sigue conectado y funcionando. Esta clase delega el procesamiento al `RegisterDeviceHeartbeatCommandHandler`.
+
+La clase `EdgeSyncController` permite gestionar la sincronización de eventos almacenados localmente en SQLite. Su propósito es consultar eventos pendientes, reintentar envíos fallidos y coordinar el flujo de sincronización con el Core REST API.
+
+La clase `OccupancyEventConsumer` consume eventos internos de ocupación generados dentro del Edge API después de validar una lectura. Su responsabilidad es delegar la actualización del estado operativo y el registro del evento hacia la Application Layer.
+
+#### 4.2.4.3. Application Layer
+
+La **Application Layer** del **IoT Monitoring Context** contiene los command handlers y event handlers que orquestan los casos de uso relacionados con el monitoreo IoT. Esta capa actúa como intermediaria entre la Interface Layer, el Domain Layer y la Infrastructure Layer.
+
+Su responsabilidad es coordinar el flujo de procesamiento: recibe datos validados superficialmente desde los controladores, utiliza fábricas y servicios de dominio para aplicar reglas, consulta o actualiza repositorios y finalmente solicita la sincronización de eventos hacia el Core REST API cuando corresponde.
+
+Esta capa debe mantenerse delgada. No contiene reglas de negocio puras ni detalles tecnológicos de persistencia. Las reglas de validación de lecturas, detección de ocupación o monitoreo de conexión pertenecen al Domain Layer, mientras que el almacenamiento en SQLite o la comunicación HTTP hacia el backend pertenecen a Infrastructure Layer.
+
+**Figura 75**  
+*IoT Monitoring Context Application Layer*
+
+![alt text](./assets/iotaplicacionlayer.png)
+
+*Nota.* Elaboración propia (2026) usando LucidChart.
+
+Las clases consideradas para esta capa son las siguientes:
+
+| Clase | Tipo | Propósito |
+|---|---|---|
+| `RegisterSensorReadingCommandHandler` | Command Handler | Orquesta el registro y validación de una lectura enviada por el ESP32. |
+| `ProcessOccupancyChangeCommandHandler` | Command Handler | Orquesta la generación de un evento de ocupación a partir de una lectura válida. |
+| `RegisterDeviceHeartbeatCommandHandler` | Command Handler | Orquesta el registro de heartbeats del dispositivo y la actualización de su estado de conexión. |
+| `SyncPendingIoTEventsCommandHandler` | Command Handler | Orquesta el reenvío de eventos pendientes hacia el Core REST API. |
+| `NodeDisconnectedEventHandler` | Event Handler | Reacciona ante la pérdida de heartbeats o desconexión temporal del nodo. |
+| `OccupancyStatusChangedEventHandler` | Event Handler | Reacciona ante un cambio de ocupación detectado y prepara su sincronización. |
+
+El `RegisterSensorReadingCommandHandler` inicia el flujo principal del contexto. Recibe la lectura enviada por el `SensorReadingController`, utiliza `SensorReadingFactory` para construir una entidad válida y solicita a `SensorReadingValidationService` la validación del rango físico de medición. Si la lectura es aceptada, la almacena mediante `ISensorReadingRepository`.
+
+El `ProcessOccupancyChangeCommandHandler` se encarga de interpretar una lectura validada y determinar si representa un cambio real de ocupación. Para ello utiliza `OccupancyDetectionPolicy` y `OccupancyEventFactory`. Si se detecta un cambio relevante, se genera un `OccupancyEvent`.
+
+El `RegisterDeviceHeartbeatCommandHandler` procesa las señales periódicas enviadas por el nodo ESP32. Su flujo permite actualizar el estado de conexión del dispositivo y registrar evidencia de que el nodo continúa operativo.
+
+El `SyncPendingIoTEventsCommandHandler` coordina la sincronización de eventos pendientes almacenados localmente. Este handler obtiene eventos con estado pendiente o fallido desde `IEdgeSyncStateRepository` y solicita a la infraestructura el envío hacia el Core REST API.
+
+El `NodeDisconnectedEventHandler` reacciona cuando un nodo deja de enviar heartbeats durante un tiempo superior al permitido. Su responsabilidad es actualizar el estado operativo y registrar el evento para que el sistema pueda advertir posibles fallas del dispositivo.
+
+El `OccupancyStatusChangedEventHandler` reacciona cuando se detecta un cambio de ocupación. Su responsabilidad es preparar la información para su sincronización y permitir que el backend principal actualice el estado operativo del espacio correspondiente.
+
+#### 4.2.4.4. Infrastructure Layer
+
+La **Infrastructure Layer** del **IoT Monitoring Context** contiene las clases que conectan el contexto con tecnologías concretas, como SQLite, Peewee ORM, HTTP clients y servicios externos. Esta capa implementa las interfaces de repositorio definidas en el Domain Layer y provee adaptadores para la comunicación con el Core REST API.
+
+En este contexto, la infraestructura local es importante porque el Edge API debe poder operar incluso si la conexión con la nube es intermitente. Por ello, se utiliza **SQLite** como almacenamiento local y **Peewee ORM** como mecanismo de acceso a datos desde Python.
+
+**Figura 76**  
+*IoT Monitoring Context Infrastructure Layer*
+
+![alt text](./assets/iotinfraestructurelayer.png)
+
+*Nota.* Elaboración propia (2026) usando LucidChart.
+
+Las clases consideradas para esta capa son las siguientes:
+
+| Clase | Tipo | Propósito |
+|---|---|---|
+| `PeeweeIoTNodeMonitoringRepository` | Repository Implementation | Implementa `IIoTNodeMonitoringRepository` usando Peewee ORM y SQLite. |
+| `PeeweeSensorReadingRepository` | Repository Implementation | Implementa `ISensorReadingRepository` para guardar lecturas del sensor en SQLite. |
+| `PeeweeOccupancyEventRepository` | Repository Implementation | Implementa `IOccupancyEventRepository` para persistir eventos de ocupación. |
+| `PeeweeDeviceHeartbeatRepository` | Repository Implementation | Implementa `IDeviceHeartbeatRepository` para registrar heartbeats del dispositivo. |
+| `PeeweeEdgeSyncStateRepository` | Repository Implementation | Implementa `IEdgeSyncStateRepository` para controlar eventos pendientes de sincronización. |
+| `CoreRestApiClient` | External Service Client | Envía eventos IoT validados hacia el Core REST API mediante HTTPS/JSON. |
+| `EdgeClockProvider` | Infrastructure Service | Proporciona timestamps consistentes para eventos registrados en el Edge API. |
+| `DevicePayloadMapper` | Mapper | Transforma payloads JSON recibidos desde el ESP32 en objetos del dominio. |
+
+La clase `PeeweeIoTNodeMonitoringRepository` permite almacenar y recuperar el estado operativo local del nodo IoT. Su implementación usa Peewee ORM sobre SQLite, evitando que el dominio dependa directamente de detalles de base de datos.
+
+La clase `PeeweeSensorReadingRepository` persiste las lecturas recibidas desde el sensor ultrasónico. Esto permite conservar evidencia de las mediciones utilizadas para detectar cambios de ocupación.
+
+La clase `PeeweeOccupancyEventRepository` almacena eventos de ocupación detectados localmente. Estos eventos pueden ser enviados inmediatamente al backend principal o quedar pendientes si no existe conexión.
+
+La clase `PeeweeDeviceHeartbeatRepository` registra los heartbeats del dispositivo. Esto permite identificar desconexiones, latencia o fallas del nodo IoT.
+
+La clase `PeeweeEdgeSyncStateRepository` controla el estado de sincronización de los eventos locales. Gracias a esta clase, el Edge API puede identificar eventos pendientes, fallidos o sincronizados.
+
+La clase `CoreRestApiClient` actúa como cliente HTTP para enviar eventos validados hacia el Core REST API. Esta clase encapsula detalles de comunicación como endpoints, headers, timeouts y formato JSON.
+
+La clase `DevicePayloadMapper` transforma los payloads recibidos desde el firmware ESP32 en objetos utilizados por la Application Layer y el Domain Layer. Esto evita que el formato externo del dispositivo contamine el modelo de dominio.
+
+#### 4.2.4.5. Bounded Context Software Architecture Component Level Diagrams
+
+El **Bounded Context Software Architecture Component Level Diagram** del **IoT Monitoring Context** muestra la descomposición interna del contenedor **Edge API / Edge Service**, el cual concentra la lógica principal de recepción, validación, procesamiento y sincronización de eventos físicos provenientes del ESP32.
+
+Este diagrama corresponde al nivel 3 del C4 Model. En él se muestran los componentes principales del Edge API, incluyendo controladores Flask, command handlers, event handlers, componentes de dominio, repositorios locales implementados con Peewee ORM y adaptadores externos para sincronizar eventos hacia el Core REST API.
+
+**Figura 77**  
+*IoT Monitoring Context Component Level Diagram*
+
+![alt text](./assets/IoTMonitoringComponentView-dark.png)
+
+*Nota.* Elaboración propia (2026) usando Structurizr DSL.
+
+Según la Figura 77, el flujo principal inicia cuando el **ESP32 Embedded Firmware** envía una lectura al `SensorReadingController`. Este controlador recibe el payload HTTP/JSON y delega la operación al `RegisterSensorReadingCommandHandler`. Luego, la Application Layer utiliza `SensorReadingFactory` y `SensorReadingValidationService` para construir y validar la lectura.
+
+Cuando una lectura válida representa un cambio físico relevante, el `ProcessOccupancyChangeCommandHandler` utiliza `OccupancyDetectionPolicy` y `OccupancyEventFactory` para generar un `OccupancyEvent`. Dicho evento se almacena localmente mediante `PeeweeOccupancyEventRepository` y se registra su estado de sincronización usando `PeeweeEdgeSyncStateRepository`.
+
+Posteriormente, el `SyncPendingIoTEventsCommandHandler` utiliza `CoreRestApiClient` para enviar los eventos validados hacia el **Core REST API**, desarrollado con Java y Spring Boot. Si la conexión falla, el evento queda almacenado localmente en SQLite para ser reenviado después.
+
+La siguiente tabla resume los componentes principales del diagrama:
+
+| Capa | Componente | Tecnología | Responsabilidad |
+|---|---|---|---|
+| Interface Layer | `SensorReadingController` | Python / Flask | Recibe lecturas de sensores enviadas por el ESP32. |
+| Interface Layer | `DeviceHeartbeatController` | Python / Flask | Recibe heartbeats periódicos del nodo IoT. |
+| Interface Layer | `EdgeSyncController` | Python / Flask | Permite consultar y reenviar eventos pendientes. |
+| Interface Layer | `OccupancyEventConsumer` | Python / Flask Events | Consume eventos internos de ocupación. |
+| Application Layer | `RegisterSensorReadingCommandHandler` | Python | Orquesta el registro y validación de lecturas. |
+| Application Layer | `ProcessOccupancyChangeCommandHandler` | Python | Orquesta la creación de eventos de ocupación. |
+| Application Layer | `RegisterDeviceHeartbeatCommandHandler` | Python | Orquesta el registro de heartbeats. |
+| Application Layer | `SyncPendingIoTEventsCommandHandler` | Python | Orquesta la sincronización de eventos pendientes. |
+| Domain Layer | `IoTMonitoringAggregate` | Domain Model | Mantiene la consistencia del estado operativo IoT. |
+| Domain Layer | `SensorReadingValidationService` | Domain Service | Valida rangos físicos de medición. |
+| Domain Layer | `OccupancyDetectionPolicy` | Domain Service | Determina cambios reales de ocupación. |
+| Domain Layer | `HeartbeatMonitoringPolicy` | Domain Service | Determina estados de conexión del nodo. |
+| Infrastructure Layer | `PeeweeSensorReadingRepository` | Peewee ORM / SQLite | Persiste lecturas de sensores. |
+| Infrastructure Layer | `PeeweeOccupancyEventRepository` | Peewee ORM / SQLite | Persiste eventos de ocupación. |
+| Infrastructure Layer | `PeeweeDeviceHeartbeatRepository` | Peewee ORM / SQLite | Persiste heartbeats del dispositivo. |
+| Infrastructure Layer | `PeeweeEdgeSyncStateRepository` | Peewee ORM / SQLite | Persiste estados de sincronización. |
+| Infrastructure Layer | `CoreRestApiClient` | HTTP Client | Envía eventos validados al Core REST API. |
+
+#### 4.2.4.6. Bounded Context Software Architecture Code Level Diagrams
+
+En esta sección se presentan los diagramas de nivel de código correspondientes al bounded context **IoT Monitoring**. A diferencia del Component Level Diagram, que muestra bloques estructurales de alto nivel dentro del Edge API, este bloque profundiza en el diseño de clases del dominio y en la estructura física de persistencia utilizada por este contexto.
+
+Primero se presenta el **Domain Layer Class Diagram**, donde se detallan las entidades, objetos de valor, agregados, servicios de dominio, fábricas e interfaces de repositorio del contexto. Luego se presenta el **Database Design Diagram**, donde se especifican las tablas, columnas, llaves primarias, llaves foráneas y relaciones utilizadas para persistir la información operativa del monitoreo IoT.
+
+Estos diagramas permiten cerrar el diseño táctico del bounded context **IoT Monitoring**, asegurando trazabilidad entre las reglas del dominio, el procesamiento local del Edge API y la persistencia de eventos físicos generados por el dispositivo ESP32.
+
+###### 4.2.4.6.1. Bounded Context Domain Layer Class Diagrams
+
+El **Bounded Context Domain Layer Class Diagram** presenta el diseño UML de las clases que forman parte de la capa de dominio del bounded context **IoT Monitoring**. Este diagrama se enfoca exclusivamente en los elementos que representan reglas de negocio puras relacionadas con monitoreo IoT, sin incluir controladores, frameworks, clientes HTTP, bases de datos ni detalles de infraestructura.
+
+**Figura 78**  
+*IoT Monitoring Context Domain Layer Class Diagram*
+
+![alt text](./assets/iotclass.png)
+
+*Nota.* Elaboración propia (2026) usando LucidChart / PlantUML.
+
+Según la Figura 78, el aggregate `IoTMonitoringAggregate` actúa como raíz de consistencia del contexto. Este aggregate contiene el nodo IoT monitoreado, las lecturas generadas por sensores, los eventos de ocupación, los heartbeats del dispositivo y los estados de sincronización local.
+
+La entidad `IoTNode` representa al dispositivo ESP32 instalado en el entorno físico. Esta entidad mantiene su identificador, estado de conexión, estado operativo y último momento de actividad. Su comportamiento permite actualizar el estado del nodo cuando recibe lecturas, heartbeats o eventos de desconexión.
+
+La entidad `SensorReading` representa una medición física capturada por el sensor ultrasónico. Esta clase utiliza el value object `SensorDistance` para encapsular la distancia medida y validar que se encuentre dentro del rango físico permitido. Además, utiliza `ReadingValidationStatus` para indicar si la lectura es válida, inválida o sospechosa.
+
+La entidad `OccupancyEvent` representa el resultado de interpretar una lectura física. Esta entidad permite registrar si un espacio pasa a estar libre, ocupado o en estado desconocido. La transición de estado se determina mediante `OccupancyDetectionPolicy`.
+
+La entidad `DeviceHeartbeat` permite registrar señales periódicas enviadas por el ESP32. Estas señales son utilizadas para determinar si el nodo sigue conectado, se encuentra inestable o debe considerarse desconectado.
+
+La entidad `EdgeSyncState` permite controlar la sincronización de eventos locales. Su objetivo es evitar pérdida de información cuando la conexión con el Core REST API no está disponible.
+
+Los servicios de dominio `SensorReadingValidationService`, `OccupancyDetectionPolicy` y `HeartbeatMonitoringPolicy` concentran reglas que no pertenecen a una única entidad. Estas reglas permiten validar mediciones físicas, detectar cambios de ocupación y determinar el estado de conexión del dispositivo.
+
+Las interfaces `IIoTNodeMonitoringRepository`, `ISensorReadingRepository`, `IOccupancyEventRepository`, `IDeviceHeartbeatRepository` e `IEdgeSyncStateRepository` definen los contratos de persistencia requeridos por el dominio. Sus implementaciones concretas pertenecen a la Infrastructure Layer.
+
+###### 4.2.4.6.2. Bounded Context Database Design Diagram
+
+El **Bounded Context Database Design Diagram** presenta el diseño físico de base de datos correspondiente al bounded context **IoT Monitoring**. Este diagrama muestra cómo se almacenan localmente las lecturas, eventos, heartbeats y estados de sincronización procesados por el Edge API.
+
+Para este contexto se utiliza una base de datos local **SQLite**, accedida mediante **Peewee ORM**, debido a que el Edge API debe conservar eventos aun cuando la conexión hacia el Core REST API sea intermitente. Esta persistencia local permite que el sistema mantenga trazabilidad de lecturas y eventos físicos sin depender completamente de la conectividad cloud.
+
+**Figura 79**  
+*IoT Monitoring Context Database Design Diagram*
+
+![alt text](./assets/iotbasededatos.png)
+
+*Nota.* Elaboración propia (2026) usando LucidChart / Vertabelo.
+
+Las tablas consideradas para este bounded context son las siguientes:
+
+| Tabla | Propósito |
+|---|---|
+| `iot_nodes` | Almacena el estado operativo local de los nodos IoT monitoreados. |
+| `sensor_readings` | Registra las lecturas físicas enviadas por sensores ultrasónicos. |
+| `occupancy_events` | Registra eventos de cambio de ocupación generados desde lecturas validadas. |
+| `device_heartbeats` | Registra señales periódicas enviadas por el dispositivo para verificar conexión. |
+| `edge_sync_states` | Controla el estado de sincronización de eventos locales hacia el Core REST API. |
+
+La tabla `iot_nodes` representa los dispositivos IoT monitoreados por el Edge API. Incluye el identificador del nodo, referencias externas hacia el estacionamiento o espacio asociado, estado de conexión, estado operativo, versión de firmware y fecha de última actividad. Las referencias `parking_lot_id` y `parking_space_id` se consideran referencias externas al **Parking Management Context**, por lo que no se dibujan sus tablas dentro de este diagrama.
+
+La tabla `sensor_readings` almacena las lecturas capturadas por el sensor ultrasónico. Cada lectura se asocia con un nodo IoT mediante la llave foránea `node_id`. Esta tabla registra la distancia medida, el umbral utilizado, el estado de validación y los timestamps de captura y recepción.
+
+La tabla `occupancy_events` almacena los eventos de ocupación detectados por el Edge API. Cada evento se relaciona con un nodo y, opcionalmente, con una lectura específica. Esta tabla permite conocer el estado anterior, el estado actual, el nivel de confianza y el momento en que ocurrió el cambio físico.
+
+La tabla `device_heartbeats` almacena las señales periódicas enviadas por el ESP32. Esta información permite determinar si un nodo continúa activo o si ha dejado de comunicarse con el Edge API.
+
+La tabla `edge_sync_states` registra el estado de sincronización de eventos locales. Esta tabla permite identificar qué eventos están pendientes, cuáles fueron sincronizados correctamente y cuáles fallaron durante el envío hacia el Core REST API.
+
+| Relación | Cardinalidad | Descripción |
+|---|---|---|
+| `iot_nodes` → `sensor_readings` | 1 a 0..* | Un nodo IoT puede generar múltiples lecturas de sensor. |
+| `iot_nodes` → `occupancy_events` | 1 a 0..* | Un nodo IoT puede generar múltiples eventos de ocupación. |
+| `sensor_readings` → `occupancy_events` | 1 a 0..1 | Una lectura puede generar como máximo un evento de ocupación. |
+| `iot_nodes` → `device_heartbeats` | 1 a 0..* | Un nodo IoT puede enviar múltiples heartbeats. |
+| `iot_nodes` → `edge_sync_states` | 1 a 0..* | Un nodo IoT puede tener múltiples registros de sincronización asociados. |
+
+El diseño utiliza identificadores de tipo `UUID` para mantener unicidad en los registros generados por el Edge API. Los estados se almacenan como `VARCHAR`, alineados con las enumeraciones definidas en el Domain Layer. Las relaciones internas se implementan mediante llaves foráneas, asegurando integridad entre nodos, lecturas, eventos, heartbeats y estados de sincronización.
+
+A nivel físico, esta base de datos pertenece al entorno local del Edge API y no reemplaza la base PostgreSQL administrada utilizada por el backend principal. Su función es permitir continuidad operativa, almacenamiento temporal y sincronización posterior de eventos IoT procesados localmente.
+
+### 4.2.5. Bounded Context: Operational Notification Context
+
+El bounded context **Operational Notification Context** concentra las capacidades relacionadas con la generación, gestión, priorización y entrega de notificaciones operativas dentro de ParkingNow. Este contexto permite informar a los usuarios sobre eventos relevantes del sistema, como confirmaciones de reserva, cambios de disponibilidad, generación de tickets, alertas de ocupación, desconexión de nodos IoT o fallas de sincronización.
+
+A diferencia de otros bounded contexts, este contexto no decide la lógica principal de reservas, monitoreo IoT o gestión de estacionamientos. Su responsabilidad consiste en recibir eventos relevantes desde otros contextos, transformarlos en notificaciones comprensibles para el usuario correspondiente y gestionar su entrega por los canales definidos, como notificaciones internas, correo electrónico o servicios externos de notificación push.
+
+Desde la perspectiva técnica, este bounded context se implementa principalmente dentro del **Core REST API**, desarrollado con **Java y Spring Boot**. Además, utiliza infraestructura de persistencia relacional sobre **PostgreSQL** y puede integrarse con proveedores externos de notificación cuando el canal elegido lo requiera. La lógica de negocio se mantiene dentro del dominio, mientras que los detalles de envío, persistencia y comunicación externa se ubican en la capa de infraestructura.
+
+**Figura 80**  
+*Operational Notification Context Class Dictionary*
+
+![alt text](./assets/operationalcontext.png)
+
+*Nota.* Elaboración propia (2026) usando LucidChart.
+
+A continuación, se presenta el diccionario de clases identificado para el bounded context **Operational Notification Context**.
+
+| Clase | Tipo | Propósito | Relaciones principales |
+|---|---|---|---|
+| `OperationalNotificationAggregate` | Aggregate | Agrupa una notificación operativa, sus destinatarios, preferencias aplicables y sus intentos de entrega. | Contiene `Notification`, `NotificationRecipient` y `NotificationDeliveryAttempt`. |
+| `Notification` | Entity | Representa una notificación generada a partir de un evento operativo del sistema. | Usa `NotificationType`, `NotificationStatus`, `NotificationPriority` y `NotificationMessage`. |
+| `NotificationRecipient` | Entity | Representa al usuario destinatario de una notificación. | Usa `RecipientType`, `NotificationChannel` y `DeliveryStatus`. |
+| `NotificationDeliveryAttempt` | Entity | Representa cada intento de entrega de una notificación hacia un canal específico. | Se relaciona con `NotificationRecipient`. |
+| `NotificationTemplate` | Entity | Representa una plantilla utilizada para construir el título y contenido de una notificación. | Usa `NotificationType` y `NotificationChannel`. |
+| `NotificationPreference` | Entity | Representa las preferencias de notificación de un usuario para determinados tipos y canales. | Usa `NotificationType`, `NotificationChannel` y `RecipientType`. |
+| `NotificationMessage` | Value Object | Encapsula el título y cuerpo de una notificación, validando que el contenido sea presentable. | Es usado por `Notification`. |
+| `RecipientIdentifier` | Value Object | Encapsula el identificador del usuario destinatario sin acoplarse al modelo de Identity & Access Management. | Es usado por `NotificationRecipient` y `NotificationPreference`. |
+| `NotificationType` | Enumeration | Define el tipo de evento operacional que originó la notificación. | Es usado por `Notification`, `NotificationTemplate` y `NotificationPreference`. |
+| `NotificationStatus` | Enumeration | Define el estado general de una notificación dentro del contexto. | Es usado por `Notification`. |
+| `NotificationChannel` | Enumeration | Define el canal por el cual se enviará una notificación. | Es usado por `NotificationRecipient`, `NotificationTemplate` y `NotificationPreference`. |
+| `NotificationPriority` | Enumeration | Define la prioridad de una notificación operativa. | Es usado por `Notification`. |
+| `RecipientType` | Enumeration | Define si el destinatario pertenece al segmento Driver o Parking Owner. | Es usado por `NotificationRecipient` y `NotificationPreference`. |
+| `DeliveryStatus` | Enumeration | Define el estado de entrega para un destinatario específico. | Es usado por `NotificationRecipient` y `NotificationDeliveryAttempt`. |
+| `NotificationFactory` | Factory | Crea notificaciones operativas a partir de eventos de dominio recibidos desde otros contextos. | Crea `OperationalNotificationAggregate` y `Notification`. |
+| `NotificationRecipientFactory` | Factory | Crea destinatarios de notificaciones según el tipo de evento y el segmento objetivo. | Crea `NotificationRecipient`. |
+| `NotificationRoutingPolicy` | Domain Service | Determina qué usuarios deben recibir una notificación según el evento operacional. | Usa `NotificationType`, `RecipientType` y `NotificationRecipient`. |
+| `NotificationEligibilityPolicy` | Domain Service | Determina si una notificación puede enviarse según preferencias del usuario y tipo de evento. | Usa `NotificationPreference`. |
+| `NotificationRetryPolicy` | Domain Service | Define si un intento de entrega fallido debe reintentarse. | Usa `NotificationDeliveryAttempt` y `DeliveryStatus`. |
+| `INotificationRepository` | Repository Interface | Define operaciones de persistencia para notificaciones. | Es implementada en Infrastructure Layer. |
+| `INotificationRecipientRepository` | Repository Interface | Define operaciones de persistencia para destinatarios de notificaciones. | Es implementada en Infrastructure Layer. |
+| `INotificationTemplateRepository` | Repository Interface | Define operaciones de persistencia para plantillas de notificación. | Es implementada en Infrastructure Layer. |
+| `INotificationPreferenceRepository` | Repository Interface | Define operaciones de persistencia para preferencias de notificación. | Es implementada en Infrastructure Layer. |
+| `INotificationDeliveryAttemptRepository` | Repository Interface | Define operaciones de persistencia para intentos de entrega. | Es implementada en Infrastructure Layer. |
+
+#### 4.2.5.1. Domain Layer
+
+La **Domain Layer** del **Operational Notification Context** contiene las clases que representan las reglas centrales de generación, clasificación, elegibilidad y entrega de notificaciones operativas. Esta capa no depende de frameworks, controladores, bases de datos ni servicios externos. Su responsabilidad es modelar cuándo una notificación debe crearse, quién debe recibirla, qué prioridad tiene, por qué canal puede entregarse y cómo debe gestionarse un intento de entrega fallido.
+
+Este contexto recibe eventos relevantes desde otros bounded contexts, pero no modifica las reglas de dichos contextos. Por ejemplo, una reserva confirmada pertenece al **Reservation Context**, una desconexión de dispositivo pertenece al **IoT Monitoring Context**, y la configuración de espacios pertenece al **Parking Management Context**. El **Operational Notification Context** solo transforma esos eventos en mensajes operativos para los usuarios afectados.
+
+**Figura 81**  
+*Operational Notification Context Domain Layer*
+
+![alt text](./assets/operationaldomain.png)
+
+*Nota.* Elaboración propia (2026) usando LucidChart / PlantUML.
+
+El aggregate principal es `OperationalNotificationAggregate`, encargado de mantener la consistencia entre una notificación, sus destinatarios y sus intentos de entrega. Este aggregate permite que la creación de una notificación, su asignación a destinatarios y el registro de intentos de envío se manejen bajo reglas coherentes del dominio.
+
+La entidad `Notification` representa la notificación operativa generada por el sistema. Contiene información como el tipo de notificación, el mensaje, la prioridad, el estado general y la referencia al evento de origen. Su comportamiento permite marcar una notificación como pendiente, enviada, fallida, leída o cancelada.
+
+La entidad `NotificationRecipient` representa al destinatario de una notificación. Esta entidad define qué usuario recibirá el mensaje, qué tipo de usuario es, qué canal se utilizará y cuál es el estado de entrega para ese destinatario específico. Esto permite que una misma notificación pueda tener múltiples destinatarios y distintos resultados de entrega.
+
+La entidad `NotificationDeliveryAttempt` representa un intento concreto de entrega. Su propósito es mantener trazabilidad sobre los envíos realizados, los errores producidos, la cantidad de reintentos y el canal utilizado. Esta clase es importante porque las notificaciones pueden fallar por causas externas, como errores del proveedor de correo o pérdida temporal de conexión.
+
+La entidad `NotificationTemplate` representa una plantilla de contenido para construir mensajes consistentes según el tipo de evento. Por ejemplo, una notificación de reserva confirmada no tiene el mismo contenido que una alerta por desconexión de nodo IoT.
+
+La entidad `NotificationPreference` representa las preferencias del usuario respecto a tipos de notificación y canales permitidos. Esta clase permite modelar si un usuario puede recibir cierto tipo de alerta por determinado canal.
+
+El value object `NotificationMessage` encapsula el título y cuerpo de una notificación, validando que el mensaje no esté vacío y que cumpla con una longitud razonable. El value object `RecipientIdentifier` encapsula el identificador del usuario destinatario, evitando que el dominio de notificaciones dependa directamente del modelo interno de Identity & Access Management.
+
+Las enumeraciones `NotificationType`, `NotificationStatus`, `NotificationChannel`, `NotificationPriority`, `RecipientType` y `DeliveryStatus` restringen los valores permitidos dentro del contexto. Esto evita inconsistencias en los estados y mejora la claridad del lenguaje ubicuo.
+
+La fábrica `NotificationFactory` centraliza la creación de notificaciones operativas a partir de eventos de dominio. La fábrica `NotificationRecipientFactory` permite construir destinatarios según el tipo de evento y el segmento afectado.
+
+Los servicios de dominio `NotificationRoutingPolicy`, `NotificationEligibilityPolicy` y `NotificationRetryPolicy` encapsulan reglas que no pertenecen a una sola entidad. Estas reglas permiten decidir a quién notificar, si corresponde enviar la notificación según preferencias y si un intento fallido debe reintentarse.
+
+Finalmente, las interfaces `INotificationRepository`, `INotificationRecipientRepository`, `INotificationTemplateRepository`, `INotificationPreferenceRepository` e `INotificationDeliveryAttemptRepository` definen los contratos de persistencia requeridos por el dominio. Sus implementaciones concretas se ubican en la **Infrastructure Layer**.
+
+#### 4.2.5.2. Interface Layer
+
+La **Interface Layer** del **Operational Notification Context** representa la puerta de entrada para solicitudes HTTP y eventos provenientes de otros bounded contexts. En esta capa se ubican los controladores REST y consumidores de eventos encargados de recibir comandos de consulta, actualización de preferencias y eventos operativos que pueden originar notificaciones.
+
+Esta capa se implementa dentro del **Core REST API**, desarrollado con **Java y Spring Boot**. Su responsabilidad es recibir solicitudes o eventos, validar superficialmente la estructura de entrada y delegar el procesamiento hacia la **Application Layer**. No contiene reglas de negocio ni detalles de persistencia.
+
+**Figura 82**  
+*Operational Notification Context Interface Layer*
+
+![alt text](./assets/operationalinterface.png)
+
+*Nota.* Elaboración propia (2026) usando LucidChart.
+
+Las clases consideradas para esta capa son las siguientes:
+
+| Clase | Tipo | Propósito |
+|---|---|---|
+| `NotificationQueryController` | REST Controller | Permite consultar notificaciones del usuario, filtrar por estado y marcar notificaciones como leídas. |
+| `NotificationPreferenceController` | REST Controller | Permite consultar y actualizar preferencias de notificación del usuario. |
+| `NotificationDispatchController` | REST Controller | Permite ejecutar operaciones administrativas de reintento o despacho de notificaciones pendientes. |
+| `OperationalNotificationEventConsumer` | Event Consumer | Consume eventos de dominio provenientes de otros bounded contexts para generar notificaciones operativas. |
+
+La clase `NotificationQueryController` expone endpoints para que el **Driver** o el **Parking Owner** puedan consultar sus notificaciones. También permite marcar notificaciones como leídas o filtrar por estado.
+
+La clase `NotificationPreferenceController` expone endpoints para actualizar preferencias de notificación. Estas preferencias permiten definir qué tipos de notificación pueden enviarse y por qué canales.
+
+La clase `NotificationDispatchController` permite ejecutar acciones internas relacionadas con el reintento de notificaciones fallidas o pendientes. Su uso está orientado a operaciones del sistema y no reemplaza la lógica de negocio del dominio.
+
+La clase `OperationalNotificationEventConsumer` recibe eventos relevantes de otros contextos, como `ReservationConfirmedEvent`, `OccupancyStatusChangedEvent`, `IoTNodeDisconnectedEvent` o `TicketGeneratedEvent`. Su responsabilidad es traducir el evento recibido en un comando de aplicación para que el contexto determine si corresponde generar una notificación.
+
+#### 4.2.5.3. Application Layer
+
+La **Application Layer** del **Operational Notification Context** contiene los command handlers y event handlers que orquestan los casos de uso relacionados con la generación, consulta, lectura, despacho y reintento de notificaciones operativas.
+
+Esta capa recibe datos desde controladores o consumidores de eventos, invoca reglas del dominio, utiliza interfaces de repositorio y coordina la entrega de notificaciones mediante servicios de infraestructura. Debe mantenerse como una capa delgada: no contiene reglas puras de negocio ni detalles tecnológicos de envío.
+
+**Figura 83**  
+*Operational Notification Context Application Layer*
+
+![alt text](./assets/operationalapplication.png)
+
+*Nota.* Elaboración propia (2026) usando LucidChart.
+
+Las clases consideradas para esta capa son las siguientes:
+
+| Clase | Tipo | Propósito |
+|---|---|---|
+| `CreateOperationalNotificationCommandHandler` | Command Handler | Orquesta la creación de una notificación operativa a partir de un evento recibido. |
+| `DispatchNotificationCommandHandler` | Command Handler | Orquesta el envío de una notificación pendiente hacia sus destinatarios. |
+| `MarkNotificationAsReadCommandHandler` | Command Handler | Orquesta el cambio de estado de una notificación a leída. |
+| `UpdateNotificationPreferencesCommandHandler` | Command Handler | Orquesta la actualización de preferencias de notificación del usuario. |
+| `RetryFailedNotificationDeliveryCommandHandler` | Command Handler | Orquesta el reintento de notificaciones fallidas según la política del dominio. |
+| `ReservationConfirmedNotificationEventHandler` | Event Handler | Reacciona ante una reserva confirmada y solicita la creación de una notificación. |
+| `OccupancyStatusChangedNotificationEventHandler` | Event Handler | Reacciona ante un cambio de ocupación y solicita una notificación operativa. |
+| `IoTNodeDisconnectedNotificationEventHandler` | Event Handler | Reacciona ante la desconexión de un nodo IoT y genera una alerta para el Parking Owner. |
+| `TicketGeneratedNotificationEventHandler` | Event Handler | Reacciona ante la generación de un ticket virtual y notifica al Driver. |
+
+El `CreateOperationalNotificationCommandHandler` inicia el flujo de creación. Recibe el evento operacional, utiliza `NotificationFactory` para construir la notificación, aplica `NotificationRoutingPolicy` para determinar destinatarios y valida la elegibilidad mediante `NotificationEligibilityPolicy`.
+
+El `DispatchNotificationCommandHandler` coordina el envío de notificaciones pendientes. Obtiene la notificación desde `INotificationRepository`, consulta destinatarios mediante `INotificationRecipientRepository` y delega el envío a adaptadores de infraestructura.
+
+El `MarkNotificationAsReadCommandHandler` permite actualizar el estado de una notificación cuando el usuario la visualiza. Esta operación no elimina la notificación, sino que preserva trazabilidad histórica.
+
+El `UpdateNotificationPreferencesCommandHandler` coordina la actualización de preferencias del usuario. Esta operación permite activar o desactivar determinados tipos de notificación o canales.
+
+El `RetryFailedNotificationDeliveryCommandHandler` utiliza `NotificationRetryPolicy` para determinar si un intento fallido debe reintentarse. Si el reintento es válido, solicita nuevamente el envío mediante la infraestructura correspondiente.
+
+Los event handlers del contexto transforman eventos provenientes de otros bounded contexts en comandos internos. Por ejemplo, `ReservationConfirmedNotificationEventHandler` recibe un evento de reserva confirmada y solicita la creación de una notificación para el Driver. `IoTNodeDisconnectedNotificationEventHandler` recibe una alerta de desconexión desde IoT Monitoring y solicita una notificación para el Parking Owner.
+
+#### 4.2.5.4. Infrastructure Layer
+
+La **Infrastructure Layer** del **Operational Notification Context** contiene las clases que conectan el contexto con tecnologías concretas, como la base de datos PostgreSQL, servicios externos de notificación, clientes HTTP, motores de plantillas y proveedores de tiempo del sistema.
+
+En esta capa se implementan los repositorios definidos en el **Domain Layer** mediante **Java, Spring Data JPA y PostgreSQL**. Además, se ubican los adaptadores encargados de enviar notificaciones por canales externos, como correo electrónico o notificaciones push.
+
+**Figura 84**  
+*Operational Notification Context Infrastructure Layer*
+
+![alt text](./assets/operationalinfraestrurelayer.png)
+
+*Nota.* Elaboración propia (2026) usando LucidChart.
+
+Las clases consideradas para esta capa son las siguientes:
+
+| Clase | Tipo | Propósito |
+|---|---|---|
+| `JpaNotificationRepository` | Repository Implementation | Implementa `INotificationRepository` usando Spring Data JPA y PostgreSQL. |
+| `JpaNotificationRecipientRepository` | Repository Implementation | Implementa `INotificationRecipientRepository` para persistir destinatarios. |
+| `JpaNotificationTemplateRepository` | Repository Implementation | Implementa `INotificationTemplateRepository` para persistir plantillas. |
+| `JpaNotificationPreferenceRepository` | Repository Implementation | Implementa `INotificationPreferenceRepository` para persistir preferencias. |
+| `JpaNotificationDeliveryAttemptRepository` | Repository Implementation | Implementa `INotificationDeliveryAttemptRepository` para persistir intentos de entrega. |
+| `PushNotificationClient` | External Service Client | Envía notificaciones push mediante un proveedor externo. |
+| `EmailNotificationClient` | External Service Client | Envía notificaciones por correo electrónico mediante un proveedor externo. |
+| `NotificationTemplateRenderer` | Infrastructure Service | Renderiza plantillas de notificación usando datos del evento recibido. |
+| `NotificationEventMapper` | Mapper | Convierte eventos externos en comandos del contexto de notificaciones. |
+| `NotificationClockProvider` | Infrastructure Service | Proporciona timestamps consistentes para creación, envío y lectura de notificaciones. |
+
+La clase `JpaNotificationRepository` permite almacenar y recuperar notificaciones operativas. Su implementación usa Spring Data JPA sobre PostgreSQL, evitando que el dominio dependa directamente de consultas SQL o detalles de persistencia.
+
+La clase `JpaNotificationRecipientRepository` persiste los destinatarios asociados a cada notificación. Esto permite que una notificación tenga múltiples usuarios destinatarios y distintos estados de entrega.
+
+La clase `JpaNotificationTemplateRepository` administra las plantillas utilizadas para construir mensajes según el tipo de evento y canal de comunicación.
+
+La clase `JpaNotificationPreferenceRepository` persiste las preferencias de notificación de los usuarios. Estas preferencias se consultan antes de despachar una notificación.
+
+La clase `JpaNotificationDeliveryAttemptRepository` registra cada intento de entrega, permitiendo trazabilidad sobre errores, reintentos y confirmaciones.
+
+La clase `PushNotificationClient` encapsula la integración con un proveedor externo de notificaciones push. Esta clase no contiene reglas de negocio; solo ejecuta el envío técnico.
+
+La clase `EmailNotificationClient` encapsula la integración con un proveedor externo de correo electrónico. Su función es enviar mensajes construidos previamente por la capa de aplicación e infraestructura.
+
+La clase `NotificationTemplateRenderer` construye el contenido final de la notificación a partir de una plantilla y los datos del evento. Esto evita duplicar textos en los handlers de aplicación.
+
+La clase `NotificationEventMapper` transforma eventos externos en comandos internos del bounded context, protegiendo el modelo de notificaciones de cambios en otros contextos.
+
+#### 4.2.5.5. Bounded Context Software Architecture Component Level Diagrams
+
+El **Bounded Context Software Architecture Component Level Diagram** del **Operational Notification Context** muestra la descomposición interna del módulo de notificaciones dentro del contenedor **Core REST API**. Este diagrama corresponde al nivel 3 del modelo C4 y permite visualizar cómo se organizan los controladores, consumidores de eventos, handlers de aplicación, componentes de dominio, repositorios e integraciones externas.
+
+Este contexto se implementa dentro del **Core REST API**, desarrollado con **Java y Spring Boot**, debido a que las notificaciones operativas dependen de eventos generados por procesos centrales del sistema, como reservas, tickets, monitoreo IoT y gestión de estacionamientos.
+
+**Figura 85**  
+*Operational Notification Context Component Level Diagram*
+
+![alt text](./assets/OperationalNotificationComponentView-dark.png)
+
+*Nota.* Elaboración propia (2026) usando Structurizr DSL.
+
+Según la Figura 85, el flujo principal inicia cuando `OperationalNotificationEventConsumer` recibe un evento proveniente de otro bounded context. Luego, el consumer delega la operación al event handler correspondiente. El event handler transforma el evento en un comando interno y solicita la creación de una notificación mediante `CreateOperationalNotificationCommandHandler`.
+
+El command handler utiliza `NotificationFactory` para crear la notificación y aplica `NotificationRoutingPolicy` para determinar los destinatarios correspondientes. Luego consulta `NotificationEligibilityPolicy` para verificar si el usuario puede recibir la notificación por el canal configurado. Finalmente, la notificación se persiste mediante `INotificationRepository`.
+
+Cuando una notificación debe entregarse, `DispatchNotificationCommandHandler` obtiene los destinatarios y utiliza los adaptadores de infraestructura `PushNotificationClient` o `EmailNotificationClient`, según el canal definido. Cada intento de entrega queda registrado mediante `INotificationDeliveryAttemptRepository`.
+
+La siguiente tabla resume los componentes principales del diagrama:
+
+| Capa | Componente | Tecnología | Responsabilidad |
+|---|---|---|---|
+| Interface Layer | `NotificationQueryController` | Java / Spring Boot REST Controller | Permite consultar y marcar notificaciones como leídas. |
+| Interface Layer | `NotificationPreferenceController` | Java / Spring Boot REST Controller | Permite gestionar preferencias de notificación. |
+| Interface Layer | `NotificationDispatchController` | Java / Spring Boot REST Controller | Permite disparar reintentos o despacho de notificaciones pendientes. |
+| Interface Layer | `OperationalNotificationEventConsumer` | Java Event Consumer | Consume eventos de otros bounded contexts. |
+| Application Layer | `CreateOperationalNotificationCommandHandler` | Java Command Handler | Orquesta la creación de notificaciones operativas. |
+| Application Layer | `DispatchNotificationCommandHandler` | Java Command Handler | Orquesta el envío de notificaciones pendientes. |
+| Application Layer | `MarkNotificationAsReadCommandHandler` | Java Command Handler | Orquesta el cambio de estado a leída. |
+| Application Layer | `UpdateNotificationPreferencesCommandHandler` | Java Command Handler | Orquesta la actualización de preferencias. |
+| Application Layer | `RetryFailedNotificationDeliveryCommandHandler` | Java Command Handler | Orquesta reintentos de envío fallidos. |
+| Domain Layer | `OperationalNotificationAggregate` | Domain Model | Mantiene consistencia entre notificación, destinatarios e intentos. |
+| Domain Layer | `NotificationFactory` | Domain Factory | Crea notificaciones operativas. |
+| Domain Layer | `NotificationRoutingPolicy` | Domain Service | Determina destinatarios de una notificación. |
+| Domain Layer | `NotificationEligibilityPolicy` | Domain Service | Evalúa si una notificación puede enviarse. |
+| Domain Layer | `NotificationRetryPolicy` | Domain Service | Define reglas para reintentos. |
+| Infrastructure Layer | `JpaNotificationRepository` | Spring Data JPA / PostgreSQL | Persiste notificaciones. |
+| Infrastructure Layer | `JpaNotificationRecipientRepository` | Spring Data JPA / PostgreSQL | Persiste destinatarios. |
+| Infrastructure Layer | `JpaNotificationDeliveryAttemptRepository` | Spring Data JPA / PostgreSQL | Persiste intentos de entrega. |
+| Infrastructure Layer | `PushNotificationClient` | External Client | Envía notificaciones push. |
+| Infrastructure Layer | `EmailNotificationClient` | External Client | Envía notificaciones por correo. |
+
+#### 4.2.5.6. Bounded Context Software Architecture Code Level Diagrams
+
+En esta sección se presentan los diagramas de nivel de código correspondientes al bounded context **Operational Notification**. A diferencia del Component Level Diagram, que muestra bloques estructurales de alto nivel, este bloque profundiza en el diseño de clases del dominio y en la estructura física de persistencia utilizada por este contexto.
+
+Primero se presenta el **Domain Layer Class Diagram**, donde se detallan las entidades, objetos de valor, agregados, servicios de dominio, fábricas, enumeraciones e interfaces de repositorio del contexto. Luego se presenta el **Database Design Diagram**, donde se especifican las tablas, columnas, llaves primarias, llaves foráneas y relaciones utilizadas para persistir notificaciones, destinatarios, plantillas, preferencias e intentos de entrega.
+
+Estos diagramas permiten cerrar el diseño táctico del bounded context **Operational Notification**, asegurando trazabilidad entre eventos operativos, reglas de notificación, destinatarios, canales de entrega y persistencia relacional.
+
+###### 4.2.5.6.1. Bounded Context Domain Layer Class Diagrams
+
+El **Bounded Context Domain Layer Class Diagram** presenta el diseño UML de las clases que forman parte de la capa de dominio del bounded context **Operational Notification**. Este diagrama se enfoca exclusivamente en los elementos que representan reglas de negocio puras relacionadas con notificaciones operativas, sin incluir controladores, frameworks, clientes externos, bases de datos ni detalles de infraestructura.
+
+**Figura 86**  
+*Operational Notification Context Domain Layer Class Diagram*
+
+![alt text](./assets/operationadomainlayer.png)
+
+*Nota.* Elaboración propia (2026) usando LucidChart / PlantUML.
+
+Según la Figura 86, el aggregate `OperationalNotificationAggregate` actúa como raíz de consistencia del contexto. Este aggregate contiene una notificación, sus destinatarios y sus intentos de entrega. Esta estructura permite controlar que la notificación tenga contenido válido, destinatarios definidos y trazabilidad de envío.
+
+La entidad `Notification` representa el mensaje operativo generado a partir de un evento del sistema. Esta entidad utiliza `NotificationType`, `NotificationStatus`, `NotificationPriority` y `NotificationMessage` para representar el tipo de alerta, su estado, su criticidad y su contenido.
+
+La entidad `NotificationRecipient` representa a cada destinatario de una notificación. Esta clase permite diferenciar si el usuario corresponde al segmento Driver o Parking Owner, además de definir el canal de entrega y el estado de envío.
+
+La entidad `NotificationDeliveryAttempt` registra cada intento de entrega. Esto permite conocer si un envío fue exitoso, falló o debe reintentarse posteriormente.
+
+La entidad `NotificationTemplate` permite reutilizar contenido para distintos tipos de notificaciones y canales. Esto evita que los textos se generen manualmente en cada caso de uso.
+
+La entidad `NotificationPreference` permite modelar las preferencias del usuario respecto a los tipos de notificación y canales permitidos. Esto permite respetar configuraciones del usuario sin mezclar dicha lógica con controladores o infraestructura.
+
+Los value objects `NotificationMessage` y `RecipientIdentifier` encapsulan conceptos importantes del dominio. `NotificationMessage` valida que el título y cuerpo sean consistentes, mientras que `RecipientIdentifier` representa al usuario destinatario sin acoplar este contexto al modelo interno de identidad.
+
+Los servicios de dominio `NotificationRoutingPolicy`, `NotificationEligibilityPolicy` y `NotificationRetryPolicy` concentran reglas que no pertenecen a una sola entidad. Estas reglas permiten determinar destinatarios, verificar si una notificación puede enviarse y definir si un intento fallido debe reintentarse.
+
+Las interfaces de repositorio definen los contratos de persistencia requeridos por el dominio. Sus implementaciones concretas se ubican en la **Infrastructure Layer**, manteniendo separado el modelo de negocio de los detalles técnicos.
+
+###### 4.2.5.6.2. Bounded Context Database Design Diagram
+
+El **Bounded Context Database Design Diagram** presenta el diseño físico de base de datos correspondiente al bounded context **Operational Notification**. Este diagrama muestra cómo se almacenan las notificaciones operativas, destinatarios, preferencias, plantillas e intentos de entrega en una base de datos relacional PostgreSQL.
+
+Para este contexto se utiliza persistencia relacional porque las notificaciones requieren trazabilidad, consulta por usuario, actualización de estado, auditoría de intentos de entrega y relaciones claras entre notificaciones, destinatarios y canales.
+
+**Figura 87**  
+*Operational Notification Context Database Design Diagram*
+
+![alt text](./assets/operationaldatabase.png)
+
+*Nota.* Elaboración propia (2026) usando LucidChart / Vertabelo.
+
+Las tablas consideradas para este bounded context son las siguientes:
+
+| Tabla | Propósito |
+|---|---|
+| `notifications` | Almacena las notificaciones operativas generadas por eventos del sistema. |
+| `notification_recipients` | Almacena los destinatarios asociados a cada notificación. |
+| `notification_delivery_attempts` | Registra los intentos de entrega realizados por canal. |
+| `notification_templates` | Almacena plantillas reutilizables de notificación. |
+| `notification_preferences` | Almacena preferencias de notificación por usuario, canal y tipo. |
+
+La tabla `notifications` representa la notificación operativa principal. Contiene información como el tipo de notificación, título, mensaje, prioridad, estado, contexto de origen, identificador del evento de origen y fechas de creación o programación.
+
+La tabla `notification_recipients` representa los usuarios destinatarios de cada notificación. Esta tabla se relaciona con `notifications` mediante `notification_id` y permite gestionar el estado de entrega y lectura por cada destinatario.
+
+La tabla `notification_delivery_attempts` registra cada intento de envío realizado hacia un destinatario. Esta tabla permite almacenar el canal usado, proveedor, número de intento, estado, mensaje de error y fecha del intento.
+
+La tabla `notification_templates` almacena plantillas reutilizables para construir mensajes consistentes. Cada plantilla se relaciona con un tipo de notificación y un canal específico.
+
+La tabla `notification_preferences` almacena preferencias del usuario respecto a tipos de notificación y canales. La columna `recipient_user_id` se considera una referencia externa al usuario del **Identity & Access Management Context**, por lo que la tabla de usuarios no se dibuja dentro de este diagrama.
+
+| Relación | Cardinalidad | Descripción |
+|---|---|---|
+| `notifications` → `notification_recipients` | 1 a 0..* | Una notificación puede estar dirigida a múltiples destinatarios. |
+| `notification_recipients` → `notification_delivery_attempts` | 1 a 0..* | Un destinatario puede tener múltiples intentos de entrega. |
+| `notification_templates` → `notifications` | 1 a 0..* | Una plantilla puede utilizarse para construir múltiples notificaciones. |
+| `notification_preferences` → `notification_recipients` | Relación lógica | Las preferencias determinan si un destinatario puede recibir una notificación por cierto canal. |
+
+El diseño utiliza identificadores de tipo `UUID` para mantener unicidad. Los estados y tipos se almacenan como `VARCHAR`, alineados con las enumeraciones definidas en el Domain Layer. Las relaciones internas se implementan mediante llaves foráneas para asegurar integridad entre notificaciones, destinatarios e intentos de entrega.
+
+La persistencia se define sobre **PostgreSQL** y es accedida desde el **Core REST API** mediante **Spring Data JPA** o **JDBC**. La lógica de generación y despacho de notificaciones no se implementa en la base de datos, sino en el bounded context **Operational Notification**, manteniendo la separación entre reglas de negocio e infraestructura.
+
+### 4.2.6. Bounded Context: Identity & Access Management Context
+
+El bounded context **Identity & Access Management Context** concentra las capacidades relacionadas con el registro, autenticación, autorización y gestión de acceso de los usuarios de ParkingNow. Este contexto permite identificar a los usuarios del sistema, validar credenciales, asignar roles, controlar sesiones y proteger el acceso a las funcionalidades disponibles para los dos segmentos principales: **Driver** y **Parking Owner**.
+
+A diferencia de los contextos orientados a estacionamientos, reservas, monitoreo IoT o notificaciones, este bounded context no gestiona operaciones del negocio principal, sino que proporciona una base transversal de seguridad e identidad para el resto del sistema. Su responsabilidad es asegurar que cada usuario acceda únicamente a las funciones que corresponden a su rol dentro de ParkingNow.
+
+Desde la perspectiva técnica, este contexto se implementa dentro del **Core REST API**, desarrollado con **Java y Spring Boot**. Para la autenticación y autorización se considera el uso de **Spring Security**, generación de tokens **JWT**, persistencia en **PostgreSQL** mediante **Spring Data JPA** y documentación de endpoints mediante **OpenAPI/Swagger**.
+
+**Figura 88**  
+*Identity & Access Management Context Class Dictionary*
+
+![alt text](./assets/identitycontxt.png)
+
+*Nota.* Elaboración propia (2026) usando LucidChart.
+
+A continuación, se presenta el diccionario de clases identificado para el bounded context **Identity & Access Management Context**.
+
+| Clase | Tipo | Propósito | Relaciones principales |
+|---|---|---|---|
+| `IdentityAccessAggregate` | Aggregate | Agrupa la cuenta de usuario, credenciales, roles y sesiones de autenticación. | Contiene `UserAccount`, `Credential`, `RoleAssignment` y `AuthSession`. |
+| `UserAccount` | Entity | Representa la cuenta principal de un usuario registrado en ParkingNow. | Usa `UserIdentifier`, `EmailAddress`, `UserRole` y `AccountStatus`. |
+| `Credential` | Entity | Representa las credenciales de acceso asociadas a una cuenta de usuario. | Usa `PasswordHash` y `CredentialStatus`. |
+| `RoleAssignment` | Entity | Representa la asignación de un rol funcional a un usuario. | Usa `UserRole`. |
+| `AuthSession` | Entity | Representa una sesión activa o finalizada de autenticación. | Usa `SessionStatus` y se relaciona con `UserAccount`. |
+| `RefreshToken` | Entity | Representa un token de renovación asociado a una sesión autenticada. | Usa `TokenStatus` y se relaciona con `AuthSession`. |
+| `UserIdentifier` | Value Object | Encapsula el identificador único del usuario dentro del sistema. | Es usado por `UserAccount`, `Credential`, `RoleAssignment` y `AuthSession`. |
+| `EmailAddress` | Value Object | Encapsula y valida el correo electrónico del usuario. | Es usado por `UserAccount`. |
+| `PasswordHash` | Value Object | Representa la contraseña procesada mediante un algoritmo de hash seguro. | Es usado por `Credential`. |
+| `JwtToken` | Value Object | Representa el token de acceso generado luego de una autenticación válida. | Es usado por `AuthSession`. |
+| `UserRole` | Enumeration | Define los roles funcionales permitidos dentro del sistema. | Es usado por `UserAccount` y `RoleAssignment`. |
+| `AccountStatus` | Enumeration | Define el estado de una cuenta de usuario. | Es usado por `UserAccount`. |
+| `CredentialStatus` | Enumeration | Define el estado de las credenciales de acceso. | Es usado por `Credential`. |
+| `SessionStatus` | Enumeration | Define el estado de una sesión de autenticación. | Es usado por `AuthSession`. |
+| `TokenStatus` | Enumeration | Define el estado de un token de renovación. | Es usado por `RefreshToken`. |
+| `UserAccountFactory` | Factory | Crea cuentas de usuario válidas según el segmento seleccionado. | Crea `IdentityAccessAggregate` y `UserAccount`. |
+| `CredentialFactory` | Factory | Crea credenciales válidas a partir de una contraseña procesada. | Crea `Credential` y `PasswordHash`. |
+| `PasswordPolicy` | Domain Service | Valida reglas de seguridad de contraseña. | Usa `PasswordHash` y datos de entrada del registro. |
+| `AuthenticationPolicy` | Domain Service | Determina si una cuenta puede autenticarse. | Usa `UserAccount`, `Credential` y `AccountStatus`. |
+| `AuthorizationPolicy` | Domain Service | Determina si un usuario tiene permiso para ejecutar una acción. | Usa `UserRole` y `RoleAssignment`. |
+| `TokenLifecyclePolicy` | Domain Service | Define reglas de expiración, renovación y revocación de tokens. | Usa `AuthSession`, `RefreshToken` y `TokenStatus`. |
+| `IUserAccountRepository` | Repository Interface | Define operaciones de persistencia para cuentas de usuario. | Es implementada en Infrastructure Layer. |
+| `ICredentialRepository` | Repository Interface | Define operaciones de persistencia para credenciales. | Es implementada en Infrastructure Layer. |
+| `IRoleAssignmentRepository` | Repository Interface | Define operaciones de persistencia para asignaciones de rol. | Es implementada en Infrastructure Layer. |
+| `IAuthSessionRepository` | Repository Interface | Define operaciones de persistencia para sesiones de autenticación. | Es implementada en Infrastructure Layer. |
+| `IRefreshTokenRepository` | Repository Interface | Define operaciones de persistencia para tokens de renovación. | Es implementada en Infrastructure Layer. |
+
+#### 4.2.6.1. Domain Layer
+
+La **Domain Layer** del **Identity & Access Management Context** contiene las clases que representan las reglas centrales de identidad, autenticación y autorización de ParkingNow. Esta capa define cómo se crea una cuenta, cómo se valida su estado, cómo se asocian roles funcionales y qué condiciones deben cumplirse para autenticar o autorizar a un usuario.
+
+Esta capa no depende de controladores, frameworks, bases de datos ni proveedores externos. Su responsabilidad es modelar las reglas de seguridad desde el dominio, manteniendo independencia frente a detalles tecnológicos como Spring Security, JWT, PostgreSQL o endpoints REST.
+
+**Figura 89**  
+*Identity & Access Management Context Domain Layer*
+
+![alt text](./assets/indetitydomain.png)
+
+*Nota.* Elaboración propia (2026) usando LucidChart / PlantUML.
+
+El aggregate principal es `IdentityAccessAggregate`, encargado de mantener la consistencia entre la cuenta de usuario, sus credenciales, sus roles y sus sesiones activas. Este aggregate permite que las operaciones de registro, autenticación, asignación de roles y revocación de sesiones se realicen bajo reglas coherentes del dominio.
+
+La entidad `UserAccount` representa la cuenta de un usuario registrado en ParkingNow. Esta entidad contiene el identificador del usuario, correo electrónico, rol principal, estado de la cuenta y fecha de creación. Su comportamiento permite activar, suspender o validar si una cuenta puede operar dentro del sistema.
+
+La entidad `Credential` representa las credenciales asociadas a una cuenta. No almacena contraseñas en texto plano, sino un `PasswordHash`, el cual encapsula el resultado del procesamiento seguro de la contraseña. Esta entidad permite validar si las credenciales están activas o si deben bloquearse por razones de seguridad.
+
+La entidad `RoleAssignment` representa la asignación de un rol funcional a un usuario. En ParkingNow, los roles principales son `DRIVER` y `PARKING_OWNER`, alineados con los dos segmentos definidos para la solución. No se considera un rol de administrador global como segmento del sistema.
+
+La entidad `AuthSession` representa una sesión de autenticación. Esta clase permite conocer si una sesión está activa, expirada o revocada. También se relaciona con `RefreshToken`, que permite renovar el acceso sin solicitar credenciales nuevamente.
+
+Los value objects `UserIdentifier`, `EmailAddress`, `PasswordHash` y `JwtToken` encapsulan conceptos relevantes del dominio de identidad. `EmailAddress` valida el formato del correo, `PasswordHash` representa una contraseña procesada de forma segura, `JwtToken` encapsula el token de acceso y `UserIdentifier` permite referenciar usuarios sin exponer detalles internos de persistencia.
+
+Las enumeraciones `UserRole`, `AccountStatus`, `CredentialStatus`, `SessionStatus` y `TokenStatus` restringen los estados permitidos dentro del contexto. Esto evita inconsistencias en cuentas, credenciales, sesiones y tokens.
+
+Las fábricas `UserAccountFactory` y `CredentialFactory` centralizan la creación de cuentas y credenciales válidas. Esto evita que las entidades se construyan en estados incompletos o inseguros.
+
+Los servicios de dominio `PasswordPolicy`, `AuthenticationPolicy`, `AuthorizationPolicy` y `TokenLifecyclePolicy` encapsulan reglas que no pertenecen a una sola entidad. Estas reglas permiten validar contraseñas, determinar si una cuenta puede autenticarse, verificar permisos según rol y controlar el ciclo de vida de los tokens.
+
+Finalmente, las interfaces `IUserAccountRepository`, `ICredentialRepository`, `IRoleAssignmentRepository`, `IAuthSessionRepository` e `IRefreshTokenRepository` definen los contratos de persistencia requeridos por el dominio. Sus implementaciones concretas se ubican en la **Infrastructure Layer**.
+
+#### 4.2.6.2. Interface Layer
+
+La **Interface Layer** del **Identity & Access Management Context** representa la puerta de entrada para las solicitudes de registro, autenticación, cierre de sesión, renovación de tokens y consulta de permisos. Esta capa se implementa dentro del **Core REST API**, desarrollado con **Java y Spring Boot**.
+
+Su responsabilidad es recibir solicitudes HTTP, validar superficialmente los datos de entrada y delegar el procesamiento hacia la **Application Layer**. Esta capa no contiene reglas de negocio puras, no valida contraseñas en profundidad y no decide permisos por sí misma; dichas responsabilidades pertenecen al Domain Layer y a los handlers de aplicación.
+
+**Figura 90**  
+*Identity & Access Management Context Interface Layer*
+
+![alt text](./assets/indeitytyinterfacelayer.png)
+
+*Nota.* Elaboración propia (2026) usando LucidChart.
+
+Las clases consideradas para esta capa son las siguientes:
+
+| Clase | Tipo | Propósito |
+|---|---|---|
+| `AuthenticationController` | REST Controller | Expone endpoints para iniciar sesión, renovar tokens y cerrar sesión. |
+| `UserRegistrationController` | REST Controller | Expone endpoints para registrar cuentas de Driver y Parking Owner. |
+| `UserAccountController` | REST Controller | Permite consultar y actualizar información básica de la cuenta autenticada. |
+| `AuthorizationController` | REST Controller | Permite validar permisos o recuperar información de roles del usuario autenticado. |
+| `IdentityAccessEventConsumer` | Event Consumer | Consume eventos relacionados con creación o actualización de usuarios desde otros contextos cuando corresponda. |
+
+La clase `AuthenticationController` recibe solicitudes de inicio de sesión y renovación de tokens. Su responsabilidad es validar que el request tenga los campos mínimos, como correo electrónico y contraseña, y luego delegar el procesamiento a `AuthenticateUserCommandHandler`.
+
+La clase `UserRegistrationController` recibe solicitudes de registro para los dos segmentos del sistema. Esta clase permite crear cuentas para `DRIVER` o `PARKING_OWNER`, delegando la lógica de creación al `RegisterUserAccountCommandHandler`.
+
+La clase `UserAccountController` permite consultar datos básicos de la cuenta autenticada y solicitar cambios de estado cuando corresponda. No gestiona información específica de estacionamientos, reservas o monitoreo IoT.
+
+La clase `AuthorizationController` expone operaciones para validar permisos de acceso en función del rol del usuario. Su objetivo es apoyar a otros módulos del sistema cuando requieren verificar si un usuario puede ejecutar una operación determinada.
+
+La clase `IdentityAccessEventConsumer` consume eventos internos relacionados con identidad cuando existan integraciones entre contextos. Por ejemplo, puede reaccionar ante la eliminación lógica de una cuenta o ante solicitudes internas de revocación de sesiones.
+
+#### 4.2.6.3. Application Layer
+
+La **Application Layer** del **Identity & Access Management Context** contiene los command handlers y event handlers que orquestan los casos de uso relacionados con registro, autenticación, autorización, renovación de tokens, cierre de sesión y gestión de estado de cuenta.
+
+Esta capa coordina el flujo entre la Interface Layer, el Domain Layer y la Infrastructure Layer. Recibe datos previamente validados a nivel superficial, invoca fábricas y políticas del dominio, utiliza interfaces de repositorio y solicita a la infraestructura tareas técnicas como generación de tokens o hash de contraseñas.
+
+Esta capa debe mantenerse delgada. Las reglas de seguridad pertenecen al Domain Layer, mientras que detalles como JWT, Spring Security, hashing o persistencia en PostgreSQL pertenecen a Infrastructure Layer.
+
+**Figura 91**  
+*Identity & Access Management Context Application Layer*
+
+![alt text](./assets/identityapplication.png)
+
+*Nota.* Elaboración propia (2026) usando LucidChart.
+
+Las clases consideradas para esta capa son las siguientes:
+
+| Clase | Tipo | Propósito |
+|---|---|---|
+| `RegisterUserAccountCommandHandler` | Command Handler | Orquesta el registro de una nueva cuenta de usuario. |
+| `AuthenticateUserCommandHandler` | Command Handler | Orquesta la autenticación de un usuario mediante credenciales. |
+| `RefreshAccessTokenCommandHandler` | Command Handler | Orquesta la renovación de un token de acceso. |
+| `RevokeAuthSessionCommandHandler` | Command Handler | Orquesta el cierre de sesión o revocación de una sesión activa. |
+| `AssignUserRoleCommandHandler` | Command Handler | Orquesta la asignación de rol funcional durante el registro o actualización de cuenta. |
+| `ValidateUserPermissionCommandHandler` | Command Handler | Orquesta la validación de permisos según el rol del usuario. |
+| `UserAccountSuspendedEventHandler` | Event Handler | Reacciona ante la suspensión de una cuenta y revoca sesiones activas. |
+| `CredentialUpdatedEventHandler` | Event Handler | Reacciona ante una actualización de credenciales y puede invalidar sesiones anteriores. |
+
+El `RegisterUserAccountCommandHandler` inicia el flujo de registro. Recibe datos del usuario, valida el rol solicitado, invoca `UserAccountFactory`, solicita el procesamiento seguro de la contraseña y guarda la cuenta mediante `IUserAccountRepository`.
+
+El `AuthenticateUserCommandHandler` coordina el flujo de inicio de sesión. Obtiene la cuenta por correo electrónico, recupera sus credenciales, aplica `AuthenticationPolicy` y solicita a la infraestructura la verificación del hash de contraseña. Si la autenticación es válida, genera una sesión y un token de acceso.
+
+El `RefreshAccessTokenCommandHandler` permite renovar el token de acceso cuando el refresh token sigue vigente. Para ello utiliza `TokenLifecyclePolicy` y consulta el estado del token mediante `IRefreshTokenRepository`.
+
+El `RevokeAuthSessionCommandHandler` permite cerrar sesión o revocar una sesión activa. Esta operación marca la sesión y sus tokens asociados como revocados, evitando su uso posterior.
+
+El `AssignUserRoleCommandHandler` coordina la asignación de roles funcionales. En ParkingNow, esta asignación se limita a los roles `DRIVER` y `PARKING_OWNER`.
+
+El `ValidateUserPermissionCommandHandler` permite verificar si un usuario tiene autorización para ejecutar una operación determinada. Esta clase utiliza `AuthorizationPolicy` y los roles asignados al usuario.
+
+Los event handlers `UserAccountSuspendedEventHandler` y `CredentialUpdatedEventHandler` reaccionan ante cambios relevantes de seguridad. Su responsabilidad es mantener la consistencia del acceso cuando una cuenta se suspende o cuando se actualizan credenciales.
+
+#### 4.2.6.4. Infrastructure Layer
+
+La **Infrastructure Layer** del **Identity & Access Management Context** contiene las clases que conectan el contexto con tecnologías concretas, como PostgreSQL, Spring Data JPA, Spring Security, JWT y mecanismos de hashing de contraseñas.
+
+En esta capa se implementan los repositorios definidos en el Domain Layer. Además, se ubican adaptadores técnicos para generación y validación de tokens, codificación de contraseñas, extracción de claims y adaptación con Spring Security.
+
+**Figura 92**  
+*Identity & Access Management Context Infrastructure Layer*
+
+![alt text](./assets/indeitytyinterfacelayer.png)
+
+*Nota.* Elaboración propia (2026) usando LucidChart.
+
+Las clases consideradas para esta capa son las siguientes:
+
+| Clase | Tipo | Propósito |
+|---|---|---|
+| `JpaUserAccountRepository` | Repository Implementation | Implementa `IUserAccountRepository` usando Spring Data JPA y PostgreSQL. |
+| `JpaCredentialRepository` | Repository Implementation | Implementa `ICredentialRepository` para persistir credenciales de usuario. |
+| `JpaRoleAssignmentRepository` | Repository Implementation | Implementa `IRoleAssignmentRepository` para persistir roles asignados. |
+| `JpaAuthSessionRepository` | Repository Implementation | Implementa `IAuthSessionRepository` para persistir sesiones de autenticación. |
+| `JpaRefreshTokenRepository` | Repository Implementation | Implementa `IRefreshTokenRepository` para persistir tokens de renovación. |
+| `PasswordHashingService` | Infrastructure Service | Procesa y verifica contraseñas mediante algoritmo de hash seguro. |
+| `JwtTokenProvider` | Infrastructure Service | Genera y valida tokens JWT para usuarios autenticados. |
+| `SpringSecurityUserDetailsAdapter` | Adapter | Adapta la cuenta del dominio al modelo requerido por Spring Security. |
+| `SecurityClaimsMapper` | Mapper | Convierte datos del dominio en claims incluidos dentro del JWT. |
+| `AuthenticationClockProvider` | Infrastructure Service | Proporciona timestamps para expiración de sesiones y tokens. |
+
+La clase `JpaUserAccountRepository` permite almacenar y recuperar cuentas de usuario. Su implementación usa Spring Data JPA sobre PostgreSQL y mantiene aislado al dominio de los detalles de persistencia.
+
+La clase `JpaCredentialRepository` persiste las credenciales asociadas a cada cuenta. No almacena contraseñas en texto plano, sino valores procesados mediante `PasswordHashingService`.
+
+La clase `JpaRoleAssignmentRepository` almacena los roles asignados a un usuario. En ParkingNow, los roles principales corresponden a los segmentos `DRIVER` y `PARKING_OWNER`.
+
+La clase `JpaAuthSessionRepository` registra las sesiones de autenticación. Esto permite controlar sesiones activas, expiradas o revocadas.
+
+La clase `JpaRefreshTokenRepository` persiste los tokens de renovación asociados a una sesión. Esto permite renovar accesos sin requerir credenciales en cada operación.
+
+La clase `PasswordHashingService` encapsula el algoritmo de hash y verificación de contraseñas. Esto evita que la lógica de aplicación o dominio conozca detalles del mecanismo criptográfico utilizado.
+
+La clase `JwtTokenProvider` genera y valida tokens JWT. Esta clase permite incluir claims como identificador de usuario, rol y tiempo de expiración.
+
+La clase `SpringSecurityUserDetailsAdapter` permite integrar el modelo de cuenta de ParkingNow con Spring Security, sin contaminar el dominio con clases del framework.
+
+La clase `SecurityClaimsMapper` transforma información del dominio en claims de seguridad para el token JWT.
+
+#### 4.2.6.5. Bounded Context Software Architecture Component Level Diagrams
+
+El **Bounded Context Software Architecture Component Level Diagram** del **Identity & Access Management Context** muestra la descomposición interna del módulo de identidad y acceso dentro del contenedor **Core REST API**. Este diagrama corresponde al nivel 3 del modelo C4 y permite visualizar cómo se organizan los controladores REST, command handlers, event handlers, componentes de dominio, repositorios e infraestructura de seguridad.
+
+Este contexto se implementa dentro del **Core REST API**, desarrollado con **Java y Spring Boot**, debido a que la autenticación y autorización son capacidades transversales utilizadas por la Web App, la Mobile App y otros contextos del sistema.
+
+**Figura 93**  
+*Identity & Access Management Context Component Level Diagram*
+
+![alt text](./assets/IdentityAccessManagementComponentView-dark.png)
+
+*Nota.* Elaboración propia (2026) usando Structurizr DSL.
+
+Según la Figura 93, el flujo principal inicia cuando un usuario envía una solicitud desde la **Driver Mobile App** o la **Parking Owner Web App** hacia los controladores del contexto. Por ejemplo, una solicitud de inicio de sesión es recibida por `AuthenticationController`, que delega el procesamiento a `AuthenticateUserCommandHandler`.
+
+El command handler recupera la cuenta mediante `IUserAccountRepository`, obtiene las credenciales mediante `ICredentialRepository`, aplica `AuthenticationPolicy` y utiliza `PasswordHashingService` para verificar la contraseña. Si la autenticación es válida, se crea una sesión mediante `IAuthSessionRepository` y se genera un JWT mediante `JwtTokenProvider`.
+
+En el caso de autorización, `AuthorizationController` delega la solicitud a `ValidateUserPermissionCommandHandler`, el cual utiliza `AuthorizationPolicy` y consulta los roles del usuario mediante `IRoleAssignmentRepository`.
+
+La siguiente tabla resume los componentes principales del diagrama:
+
+| Capa | Componente | Tecnología | Responsabilidad |
+|---|---|---|---|
+| Interface Layer | `AuthenticationController` | Java / Spring Boot REST Controller | Recibe solicitudes de login, refresh token y logout. |
+| Interface Layer | `UserRegistrationController` | Java / Spring Boot REST Controller | Recibe solicitudes de registro de usuarios. |
+| Interface Layer | `UserAccountController` | Java / Spring Boot REST Controller | Permite consultar y actualizar información básica de la cuenta. |
+| Interface Layer | `AuthorizationController` | Java / Spring Boot REST Controller | Permite validar permisos según rol. |
+| Interface Layer | `IdentityAccessEventConsumer` | Java Event Consumer | Consume eventos internos relacionados con identidad. |
+| Application Layer | `RegisterUserAccountCommandHandler` | Java Command Handler | Orquesta el registro de una nueva cuenta. |
+| Application Layer | `AuthenticateUserCommandHandler` | Java Command Handler | Orquesta la autenticación de usuario. |
+| Application Layer | `RefreshAccessTokenCommandHandler` | Java Command Handler | Orquesta la renovación de token de acceso. |
+| Application Layer | `RevokeAuthSessionCommandHandler` | Java Command Handler | Orquesta el cierre o revocación de sesión. |
+| Application Layer | `AssignUserRoleCommandHandler` | Java Command Handler | Orquesta la asignación de roles. |
+| Application Layer | `ValidateUserPermissionCommandHandler` | Java Command Handler | Orquesta la validación de permisos. |
+| Domain Layer | `IdentityAccessAggregate` | Domain Model | Mantiene consistencia entre cuenta, credenciales, roles y sesiones. |
+| Domain Layer | `UserAccountFactory` | Domain Factory | Crea cuentas de usuario válidas. |
+| Domain Layer | `CredentialFactory` | Domain Factory | Crea credenciales válidas. |
+| Domain Layer | `PasswordPolicy` | Domain Service | Valida reglas de contraseña. |
+| Domain Layer | `AuthenticationPolicy` | Domain Service | Determina si una cuenta puede autenticarse. |
+| Domain Layer | `AuthorizationPolicy` | Domain Service | Determina si un usuario tiene permiso para una acción. |
+| Domain Layer | `TokenLifecyclePolicy` | Domain Service | Controla expiración, renovación y revocación de tokens. |
+| Infrastructure Layer | `JpaUserAccountRepository` | Spring Data JPA / PostgreSQL | Persiste cuentas de usuario. |
+| Infrastructure Layer | `JpaCredentialRepository` | Spring Data JPA / PostgreSQL | Persiste credenciales. |
+| Infrastructure Layer | `JpaRoleAssignmentRepository` | Spring Data JPA / PostgreSQL | Persiste roles asignados. |
+| Infrastructure Layer | `JpaAuthSessionRepository` | Spring Data JPA / PostgreSQL | Persiste sesiones. |
+| Infrastructure Layer | `JpaRefreshTokenRepository` | Spring Data JPA / PostgreSQL | Persiste tokens de renovación. |
+| Infrastructure Layer | `PasswordHashingService` | Spring Security | Procesa y verifica contraseñas. |
+| Infrastructure Layer | `JwtTokenProvider` | JWT | Genera y valida tokens de acceso. |
+| Infrastructure Layer | `SpringSecurityUserDetailsAdapter` | Spring Security | Adapta cuentas del dominio al modelo de seguridad del framework. |
+
+#### 4.2.6.6. Bounded Context Software Architecture Code Level Diagrams
+
+En esta sección se presentan los diagramas de nivel de código correspondientes al bounded context **Identity & Access Management**. A diferencia del Component Level Diagram, que muestra bloques estructurales de alto nivel, este bloque profundiza en el diseño de clases del dominio y en la estructura física de persistencia utilizada por este contexto.
+
+Primero se presenta el **Domain Layer Class Diagram**, donde se detallan las entidades, objetos de valor, agregados, servicios de dominio, fábricas, enumeraciones e interfaces de repositorio del contexto. Luego se presenta el **Database Design Diagram**, donde se especifican las tablas, columnas, llaves primarias, llaves foráneas y relaciones utilizadas para persistir cuentas, credenciales, roles, sesiones y tokens.
+
+Estos diagramas permiten cerrar el diseño táctico del bounded context **Identity & Access Management**, asegurando trazabilidad entre reglas de identidad, autenticación, autorización, sesiones y persistencia relacional.
+
+###### 4.2.6.6.1. Bounded Context Domain Layer Class Diagrams
+
+El **Bounded Context Domain Layer Class Diagram** presenta el diseño UML de las clases que forman parte de la capa de dominio del bounded context **Identity & Access Management**. Este diagrama se enfoca exclusivamente en los elementos que representan reglas de negocio puras relacionadas con identidad y acceso, sin incluir controladores, frameworks, repositorios de infraestructura, JWT, Spring Security ni detalles de base de datos.
+
+**Figura 94**  
+*Identity & Access Management Context Domain Layer Class Diagram*
+
+![alt text](./assets/identitytclass.png)
+
+*Nota.* Elaboración propia (2026) usando LucidChart / PlantUML.
+
+Según la Figura 94, el aggregate `IdentityAccessAggregate` actúa como raíz de consistencia del contexto. Este aggregate contiene la cuenta de usuario, sus credenciales, sus roles y sus sesiones de autenticación. Esta estructura permite controlar que la identidad del usuario y sus permisos se mantengan consistentes dentro del sistema.
+
+La entidad `UserAccount` representa la cuenta principal del usuario. Esta clase contiene el identificador del usuario, correo electrónico, rol principal y estado de cuenta. Su comportamiento permite activar, suspender o validar si una cuenta puede operar.
+
+La entidad `Credential` representa las credenciales de acceso asociadas a una cuenta. Esta entidad se apoya en el value object `PasswordHash`, evitando almacenar o manipular contraseñas en texto plano dentro del dominio.
+
+La entidad `RoleAssignment` representa los roles asignados a un usuario. En ParkingNow, los roles definidos son `DRIVER` y `PARKING_OWNER`, ya que el sistema trabaja con dos segmentos principales y no considera un administrador global como segmento de negocio.
+
+La entidad `AuthSession` representa una sesión autenticada. Esta clase permite identificar si una sesión está activa, expirada o revocada. La entidad `RefreshToken` permite gestionar la renovación del acceso mientras la sesión sea válida.
+
+Los value objects `UserIdentifier`, `EmailAddress`, `PasswordHash` y `JwtToken` encapsulan conceptos críticos del dominio de seguridad. Estos objetos permiten validar formato, consistencia y representación de datos sin exponer detalles de infraestructura.
+
+Los servicios de dominio `PasswordPolicy`, `AuthenticationPolicy`, `AuthorizationPolicy` y `TokenLifecyclePolicy` concentran reglas que no pertenecen a una sola entidad. Estas reglas permiten validar contraseñas, determinar si una cuenta puede autenticarse, verificar permisos y controlar el ciclo de vida de tokens y sesiones.
+
+Las interfaces de repositorio definen los contratos de persistencia requeridos por el dominio. Sus implementaciones concretas se ubican en la **Infrastructure Layer**, manteniendo separado el modelo de dominio de los detalles técnicos.
+
+###### 4.2.6.6.2. Bounded Context Database Design Diagram
+
+El **Bounded Context Database Design Diagram** presenta el diseño físico de base de datos correspondiente al bounded context **Identity & Access Management**. Este diagrama muestra cómo se almacenan las cuentas de usuario, credenciales, roles, sesiones y tokens de renovación en una base de datos relacional PostgreSQL.
+
+Para este contexto se utiliza persistencia relacional porque las entidades de identidad requieren integridad, trazabilidad, unicidad de correos, control de sesiones y consistencia entre cuentas, credenciales y roles.
+
+**Figura 95**  
+*Identity & Access Management Context Database Design Diagram*
+
+![alt text](./assets/identitytbase.png)
+
+*Nota.* Elaboración propia (2026) usando LucidChart / Vertabelo.
+
+Las tablas consideradas para este bounded context son las siguientes:
+
+| Tabla | Propósito |
+|---|---|
+| `user_accounts` | Almacena las cuentas principales de los usuarios registrados. |
+| `credentials` | Almacena credenciales procesadas mediante hash seguro. |
+| `role_assignments` | Almacena los roles funcionales asignados a cada usuario. |
+| `auth_sessions` | Almacena sesiones de autenticación activas, expiradas o revocadas. |
+| `refresh_tokens` | Almacena tokens de renovación asociados a sesiones. |
+
+La tabla `user_accounts` representa la cuenta principal del usuario dentro de ParkingNow. Contiene datos como el identificador, correo electrónico, rol principal, estado de cuenta y fechas de creación o actualización.
+
+La tabla `credentials` almacena las credenciales asociadas a cada cuenta. Esta tabla contiene el hash de la contraseña, estado de credencial, fecha de actualización y contador de intentos fallidos cuando corresponda.
+
+La tabla `role_assignments` permite asociar roles funcionales a una cuenta. En el sistema se consideran los roles `DRIVER` y `PARKING_OWNER`, alineados con los segmentos definidos en el proyecto.
+
+La tabla `auth_sessions` permite registrar sesiones de autenticación. Esto facilita cerrar sesión, revocar accesos, auditar actividad y controlar sesiones expiradas.
+
+La tabla `refresh_tokens` almacena los tokens de renovación asociados a una sesión. Esto permite renovar tokens de acceso sin solicitar credenciales en cada operación, siempre que el token siga vigente y no haya sido revocado.
+
+| Relación | Cardinalidad | Descripción |
+|---|---|---|
+| `user_accounts` → `credentials` | 1 a 1 | Una cuenta tiene un conjunto de credenciales activo. |
+| `user_accounts` → `role_assignments` | 1 a 1..* | Una cuenta puede tener uno o más roles funcionales. |
+| `user_accounts` → `auth_sessions` | 1 a 0..* | Una cuenta puede tener múltiples sesiones históricas o activas. |
+| `auth_sessions` → `refresh_tokens` | 1 a 0..* | Una sesión puede tener tokens de renovación asociados. |
+
+El diseño utiliza identificadores de tipo `UUID` para mantener unicidad. El correo electrónico se almacena con una restricción `UNIQUE` para evitar cuentas duplicadas. Los estados y roles se almacenan como `VARCHAR`, alineados con las enumeraciones definidas en el Domain Layer.
+
+La persistencia se define sobre **PostgreSQL** y es accedida desde el **Core REST API** mediante **Spring Data JPA** o **JDBC**. La lógica de autenticación, autorización y generación de sesiones no se implementa en la base de datos, sino en el bounded context **Identity & Access Management**, manteniendo la separación entre reglas de negocio e infraestructura.
