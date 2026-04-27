@@ -3502,7 +3502,7 @@ A diferencia de otros bounded contexts, aquí el foco no está en descubrir esta
 
 **Figura X** _Reservation Context Domain Layer Diagram_
 
-![alt text](./assets/Domain-Layer-Reservation.png)
+![Domain Layer Diagram Reservation](./assets/Domain-Layer-Reservation.png)
 
 _Nota._ Elaboración propia (2026).
 
@@ -3581,3 +3581,411 @@ Finalmente, las **interfaces de repositorio** se ubican en la Domain Layer porqu
 ### Conclusión
 
 En conclusión, la **Domain Layer** de **Reservation** se estructura alrededor de `Reservation` como **aggregate root** del contexto. A partir de esta raíz se controlan las reglas del ciclo de vida de la reserva, mientras que `VirtualTicket` y `ReservationValidation` funcionan como entidades relacionadas que dependen de su consistencia. Los value objects encapsulan estados, identificadores y restricciones temporales; la factory asegura creaciones válidas; los domain services resuelven políticas transversales del negocio; y las interfaces de repositorio definen los contratos que luego implementará la infraestructura. De esta forma, el bounded context mantiene una base táctica clara, coherente con el diseño estratégico de ParkingNow y alineada con un modelado DDD más natural para este caso.
+
+#### 4.2.2.2. Interface Layer
+
+La **Interface Layer** del bounded context **Reservation** representa el punto de entrada para las operaciones relacionadas con la solicitud, consulta, validación, cancelación y seguimiento de reservas dentro de ParkingNow. Esta capa recibe solicitudes principalmente desde la aplicación móvil utilizada por el **Driver**, y también puede recibir acciones operativas desde la interfaz del **Parking Owner** cuando este necesita revisar reservas activas o validar la llegada de un conductor. Además, el contexto Reservation intercambia eventos con otros bounded contexts, ya que en el diseño estratégico del proyecto participa en mensajes como **Request reservation**, **Reservation confirmed**, **Reservation validated**, **Reservation consumed**, **Reservation expired** y **Parking space occupied**.
+
+Al igual que en el bounded context **Parking Management**, en esta capa no se implementan reglas de negocio. Su responsabilidad se limita a recibir la solicitud, validar superficialmente el formato de entrada, construir los **commands** o **queries** correspondientes y delegar el procesamiento a la **Application Layer**. De esta forma, los controladores permanecen ligeros y el comportamiento del negocio sigue concentrado en las capas internas del contexto. Este criterio es consistente con la estructura ya usada en la sección **4.2.1.2 Interface Layer** del contexto anterior.
+
+**Figura X** _Reservation Context Interface Layer Diagram_
+
+![Interface Layer Diagram Reservation](./assets/Interface-Layer-Reservation.png)
+
+_Nota._ Elaboración propia (2026).
+
+Según el modelo del contexto, la capa de interfaz de **Reservation** puede organizarse alrededor de tres controladores REST principales y dos consumidores de eventos. Los controladores exponen las operaciones necesarias para que el conductor cree y consulte sus reservas, y para que el administrador valide la llegada del conductor o revise reservas activas. Los consumidores de eventos permiten que el contexto reaccione a hechos externos relevantes, como la ocupación física confirmada de un espacio o el vencimiento del tiempo límite de la reserva, sin mezclar directamente lógica de otros bounded contexts dentro de Reservation. Esto es coherente con la trazabilidad del proyecto, donde el administrador necesita monitorear reservas activas y el sistema debe reflejar la precedencia del estado físico cuando un espacio reservado pasa a estar ocupado.
+
+### Actores que interactúan con la Interface Layer
+
+| Actor                        | Tipo de interacción | Rol dentro del contexto                                                                             |
+| ---------------------------- | ------------------- | --------------------------------------------------------------------------------------------------- |
+| `Driver`                     | Solicitudes REST    | Solicita una reserva, consulta sus reservas, revisa el ticket virtual y cancela una reserva activa. |
+| `Parking Owner`              | Solicitudes REST    | Consulta reservas activas del estacionamiento y valida la llegada del conductor mediante el ticket. |
+| `Parking Management Context` | Evento externo      | Notifica que el espacio reservado fue ocupado físicamente, permitiendo consumir la reserva.         |
+| `System Timer / Scheduler`   | Evento externo      | Notifica que el tiempo límite de una reserva ha finalizado, permitiendo marcarla como expirada.     |
+
+### Controladores REST propuestos
+
+#### ReservationController
+
+La clase `ReservationController` expone las operaciones principales relacionadas con la creación, consulta y cancelación de reservas desde la perspectiva del conductor. Este controlador es el punto de entrada natural para los flujos derivados de las historias donde el conductor reserva un espacio, consulta sus reservas activas o deja sin efecto una reserva antes de usarla.
+
+| Método                                                                      | Responsabilidad                                                                             |
+| --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `createReservation(request: CreateReservationRequest): ReservationResponse` | Recibe la solicitud para crear una nueva reserva sobre un espacio previamente seleccionado. |
+| `getReservationById(reservationId: string): ReservationResponse`            | Obtiene el detalle de una reserva específica.                                               |
+| `getDriverReservations(driverId: string): List<ReservationResponse>`        | Lista las reservas asociadas a un conductor.                                                |
+| `cancelReservation(reservationId: string): void`                            | Solicita la cancelación de una reserva activa antes de su consumo o expiración.             |
+
+#### VirtualTicketController
+
+La clase `VirtualTicketController` concentra las operaciones relacionadas con el ticket virtual generado después de confirmar la reserva. Su presencia se justifica porque el ticket es un artefacto central del contexto y debe poder consultarse sin mezclar esta responsabilidad con la creación o validación de la reserva.
+
+| Método                                                                          | Responsabilidad                                      |
+| ------------------------------------------------------------------------------- | ---------------------------------------------------- |
+| `getVirtualTicketByReservationId(reservationId: string): VirtualTicketResponse` | Obtiene el ticket virtual generado para una reserva. |
+| `getVirtualTicketDetails(ticketId: string): VirtualTicketResponse`              | Consulta el detalle de un ticket virtual específico. |
+
+#### ReservationValidationController
+
+La clase `ReservationValidationController` expone las operaciones relacionadas con la validación de llegada del conductor. Este controlador se alinea con la lógica del proyecto donde la reserva confirmada genera un ticket y luego, al llegar al estacionamiento, dicho ticket debe validarse antes de autorizar el uso del espacio.
+
+| Método                                                                                    | Responsabilidad                                                           |
+| ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| `validateReservation(request: ValidateReservationRequest): ReservationValidationResponse` | Recibe la solicitud de validación del ticket presentado por el conductor. |
+| `getValidationHistory(reservationId: string): List<ReservationValidationResponse>`        | Consulta el historial de validaciones asociadas a una reserva.            |
+
+### Consumidores de eventos propuestos
+
+#### ParkingSpaceOccupiedEventConsumer
+
+La clase `ParkingSpaceOccupiedEventConsumer` recibe eventos provenientes de **Parking Management** o de la capa que consolida el estado físico del espacio. Su responsabilidad es traducir el hecho externo **Parking space occupied** en una invocación hacia la capa de aplicación para marcar la reserva correspondiente como consumida. Esto se alinea con la regla del proyecto según la cual la ocupación física prevalece sobre el estado reservado cuando ambas coexisten.
+
+| Método                                                           | Responsabilidad                                                                                      |
+| ---------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `onParkingSpaceOccupied(event: ParkingSpaceOccupiedEvent): void` | Recibe el evento de ocupación física confirmada e inicia el flujo para consumir la reserva asociada. |
+
+#### ReservationTimeLimitElapsedEventConsumer
+
+La clase `ReservationTimeLimitElapsedEventConsumer` recibe el evento que indica que el tiempo máximo de espera de una reserva ha finalizado. Su función es traducir ese hecho en una solicitud a la Application Layer para marcar la reserva como expirada e invalidar su ticket virtual si corresponde. Este flujo responde al comportamiento esperado del contexto frente al mensaje **Reservation time limit elapsed** definido en el proyecto.
+
+| Método                                                                         | Responsabilidad                                                                  |
+| ------------------------------------------------------------------------------ | -------------------------------------------------------------------------------- |
+| `onReservationTimeLimitElapsed(event: ReservationTimeLimitElapsedEvent): void` | Recibe el evento de vencimiento e inicia el proceso de expiración de la reserva. |
+
+### Requests y responses de la capa de interfaz
+
+Para mantener desacoplada la Interface Layer respecto del dominio, los controladores trabajan con objetos de entrada y salida propios de esta capa. Estos DTOs permiten validar formato, transportar datos y evitar exponer directamente las entidades del dominio. Esta misma lógica de separación entre request/response y reglas internas ya se observa en el bounded context anterior, donde los controladores reciben objetos como `RegisterParkingLotRequest` y devuelven `ParkingLotResponse`.
+
+#### Requests principales
+
+| Clase                        | Propósito                                                                                                                  |
+| ---------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `CreateReservationRequest`   | Contiene datos como `driverId`, `parkingLotId`, `parkingSpaceId` y la referencia temporal necesaria para crear la reserva. |
+| `ValidateReservationRequest` | Contiene datos como `reservationId`, `ticketCode` y, si aplica, el identificador del operador o punto de validación.       |
+
+#### Responses principales
+
+| Clase                           | Propósito                                                                                                    |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| `ReservationResponse`           | Devuelve los datos principales de la reserva, incluyendo identificador, estado, espacio asociado y vigencia. |
+| `VirtualTicketResponse`         | Devuelve la información principal del ticket virtual, incluyendo código, estado y fecha de generación.       |
+| `ReservationValidationResponse` | Devuelve el resultado de la validación, la fecha y el estado final del intento de validación.                |
+
+### Conclusión
+
+En conclusión, la **Interface Layer** del bounded context **Reservation** actúa como la frontera de entrada del contexto y canaliza las interacciones del **Driver**, del **Parking Owner** y de eventos externos relevantes hacia la **Application Layer**. Su estructura puede organizarse en controladores REST especializados en reservas, tickets y validaciones, además de consumidores de eventos para ocupación física y vencimiento del tiempo límite. Así, el contexto conserva una interfaz clara, alineada con el flujo funcional del proyecto y con el mismo estilo arquitectónico ya utilizado en **Parking Management**.
+
+#### 4.2.2.3. Application Layer
+
+La **Application Layer** del bounded context **Reservation** contiene las clases encargadas de orquestar los casos de uso relacionados con la creación, consulta, cancelación, validación, expiración y consumo de reservas dentro de ParkingNow. Esta capa actúa como intermediaria entre la **Interface Layer**, que recibe solicitudes HTTP y eventos externos, y la **Domain Layer**, donde se encuentran las reglas de negocio puras del contexto. Su función principal es coordinar el flujo de ejecución, invocar fábricas, servicios de dominio y repositorios, y devolver el resultado correspondiente sin incorporar lógica de negocio compleja. Esta misma función de orquestación es la que ya se observa en la **Application Layer** del bounded context **Parking Management**, donde los handlers coordinan comandos y eventos sin contaminar el dominio con detalles de interfaz o infraestructura
+
+En el caso de **Reservation**, esta capa debe responder a los mensajes estratégicos identificados en la solución, como **Request reservation**, **Generate virtual ticket**, **Reservation validated**, **Reservation consumed** y **Reservation expired**. Por ello, su diseño se organiza principalmente en **command handlers**, **query handlers** y **event handlers**, cada uno enfocado en un caso de uso específico del ciclo de vida de la reserva. Este enfoque también es coherente con el planteamiento general del proyecto, donde la reserva es el mecanismo que transforma la disponibilidad de un espacio en un compromiso temporal verificable mediante ticket digital y validación posterior.
+
+**Figura X** _Reservation Context Application Layer Diagram_
+
+![Application Layer Diagram Reservation](./assets/Application%20Layer.png)
+
+_Nota._ Elaboración propia (2026).
+
+Según el modelo propuesto para este bounded context, la **Application Layer** de **Reservation** está compuesta por handlers que reciben comandos desde la interfaz o eventos desde otros contextos y coordinan las acciones necesarias sobre el aggregate root `Reservation`. Algunos handlers crean nuevas reservas, otros consultan información, otros ejecutan validaciones o cancelaciones, y otros reaccionan a eventos de expiración temporal o de ocupación física. De esta manera, la capa de aplicación conserva una estructura delgada y orientada a casos de uso, manteniendo separadas la recepción de solicitudes, la lógica del dominio y la persistencia técnica. Esta forma de organización es consistente con el patrón ya utilizado en la documentación táctica del repositorio.
+
+### Command Handlers propuestos
+
+##### CreateReservationCommandHandler
+
+La clase `CreateReservationCommandHandler` orquesta el caso de uso de creación de una nueva reserva. Recibe la solicitud proveniente de la interfaz, valida la existencia de los datos mínimos requeridos, utiliza `ReservationFactory` para construir una reserva válida, invoca `VirtualTicketGenerator` para preparar el identificador del ticket y persiste el aggregate root mediante `IReservationRepository`. Además, coordina la persistencia del ticket virtual generado a través de `IVirtualTicketRepository`.
+
+| Método                                                           | Responsabilidad                                                         |
+| ---------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| `handle(command: CreateReservationCommand): ReservationResponse` | Orquesta la creación de una nueva reserva y su ticket virtual asociado. |
+
+##### CancelReservationCommandHandler
+
+La clase `CancelReservationCommandHandler` orquesta el caso de uso de cancelación de una reserva activa. Recupera la reserva desde el repositorio, verifica que aún pueda cancelarse, ejecuta la transición correspondiente en el dominio y actualiza el estado persistido. Si la reserva tenía un ticket virtual vigente, también coordina su invalidación.
+
+| Método                                            | Responsabilidad                                                                 |
+| ------------------------------------------------- | ------------------------------------------------------------------------------- |
+| `handle(command: CancelReservationCommand): void` | Orquesta la cancelación de una reserva activa antes de su consumo o expiración. |
+
+##### ValidateReservationCommandHandler
+
+La clase `ValidateReservationCommandHandler` orquesta el proceso de validación cuando el conductor llega al estacionamiento y presenta su ticket. Recupera la reserva y el ticket asociado, consulta la política de validación, registra el resultado mediante `ReservationValidation` y persiste tanto la validación como el nuevo estado de la reserva.
+
+| Método                                                                       | Responsabilidad                                                                    |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `handle(command: ValidateReservationCommand): ReservationValidationResponse` | Orquesta la validación de la reserva usando el ticket presentado por el conductor. |
+
+### Query Handlers propuestos
+
+##### GetReservationByIdQueryHandler
+
+La clase `GetReservationByIdQueryHandler` orquesta la consulta de detalle de una reserva específica. Recupera la información del aggregate root desde el repositorio y la transforma en un objeto de respuesta adecuado para la interfaz.
+
+| Método                                                        | Responsabilidad                                |
+| ------------------------------------------------------------- | ---------------------------------------------- |
+| `handle(query: GetReservationByIdQuery): ReservationResponse` | Consulta el detalle de una reserva específica. |
+
+##### GetDriverReservationsQueryHandler
+
+La clase `GetDriverReservationsQueryHandler` permite recuperar la lista de reservas asociadas a un conductor. Este caso de uso es importante para que el conductor pueda consultar sus reservas activas, expiradas, canceladas o consumidas desde la aplicación.
+
+| Método                                                                 | Responsabilidad                        |
+| ---------------------------------------------------------------------- | -------------------------------------- |
+| `handle(query: GetDriverReservationsQuery): List<ReservationResponse>` | Consulta las reservas de un conductor. |
+
+##### GetVirtualTicketByReservationIdQueryHandler
+
+La clase `GetVirtualTicketByReservationIdQueryHandler` consulta el ticket virtual asociado a una reserva confirmada. Su responsabilidad es recuperar el ticket y devolver su información de manera desacoplada del dominio interno.
+
+| Método                                                                       | Responsabilidad                                       |
+| ---------------------------------------------------------------------------- | ----------------------------------------------------- |
+| `handle(query: GetVirtualTicketByReservationIdQuery): VirtualTicketResponse` | Consulta el ticket virtual generado para una reserva. |
+
+##### GetReservationValidationHistoryQueryHandler
+
+La clase `GetReservationValidationHistoryQueryHandler` permite consultar los intentos o registros de validación asociados a una reserva. Este caso de uso es útil para auditoría operativa y trazabilidad.
+
+| Método                                                                                     | Responsabilidad                                       |
+| ------------------------------------------------------------------------------------------ | ----------------------------------------------------- |
+| `handle(query: GetReservationValidationHistoryQuery): List<ReservationValidationResponse>` | Consulta el historial de validaciones de una reserva. |
+
+### Event Handlers propuestos
+
+##### ReservationTimeLimitElapsedEventHandler
+
+La clase `ReservationTimeLimitElapsedEventHandler` procesa el evento que indica que el tiempo de espera permitido para una reserva ha finalizado. Recupera la reserva, evalúa la expiración mediante `ReservationExpirationPolicy`, actualiza su estado a expirada y coordina la invalidación del ticket virtual correspondiente si todavía seguía vigente.
+
+| Método                                                  | Responsabilidad                                                         |
+| ------------------------------------------------------- | ----------------------------------------------------------------------- |
+| `handle(event: ReservationTimeLimitElapsedEvent): void` | Procesa el vencimiento temporal de una reserva y ejecuta su expiración. |
+
+##### ParkingSpaceOccupiedEventHandler
+
+La clase `ParkingSpaceOccupiedEventHandler` procesa el evento de ocupación física de un espacio reservado. Recupera la reserva asociada al espacio, verifica que corresponda a una reserva válida y la marca como consumida, reflejando así la precedencia del estado físico del estacionamiento sobre la simple reserva lógica.
+
+| Método                                           | Responsabilidad                                                                   |
+| ------------------------------------------------ | --------------------------------------------------------------------------------- |
+| `handle(event: ParkingSpaceOccupiedEvent): void` | Procesa la ocupación física confirmada del espacio y consume la reserva asociada. |
+
+### Commands y Queries de la capa de aplicación
+
+Para mantener separadas las responsabilidades, la **Application Layer** trabaja con objetos explícitos de comando y consulta. Estos objetos representan intenciones del usuario o del sistema, y son procesados por handlers especializados.
+
+#### Commands principales
+
+| Clase                        | Propósito                                                                                       |
+| ---------------------------- | ----------------------------------------------------------------------------------------------- |
+| `CreateReservationCommand`   | Representa la intención de crear una nueva reserva para un conductor y un espacio seleccionado. |
+| `CancelReservationCommand`   | Representa la intención de cancelar una reserva vigente.                                        |
+| `ValidateReservationCommand` | Representa la intención de validar una reserva mediante el ticket presentado por el conductor.  |
+
+#### Queries principales
+
+| Clase                                  | Propósito                                              |
+| -------------------------------------- | ------------------------------------------------------ |
+| `GetReservationByIdQuery`              | Consultar el detalle de una reserva específica.        |
+| `GetDriverReservationsQuery`           | Consultar las reservas asociadas a un conductor.       |
+| `GetVirtualTicketByReservationIdQuery` | Consultar el ticket virtual generado para una reserva. |
+| `GetReservationValidationHistoryQuery` | Consultar el historial de validaciones de una reserva. |
+
+### Resumen de clases de la Application Layer
+
+| Clase                                         | Tipo            | Responsabilidad                                                                |
+| --------------------------------------------- | --------------- | ------------------------------------------------------------------------------ |
+| `CreateReservationCommandHandler`             | Command Handler | Orquestar la creación de una nueva reserva y la generación del ticket virtual. |
+| `CancelReservationCommandHandler`             | Command Handler | Orquestar la cancelación de una reserva activa.                                |
+| `ValidateReservationCommandHandler`           | Command Handler | Orquestar la validación de una reserva mediante ticket.                        |
+| `GetReservationByIdQueryHandler`              | Query Handler   | Orquestar la consulta del detalle de una reserva.                              |
+| `GetDriverReservationsQueryHandler`           | Query Handler   | Orquestar la consulta de reservas de un conductor.                             |
+| `GetVirtualTicketByReservationIdQueryHandler` | Query Handler   | Orquestar la consulta del ticket virtual asociado a una reserva.               |
+| `GetReservationValidationHistoryQueryHandler` | Query Handler   | Orquestar la consulta del historial de validaciones.                           |
+| `ReservationTimeLimitElapsedEventHandler`     | Event Handler   | Procesar el evento de expiración temporal de una reserva.                      |
+| `ParkingSpaceOccupiedEventHandler`            | Event Handler   | Procesar el evento de ocupación física y consumir la reserva correspondiente.  |
+
+### Conclusión
+
+En conclusión, la **Application Layer** del bounded context **Reservation** mantiene una estructura delgada, orientada a casos de uso y coherente con el estilo arquitectónico del repositorio. Sus handlers reciben comandos, consultas y eventos; coordinan fábricas, servicios de dominio y repositorios; y devuelven respuestas útiles para la interfaz o actualizan el estado del contexto según eventos externos. Así, esta capa permite que ParkingNow mantenga separadas la orquestación del negocio, las reglas puras del dominio y los detalles técnicos de infraestructura, siguiendo el mismo enfoque aplicado previamente en **Parking Management**.
+
+#### 4.2.2.4. Infrastructure Layer
+
+La **Infrastructure Layer** del bounded context **Reservation** agrupa los componentes técnicos que permiten materializar en software las operaciones definidas en las capas superiores del contexto. Mientras la **Domain Layer** expresa las reglas del negocio y la **Application Layer** coordina los casos de uso, la infraestructura se encarga de resolver aspectos concretos como la persistencia en base de datos, la publicación y consumo de eventos, la integración con generadores de tickets y la implementación real de los contratos definidos por el dominio. En otras palabras, esta capa no define qué debe hacer el negocio, sino **cómo se soporta técnicamente su ejecución**.
+
+Siguiendo el mismo enfoque usado en el bounded context anterior, la **Infrastructure Layer** no debe contener reglas del dominio. Su responsabilidad es implementar los repositorios declarados en la Domain Layer, configurar el acceso a datos, persistir entidades como `Reservation`, `VirtualTicket` y `ReservationValidation`, y proporcionar adaptadores para interactuar con mecanismos externos del sistema. Así, el bounded context mantiene una separación clara entre lógica de negocio y detalles tecnológicos, lo cual es coherente con una arquitectura basada en DDD.
+
+**Figura X** _Reservation Context Infrastructure Layer Diagram_
+
+![Infrastructure Layer Diagram Reservation](./assets/Infrastructure%20Layer%20Reservation.png)
+
+_Nota._ Elaboración propia (2026).
+
+En el caso de **Reservation**, la infraestructura debe soportar principalmente cuatro necesidades técnicas. Primero, la persistencia de reservas, tickets y validaciones. Segundo, la ejecución de integraciones externas, como la generación del ticket virtual o código QR. Tercero, la recepción o publicación de eventos del sistema, como la expiración de una reserva o la ocupación física de un espacio. Y cuarto, el mapeo entre el modelo del dominio y la base de datos relacional. Por ello, esta capa se organiza alrededor de **repository implementations**, **ORM mappings**, **integration adapters**, **event publishers/consumers** y **persistence configuration**.
+
+### Componentes principales de la Infrastructure Layer
+
+La clasificación de clases de la **Infrastructure Layer** se resume en la siguiente tabla:
+
+| Categoría                      | Clases                                                                                                           |
+| ------------------------------ | ---------------------------------------------------------------------------------------------------------------- |
+| **Repository Implementations** | `ReservationRepository`, `VirtualTicketRepository`, `ReservationValidationRepository`                            |
+| **ORM / Persistence Mapping**  | `ReservationEntityMapper`, `VirtualTicketEntityMapper`, `ReservationValidationEntityMapper`                      |
+| **Persistence Context**        | `ReservationDbContext`                                                                                           |
+| **External Service Adapters**  | `QrTicketGenerationAdapter`, `SystemClockAdapter`                                                                |
+| **Event Infrastructure**       | `ReservationEventPublisher`, `ParkingSpaceOccupiedMessageConsumer`, `ReservationTimeLimitElapsedMessageConsumer` |
+
+##### Repository Implementations
+
+| Clase                             | Responsabilidad                                                                                                 |
+| --------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| `ReservationRepository`           | Implementar `IReservationRepository` y encargarse de guardar, buscar y actualizar reservas en la base de datos. |
+| `VirtualTicketRepository`         | Implementar `IVirtualTicketRepository` y gestionar la persistencia de tickets virtuales asociados a reservas.   |
+| `ReservationValidationRepository` | Implementar `IReservationValidationRepository` y persistir los registros de validación de reservas.             |
+
+Estas clases representan la implementación concreta de los contratos definidos en la Domain Layer. Desde la perspectiva del dominio, solo existe la necesidad de guardar y recuperar objetos; sin embargo, en infraestructura se decide cómo hacerlo, normalmente mediante un ORM como Entity Framework, JPA o una tecnología similar. La idea es que la lógica del negocio no dependa directamente de tablas, sentencias SQL ni configuraciones técnicas.
+
+##### ORM / Persistence Mapping
+
+| Clase                               | Responsabilidad                                                                                    |
+| ----------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `ReservationEntityMapper`           | Configurar el mapeo entre la entidad `Reservation` y la tabla correspondiente en la base de datos. |
+| `VirtualTicketEntityMapper`         | Configurar el mapeo entre la entidad `VirtualTicket` y su tabla persistente.                       |
+| `ReservationValidationEntityMapper` | Configurar el mapeo entre la entidad `ReservationValidation` y su estructura de persistencia.      |
+
+Los mappers o configuraciones de entidad permiten traducir el modelo del dominio a una representación persistente. Esto incluye claves primarias, relaciones entre tablas, restricciones de longitud, columnas obligatorias y conversiones necesarias para value objects como `ReservationStatus`, `ReservationIdentifier` o `ValidationResult`. Esta decisión ayuda a que el dominio siga siendo expresivo y limpio, sin llenarse de anotaciones o configuraciones técnicas.
+
+##### Persistence Context
+
+| Clase                  | Responsabilidad                                                                                                                      |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| `ReservationDbContext` | Centralizar la configuración del contexto de persistencia, el acceso a las tablas del bounded context y la aplicación de mapeos ORM. |
+
+`ReservationDbContext` actúa como el punto técnico de acceso a la base de datos del contexto. Su función es registrar los conjuntos de entidades persistentes, aplicar configuraciones de mapeo y servir como soporte para los repositorios concretos. Dependiendo de la tecnología elegida, este contexto puede representar un `DbContext`, una unidad de trabajo o un módulo de persistencia específico para Reservation.
+
+##### External Service Adapters
+
+| Clase                       | Responsabilidad                                                                                                                                   |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `QrTicketGenerationAdapter` | Integrarse con el mecanismo técnico encargado de materializar el ticket virtual o código QR a partir de un identificador generado por el dominio. |
+| `SystemClockAdapter`        | Proveer la hora actual del sistema de manera desacoplada, facilitando el cálculo de expiraciones y la trazabilidad temporal.                      |
+
+Estos adaptadores aíslan al dominio y a la aplicación de dependencias externas. Por ejemplo, el dominio puede necesitar un identificador para el ticket, pero no debería saber cómo se codifica un QR, cómo se serializa o qué librería externa lo genera. Del mismo modo, usar un adaptador para la hora del sistema evita acoplar la lógica temporal a llamadas directas del framework y facilita las pruebas.
+
+##### Event Infrastructure
+
+| Clase                                        | Responsabilidad                                                                                                                         |
+| -------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| `ReservationEventPublisher`                  | Publicar eventos relevantes del contexto, como reserva confirmada, validada, consumida o expirada, hacia otros componentes del sistema. |
+| `ParkingSpaceOccupiedMessageConsumer`        | Recibir técnicamente el mensaje externo de ocupación física del espacio y trasladarlo a la Application Layer.                           |
+| `ReservationTimeLimitElapsedMessageConsumer` | Recibir técnicamente el mensaje de vencimiento temporal de la reserva y redirigirlo hacia el caso de uso correspondiente.               |
+
+Estos componentes permiten conectar el bounded context con el estilo orientado a eventos presente en la solución. Aunque la decisión de negocio de consumir una reserva o expirar una reserva pertenece a capas superiores, la infraestructura es la que resuelve detalles como colas, brokers, serialización de mensajes, suscripciones o publicación de eventos.
+
+### Responsabilidades técnicas de la Infrastructure Layer
+
+La **Infrastructure Layer** de **Reservation** cumple, principalmente, las siguientes responsabilidades:
+
+| Responsabilidad técnica           | Descripción                                                                           |
+| --------------------------------- | ------------------------------------------------------------------------------------- |
+| Persistencia de reservas          | Guardar y recuperar instancias de `Reservation` como aggregate root del contexto.     |
+| Persistencia de tickets virtuales | Guardar y recuperar tickets asociados a reservas confirmadas.                         |
+| Persistencia de validaciones      | Registrar y consultar validaciones realizadas sobre reservas.                         |
+| Traducción ORM                    | Mapear entidades y value objects del dominio a tablas y columnas de la base de datos. |
+| Integración externa               | Soportar la generación técnica del ticket virtual y la obtención de hora del sistema. |
+| Publicación y consumo de eventos  | Conectar el bounded context con eventos internos y externos del sistema.              |
+
+### Flujo técnico general dentro de la infraestructura
+
+A nivel general, el flujo técnico dentro de esta capa puede resumirse así:
+
+1. La **Application Layer** solicita guardar, recuperar o actualizar una reserva, ticket o validación.
+2. La infraestructura delega estas operaciones a los **repository implementations**.
+3. Los repositorios usan `ReservationDbContext` y los **entity mappers** para traducir el modelo de dominio al modelo persistente.
+4. Cuando se necesita integración externa, la infraestructura utiliza adaptadores como `QrTicketGenerationAdapter` o `SystemClockAdapter`.
+5. Cuando debe interactuar con otros contextos o componentes del sistema, la infraestructura publica o consume mensajes mediante `ReservationEventPublisher` y los `MessageConsumer`.
+
+Este flujo conserva la independencia del dominio y mantiene los detalles tecnológicos encapsulados en la capa que les corresponde.
+
+### Resumen de clases de la Infrastructure Layer
+
+| Clase                                        | Tipo                      | Responsabilidad                                               |
+| -------------------------------------------- | ------------------------- | ------------------------------------------------------------- |
+| `ReservationRepository`                      | Repository Implementation | Persistir y consultar reservas.                               |
+| `VirtualTicketRepository`                    | Repository Implementation | Persistir y consultar tickets virtuales.                      |
+| `ReservationValidationRepository`            | Repository Implementation | Persistir y consultar validaciones de reservas.               |
+| `ReservationEntityMapper`                    | ORM Mapper                | Mapear la entidad `Reservation` a la base de datos.           |
+| `VirtualTicketEntityMapper`                  | ORM Mapper                | Mapear la entidad `VirtualTicket` a la base de datos.         |
+| `ReservationValidationEntityMapper`          | ORM Mapper                | Mapear la entidad `ReservationValidation` a la base de datos. |
+| `ReservationDbContext`                       | Persistence Context       | Configurar y centralizar el acceso a datos del contexto.      |
+| `QrTicketGenerationAdapter`                  | External Adapter          | Resolver técnicamente la generación del ticket virtual o QR.  |
+| `SystemClockAdapter`                         | External Adapter          | Proveer tiempo del sistema de forma desacoplada.              |
+| `ReservationEventPublisher`                  | Event Publisher           | Publicar eventos del contexto hacia otros módulos.            |
+| `ParkingSpaceOccupiedMessageConsumer`        | Message Consumer          | Recibir eventos externos de ocupación física.                 |
+| `ReservationTimeLimitElapsedMessageConsumer` | Message Consumer          | Recibir eventos externos de expiración temporal.              |
+
+### Conclusión
+
+En conclusión, la **Infrastructure Layer** del bounded context **Reservation** concentra todos los elementos técnicos necesarios para soportar la ejecución real del contexto sin contaminar la lógica del dominio. Sus repositorios implementan los contratos definidos por la Domain Layer, sus mappers traducen entidades y value objects a estructuras persistentes, sus adaptadores aíslan integraciones externas y sus componentes de mensajería permiten la comunicación orientada a eventos con otros módulos del sistema. De esta manera, el contexto Reservation conserva una arquitectura limpia, coherente con DDD y alineada con la estructura ya utilizada en el bounded context previamente desarrollado.
+
+#### 4.2.2.5. Bounded Context Software Architecture Component Level Diagrams
+
+El **Bounded Context Software Architecture Component Level Diagram** del bounded context **Reservation** permite representar cómo se organizan e interactúan sus componentes internos dentro del contenedor **Core REST API**. Este diagrama corresponde al **nivel 3 del modelo C4**, por lo que muestra componentes de software con responsabilidades claras dentro del contexto, sin llegar todavía al detalle de clases, atributos o tablas de base de datos. Este mismo enfoque ya se utiliza en la documentación del proyecto para otros bounded contexts, donde los diagramas de componente muestran la descomposición interna de cada contexto siguiendo la separación por capas.
+
+Para ParkingNow, el bounded context **Reservation** se implementa principalmente dentro del **Core REST API**, el cual forma parte de la arquitectura central de la solución y se encuentra alineado con una implementación basada en **Java, Spring Boot, RESTful API y documentación OpenAPI/Swagger**. Dentro de este contexto se concentran las responsabilidades relacionadas con la creación, consulta, validación, cancelación, expiración y consumo de reservas, así como la generación y consulta de tickets virtuales asociados.
+
+Este contexto recibe solicitudes desde la **Driver Mobile App** y desde el **Parking Owner Web Dashboard**. Desde la aplicación móvil, el conductor puede crear una reserva, consultar sus reservas activas y revisar el ticket virtual generado. Desde la interfaz web, el administrador puede validar la llegada del conductor y consultar el historial de validaciones. Además, el contexto también recibe eventos externos relevantes, como la ocupación física de un espacio y el vencimiento del tiempo límite de una reserva, para reflejar correctamente su ciclo de vida dentro del sistema.
+
+**Figura X** _Reservation Context Component Level Diagram_  
+![alt text](./assets/ReservationContextComponents-dark.png)  
+_Nota._ Elaboración propia (2026).
+
+Según la Figura X, el bounded context **Reservation** se organiza en componentes pertenecientes a cuatro capas principales: **Interface Layer**, **Application Layer**, **Domain Layer** e **Infrastructure Layer**. Esta distribución mantiene coherencia con el estilo de diseño táctico ya aplicado en el repositorio, ya que permite separar claramente la recepción de solicitudes, la orquestación de casos de uso, las reglas puras del dominio y los mecanismos técnicos de persistencia o integración externa.
+
+En la **Interface Layer** se ubican los componentes de entrada del contexto, principalmente `ReservationController`, `VirtualTicketController`, `ReservationValidationController` y el componente `ReservationEventConsumer`. Estos elementos reciben solicitudes HTTP o eventos externos y los traducen hacia comandos, consultas o eventos internos que luego serán atendidos por la capa de aplicación. De esta manera, la interfaz actúa como frontera del contexto sin mezclar lógica de negocio con detalles de transporte o exposición. Esta organización es consistente con la lógica de controladores y consumidores de eventos ya descrita en otros bounded contexts del proyecto.
+En la **Application Layer** se agrupan los handlers que coordinan los casos de uso del contexto. Entre ellos destacan `CreateReservationCommandHandler`, `CancelReservationCommandHandler`, `ValidateReservationCommandHandler`, `GetReservationByIdQueryHandler`, `GetDriverReservationsQueryHandler`, `GetVirtualTicketByReservationIdQueryHandler`, `GetReservationValidationHistoryQueryHandler`, `ReservationTimeLimitElapsedEventHandler` y `ParkingSpaceOccupiedEventHandler`. Estos componentes no implementan reglas de negocio puras, sino que orquestan la ejecución de operaciones del dominio, consultan repositorios y coordinan la respuesta del sistema frente a solicitudes o eventos. Esta separación por handlers sigue el mismo criterio táctico usado en la documentación existente del proyecto.
+
+En la **Domain Layer** se concentra el núcleo del bounded context. Allí se ubica `Reservation` como **aggregate root**, junto con componentes como `ReservationFactory`, `ReservationExpirationPolicy`, `ReservationValidationPolicy`, `VirtualTicketGenerator` y las interfaces `IReservationRepository`, `IVirtualTicketRepository` e `IReservationValidationRepository`. Esta capa encapsula las reglas que controlan el ciclo de vida de la reserva, desde su creación hasta su validación, expiración o consumo, manteniendo independencia respecto de tecnologías externas y detalles de persistencia.
+
+En la **Infrastructure Layer** se ubican las implementaciones concretas que permiten ejecutar técnicamente el contexto, como `ReservationRepository`, `VirtualTicketRepository`, `ReservationValidationRepository`, `QrTicketGenerationAdapter`, `SystemClockAdapter` y `ReservationEventPublisher`. Estos componentes resuelven la persistencia en **Supabase PostgreSQL**, la integración con servicios externos para generación de tickets o QR, la obtención de tiempo del sistema y la publicación de eventos hacia otros bounded contexts o módulos de la solución. Esta responsabilidad de encapsular detalles técnicos también sigue el patrón arquitectónico observado en los demás contextos documentados.
+
+Además, el diagrama de componentes muestra que **Reservation** no opera de forma aislada, sino que se integra con otros bounded contexts y sistemas de apoyo dentro de ParkingNow. Desde **Parking Management** obtiene la referencia del estacionamiento y del espacio seleccionado; desde **IoT Monitoring** puede recibir el evento de ocupación física del espacio; con **Identity & Access Management** valida autenticación y autorización; con el servicio de **QR / Ticket Generation** genera el ticket virtual; y hacia **Operational Notification** publica eventos de cambio de estado, como reserva confirmada, validada, consumida o expirada. Estas relaciones reflejan el context mapping y los flujos de mensajes definidos en el diseño estratégico del proyecto.
+
+En conclusión, el **Component Level Diagram** del bounded context **Reservation** muestra cómo este módulo estructura internamente sus responsabilidades dentro del **Core REST API**. La separación entre controladores, handlers, dominio e infraestructura permite mantener una arquitectura limpia y coherente con Domain-Driven Design, donde las reglas de negocio no se mezclan con detalles técnicos y cada componente cumple una responsabilidad específica dentro del ciclo de vida de la reserva. Esta organización facilita la evolución del sistema, reduce el acoplamiento y asegura trazabilidad entre el diseño estratégico, el diseño táctico y la futura implementación del contexto.
+
+#### 4.2.2.6. Bounded Context Software Architecture Code Level Diagrams
+
+Los **Bounded Context Software Architecture Code Level Diagrams** del bounded context **Reservation** permiten representar el diseño interno del contexto con un nivel de detalle mayor al mostrado en los diagramas de componentes. Mientras el **Component Level Diagram** presenta la organización general de controladores, handlers, servicios de dominio, repositorios y adaptadores, los diagramas de nivel de código buscan aterrizar cómo se estructura técnicamente el bounded context a partir de sus clases principales y de su modelo de persistencia.
+
+En esta sección, el objetivo no es volver a explicar la lógica funcional del contexto, sino mostrar cómo dicha lógica se traduce en una estructura de software concreta y coherente con el enfoque **Domain-Driven Design** adoptado por ParkingNow. Por ello, los diagramas de nivel de código permiten visualizar con mayor precisión las clases del dominio, sus relaciones, sus responsabilidades y la forma en que estas se reflejan posteriormente en el diseño de base de datos del contexto.
+
+Para el bounded context **Reservation**, estos diagramas son especialmente importantes porque el ciclo de vida de la reserva involucra varios elementos relacionados entre sí, como la reserva principal, el ticket virtual, la validación de llegada, los identificadores únicos, los estados de la reserva y las restricciones temporales. En consecuencia, el nivel de código ayuda a entender de forma más clara cómo se organiza internamente el modelo propuesto y cómo se mantiene la consistencia entre el dominio y la persistencia.
+
+Dentro de esta sección se desarrollan dos diagramas principales. En primer lugar, el **Bounded Context Domain Layer Class Diagram**, que muestra las clases pertenecientes a la capa de dominio, incluyendo el **aggregate root** `Reservation`, las entidades relacionadas, los value objects, la factory, los domain services y las interfaces de repositorio. En segundo lugar, el **Bounded Context Database Design Diagram**, que representa la traducción de dicho modelo a una estructura relacional de persistencia, mostrando tablas, claves, relaciones y atributos relevantes para almacenar la información del contexto.
+
+De esta manera, los diagramas de nivel de código permiten cerrar la transición entre el diseño táctico y la futura implementación del bounded context. Por un lado, muestran cómo se modela el negocio en clases y relaciones; por otro, evidencian cómo estas decisiones impactan directamente en la forma en que los datos serán almacenados y consultados por la aplicación. Así, esta sección complementa las capas ya desarrolladas anteriormente y aporta una vista más técnica y precisa del bounded context **Reservation**.
+
+En las subsecciones siguientes se presenta, primero, el diagrama de clases de la capa de dominio y, después, el diagrama de diseño de base de datos correspondiente al bounded context.
+
+##### 4.2.2.6.1. Bounded Context Domain Layer Class Diagrams
+
+El **Bounded Context Domain Layer Class Diagram** del bounded context **Reservation** permite representar, a nivel de código, las clases principales que conforman la capa de dominio y las relaciones existentes entre ellas. A diferencia del diagrama de componentes, que muestra una vista más general de las responsabilidades del contexto dentro del sistema, este diagrama se enfoca en la estructura interna del modelo de dominio, mostrando el **aggregate root**, las entidades asociadas, los value objects, la factory, los domain services y las interfaces de repositorio que sostienen la lógica del negocio.
+
+En el caso de **Reservation**, este diagrama es especialmente importante porque el contexto no se limita a una sola entidad aislada, sino que articula varios conceptos que deben mantenerse consistentes entre sí durante todo el ciclo de vida de la reserva. La reserva principal debe controlar estados, tiempos de vigencia, generación de ticket virtual, validación de llegada, cancelación, expiración y consumo. Por ello, el diagrama de clases de dominio permite visualizar con claridad cómo se distribuyen estas responsabilidades dentro del modelo y qué relaciones estructurales existen entre sus elementos.
+
+**Figura X** _Reservation Context Domain Layer Class Diagram_  
+![alt text](./assets/Reservation%20Class%20Diagram.png)  
+_Nota._ Elaboración propia (2026).
+
+Según la Figura X, la clase central del bounded context es **`Reservation`**, la cual actúa como **aggregate root**. Esta clase representa la reserva realizada por un conductor sobre un espacio de estacionamiento y concentra la consistencia principal del contexto. Desde ella se gobiernan las operaciones más importantes del dominio, como confirmar la reserva, cancelarla, expirar su vigencia, validarla y finalmente consumirla cuando el espacio reservado pasa a estar físicamente ocupado. Modelar a `Reservation` como raíz del agregado permite mantener bajo un mismo límite de consistencia todo aquello que afecta directamente el ciclo de vida de la reserva.
+
+Relacionadas con esta raíz del agregado aparecen las entidades **`VirtualTicket`** y **`ReservationValidation`**. La primera representa el ticket virtual generado luego de confirmar una reserva y contiene el identificador único que permitirá su validación posterior. La segunda representa el proceso de validación de la reserva cuando el conductor llega al estacionamiento y presenta su ticket. Ambas son entidades porque poseen identidad propia y evolucionan con el tiempo, pero permanecen subordinadas a la consistencia definida por `Reservation`.
+
+El diagrama también incorpora un conjunto de **value objects** que encapsulan atributos del dominio que no requieren identidad propia, pero sí reglas de validez e inmutabilidad. Entre ellos se encuentran **`ReservationIdentifier`**, que modela el código único asociado a la reserva o ticket; **`ReservationStatus`**, que encapsula el estado de negocio de la reserva; **`VirtualTicketStatus`**, que expresa la situación actual del ticket virtual; **`ValidationResult`**, que representa el resultado de la validación; y **`ReservationTimeWindow`**, que concentra la lógica relacionada con la ventana temporal de vigencia de la reserva. La presencia de estos objetos de valor permite evitar el uso de cadenas o valores primitivos dispersos y mejora la expresividad del modelo.
+
+Además, el diagrama muestra la clase **`ReservationFactory`**, cuya responsabilidad es crear instancias válidas de `Reservation` desde el inicio. Esta fábrica centraliza la construcción inicial del agregado, asegurando que la reserva nazca con los datos obligatorios, un estado inicial correcto y una ventana de tiempo coherente. De esta forma, se evita que la lógica de creación quede dispersa en constructores o servicios ajenos al dominio.
+
+Por otro lado, aparecen los **domain services** **`ReservationExpirationPolicy`**, **`ReservationValidationPolicy`** y **`VirtualTicketGenerator`**. Estas clases encapsulan reglas de negocio que no pertenecen naturalmente a una sola entidad del agregado. `ReservationExpirationPolicy` evalúa si una reserva debe expirar según su tiempo límite y estado actual; `ReservationValidationPolicy` determina si una reserva puede validarse; y `VirtualTicketGenerator` resuelve la generación del identificador del ticket según las reglas del dominio. Su inclusión en el diagrama responde al principio de mantener alta cohesión dentro de las entidades y evitar sobrecargarlas con responsabilidades transversales.
+
+Finalmente, el diagrama incluye las interfaces **`IReservationRepository`**, **`IVirtualTicketRepository`** e **`IReservationValidationRepository`**, las cuales representan los contratos que el dominio necesita para persistir y recuperar información. Aunque sus implementaciones concretas pertenecen a la **Infrastructure Layer**, estas interfaces aparecen en la capa de dominio porque expresan necesidades propias del modelo de negocio sin depender de una tecnología específica de almacenamiento.
+
+En conjunto, el **Domain Layer Class Diagram** del bounded context **Reservation** muestra un modelo centrado en la consistencia del ciclo de vida de la reserva, donde `Reservation` gobierna el agregado principal y se apoya en entidades relacionadas, objetos de valor, servicios de dominio, una fábrica y contratos de repositorio. Esta estructura resulta coherente con el enfoque de **Domain-Driven Design** adoptado por ParkingNow, ya que permite reflejar el lenguaje del negocio directamente en el diseño del software y preparar una base sólida para la implementación posterior del contexto.
