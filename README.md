@@ -116,7 +116,7 @@ Durante el ciclo de desarrollo del informe para la entrega AV1, el equipo ejecut
 
 A continuación se presentan las métricas de colaboración extraídas del repositorio del informe, que evidencian la participación distribuida de los integrantes del equipo:
 
-> **Evidencia pendiente de inserción:** Se incorporará la captura de GitHub Insights, historial de commits y actividad por rama antes de la entrega final de AV1.
+![alt text](assets/reportedecolaboracion.jpeg)
 
 ## Student Outcome
 
