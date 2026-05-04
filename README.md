@@ -6020,6 +6020,46 @@ También concluimos que el enfoque de ParkingNow es técnicamente viable para el
 
 Finalmente, concluimos que la propuesta de valor más crítica no es solo "mostrar estacionamientos", sino ofrecer disponibilidad confiable respaldada por detección física y sincronización digital. Ese atributo diferencia la solución frente a alternativas que priorizan intermediación sin validación física del estado del espacio.
 
+## Capítulo V: Solution UI/UX Design 
+
+### 5.1. Style Guidelines. 
+
+#### 5.1.1. General Style Guidelines. 
+
+#### 5.1.2. Web, Mobile and IoT Style Guidelines. 
+
+### 5.2. Information Architecture. 
+
+#### 5.2.1. Organization Systems. 
+
+#### 5.2.2. Labeling Systems. 
+
+#### 5.2.3. SEO Tags and Meta Tags 
+
+#### 5.2.4. Searching Systems. 
+
+#### 5.2.5. Navigation Systems.
+
+### 5.3. Landing Page UI Design. 
+
+#### 5.3.1. Landing Page Wireframe.
+
+#### 5.3.2. Landing Page Mock-up. 
+
+### 5.4. Applications UX/UI Design. 
+
+#### 5.4.1. Applications Wireframes. 
+
+#### 5.4.2. Applications Wireflow Diagrams. 
+
+#### 5.4.3. Applications Mock-ups. 
+
+#### 5.4.4. Applications User Flow Diagrams. 
+
+### 5.5. Applications Prototyping. 
+
+### 5.6. IoT Device Design. 
+
 ## Conclusiones y recomendaciones
 
 A nivel grupal, concluimos que el diseño estratégico y táctico desarrollado en el informe mantiene coherencia entre problema, segmentos, requisitos, modelo de dominio y arquitectura de software. La solución está correctamente orientada a reducir incertidumbre del conductor y mejorar control operativo del administrador.
