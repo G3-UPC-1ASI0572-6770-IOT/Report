@@ -6039,6 +6039,14 @@ A continuación, presentaremos el logo de nuestra aplicación:
 
 #### 5.1.2. Web, Mobile and IoT Style Guidelines. 
 
+En PARKINGNOW contemplamos el desarrollo de una aplicación web y móvil con diseño adaptable, asegurando una correcta visualización y uso en distintos dispositivos y tamaños de pantalla. Se prioriza una experiencia intuitiva, donde el usuario pueda acceder rápidamente a la información de disponibilidad de estacionamientos y realizar acciones como búsqueda y reserva sin complicaciones.
+
+En cuanto al diseño, se aplicará el patrón visual en Z para organizar el contenido de manera natural, iniciando con el logo y los elementos principales en la parte superior, seguido de las opciones de navegación, y posteriormente la información relevante distribuida de forma clara y ordenada. Esto permite que tanto conductores como administradores comprendan fácilmente el funcionamiento de la plataforma.
+
+Para la interfaz, se utilizará una paleta de colores que transmita confianza y claridad, apoyada en indicadores visuales simples como el uso de colores (por ejemplo, verde para espacios disponibles y rojo para ocupados), lo cual resulta clave en la experiencia del usuario.
+
+En relación con el componente IoT, la información captada por los sensores será representada en tiempo real dentro de las interfaces, manteniendo consistencia visual entre la aplicación móvil y web. Esto asegura que los usuarios puedan interpretar rápidamente el estado de los espacios y confiar en la precisión de los datos mostrados.
+
 ### 5.2. Information Architecture. 
 
 #### 5.2.1. Organization Systems. 
