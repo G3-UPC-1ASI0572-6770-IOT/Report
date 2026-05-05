@@ -6049,7 +6049,64 @@ En relación con el componente IoT, la información captada por los sensores ser
 
 ### 5.2. Information Architecture. 
 En esta sección, detallaremos decisicones y fundamentos sobr el contenido en las experiencias web y móvil de PARKINGNOW. Estas propuestas estan diseñadas para asegurar que los visitantes y usuarios se adapten a las funcionalidades de cada producto sin esfuerzo. Las decisiones incluyen los sistemas de organización, etiquetado, navegación y búsqueda.
+
 #### 5.2.1. Organization Systems. 
+
+Para estructurar la arquitectura de la información de PARKINGNOW, se ha adoptado un sistema de organización jerárquico que abarca la Landing Page, la aplicación móvil, la aplicación web y la infraestructura IoT. Este enfoque permite organizar la información de manera clara, facilitando la navegación y asegurando que cada tipo de usuario pueda acceder rápidamente a las funciones que necesita.
+
+**Landing Page**
+La Landing Page se organiza de forma jerárquica para presentar la propuesta de valor y guiar al usuario hacia el uso de la plataforma:
+
+Barra de Navegación Principal:
+Ubicada en la parte superior, permite acceder a las secciones clave:
+
+- Inicio (Home): Presenta una visión general de PARKINGNOW, destacando el problema del estacionamiento en la ciudad y la solución propuesta, con llamados a la acción para registro e inicio de sesión.
+- Servicios (Services): Explica los beneficios tanto para conductores como para administradores de estacionamientos.
+- Tecnología (Technology): Describe el uso de sensores IoT y monitoreo para la detección de espacios en tiempo real.
+- Planes (Plans): Muestra las opciones de uso o afiliación para los distintos usuarios.
+- Contáctanos (Contact): Incluye formulario de contacto y enlaces de comunicación.
+- Nosotros (About Us): Presenta la misión, visión y propósito del proyecto.
+
+Estructura de Contenido:
+Se organiza mediante encabezados, secciones claras y botones de acción (CTAs) que guían al usuario hacia el registro o exploración de la plataforma.
+
+Footer:
+Incluye enlaces adicionales como políticas, contacto y redes sociales.
+
+**Aplicación Móvil (Conductores urbanos)**
+
+La aplicación móvil está diseñada para ofrecer una experiencia rápida y práctica a los conductores:
+
+- Inicio (Home): Muestra espacios disponibles cercanos y accesos rápidos a búsqueda.
+- Buscar Estacionamiento (Search): Permite ubicar espacios en tiempo real con ayuda de geolocalización.
+- Reservas (Reservations): Permite gestionar reservas activas.
+- Favoritos (Favorites): Guarda estacionamientos frecuentes.
+- Historial (History): Registro de reservas anteriores.
+
+La información se presenta de forma simple, priorizando rapidez y facilidad de uso.
+
+**Aplicación Web (Administradores de estacionamientos independientes)**
+
+La aplicación web está orientada a la gestión de estacionamientos:
+
+- Inicio (Dashboard): Resumen general de ocupación y actividad.
+- Monitoreo (Monitoring): Visualización en tiempo real del estado de los espacios.
+- Reservas (Reservations): Gestión de solicitudes y ocupación.
+- Espacios (Spaces): Configuración y control de los espacios disponibles.
+- Estadísticas (Analytics): Datos sobre uso, ocupación e ingresos.
+
+La interfaz está diseñada para ofrecer mayor detalle y control operativo.
+
+**Infraestructura IoT**
+
+El sistema IoT cumple un rol fundamental dentro de la organización del sistema:
+
+- Sensores en cada espacio: Detectan si un espacio está ocupado o libre.
+- Cámaras de monitoreo: Apoyan en la verificación y seguridad.
+- Comunicación en tiempo real: Los datos se envían a un sistema central (backend).
+- Integración con apps: La información se refleja automáticamente en la app móvil y web.
+
+Esto permite mantener una sincronización constante entre los estacionamientos y la plataforma digital.
 
 #### 5.2.2. Labeling Systems. 
 
