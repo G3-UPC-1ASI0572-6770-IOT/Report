@@ -6027,6 +6027,14 @@ En este capítulo, se desarrollara lo correspondiente a los estilos y herrmaient
 #### 5.1.1. General Style Guidelines. 
 
 **Brand Overview**
+En una ciudad como Lima, donde el tráfico y la falta de estacionamientos son problemas constantes, encontrar un espacio disponible suele ser difícil y toma tiempo. PARKINGNOW surge como una solución que permite a los conductores ubicar y reservar estacionamientos en tiempo real mediante una aplicación móvil. La plataforma utiliza tecnologías IoT, como sensores que detectan la ocupación de los espacios, para brindar información actualizada y confiable. De esta manera, se busca reducir el tiempo de búsqueda, mejorar la experiencia del usuario y contribuir a una gestión más eficiente del estacionamiento urbano.
+
+**Brand name**
+El nombre que seleccionamos para nuestro proyecto es PARKINGNOW, ya que refleja la propuesta principal de la solución: permitir a los usuarios encontrar y gestionar espacios de estacionamiento de forma rápida y en el momento que lo necesitan. La combinación de “Parking” (estacionamiento) y “Now” (ahora) transmite inmediatez, practicidad y acceso en tiempo real. Se eligió un nombre en inglés por su carácter universal y su fácil recordación, alineándose con una solución tecnológica moderna orientada a entornos urbanos.
+
+A continuación, presentaremos el logo de nuestra aplicación:
+
+<img src="./assets/logoparkingnow.png" alt="Logo ParkingNow" width="151">
 
 
 #### 5.1.2. Web, Mobile and IoT Style Guidelines. 
