@@ -6023,8 +6023,11 @@ Finalmente, concluimos que la propuesta de valor más crítica no es solo "mostr
 ## Capítulo V: Solution UI/UX Design 
 
 ### 5.1. Style Guidelines. 
-
+En este capítulo, se desarrollara lo correspondiente a los estilos y herrmaientas que usaremos para el diseño de nuestro proyecto.
 #### 5.1.1. General Style Guidelines. 
+
+**Brand Overview**
+
 
 #### 5.1.2. Web, Mobile and IoT Style Guidelines. 
 
