@@ -6048,7 +6048,7 @@ Para la interfaz, se utilizará una paleta de colores que transmita confianza y 
 En relación con el componente IoT, la información captada por los sensores será representada en tiempo real dentro de las interfaces, manteniendo consistencia visual entre la aplicación móvil y web. Esto asegura que los usuarios puedan interpretar rápidamente el estado de los espacios y confiar en la precisión de los datos mostrados.
 
 ### 5.2. Information Architecture. 
-
+En esta sección, detallaremos decisicones y fundamentos sobr el contenido en las experiencias web y móvil de PARKINGNOW. Estas propuestas estan diseñadas para asegurar que los visitantes y usuarios se adapten a las funcionalidades de cada producto sin esfuerzo. Las decisiones incluyen los sistemas de organización, etiquetado, navegación y búsqueda.
 #### 5.2.1. Organization Systems. 
 
 #### 5.2.2. Labeling Systems. 
