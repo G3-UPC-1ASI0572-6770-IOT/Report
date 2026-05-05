@@ -6034,7 +6034,7 @@ El nombre que seleccionamos para nuestro proyecto es PARKINGNOW, ya que refleja 
 
 A continuación, presentaremos el logo de nuestra aplicación:
 
-<img src="./assets/logoparkingnow.png" alt="Logo ParkingNow" width="151">
+<img src="./assets/logoparkingnow.png" alt="Logo ParkingNow" width="591">
 
 
 #### 5.1.2. Web, Mobile and IoT Style Guidelines. 
