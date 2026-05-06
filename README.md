@@ -6195,6 +6195,15 @@ Estos métodos se complementan entre sí, permitiendo una experiencia de búsque
 
 #### 5.2.5. Navigation Systems.
 
+El sistema de navegación de PARKINGNOW está diseñado para ser claro, intuitivo y consistente tanto en la aplicación móvil como en la aplicación web. Se busca que el usuario pueda desplazarse por la plataforma sin dificultad, identificando rápidamente las acciones principales como iniciar sesión, registrarse, buscar estacionamientos o gestionar reservas.
+En la aplicación móvil, la navegación se organiza mediante una barra inferior con accesos directos a las funciones más utilizadas, como inicio, búsqueda, reservas y perfil. Esto permite a los conductores moverse rápidamente entre secciones y realizar acciones en pocos pasos.
+
+En la aplicación web, la navegación se estructura a través de un menú lateral o superior que agrupa las funcionalidades principales, como monitoreo, reservas, espacios y estadísticas. De esta forma, los administradores pueden acceder fácilmente a la información y herramientas necesarias para gestionar sus estacionamientos.
+
+El uso de colores, iconos y elementos visuales ayuda a guiar al usuario en cada paso, destacando acciones importantes como reservar o visualizar disponibilidad. Además, la integración con el sistema IoT permite que la navegación esté acompañada de información actualizada en tiempo real, mejorando la toma de decisiones dentro de la plataforma.
+
+En conjunto, el sistema de navegación está pensado para que la interacción sea fluida, rápida y sin interrupciones, adaptándose a las necesidades de cada tipo de usuario.
+
 ### 5.3. Landing Page UI Design. 
 
 #### 5.3.1. Landing Page Wireframe.
