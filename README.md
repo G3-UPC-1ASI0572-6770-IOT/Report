@@ -6051,22 +6051,30 @@ La elección de colores en PARKINGNOW está orientada a transmitir claridad, con
 
 El blanco será el color predominante en los fondos de la interfaz. Representa simplicidad, orden y limpieza visual, permitiendo que el contenido sea más fácil de leer y que los elementos importantes destaquen sin saturar al usuario.
 
-<img src="./assets/Blanco.png" alt="Color Primario" width="301">
+<img src="./assets/Blanco.png" alt="Color Primario" width="501">
 
 **Colores Secundarios (Azul y Celeste):**
 
 El azul se utiliza para transmitir confianza, seguridad y tecnología, siendo ideal para títulos, botones principales y elementos clave de la interfaz. El celeste complementa esta paleta aportando una sensación de frescura y dinamismo, utilizándose en elementos interactivos o secciones destacadas.
 
-<img src="./assets/Azul.png" alt="Color secundario 1" width="301">
+**Azul**
 
-<img src="./assets/Celeste.png" alt="Color secundario 2" width="301">
+<img src="./assets/Azul.png" alt="Color secundario 1" width="501">
+
+**Celeste**
+
+<img src="./assets/Celeste.png" alt="Color secundario 2" width="501">
 
 **Colores de Texto (Negro y Blanco):**
 El negro se emplea principalmente para textos sobre fondos claros, garantizando alta legibilidad. Por otro lado, el blanco se utiliza en textos cuando el fondo es oscuro, asegurando contraste y claridad en la información presentada.
 
-<img src="./assets/Negro.png" alt="Color texto 1" width="301">
+**Negro:**
 
-<img src="./assets/Blanco.png" alt="Color texto 2" width="301">
+<img src="./assets/Negro.png" alt="Color texto 1" width="501">
+
+**Blanco:**
+
+<img src="./assets/Blanco.png" alt="Color texto 2" width="501">
 
 **Colores de Estado:**
 Se incorporan colores funcionales para indicar el estado de los espacios de estacionamiento:
@@ -6074,11 +6082,11 @@ Se incorporan colores funcionales para indicar el estado de los espacios de esta
 
 **Verde: espacio disponible**
 
-<img src="./assets/" alt="Color estado 1" width="301">
+<img src="./assets/Verde.png" alt="Color estado 1" width="501">
 
 **Rojo: espacio ocupado**
 
-<img src="./assets/" alt="Color estado 2" width="301">
+<img src="./assets/Rojo.png" alt="Color estado 2" width="501">
 
 Estos colores son fundamentales dentro del sistema, ya que permiten al usuario interpretar rápidamente la información proveniente de los sensores IoT, facilitando la toma de decisiones en tiempo real.
 En conjunto, esta paleta de colores no solo define la identidad visual de PARKINGNOW, sino que también mejora la experiencia del usuario al hacer la interfaz más clara, intuitiva y funcional.
