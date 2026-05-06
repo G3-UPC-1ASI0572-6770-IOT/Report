@@ -6036,6 +6036,55 @@ A continuación, presentaremos el logo de nuestra aplicación:
 
 <img src="./assets/logoparkingnow.png" alt="Logo ParkingNow" width="591">
 
+**Typography**
+La tipografía en PARKINGNOW cumple un rol clave en la claridad y facilidad de uso de la interfaz. Se ha optado por fuentes legibles y de estilo moderno que permiten que la información sea comprendida rápidamente en distintos dispositivos. La organización tipográfica se estructura en cuatro niveles: headings (encabezados) para resaltar secciones principales, body (texto) para el contenido general, buttons (botones) para acciones importantes y links (enlaces) para la navegación, asegurando una jerarquía visual clara y consistente.
+
+Para el diseño se han seleccionado dos tipografías: Kalam, utilizada principalmente en títulos o elementos destacados para aportar cercanía y personalidad a la interfaz, y Tinos, empleada en textos y contenidos por su alta legibilidad. Esta combinación permite equilibrar estética y funcionalidad, mejorando la experiencia del usuario dentro de la plataforma.
+
+<img src="./assets/Typograpy.png" alt="Typography" width="301">
+
+**Colors**
+
+La elección de colores en PARKINGNOW está orientada a transmitir claridad, confianza y facilidad de uso. Se ha definido una paleta simple y coherente que permita una buena legibilidad en todos los dispositivos y que, al mismo tiempo, refleje el enfoque tecnológico de la solución.
+
+**Color Primario (Blanco):**
+
+El blanco será el color predominante en los fondos de la interfaz. Representa simplicidad, orden y limpieza visual, permitiendo que el contenido sea más fácil de leer y que los elementos importantes destaquen sin saturar al usuario.
+
+<img src="./assets/Blanco.png" alt="Color Primario" width="301">
+
+**Colores Secundarios (Azul y Celeste):**
+
+El azul se utiliza para transmitir confianza, seguridad y tecnología, siendo ideal para títulos, botones principales y elementos clave de la interfaz. El celeste complementa esta paleta aportando una sensación de frescura y dinamismo, utilizándose en elementos interactivos o secciones destacadas.
+
+<img src="./assets/Azul.png" alt="Color secundario 1" width="301">
+
+<img src="./assets/Celeste.png" alt="Color secundario 2" width="301">
+
+**Colores de Texto (Negro y Blanco):**
+El negro se emplea principalmente para textos sobre fondos claros, garantizando alta legibilidad. Por otro lado, el blanco se utiliza en textos cuando el fondo es oscuro, asegurando contraste y claridad en la información presentada.
+
+<img src="./assets/Negro.png" alt="Color texto 1" width="301">
+
+<img src="./assets/Blanco.png" alt="Color texto 2" width="301">
+
+**Colores de Estado:**
+Se incorporan colores funcionales para indicar el estado de los espacios de estacionamiento:
+
+
+**Verde: espacio disponible**
+
+<img src="./assets/" alt="Color estado 1" width="301">
+
+**Rojo: espacio ocupado**
+
+<img src="./assets/" alt="Color estado 2" width="301">
+
+Estos colores son fundamentales dentro del sistema, ya que permiten al usuario interpretar rápidamente la información proveniente de los sensores IoT, facilitando la toma de decisiones en tiempo real.
+En conjunto, esta paleta de colores no solo define la identidad visual de PARKINGNOW, sino que también mejora la experiencia del usuario al hacer la interfaz más clara, intuitiva y funcional.
+
+
+
 
 #### 5.1.2. Web, Mobile and IoT Style Guidelines. 
 
