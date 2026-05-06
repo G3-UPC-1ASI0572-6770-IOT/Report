@@ -6110,6 +6110,46 @@ Esto permite mantener una sincronización constante entre los estacionamientos y
 
 #### 5.2.2. Labeling Systems. 
 
+En esta sección se describen los sistemas de etiquetado utilizados en la Landing Page, la aplicación móvil y la aplicación web de PARKINGNOW. El objetivo del etiquetado es facilitar la comprensión del sistema, permitiendo que los usuarios identifiquen rápidamente las funciones disponibles y naveguen de manera intuitiva. Se busca mantener consistencia en los nombres y utilizar términos claros y familiares.
+
+**Etiquetas de Encabezados (Headings)**
+
+Las etiquetas de encabezado permiten organizar el contenido principal de la plataforma:
+
+- Inicio (Home): Presenta una visión general de la solución y accesos rápidos al registro o inicio de sesión.
+- Servicios (Services): Describe las funcionalidades principales para conductores y administradores.
+- Tecnología (Technology): Explica el uso de sensores IoT y monitoreo en tiempo real de los espacios.
+- Planes (Plans): Muestra opciones de uso o afiliación para los usuarios.
+- Contáctanos (Contact): Permite la comunicación con el equipo mediante formularios o enlaces.
+- Nosotros (About Us): Información sobre la propuesta, misión y visión de PARKINGNOW.
+
+**Etiquetas Textuales (Text Labels)**
+
+Estas etiquetas ayudan a los usuarios a identificar acciones dentro de la plataforma:
+
+- Buscar Estacionamiento (Search Parking): Permite ubicar espacios disponibles en tiempo real.
+- Reservar (Reserve): Acción para seleccionar y confirmar un espacio.
+- Disponibilidad (Availability): Indica si un espacio está libre u ocupado.
+- Mis Reservas (My Reservations): Acceso a reservas activas.
+- Historial (History): Registro de reservas anteriores.
+- Favoritos (Favorites): Espacios guardados por el usuario.
+- Monitoreo (Monitoring): Vista en tiempo real para administradores.
+- Estadísticas (Analytics): Información sobre uso y ocupación.
+- Configuración (Settings): Ajustes de la cuenta y preferencias.
+
+**Etiquetas Icónicas (Iconic Labels)**
+
+Se utilizan íconos para reforzar visualmente las acciones y facilitar la navegación:
+
+- Lupa: Representa la búsqueda de estacionamientos.
+- Ubicación: Indica la posición del usuario o estacionamientos cercanos.
+- Estrella: Marca favoritos.
+- Vehículo: Representa espacios de estacionamiento.
+- Notificaciones: Alertas sobre reservas o disponibilidad.
+- Indicadores de estado: Verde para espacio disponible y rojo para ocupado (basado en datos IoT).
+
+Estas etiquetas se aplican de manera consistente en la web y la aplicación móvil, permitiendo que el usuario reconozca fácilmente las funciones sin necesidad de aprendizaje previo. Además, los indicadores visuales vinculados a los sensores IoT ayudan a interpretar rápidamente el estado de los espacios de estacionamiento, mejorando la experiencia general del sistema.
+
 #### 5.2.3. SEO Tags and Meta Tags 
 
 #### 5.2.4. Searching Systems. 
