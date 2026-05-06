@@ -6060,12 +6060,12 @@ La Landing Page se organiza de forma jerárquica para presentar la propuesta de 
 Barra de Navegación Principal:
 Ubicada en la parte superior, permite acceder a las secciones clave:
 
-- Inicio (Home): Presenta una visión general de PARKINGNOW, destacando el problema del estacionamiento en la ciudad y la solución propuesta, con llamados a la acción para registro e inicio de sesión.
-- Servicios (Services): Explica los beneficios tanto para conductores como para administradores de estacionamientos.
-- Tecnología (Technology): Describe el uso de sensores IoT y monitoreo para la detección de espacios en tiempo real.
-- Planes (Plans): Muestra las opciones de uso o afiliación para los distintos usuarios.
-- Contáctanos (Contact): Incluye formulario de contacto y enlaces de comunicación.
-- Nosotros (About Us): Presenta la misión, visión y propósito del proyecto.
+- **Inicio (Home):** Presenta una visión general de PARKINGNOW, destacando el problema del estacionamiento en la ciudad y la solución propuesta, con llamados a la acción para registro e inicio de sesión.
+- **Servicios (Services):** Explica los beneficios tanto para conductores como para administradores de estacionamientos.
+- **Tecnología (Technology):** Describe el uso de sensores IoT y monitoreo para la detección de espacios en tiempo real.
+- **Planes (Plans):** Muestra las opciones de uso o afiliación para los distintos usuarios.
+- **Contáctanos (Contact):** Incluye formulario de contacto y enlaces de comunicación.
+- **Nosotros (About Us):** Presenta la misión, visión y propósito del proyecto.
 
 Estructura de Contenido:
 Se organiza mediante encabezados, secciones claras y botones de acción (CTAs) que guían al usuario hacia el registro o exploración de la plataforma.
@@ -6077,11 +6077,11 @@ Incluye enlaces adicionales como políticas, contacto y redes sociales.
 
 La aplicación móvil está diseñada para ofrecer una experiencia rápida y práctica a los conductores:
 
-- Inicio (Home): Muestra espacios disponibles cercanos y accesos rápidos a búsqueda.
-- Buscar Estacionamiento (Search): Permite ubicar espacios en tiempo real con ayuda de geolocalización.
-- Reservas (Reservations): Permite gestionar reservas activas.
-- Favoritos (Favorites): Guarda estacionamientos frecuentes.
-- Historial (History): Registro de reservas anteriores.
+- **Inicio (Home):** Muestra espacios disponibles cercanos y accesos rápidos a búsqueda.
+- **Buscar Estacionamiento (Search):** Permite ubicar espacios en tiempo real con ayuda de geolocalización.
+- **Reservas (Reservations):** Permite gestionar reservas activas.
+- **Favoritos (Favorites):** Guarda estacionamientos frecuentes.
+- **Historial (History):** Registro de reservas anteriores.
 
 La información se presenta de forma simple, priorizando rapidez y facilidad de uso.
 
@@ -6089,11 +6089,11 @@ La información se presenta de forma simple, priorizando rapidez y facilidad de 
 
 La aplicación web está orientada a la gestión de estacionamientos:
 
-- Inicio (Dashboard): Resumen general de ocupación y actividad.
-- Monitoreo (Monitoring): Visualización en tiempo real del estado de los espacios.
-- Reservas (Reservations): Gestión de solicitudes y ocupación.
-- Espacios (Spaces): Configuración y control de los espacios disponibles.
-- Estadísticas (Analytics): Datos sobre uso, ocupación e ingresos.
+- **Inicio (Dashboard):** Resumen general de ocupación y actividad.
+- **Monitoreo (Monitoring):** Visualización en tiempo real del estado de los espacios.
+- **Reservas (Reservations):** Gestión de solicitudes y ocupación.
+- **Espacios (Spaces):** Configuración y control de los espacios disponibles.
+- **Estadísticas (Analytics):** Datos sobre uso, ocupación e ingresos.
 
 La interfaz está diseñada para ofrecer mayor detalle y control operativo.
 
@@ -6101,10 +6101,10 @@ La interfaz está diseñada para ofrecer mayor detalle y control operativo.
 
 El sistema IoT cumple un rol fundamental dentro de la organización del sistema:
 
-- Sensores en cada espacio: Detectan si un espacio está ocupado o libre.
-- Cámaras de monitoreo: Apoyan en la verificación y seguridad.
-- Comunicación en tiempo real: Los datos se envían a un sistema central (backend).
-- Integración con apps: La información se refleja automáticamente en la app móvil y web.
+- **Sensores en cada espacio:** Detectan si un espacio está ocupado o libre.
+- **Cámaras de monitoreo:** Apoyan en la verificación y seguridad.
+- **Comunicación en tiempo real:** Los datos se envían a un sistema central (backend).
+- **Integración con apps:** La información se refleja automáticamente en la app móvil y web.
 
 Esto permite mantener una sincronización constante entre los estacionamientos y la plataforma digital.
 
@@ -6116,37 +6116,37 @@ En esta sección se describen los sistemas de etiquetado utilizados en la Landin
 
 Las etiquetas de encabezado permiten organizar el contenido principal de la plataforma:
 
-- Inicio (Home): Presenta una visión general de la solución y accesos rápidos al registro o inicio de sesión.
-- Servicios (Services): Describe las funcionalidades principales para conductores y administradores.
-- Tecnología (Technology): Explica el uso de sensores IoT y monitoreo en tiempo real de los espacios.
-- Planes (Plans): Muestra opciones de uso o afiliación para los usuarios.
-- Contáctanos (Contact): Permite la comunicación con el equipo mediante formularios o enlaces.
-- Nosotros (About Us): Información sobre la propuesta, misión y visión de PARKINGNOW.
+- **Inicio (Home):** Presenta una visión general de la solución y accesos rápidos al registro o inicio de sesión.
+- **Servicios (Services):** Describe las funcionalidades principales para conductores y administradores.
+- **Tecnología (Technology):** Explica el uso de sensores IoT y monitoreo en tiempo real de los espacios.
+- **Planes (Plans):** Muestra opciones de uso o afiliación para los usuarios.
+- **Contáctanos (Contact):** Permite la comunicación con el equipo mediante formularios o enlaces.
+- **Nosotros (About Us):** Información sobre la propuesta, misión y visión de PARKINGNOW.
 
 **Etiquetas Textuales (Text Labels)**
 
 Estas etiquetas ayudan a los usuarios a identificar acciones dentro de la plataforma:
 
-- Buscar Estacionamiento (Search Parking): Permite ubicar espacios disponibles en tiempo real.
-- Reservar (Reserve): Acción para seleccionar y confirmar un espacio.
-- Disponibilidad (Availability): Indica si un espacio está libre u ocupado.
-- Mis Reservas (My Reservations): Acceso a reservas activas.
-- Historial (History): Registro de reservas anteriores.
-- Favoritos (Favorites): Espacios guardados por el usuario.
-- Monitoreo (Monitoring): Vista en tiempo real para administradores.
-- Estadísticas (Analytics): Información sobre uso y ocupación.
-- Configuración (Settings): Ajustes de la cuenta y preferencias.
+- **Buscar Estacionamiento (Search Parking):** Permite ubicar espacios disponibles en tiempo real.
+- **Reservar (Reserve):** Acción para seleccionar y confirmar un espacio.
+- **Disponibilidad (Availability):** Indica si un espacio está libre u ocupado.
+- **Mis Reservas (My Reservations):** Acceso a reservas activas.
+- **Historial (History):** Registro de reservas anteriores.
+- **Favoritos (Favorites):** Espacios guardados por el usuario.
+- **Monitoreo (Monitoring):** Vista en tiempo real para administradores.
+- **Estadísticas (Analytics):** Información sobre uso y ocupación.
+- **Configuración (Settings):** Ajustes de la cuenta y preferencias.
 
 **Etiquetas Icónicas (Iconic Labels)**
 
 Se utilizan íconos para reforzar visualmente las acciones y facilitar la navegación:
 
-- Lupa: Representa la búsqueda de estacionamientos.
-- Ubicación: Indica la posición del usuario o estacionamientos cercanos.
-- Estrella: Marca favoritos.
-- Vehículo: Representa espacios de estacionamiento.
-- Notificaciones: Alertas sobre reservas o disponibilidad.
-- Indicadores de estado: Verde para espacio disponible y rojo para ocupado (basado en datos IoT).
+- **Lupa:** Representa la búsqueda de estacionamientos.
+- **Ubicación:** Indica la posición del usuario o estacionamientos cercanos.
+- **Estrella:** Marca favoritos.
+- **Vehículo:** Representa espacios de estacionamiento.
+- **Notificaciones:** Alertas sobre reservas o disponibilidad.
+- **Indicadores de estado:** Verde para espacio disponible y rojo para ocupado (basado en datos IoT).
 
 Estas etiquetas se aplican de manera consistente en la web y la aplicación móvil, permitiendo que el usuario reconozca fácilmente las funciones sin necesidad de aprendizaje previo. Además, los indicadores visuales vinculados a los sensores IoT ayudan a interpretar rápidamente el estado de los espacios de estacionamiento, mejorando la experiencia general del sistema.
 
@@ -6179,6 +6179,19 @@ Identifica la autoría del contenido y los derechos de la plataforma:
 Estos elementos permiten mejorar la presencia digital de PARKINGNOW y asegurar una correcta indexación en buscadores, alineándose con la propuesta tecnológica del proyecto.
 
 #### 5.2.4. Searching Systems. 
+
+Los sistemas de búsqueda de PARKINGNOW están diseñados para que los usuarios puedan encontrar estacionamientos de forma rápida e intuitiva, tanto en la aplicación móvil como en la web. Estos métodos permiten acceder a la información de manera sencilla, priorizando la ubicación, la disponibilidad en tiempo real y la facilidad de uso.
+
+**Búsqueda por texto**
+Los usuarios pueden buscar estacionamientos ingresando el nombre del establecimiento, zona o palabras clave en la barra de búsqueda. Esto facilita encontrar lugares específicos de manera directa.
+
+**Búsqueda por ubicación**
+La plataforma permite utilizar la ubicación actual del usuario para mostrar estacionamientos cercanos. Esta opción es especialmente útil para conductores que necesitan encontrar un espacio disponible de forma inmediata.
+
+**Búsqueda por mapa**
+Se incorpora un mapa interactivo donde los usuarios pueden visualizar los estacionamientos disponibles según su cercanía. Además, podrán identificar fácilmente los espacios libres u ocupados mediante indicadores visuales en tiempo real, basados en información proveniente de sensores IoT.
+
+Estos métodos se complementan entre sí, permitiendo una experiencia de búsqueda más eficiente y adaptada a las necesidades del usuario en distintos contextos.
 
 #### 5.2.5. Navigation Systems.
 
