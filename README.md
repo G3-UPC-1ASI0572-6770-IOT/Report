@@ -6150,7 +6150,33 @@ Se utilizan íconos para reforzar visualmente las acciones y facilitar la navega
 
 Estas etiquetas se aplican de manera consistente en la web y la aplicación móvil, permitiendo que el usuario reconozca fácilmente las funciones sin necesidad de aprendizaje previo. Además, los indicadores visuales vinculados a los sensores IoT ayudan a interpretar rápidamente el estado de los espacios de estacionamiento, mejorando la experiencia general del sistema.
 
-#### 5.2.3. SEO Tags and Meta Tags 
+#### 5.2.3. SEO Tags and Meta Tags
+
+Los SEO Tags y Meta Tags permiten que la Landing Page y la aplicación web de PARKINGNOW sean fácilmente identificables por los motores de búsqueda, mejorando su visibilidad y facilitando el acceso de los usuarios. Además, contribuyen a una correcta visualización en distintos dispositivos y a una mejor gestión del contenido.
+
+**Title**
+El título define el nombre de la startup en el navegador y en los resultados de búsqueda:
+
+<title>PARKINGNOW</title>
+
+**Description**
+Describe de forma breve el propósito de la plataforma, incluyendo su enfoque en tecnología e IoT:
+
+<meta name="description" content="PARKINGNOW es una plataforma que permite encontrar y reservar estacionamientos en tiempo real."/>
+
+**Keywords y Viewport**
+Se incluyen etiquetas que ayudan a posicionar la página y asegurar su correcta adaptación en dispositivos móviles:
+
+<meta name="keywords" content="estacionamiento, parking, IoT, sensores, reservas, Lima, conductores"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+**Author / Copyright**
+Identifica la autoría del contenido y los derechos de la plataforma:
+
+<meta name="author" content="Equipo PARKINGNOW"/>
+<meta name="copyright" content="© 2026 PARKINGNOW. Todos los derechos reservados."/>
+
+Estos elementos permiten mejorar la presencia digital de PARKINGNOW y asegurar una correcta indexación en buscadores, alineándose con la propuesta tecnológica del proyecto.
 
 #### 5.2.4. Searching Systems. 
 
