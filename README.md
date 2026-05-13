@@ -6323,6 +6323,20 @@ En conjunto, el sistema de navegación está pensado para que la interacción se
 
 ### 5.5. Applications Prototyping. 
 
+#### Prototipo Mobile Aplication
+
+![alt text](./assets/prototipo-mobile-1.png)
+![alt text](./assets/prototipo-mobile-2.png)
+![alt text](./assets/prototipo-mobile-3.png)
+![alt text](./assets/prototipo-mobile-4.png)
+
+
+
+
+
+
+
+
 ### 5.6. IoT Device Design. 
 
 ## Conclusiones y recomendaciones
