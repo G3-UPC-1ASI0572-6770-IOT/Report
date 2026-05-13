@@ -6413,64 +6413,6 @@ The wireframes are organized into one general application overview and five spec
 
 #### 5.4.1. Applications Wireframes.
 
-**Figure 1. Applications Wireframes — General Admin Web Flow**
-
-![Applications Wireframes — General Admin Web Flow](assets/webwireframe.jpeg)
-
-**Description:**  
-This general wireframe presents the complete administrator web flow of ParkingNow. It shows the **Dashboard — Overview** as the central navigation point of the platform. From this screen, the administrator can access the main modules of the web application: parking lot configuration, IoT monitoring, reservations management, IoT events and alerts, and administrator settings.
-
----
-
-**Figure 2. Applications Wireframes — Parking Lot Configuration Flow**
-
-![alt text](assets/webapp1.jpeg)
-
-**Description:**  
-This wireframe represents the parking lot configuration process. It starts from the **Dashboard — Overview**, where the administrator accesses the configuration module. Then, the administrator continues to **Parking Lot Setup** to register the basic information of the parking lot. After that, the configured information is reviewed in **Parking Lot Profile**. Finally, the administrator reaches **Parking Spaces Management**, where parking spaces are created, reviewed, and managed according to the capacity and operational needs of the parking lot.
-
----
-
-**Figure 3. Applications Wireframes — IoT Monitoring Flow**
-
-![alt text](assets/webapp2.jpeg)
-
-**Description:**  
-This wireframe represents the IoT monitoring process. It starts from the **Dashboard — Overview**, where the administrator accesses the IoT module. Then, the administrator enters **IoT Node Association & Status** to associate physical IoT nodes with parking spaces and verify their connectivity status. Finally, the administrator reaches the **Space Monitoring Board**, where parking space availability is monitored using IoT-verified data.
-
----
-
-**Figure 4. Applications Wireframes — Reservations Management Flow**
-
-![alt text](assets/webapp3.jpeg)
-
-**Description:**  
-This wireframe represents the reservations management process. It starts from the **Dashboard — Overview**, where the administrator accesses reservation information. Then, the administrator continues to **Reservations Management**, which centralizes the reservation module. After that, the administrator enters **Reservations Management — Active Reservations** to review current or pending reservations. Finally, the administrator reaches **Reservations Management — Reservation History**, where completed, cancelled, or expired reservations are reviewed.
-
----
-
-**Figure 5. Applications Wireframes — IoT Events and Alerts Flow**
-
-![alt text](assets/webapp4.jpeg)
-
-![alt text](assets/webapp5.jpeg)
-
-**Description:**  
-This wireframe represents the IoT events and alerts review process. It starts from the **Dashboard — Overview**, where the administrator accesses alert information. Then, the administrator continues to **IoT Events History / Alerts — Main View**, where event and alert records are displayed. After that, the administrator can move to **IoT Events History / Alerts — Empty State**, which represents the condition where no alerts are available under the selected filters or current state.
-
-From the empty state, two paths are considered. In the first path, the administrator opens the **Event Details Modal** directly. In the second path, the administrator returns to the main alerts view, reaches the empty state again, and then opens the **Event Details Modal**. This supports both direct event inspection and repeated alert review during administrative monitoring.
-
----
-
-**Figure 6. Applications Wireframes — Admin Settings Flow**
-
-![alt text](assets/webapp6.jpeg)
-
-**Description:**  
-This wireframe represents the administrator profile and settings process. It starts from the **Dashboard — Overview**, where the administrator accesses the account settings module. Then, the administrator continues to **Admin Profile / Settings — Edit and Validation State**, where profile information can be updated and validation feedback is displayed. After that, the administrator reaches **Admin Profile / Settings — Main Menu**, which contains the main account configuration options. Finally, the process ends in **Admin Profile / Settings — Logout Modal**, where the administrator confirms the session closure.
-
-
-
 **Mobile App**
 <br>
 **Figura 105** _Wireflow general de la aplicación móvil_  
@@ -6598,44 +6540,554 @@ Según la **Figura 118**, la gestión de usuarios contempla control de cuentas y
 ---
 
 
+#### 5.4.3. Applications Mock-ups
+
+La presente sección muestra los **mock-ups de las aplicaciones de ParkingNow**, desarrollados a partir de los wireframes, wireflows y user flows definidos previamente. Estos mock-ups representan la propuesta visual final de las interfaces que serán utilizadas por los principales segmentos objetivo del producto: conductores urbanos y administradores de playas de estacionamiento.
+
+Los mock-ups aplican el **Design System de ParkingNow**, manteniendo una interfaz limpia, moderna y consistente con el Landing Page. Se utiliza una paleta visual basada en blanco como color principal, azul institucional para títulos, navegación y llamadas a la acción, cyan como acento tecnológico asociado a IoT y conectividad, además de colores de estado para representar disponibilidad de espacios: verde para espacios disponibles, rojo para espacios ocupados y gris para estados no disponibles u offline.
+
+La propuesta visual busca asegurar una experiencia coherente entre la aplicación móvil y la aplicación web. En ambos casos, la interfaz prioriza la consulta rápida de disponibilidad, la claridad de los estados de los espacios, la navegación simple y la presentación de información útil para la toma de decisiones. Asimismo, se aplican principios de diseño inclusivo mediante textos legibles, contraste adecuado, componentes reconocibles, jerarquía visual clara y botones con tamaño suficiente para facilitar la interacción.
+
+De acuerdo con el enunciado del trabajo final, esta sección debe presentar y explicar los mock-ups de las aplicaciones, evidenciando la aplicación de principios de diseño, diseño inclusivo, arquitectura de información y el Design System establecido para los productos digitales.  
+
+**Figura 5.5**  
+**Mobile Application Mock-up — Driver Experience**
+
+![Mobile Application Mock-up — Driver Experience](assets/mobilemockup.jpeg)
+
+**Descripción.** La Figura 5.5 presenta el mock-up de la aplicación móvil de ParkingNow orientada al conductor. Esta interfaz permite al usuario consultar espacios de estacionamiento disponibles, visualizar información relevante de cada ubicación y acceder a acciones principales relacionadas con búsqueda, reserva e historial. El diseño prioriza una navegación rápida desde dispositivos móviles, utilizando componentes visuales claros, tarjetas informativas, botones destacados y estados de disponibilidad comprensibles. La estructura está pensada para que el conductor pueda identificar un espacio disponible y avanzar hacia la reserva con el menor esfuerzo posible.
+
+**Nota.** Elaboración propia.
+
+**Figura 5.6**  
+**Web Application Mock-up — Parking Management Experience**
+
+![Web Application Mock-up — Parking Management Experience](assets/aplicationsmockup.jpeg)
+
+**Descripción.** La Figura 5.6 muestra el mock-up de la aplicación web de ParkingNow orientada a la gestión de estacionamientos. Esta interfaz permite al administrador visualizar información operativa sobre espacios, disponibilidad, reservas, monitoreo IoT y eventos relevantes de la playa de estacionamiento. El diseño organiza la información mediante paneles, tablas, tarjetas y elementos de estado que facilitan la supervisión del negocio. La propuesta visual mantiene consistencia con la identidad de ParkingNow y permite que los administradores interpreten rápidamente la ocupación de los espacios y el estado de los nodos IoT asociados.
+
+**Nota.** Elaboración propia.
+
+En conjunto, ambos mock-ups evidencian una experiencia digital integrada. La aplicación móvil se enfoca en resolver la necesidad del conductor de encontrar y reservar estacionamiento con información confiable, mientras que la aplicación web se orienta a brindar control operativo a los administradores. Esta separación responde a los objetivos de cada segmento y permite que ParkingNow mantenga una propuesta clara, escalable y alineada con su modelo de negocio basado en disponibilidad de estacionamientos verificada mediante IoT.
+
+#### 5.4.4. Applications User Flow Diagrams
+
+Esta sección presenta los **User Flow Diagrams** de las aplicaciones de **ParkingNow**, elaborados a partir de los mock-ups definidos para la experiencia web del administrador. Estos diagramas representan las rutas esperadas de interacción, las decisiones del sistema y los caminos alternativos que puede seguir el usuario durante el uso de la plataforma.
+
+Los flujos se enfocan en el segmento **parking owner / administrator**, quien necesita configurar su playa de estacionamiento, asociar nodos IoT, monitorear espacios, revisar reservas, consultar eventos operativos y administrar su perfil. Cada flujo fue diseñado para mantener coherencia con la arquitectura de información, el sistema de navegación y las funcionalidades principales del producto.
+
+De acuerdo con el enunciado del trabajo final, los User Flow Diagrams deben incluir los mock-ups de las vistas o pantallas, junto con los flujos que constituyen la ruta esperada o **happy path**, así como las rutas alternativas o **unhappy paths**. Además, cada User Flow debe estar asociado a un User Goal y contar con una explicación del flujo y sus condiciones principales.
+
+Los User Flow Diagrams desarrollados para ParkingNow son los siguientes:
+
+- **UF-WEB-01:** Owner Registration and Login Flow.
+- **UF-WEB-02:** Parking Lot Configuration Flow.
+- **UF-WEB-03:** IoT Monitoring and Event Review Flow.
+- **UF-WEB-04:** Reservations Management Flow.
+- **UF-WEB-05:** IoT Events and Alerts Management Flow.
+- **UF-WEB-06:** Admin Profile and Logout Flow.
+
+---
+
+**Figura 5.7**  
+**User Flow Diagram — Owner Registration and Login Flow**
+
+![alt text](assets/userflowweb1.jpeg)
+
+**User Goal.**  
+El objetivo del usuario es crear una cuenta como propietario o administrador de estacionamiento, iniciar sesión en la plataforma y acceder al dashboard principal para comenzar la gestión de ParkingNow.
+
+**Descripción.**  
+La Figura 5.7 presenta el flujo de registro e inicio de sesión del propietario. El proceso inicia en el Landing Page, donde el visitante decide unirse a ParkingNow y selecciona la opción para crear una cuenta. Luego, el sistema muestra la pantalla de registro, donde el usuario ingresa sus datos personales y de acceso. Una vez completado el formulario con información válida, el sistema crea la cuenta correctamente y redirige al usuario hacia la pantalla de login.
+
+Desde la pantalla de login, el propietario ingresa sus credenciales. El sistema valida la información proporcionada y, si los datos son correctos, permite el acceso al **Dashboard — Overview**. En caso contrario, el flujo dirige al usuario hacia la opción de recuperación de contraseña. Después de recibir las instrucciones de recuperación, el propietario retorna a la pantalla de login para intentar acceder nuevamente.
+
+**Happy Path.**  
+El propietario accede al Landing Page, selecciona la opción de registro, completa los datos requeridos, crea su cuenta, inicia sesión con credenciales válidas y accede al dashboard principal.
+
+**Unhappy Path.**  
+Si las credenciales no son válidas, el usuario accede al flujo de recuperación de contraseña. Luego de recibir las instrucciones correspondientes, retorna a la pantalla de login para ingresar nuevamente.
+
+**Nota.** Elaboración propia.
+
+---
+
+**Figura 5.8**  
+**User Flow Diagram — Parking Lot Configuration Flow**
+
+![alt text](assets/userfloweb2.jpeg)
+
+**User Goal.**  
+El objetivo del usuario es configurar correctamente la información de su playa de estacionamiento para habilitar la gestión operativa de espacios dentro de la plataforma.
+
+**Descripción.**  
+La Figura 5.8 muestra el flujo de configuración inicial de una playa de estacionamiento. El proceso inicia en el **Dashboard — Overview**, desde donde el propietario accede a la sección **Parking Lot Setup**. En esta vista, el usuario ingresa información general del estacionamiento, datos de ubicación, horario de operación y otros campos necesarios para registrar el negocio dentro del sistema.
+
+Luego, el propietario envía la información del estacionamiento. El sistema valida los datos ingresados y verifica si los campos obligatorios y la información de ubicación son correctos. Si la validación falla, el sistema solicita corregir los campos requeridos. Si la información es válida, el usuario continúa hacia **Parking Lot Profile**, donde puede revisar el perfil registrado de la playa de estacionamiento.
+
+Finalmente, el propietario continúa hacia **Parking Spaces Management**, donde administra los espacios físicos que formarán parte del estacionamiento. Este flujo permite establecer la base operativa necesaria para que posteriormente los espacios puedan asociarse a nodos IoT y mostrarse en el monitoreo de disponibilidad.
+
+**Happy Path.**  
+El propietario abre la configuración desde el dashboard, completa la información del estacionamiento, el sistema valida los datos y el usuario continúa hacia el perfil de la playa y la gestión de espacios.
+
+**Unhappy Path.**  
+Si la información del estacionamiento no es válida o existen campos obligatorios incompletos, el sistema retorna al formulario de configuración para que el propietario corrija los datos antes de continuar.
+
+**Nota.** Elaboración propia.
+
+---
+
+**Figura 5.9**  
+**User Flow Diagram — IoT Monitoring and Event Review Flow**
+
+![alt text](assets/userfloweb3.jpeg)
+
+**User Goal.**  
+El objetivo del usuario es verificar el estado de los nodos IoT asociados, monitorear la disponibilidad de los espacios y revisar eventos generados por cambios operativos o técnicos.
+
+**Descripción.**  
+La Figura 5.9 representa el flujo de monitoreo IoT dentro de la aplicación web. El proceso inicia en el **Dashboard — Overview**, donde el propietario revisa el estado general del sistema. Luego accede a **IoT Node Association & Status**, vista que permite verificar si los nodos IoT están conectados, activos y reportando datos correctamente.
+
+El sistema valida el estado del nodo IoT. Si el nodo está en línea, el flujo continúa hacia el **Space Monitoring Board**, donde el propietario puede monitorear la disponibilidad de los espacios en tiempo real. Esta vista muestra el estado de ocupación de los espacios y permite interpretar rápidamente si un espacio se encuentra disponible, ocupado o requiere revisión.
+
+Desde el tablero de monitoreo, el propietario puede abrir el historial de eventos para revisar cambios recientes en el estado de los espacios. Luego accede a **IoT Events History / Alerts**, donde puede inspeccionar eventos por fuente, severidad y espacio afectado. Finalmente, el usuario selecciona un evento específico para visualizar sus detalles en un modal.
+
+**Happy Path.**  
+El propietario revisa el estado de los nodos IoT, el sistema confirma que el nodo está en línea y el usuario accede al tablero de monitoreo para revisar espacios y eventos asociados.
+
+**Unhappy Path.**  
+Si el nodo IoT está offline o requiere revisión de configuración, el sistema mantiene al usuario en el flujo de asociación y estado del nodo para que pueda corregir la configuración antes de monitorear espacios.
+
+**Nota.** Elaboración propia.
+
+---
+
+**Figura 5.10**  
+**User Flow Diagram — Reservations Management Flow**
+
+![alt text](assets/userflowweb4.jpeg)
+
+**User Goal.**  
+El objetivo del usuario es revisar las reservas activas de la playa de estacionamiento y consultar el historial de reservas para dar seguimiento a la operación del negocio.
+
+**Descripción.**  
+La Figura 5.10 presenta el flujo de gestión de reservas desde la perspectiva del propietario. El proceso inicia en el **Dashboard — Overview**, desde donde el usuario accede a **Reservations Management — Active Reservations**. En esta vista, el propietario puede revisar las reservas vigentes asociadas a su estacionamiento.
+
+El sistema verifica si existen reservas activas para mostrar. Si hay reservas activas, el usuario puede seleccionarlas y revisar su información principal. Después de revisar las reservas actuales, el propietario puede navegar hacia **Reservations Management — Reservation History**, donde se listan reservas anteriores para fines de seguimiento operativo.
+
+Este flujo permite que el administrador diferencie entre reservas activas y reservas históricas, manteniendo una visión clara de la ocupación actual y del comportamiento previo de la playa de estacionamiento.
+
+**Happy Path.**  
+El propietario ingresa a la gestión de reservas, el sistema encuentra reservas activas, el usuario las revisa y luego consulta el historial de reservas.
+
+**Unhappy Path.**  
+Si no existen reservas activas, el sistema muestra un estado vacío e informa que no hay reservas actuales para revisar. Desde allí, el usuario puede continuar hacia el historial de reservas.
+
+**Nota.** Elaboración propia.
+
+---
+
+**Figura 5.11**  
+**User Flow Diagram — IoT Events and Alerts Management Flow**
+
+![alt text](assets/userflowweb5.jpeg)
+
+**User Goal.**  
+El objetivo del usuario es revisar eventos y alertas generadas por el sistema IoT, aplicar filtros de búsqueda, inspeccionar detalles de eventos y limpiar filtros para retornar a una vista general.
+
+**Descripción.**  
+La Figura 5.11 muestra el flujo de gestión de eventos y alertas IoT. El proceso inicia en **IoT Events History / Alerts**, donde el propietario accede a la vista principal de eventos para revisar cambios operativos, alertas o incidencias relacionadas con espacios y nodos IoT.
+
+El sistema evalúa si existen eventos que coincidan con los filtros actuales. Si no existen resultados, se muestra un estado vacío que comunica que no hay eventos para los criterios seleccionados. Desde esta vista, el propietario puede ajustar o limpiar filtros para ampliar la búsqueda.
+
+Si existen eventos, el sistema muestra la lista correspondiente en la vista principal. Luego, el propietario puede seleccionar un evento específico para revisar sus detalles mediante un modal. Después de revisar la información, el usuario retorna a la vista de eventos. También puede limpiar los filtros aplicados para volver a consultar la lista general de eventos.
+
+**Happy Path.**  
+El propietario abre la vista de eventos, el sistema encuentra eventos con los filtros actuales, el usuario revisa la lista, selecciona un evento y consulta el detalle correspondiente.
+
+**Unhappy Path.**  
+Si no existen eventos que coincidan con los filtros aplicados, el sistema muestra un estado vacío. El usuario puede ajustar o limpiar los filtros para consultar nuevamente.
+
+**Nota.** Elaboración propia.
+
+---
+
+**Figura 5.12**  
+**User Flow Diagram — Admin Profile and Logout Flow**
+
+![alt text](assets/userflowwewb6.jpeg)
+
+**User Goal.**  
+El objetivo del usuario es editar la información de su perfil administrativo y cerrar sesión de forma segura al finalizar su actividad en la plataforma.
+
+**Descripción.**  
+La Figura 5.12 presenta el flujo de administración de perfil y cierre de sesión. El proceso inicia en **Admin Profile / Settings**, donde el propietario visualiza su información personal y de cuenta. Desde esta vista, el usuario selecciona la opción para editar su perfil y accede a **Admin Profile / Settings — Edit and Validation**, donde puede modificar datos personales o información administrativa.
+
+Después de realizar cambios válidos, el sistema guarda la información y retorna al usuario hacia la vista principal del perfil. Posteriormente, el propietario puede seleccionar la opción **Sign out** para cerrar la sesión actual. El sistema muestra un modal de confirmación de logout para evitar cierres accidentales.
+
+Este flujo permite mantener el control de la información del administrador y asegurar que el cierre de sesión sea una acción intencional, reduciendo riesgos de uso no autorizado en dispositivos compartidos.
+
+**Happy Path.**  
+El propietario accede a su perfil, edita información válida, guarda los cambios, retorna a la vista principal del perfil y cierra sesión mediante el modal de confirmación.
+
+**Unhappy Path.**  
+Si la información editada no es válida, el sistema debe solicitar corrección antes de guardar los cambios. Si el usuario cancela el cierre de sesión, permanece en la sesión actual.
+
+**Nota.** Elaboración propia.
+
+---
+
+En conjunto, los User Flow Diagrams evidencian la navegación principal de la aplicación web de ParkingNow para el segmento administrador. Los flujos cubren el ciclo operativo esencial: creación de cuenta, acceso al sistema, configuración de la playa de estacionamiento, gestión de espacios, asociación y monitoreo IoT, revisión de reservas, consulta de eventos y administración de perfil. Además, cada flujo contempla rutas alternativas para errores de validación, ausencia de datos, nodos desconectados o credenciales incorrectas.
+
+---
+
+**Figura 5.13**  
+**User Flow Diagram — Driver Registration, Login and Profile Management Flow**
+
+![alt text](assets/userflowmobile1.jpeg)
+
+**User Goal.**  
+El objetivo del usuario es crear una cuenta como conductor, iniciar sesión en la aplicación móvil, administrar su información de perfil y cerrar sesión cuando finalice su uso de ParkingNow.
+
+**Descripción.**  
+La Figura 5.13 presenta el flujo de registro, autenticación y administración de perfil del conductor en la aplicación móvil de ParkingNow. El proceso inicia en el **Landing Page**, donde el visitante decide crear una cuenta desde la opción dirigida a conductores. Luego, el sistema muestra la pantalla de registro, en la cual el usuario ingresa sus datos personales y de acceso.
+
+Después de enviar el formulario, el sistema valida la información ingresada. Si existen campos incompletos o datos inválidos, se muestra una vista de error para que el conductor corrija la información antes de continuar. Cuando la cuenta se crea correctamente, el sistema redirige al usuario hacia la pantalla de inicio de sesión.
+
+Posteriormente, el conductor ingresa sus credenciales. El sistema verifica si son válidas y si la sesión se encuentra activa. Si las credenciales son correctas, el conductor accede a la pantalla principal de búsqueda cercana o disponibilidad de estacionamientos. Desde la navegación inferior, puede ingresar a la sección de perfil, visualizar su información personal, editar los campos permitidos y guardar los cambios.
+
+El flujo también contempla el cierre de sesión. El conductor selecciona la opción de **Sign out**, el sistema solicita confirmación y, al aceptar, retorna a la pantalla de login. Este comportamiento permite proteger la sesión del usuario en caso utilice un dispositivo compartido o desee finalizar su actividad.
+
+**Happy Path.**  
+El conductor accede desde el Landing Page, crea una cuenta con datos válidos, inicia sesión correctamente, abre su perfil, edita información permitida, guarda los cambios y cierra sesión de forma confirmada.
+
+**Unhappy Path.**  
+Si los datos de registro son inválidos, el sistema solicita corrección. Si las credenciales son incorrectas o la sesión expiró, el sistema impide el acceso y retorna al flujo de autenticación para que el usuario vuelva a iniciar sesión.
+
+**Nota.** Elaboración propia.
+
+---
+
+**Figura 5.14**  
+**User Flow Diagram — Destination Search and Parking Results Flow**
+
+![alt text](assets/userflowmobile2.jpeg)
+
+**User Goal.**  
+El objetivo del usuario es buscar un destino, consultar estacionamientos cercanos y aplicar filtros para encontrar una opción adecuada según su ubicación o punto de llegada.
+
+**Descripción.**  
+La Figura 5.14 muestra el flujo de búsqueda de destino y visualización de resultados de estacionamiento. El proceso inicia en la vista **Nearby Parking**, donde el conductor puede iniciar una búsqueda basada en ubicación cercana o destino específico. Al seleccionar la búsqueda por destino, el sistema presenta una pantalla para ingresar el punto de llegada.
+
+Después de enviar el destino, el sistema valida si la ubicación ingresada es reconocible. Si la ubicación no es válida o no puede ser procesada, el flujo muestra una vista de ubicación no disponible, informando al usuario que debe intentar nuevamente con otra búsqueda. Si el destino es válido, el sistema muestra una vista con la ubicación encontrada y habilita la búsqueda de estacionamientos cercanos.
+
+Luego, el sistema presenta los resultados disponibles en la vista de **Parking Results**, donde el conductor puede revisar estacionamientos asociados al destino seleccionado. Desde esta pantalla, el usuario puede aplicar filtros para ajustar la búsqueda según criterios como disponibilidad, distancia, precio u otros atributos relevantes. Finalmente, el usuario puede revisar estados especiales de estacionamientos o espacios antes de elegir una opción.
+
+**Happy Path.**  
+El conductor ingresa un destino válido, el sistema reconoce la ubicación, muestra estacionamientos cercanos, permite aplicar filtros y presenta resultados relevantes para la selección.
+
+**Unhappy Path.**  
+Si la ubicación no está disponible o el destino no es reconocido, el sistema muestra un estado de error y permite al conductor modificar la búsqueda.
+
+**Nota.** Elaboración propia.
+
+---
+
+**Figura 5.15**  
+**User Flow Diagram — Parking Lot Detail and Space Availability Flow**
+
+![alt text](assets/userflowmobile3.jpeg)
+
+**User Goal.**  
+El objetivo del usuario es revisar el detalle de una playa de estacionamiento, verificar espacios disponibles y seleccionar un espacio válido para iniciar una reserva.
+
+**Descripción.**  
+La Figura 5.15 representa el flujo de revisión de detalle de estacionamiento y disponibilidad de espacios. El proceso inicia cuando el conductor selecciona un estacionamiento desde la lista de resultados. El sistema muestra la vista **Parking Lot Detail**, donde se presentan datos relevantes del estacionamiento, como ubicación, disponibilidad, condiciones generales y acciones disponibles.
+
+Luego, el conductor selecciona la opción para revisar espacios disponibles. El sistema consulta la información actualizada y verifica si existen espacios libres. Si no hay espacios disponibles, se muestra una vista de estado no disponible, desde la cual el conductor puede revisar otra opción de estacionamiento. Esta ruta evita que el usuario intente reservar un espacio que ya no puede ser utilizado.
+
+Si el sistema encuentra espacios disponibles, se presenta la pantalla **Space Availability**, donde el conductor visualiza los espacios habilitados y sus estados. El usuario selecciona un espacio disponible y continúa hacia el flujo de reserva. También se contempla una ruta alternativa en la cual el conductor vuelve a los resultados porque las opciones disponibles no se ajustan a sus necesidades.
+
+**Happy Path.**  
+El conductor selecciona un estacionamiento, revisa el detalle, consulta espacios disponibles, el sistema encuentra disponibilidad y el usuario selecciona un espacio para reservar.
+
+**Unhappy Path.**  
+Si no existen espacios disponibles, el sistema muestra un estado de no disponibilidad. El conductor puede regresar a la lista de resultados para elegir otro estacionamiento.
+
+**Nota.** Elaboración propia.
+
+---
+
+**Figura 5.16**  
+**User Flow Diagram — Reservation Confirmation and Virtual Parking Ticket Flow**
+
+![alt text](assets/userflowmobile4.jpeg)
+
+**User Goal.**  
+El objetivo del usuario es confirmar la reserva de un espacio disponible y acceder a su ticket virtual para utilizarlo al llegar al estacionamiento.
+
+**Descripción.**  
+La Figura 5.16 presenta el flujo de confirmación de reserva y generación del ticket virtual. El proceso inicia cuando el conductor confirma el espacio seleccionado desde la pantalla de reserva. Antes de completar la operación, el sistema valida si el espacio continúa disponible, ya que la disponibilidad puede cambiar por ocupación física o por otra reserva concurrente.
+
+Si el espacio seleccionado ya no se encuentra disponible, el sistema muestra una vista de error indicando que el espacio no puede ser reservado. En ese caso, el conductor debe regresar para elegir otro espacio o reintentar la reserva. Si la reserva se confirma correctamente, el sistema muestra una pantalla de éxito con la información principal de la reserva.
+
+Después de confirmar la reserva, el conductor puede abrir el **Virtual Parking Ticket**, el cual contiene los datos necesarios para identificar la reserva activa. El ticket puede cerrarse en cualquier momento y volver a abrirse desde la reserva activa. Esto permite que el usuario consulte su comprobante cuando lo necesite, especialmente al llegar al estacionamiento.
+
+**Happy Path.**  
+El conductor confirma el espacio, el sistema valida que continúa disponible, registra la reserva correctamente y genera el ticket virtual.
+
+**Unhappy Path.**  
+Si el espacio seleccionado deja de estar disponible antes de confirmar, el sistema informa el error y solicita al conductor elegir otro espacio o volver al flujo anterior.
+
+**Nota.** Elaboración propia.
+
+---
+
+**Figura 5.17**  
+**User Flow Diagram — Active Reservation and Cancellation Flow**
+
+![alt text](assets/userflowmobile5.jpeg)
+
+**User Goal.**  
+El objetivo del usuario es revisar una reserva activa, sincronizar su estado y cancelarla cuando aún se encuentre dentro de las condiciones permitidas.
+
+**Descripción.**  
+La Figura 5.17 muestra el flujo de administración de una reserva activa. El proceso inicia cuando el conductor abre la vista **Active Reservation**, donde se muestra la información principal de la reserva vigente. Si la reserva está próxima a expirar, el sistema muestra un estado de alerta para que el usuario tome una decisión o revise los detalles antes de perder la reserva.
+
+El sistema también puede sincronizar nuevamente la reserva para validar su estado actualizado. Si la reserva continúa activa, el conductor puede iniciar el proceso de cancelación. Antes de confirmar la cancelación, el sistema verifica si todavía está permitida según las reglas operativas del producto.
+
+Si la cancelación está permitida, el sistema procesa la operación correctamente y muestra una pantalla de confirmación. Después, el conductor puede abrir el historial de reservas para revisar que la reserva fue registrada como cancelada. Si la cancelación ya no está permitida, el sistema muestra una vista informativa indicando que la reserva no puede cancelarse.
+
+**Happy Path.**  
+El conductor abre la reserva activa, revisa su estado, inicia la cancelación, el sistema valida que está permitida y confirma la operación correctamente.
+
+**Unhappy Path.**  
+Si la reserva ya no puede cancelarse, el sistema bloquea la acción e informa al conductor. Si la reserva está próxima a expirar, se muestra una alerta para que el usuario tome una decisión antes del vencimiento.
+
+**Nota.** Elaboración propia.
+
+---
+
+**Figura 5.18**  
+**User Flow Diagram — Past Reservations and Final Status Review Flow**
+
+![alt text](assets/userflowmobile6.jpeg)
+
+**User Goal.**  
+El objetivo del usuario es consultar su historial de reservas y revisar el estado final de una reserva pasada, ya sea consumida, expirada o cancelada.
+
+**Descripción.**  
+La Figura 5.18 presenta el flujo de consulta de reservas pasadas. El proceso inicia en la vista **Reservation History**, donde el conductor selecciona una reserva anterior. El sistema evalúa el estado final de la reserva para dirigir al usuario hacia el detalle correspondiente.
+
+Si la reserva fue consumida, el sistema muestra el detalle de una reserva completada, permitiendo revisar información como estacionamiento, fecha, hora y estado final. Si la reserva no fue consumida, el sistema permite identificar otros estados posibles, como reserva expirada o cancelada. Para una reserva expirada, el usuario accede al detalle donde se informa que el tiempo de uso o confirmación terminó. Para una reserva cancelada, el sistema muestra el detalle correspondiente con la información asociada a la cancelación.
+
+Este flujo permite mantener trazabilidad funcional sobre las reservas realizadas por el conductor. Además, ayuda al usuario a diferenciar claramente entre reservas usadas, vencidas y canceladas, evitando ambigüedad sobre el resultado final de cada operación.
+
+**Happy Path.**  
+El conductor abre el historial, selecciona una reserva pasada y el sistema muestra el detalle según su estado final.
+
+**Unhappy Path.**  
+Si la reserva no fue consumida, el sistema deriva al usuario hacia el detalle de reserva expirada o cancelada, según corresponda.
+
+**Nota.** Elaboración propia.
+
+---
+
+En conjunto, los User Flow Diagrams móviles complementan los flujos web del administrador y cubren la experiencia principal del conductor dentro de ParkingNow. Estos flujos describen el ciclo completo de uso: registro, inicio de sesión, búsqueda de destino, revisión de estacionamientos, selección de espacios, confirmación de reserva, uso del ticket virtual, cancelación de reservas activas y consulta de reservas pasadas. Además, cada flujo considera rutas alternativas asociadas a credenciales inválidas, ubicación no disponible, ausencia de espacios, pérdida de disponibilidad del espacio, cancelación no permitida y estados finales de reserva.
 
 
-#### 5.4.3. Applications Mock-ups. 
+### 5.5. Applications Prototyping
 
-#### 5.4.4. Applications User Flow Diagrams. 
+La presente sección describe el **prototipo interactivo de la Web Application de ParkingNow**, elaborado en Figma a partir de los mock-ups definidos para el segmento administrador. Este prototipo permite simular la navegación entre las principales vistas del sistema, validar la secuencia de interacción y comprobar la coherencia entre los flujos definidos previamente en los **Applications User Flow Diagrams**.
 
-### 5.5. Applications Prototyping. 
+El prototipo web está orientado al usuario **parking owner / administrator**, quien utiliza la plataforma para registrar su cuenta, iniciar sesión, configurar su playa de estacionamiento, administrar espacios físicos, asociar nodos IoT, monitorear disponibilidad, revisar eventos, gestionar reservas y administrar su perfil. La navegación conecta las pantallas principales mediante interacciones entre botones, enlaces, cards, modales y elementos de menú lateral.
+
+De acuerdo con el enunciado del trabajo final, la sección de **Applications Prototyping** debe incluir prototipos de UI con simulación de interacción y navegación, alineados con los User Flow Diagrams. Además, debe evidenciar la relación con la arquitectura de información, el sistema de navegación y los tipos de interacción seleccionados.
+
+El prototipo web de ParkingNow considera los siguientes flujos principales:
+
+- **Registro e inicio de sesión del administrador.**
+- **Recuperación de contraseña.**
+- **Acceso al Dashboard Overview.**
+- **Configuración inicial de la playa de estacionamiento.**
+- **Visualización del perfil del estacionamiento.**
+- **Gestión de espacios físicos.**
+- **Asociación y monitoreo de nodos IoT.**
+- **Monitoreo de disponibilidad de espacios.**
+- **Gestión de reservas activas e historial de reservas.**
+- **Consulta de eventos y alertas IoT.**
+- **Visualización de modales de detalle.**
+- **Administración del perfil del usuario.**
+- **Cierre de sesión mediante modal de confirmación.**
+
+El prototipo fue diseñado con una navegación de tipo **task-based**, donde cada interacción conduce al usuario hacia una tarea administrativa concreta. Las conexiones entre pantallas permiten representar tanto rutas principales como rutas alternativas, incluyendo validaciones de credenciales, recuperación de contraseña, estados vacíos, revisión de eventos y confirmación de cierre de sesión.
+
+**Figura 5.19**  
+**Web Application Prototype — ParkingNow Admin Experience**
+
+![alt text](assets/webprototype.jpeg)
+
+**Descripción.**  
+La Figura 5.19 presenta el prototipo interactivo de la Web Application de ParkingNow para el segmento administrador. En esta vista general se observan las pantallas conectadas mediante enlaces de navegación, botones de acción y transiciones internas. El flujo inicia desde el Landing Page y continúa hacia las pantallas de Login, Register y Forgot Password. Luego, el administrador puede acceder al Dashboard Overview y navegar hacia los módulos principales de configuración, monitoreo IoT, gestión de espacios, reservas, eventos, perfil y cierre de sesión.
+
+El prototipo evidencia la relación entre la estructura visual de los mock-ups y los flujos funcionales definidos para la aplicación web. Las conexiones permiten validar cómo el administrador se desplaza desde una vista general hacia tareas específicas, como configurar la playa de estacionamiento, revisar el estado de nodos IoT, consultar disponibilidad de espacios o inspeccionar eventos generados por el sistema.
+
+**Nota.** Elaboración propia.
+
+#### Prototype interaction criteria
+
+El prototipo utiliza criterios de interacción orientados a reducir fricción en la navegación administrativa. Para ello, se definieron rutas directas desde el dashboard hacia los módulos operativos más relevantes. El menú lateral funciona como elemento persistente de navegación, permitiendo que el administrador acceda rápidamente a las secciones de configuración, espacios, nodos IoT, reservas, eventos y perfil.
+
+Las interacciones principales del prototipo son las siguientes:
+
+- **Botones de llamada a la acción:** permiten avanzar desde el Landing Page hacia el registro o inicio de sesión.
+- **Formularios:** permiten registrar cuenta, iniciar sesión, recuperar contraseña, configurar datos del estacionamiento y editar perfil.
+- **Menú lateral:** permite la navegación entre módulos internos del dashboard.
+- **Cards y tablas:** permiten seleccionar registros, revisar información operativa y acceder a detalles.
+- **Modales:** permiten mostrar información específica sin abandonar completamente la vista actual.
+- **Estados vacíos:** permiten comunicar ausencia de reservas o eventos sin generar ambigüedad.
+- **Confirmaciones:** permiten validar acciones críticas como cierre de sesión.
+
+#### Main prototype flows
+
+El primer flujo del prototipo corresponde al **registro e inicio de sesión del administrador**. Desde el Landing Page, el usuario puede ingresar a la pantalla de registro, completar los datos requeridos y acceder posteriormente al login. Si el usuario ya cuenta con credenciales, puede iniciar sesión directamente. En caso de error o pérdida de acceso, se habilita la ruta de recuperación mediante la pantalla **Forgot Password**.
+
+El segundo flujo corresponde a la **configuración de la playa de estacionamiento**. Luego de acceder al dashboard, el administrador ingresa a **Parking Lot Setup**, registra información general, ubicación, datos operativos y configuración inicial. Si la información es válida, el sistema permite continuar hacia **Parking Lot Profile** y posteriormente hacia **Parking Spaces Management**.
+
+El tercer flujo corresponde al **monitoreo IoT**. Desde el dashboard, el administrador puede ingresar a **IoT Node Association & Status** para revisar nodos asociados y validar su estado operativo. Si los nodos están activos, el sistema permite acceder al **Space Monitoring Board**, donde se visualiza la disponibilidad de los espacios físicos.
+
+El cuarto flujo corresponde a la **gestión de reservas**. El administrador puede revisar reservas activas en **Reservations Management — Active Reservations** y consultar registros anteriores desde **Reservations Management — Reservation History**. Esta separación permite diferenciar la operación actual del historial del negocio.
+
+El quinto flujo corresponde a la **gestión de eventos y alertas IoT**. El administrador puede acceder a la vista principal de eventos, revisar estados vacíos, aplicar filtros y abrir modales de detalle para inspeccionar eventos específicos. Esta navegación permite analizar cambios de estado, incidencias técnicas o alertas asociadas a espacios y nodos IoT.
+
+El sexto flujo corresponde a la **administración del perfil y cierre de sesión**. Desde **Admin Profile / Settings**, el usuario puede editar información de cuenta, guardar cambios válidos y cerrar sesión mediante un modal de confirmación.
+
+#### Relationship with information architecture
+
+El prototipo se encuentra alineado con la arquitectura de información definida para la Web Application. La organización de pantallas responde a una estructura jerárquica y funcional, donde el **Dashboard Overview** actúa como punto central de acceso a los principales módulos administrativos.
+
+La navegación propuesta se organiza en los siguientes grupos:
+
+| Grupo funcional | Pantallas relacionadas | Propósito |
+|---|---|---|
+| Acceso y autenticación | Landing Page, Login, Register, Forgot Password | Permitir registro, inicio de sesión y recuperación de acceso. |
+| Configuración del negocio | Parking Lot Setup, Parking Lot Profile, Parking Spaces Management | Registrar y administrar la información de la playa de estacionamiento. |
+| Monitoreo IoT | IoT Node Association & Status, Space Monitoring Board | Supervisar nodos IoT y disponibilidad de espacios. |
+| Reservas | Reservations Management — Active Reservations, Reservation History | Revisar reservas actuales e históricas. |
+| Eventos y alertas | IoT Events History / Alerts, Empty State, Main View, Event Details Modal | Revisar incidencias, alertas y cambios de estado del sistema. |
+| Perfil y sesión | Admin Profile / Settings, Edit and Validation, Logout Modal | Administrar datos del usuario y finalizar sesión. |
+
+Esta estructura permite que el administrador comprenda la ubicación de cada módulo y complete tareas operativas sin depender de rutas extensas o confusas.
+
+#### Navigation and interaction validation
+
+El prototipo permite validar que las rutas de navegación sean consistentes con los User Flow Diagrams. Cada pantalla se conecta con la siguiente acción esperada del usuario, manteniendo continuidad entre las decisiones del sistema y los resultados visuales presentados en la interfaz.
+
+La simulación de navegación permite comprobar los siguientes aspectos:
+
+- El usuario puede acceder desde el Landing Page hacia el registro o login.
+- El sistema permite recuperar contraseña cuando el acceso falla.
+- El dashboard funciona como punto principal de navegación.
+- La configuración del estacionamiento precede a la gestión de espacios.
+- El monitoreo IoT se vincula con la disponibilidad de espacios.
+- Los eventos y alertas pueden consultarse desde vistas principales, estados vacíos y modales.
+- Las reservas activas e históricas se encuentran separadas para facilitar seguimiento.
+- El perfil del administrador permite edición de datos y cierre de sesión controlado.
+
+En conjunto, el prototipo web de ParkingNow demuestra la interacción integral de la aplicación administrativa. Su estructura permite validar la experiencia del propietario desde el acceso inicial hasta la gestión operativa diaria de la playa de estacionamiento, manteniendo consistencia visual, navegación clara y alineación con los flujos funcionales definidos para el producto.
 
 #### Prototipo Mobile Aplication
 
-**Figura 119** _Prototipo móvil: pantalla de inicio_  
+**Figura 5.20** _Prototipo móvil: pantalla de inicio_  
 ![alt text](./assets/prototipo-mobile-1.png)
 
-Según la **Figura 119**, la pantalla inicial prioriza navegación directa a búsqueda y acceso rápido a funciones clave para iniciar la experiencia del conductor.
+Según la **Figura 5.20**, la pantalla inicial prioriza navegación directa a búsqueda y acceso rápido a funciones clave para iniciar la experiencia del conductor.
 
-**Figura 120** _Prototipo móvil: flujo de exploración de estacionamientos_  
+**Figura 5.21** _Prototipo móvil: flujo de exploración de estacionamientos_  
 ![alt text](./assets/prototipo-mobile-2.png)
 
-Según la **Figura 120**, la interfaz de exploración organiza opciones disponibles y simplifica la comparación de alternativas cercanas.
+Según la **Figura 5.21**, la interfaz de exploración organiza opciones disponibles y simplifica la comparación de alternativas cercanas.
 
-**Figura 121** _Prototipo móvil: flujo de reserva y confirmación_  
+**Figura 5.22** _Prototipo móvil: flujo de reserva y confirmación_  
 ![alt text](./assets/prototipo-mobile-3.png)
 
-Según la **Figura 121**, el usuario visualiza disponibilidad, selecciona espacio y confirma la reserva en una secuencia de interacción guiada.
+Según la **Figura 5.22**, el usuario visualiza disponibilidad, selecciona espacio y confirma la reserva en una secuencia de interacción guiada.
 
-**Figura 122** _Prototipo móvil: seguimiento operativo de la reserva_  
+**Figura 5.23** _Prototipo móvil: seguimiento operativo de la reserva_  
 ![alt text](./assets/prototipo-mobile-4.png)
 
-Según la **Figura 122**, la solución presenta el estado de la reserva y acciones asociadas para mantener control durante el ciclo de uso.
+Según la **Figura 5.23**, la solución presenta el estado de la reserva y acciones asociadas para mantener control durante el ciclo de uso.
 
 
 
+### 5.6. IoT Device Design
+
+La presente sección describe el diseño del dispositivo IoT de **ParkingNow**, representado mediante una simulación en **Wokwi**. El prototipo modela un nodo embebido encargado de detectar la ocupación de espacios de estacionamiento, mostrar el estado local mediante indicadores físicos y preparar el envío de eventos hacia el sistema digital de ParkingNow.
+
+El diseño utiliza un **ESP32 DevKit** como microcontrolador principal. Este componente ejecuta la lógica del nodo IoT, lee los sensores ultrasónicos, calcula la distancia de cada espacio, determina si un espacio está disponible u ocupado y controla los actuadores conectados. Wokwi permite simular proyectos con ESP32 directamente desde el navegador, mientras que el ESP32-DevKitC V4 es una placa de desarrollo basada en ESP32 que expone pines de entrada y salida para conectar periféricos externos.
+
+El prototipo incorpora dos sensores ultrasónicos **HC-SR04**, uno para el espacio **Parking Space A01** y otro para el espacio **Parking Space B01**. Cada sensor mide la distancia entre el dispositivo y el objeto ubicado frente a él. Para iniciar una medición, el pin `TRIG` debe recibir una señal alta durante al menos 10 microsegundos; luego, el pin `ECHO` devuelve un pulso cuya duración permite calcular la distancia. En centímetros, la conversión indicada por Wokwi es `PulseMicros / 58`.
+
+**Figura 5.24**  
+**IoT Device Design — ParkingNow Wokwi Prototype**
+
+![alt text](assets/iotdesing.jpeg)
+
+**Descripción.**  
+La Figura 5.24 presenta el diseño del prototipo IoT de ParkingNow implementado en Wokwi. El circuito está compuesto por un ESP32 ubicado al centro, dos sensores ultrasónicos HC-SR04 en la parte superior, cuatro LEDs con resistencias de protección, un servomotor y un buzzer. La distribución del diseño separa visualmente los dos espacios de estacionamiento simulados: **Parking Space A01** y **Parking Space B01**.
+
+Cada espacio cuenta con un sensor ultrasónico HC-SR04 encargado de detectar presencia mediante distancia. Si el sensor identifica un objeto cercano al umbral configurado, el firmware interpreta que el espacio está ocupado. Si la distancia medida es mayor, el sistema interpreta que el espacio está disponible. Esta lógica permite representar la relación entre el estado físico del espacio y la disponibilidad que posteriormente se mostrará en las aplicaciones de ParkingNow.
+
+Para cada espacio se utilizan dos LEDs de estado. El LED verde representa el estado **Available**, mientras que el LED rojo representa el estado **Occupied**. En el caso del espacio A01, los LEDs se ubican en el lado izquierdo del circuito; para el espacio B01, los LEDs se ubican en el lado derecho. Cada LED está conectado a una resistencia, lo que representa una práctica básica de protección eléctrica para limitar la corriente.
+
+El prototipo también incluye un **servomotor**, ubicado en la parte inferior central, que simula una barrera o mecanismo físico de acceso al estacionamiento. Este componente permite representar una acción física derivada del estado de la reserva o del acceso del vehículo. Además, el **buzzer** ubicado en la parte inferior derecha funciona como alerta sonora local para indicar eventos relevantes, como un cambio de estado, una ocupación detectada o una condición que requiera atención.
+
+El texto inferior del circuito indica que el ESP32 envía eventos de ocupación hacia el **Edge API** mediante **Wi-Fi + HTTP POST/JSON**. Esto representa la comunicación lógica entre el nodo IoT y la arquitectura distribuida de ParkingNow. Aunque la imagen corresponde a una simulación local, el propósito del diseño es validar cómo una detección física puede convertirse en un evento digital procesable por el backend.
+
+**Nota.** Elaboración propia.
+
+#### Physical Components
+
+| Component | Quantity | Purpose |
+|---|---:|---|
+| ESP32 DevKit | 1 | Controla el nodo IoT, lee sensores, procesa estados y coordina actuadores. |
+| HC-SR04 Ultrasonic Sensor | 2 | Detecta presencia de vehículos mediante medición de distancia. |
+| Green LED | 2 | Indica visualmente que un espacio está disponible. |
+| Red LED | 2 | Indica visualmente que un espacio está ocupado. |
+| Resistor | 4 | Protege los LEDs mediante limitación de corriente. |
+| Servo Motor | 1 | Simula una barrera o mecanismo físico de acceso. |
+| Buzzer | 1 | Emite una alerta sonora local ante eventos del sistema. |
+
+#### Device Behavior
+
+El comportamiento del dispositivo IoT inicia con la lectura periódica de los sensores ultrasónicos. El ESP32 activa el pin de disparo del sensor, recibe el pulso de retorno y calcula la distancia. Luego, compara la distancia medida con un umbral de ocupación definido en el firmware.
+
+Cuando la distancia detectada indica que existe un vehículo en el espacio, el sistema cambia el estado del espacio a **Occupied**. En ese caso, se enciende el LED rojo correspondiente y se apaga el LED verde. Cuando el espacio queda libre, el sistema cambia el estado a **Available**, enciende el LED verde y apaga el LED rojo.
+
+El servomotor puede utilizarse para representar una acción física relacionada con el acceso, como la apertura o cierre de una barrera. El buzzer puede activarse como retroalimentación local cuando se detecta un cambio de estado o cuando ocurre una condición relevante para la operación.
+
+#### IoT Data Flow
+
+El flujo lógico del dispositivo es el siguiente:
+
+1. El sensor HC-SR04 mide la distancia del espacio de estacionamiento.
+2. El ESP32 recibe y procesa la lectura del sensor.
+3. El firmware compara la distancia con el umbral configurado.
+4. El sistema clasifica el espacio como **Available** u **Occupied**.
+5. El ESP32 actualiza los LEDs del espacio correspondiente.
+6. El buzzer puede emitir una alerta si existe un cambio de estado.
+7. El servomotor puede representar una acción física asociada al acceso.
+8. El ESP32 prepara un evento de ocupación.
+9. El evento se envía hacia el Edge API mediante Wi-Fi y HTTP POST/JSON.
+10. El backend procesa el evento para actualizar la disponibilidad del espacio en las aplicaciones.
+
+#### Design Rationale
+
+El uso del ESP32 permite representar un nodo IoT con capacidad de conectividad y control de periféricos. Los sensores HC-SR04 fueron seleccionados porque permiten simular detección de presencia mediante distancia, lo cual es suficiente para una maqueta académica de estacionamientos. Los LEDs facilitan la validación visual inmediata del estado de cada espacio, mientras que el servomotor y el buzzer complementan la simulación con retroalimentación física y sonora.
+
+Este diseño permite validar el flujo principal de ParkingNow: capturar un evento físico desde el entorno, procesarlo localmente en el dispositivo embebido y convertirlo en información digital útil para el sistema. Por ello, el prototipo evidencia la integración entre **Embedded Systems**, **Edge Computing** y la capa cloud de la solución.
 
 
-
-
-
-### 5.6. IoT Device Design. 
 
 ## Conclusiones y recomendaciones
 
