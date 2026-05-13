@@ -6271,6 +6271,49 @@ En conjunto, el sistema de navegación está pensado para que la interacción se
 
 #### 5.4.1. Applications Wireframes. 
 
+---
+
+**Mobile App**
+<br>
+<img src="./assets/wireflow-mobile.png" alt="Wireflow Mobile App" width="801">
+<br>
+
+**Proceso de Landing page - Mobile app**
+<br>
+<img src="./assets/wireflow-mobile-landing.png" alt="Wireflow Mobile App Landing" width="801">
+<br>
+
+**Proceso de autenticación Mobile App**
+<br>
+<img src="./assets/mobile-authentication.png" alt="Wireflow Mobile Authentication" width="801">
+<br>
+
+**Proceso de búsqueda de estacionamientos**
+<br>
+<img src="./assets/mobile-parking-search.png" alt="Wireflow Mobile Parking Search" width="801">
+<br>
+
+**Proceso de resultados y detalle de estacionamiento**
+<br>
+<img src="./assets/mobile-parking-results-detail.png" alt="Wireflow Mobile Parking Results and Detail" width="801">
+<br>
+
+**Proceso de disponibilidad de espacios y reservación**
+<br>
+<img src="./assets/mobile-space-reservation.png" alt="Wireflow Mobile Space Availability and Reservation" width="801">
+<br>
+
+**Proceso de detalle de reservaciones pasadas**
+<br>
+<img src="./assets/mobile-past-reservation-details.png" alt="Wireflow Mobile Past Reservation Details" width="801">
+<br>
+
+**Proceso de seguimiento y cancelación de reservación**
+<br>
+<img src="./assets/mobile-reservation-tracking-cancellation.png" alt="Wireflow Mobile Reservation Tracking and Cancellation" width="801">
+
+---
+
 #### 5.4.2. Applications Wireflow Diagrams. 
 ---
 **Web App**
