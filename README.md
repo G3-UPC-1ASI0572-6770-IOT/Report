@@ -6312,6 +6312,9 @@ En conjunto, el sistema de navegación está pensado para que la interacción se
 <img src="./assets/admin.png" alt="Wireflow admin" width="801">
 
 
+---
+
+
 
 
 #### 5.4.3. Applications Mock-ups. 
