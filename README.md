@@ -6288,17 +6288,188 @@ El uso de colores, iconos y elementos visuales ayuda a guiar al usuario en cada 
 
 En conjunto, el sistema de navegación está pensado para que la interacción sea fluida, rápida y sin interrupciones, adaptándose a las necesidades de cada tipo de usuario.
 
-### 5.3. Landing Page UI Design. 
+### 5.3. Landing Page UI Design
 
-#### 5.3.1. Landing Page Wireframe.
+La propuesta de diseño UI del Landing Page de **ParkingNow** se elaboró tomando como base las decisiones definidas en las secciones de **Style Guidelines** e **Information Architecture**. El objetivo principal del Landing Page es comunicar de forma clara el valor diferencial del producto: una plataforma de estacionamiento inteligente que permite consultar disponibilidad real de espacios mediante verificación IoT, facilitando la experiencia de los conductores y brindando herramientas de gestión para propietarios o administradores de playas de estacionamiento.
 
-#### 5.3.2. Landing Page Mock-up. 
+El diseño prioriza una experiencia visual moderna, limpia y orientada a conversión. Para ello, se organizó el contenido en una estructura secuencial que permite al visitante comprender progresivamente el problema, la solución propuesta, el funcionamiento del sistema, los beneficios para cada segmento objetivo y los puntos de contacto para iniciar el uso de la plataforma. Esta organización responde a la necesidad de guiar al usuario desde una primera impresión informativa hacia acciones concretas mediante botones de llamada a la acción.
 
-### 5.4. Applications UX/UI Design. 
+Asimismo, el Landing Page mantiene consistencia visual con los productos digitales de la solución, empleando una interfaz responsive adaptable a **Desktop Web Browser** y **Mobile Web Browser**. La propuesta considera principios de diseño inclusivo mediante jerarquía visual clara, contraste adecuado entre textos y fondos, uso controlado del color, etiquetas comprensibles, componentes reutilizables, espaciado consistente y botones visibles para facilitar la navegación. Según el enunciado del trabajo final, esta sección debe presentar y explicar la propuesta UI del Landing Page, evidenciando la aplicación de principios de diseño, diseño inclusivo, arquitectura de información y el Design System establecido para los productos digitales.  
 
-#### 5.4.1. Applications Wireframes. 
+El Landing Page de ParkingNow está compuesto por las siguientes secciones principales:
+
+- **Header:** presenta el logotipo de ParkingNow, enlaces de navegación principales y acciones rápidas para el visitante.
+- **Hero Section:** comunica la propuesta de valor principal mediante un mensaje directo sobre disponibilidad de estacionamientos verificada con IoT.
+- **Problem Section:** expone la dificultad actual de encontrar estacionamiento disponible de forma confiable.
+- **Solution Section:** explica cómo ParkingNow permite consultar espacios disponibles y reservarlos con mayor seguridad.
+- **IoT Differentiator Section:** destaca el uso de sensores físicos para validar la disponibilidad real de los espacios.
+- **Benefits Section:** diferencia los beneficios para conductores y administradores de estacionamientos.
+- **How It Works Section:** resume el proceso de búsqueda, verificación, reserva y llegada al estacionamiento.
+- **Trust / Credibility Section:** refuerza la confiabilidad del sistema mediante mensajes asociados a datos en tiempo real y monitoreo.
+- **About Us Section:** presenta la visión del equipo y el enfoque tecnológico de la solución.
+- **FAQ Section:** responde dudas frecuentes de visitantes y potenciales usuarios.
+- **Contact / Interest Form Section:** permite registrar el interés de usuarios o negocios.
+- **Final CTA Section:** invita al visitante a iniciar el uso de la plataforma o conocer más sobre la solución.
+- **Footer:** agrupa enlaces secundarios, información de contacto y elementos institucionales del producto.
+
+#### 5.3.1. Landing Page Wireframe
+
+El wireframe del Landing Page de **ParkingNow** representa la estructura base de la interfaz antes de aplicar los elementos visuales finales del Design System. Su propósito es definir la distribución de contenido, jerarquía de información, secuencia de lectura y ubicación de los principales componentes interactivos.
+
+La versión **Desktop Web Browser** del wireframe organiza el contenido en bloques verticales de lectura progresiva. En la parte superior se ubica el **Header**, que contiene el identificador visual del producto, los enlaces de navegación hacia las secciones principales y los botones de acción. Debajo se presenta la sección **Hero**, compuesta por un mensaje principal, una descripción breve del beneficio del producto y llamadas a la acción orientadas a conductores y administradores.
+
+Después del Hero, el wireframe presenta una sección dedicada al problema del usuario, donde se explica la falta de confiabilidad de la disponibilidad mostrada por métodos tradicionales o manuales. Luego, la sección de solución introduce el funcionamiento general de ParkingNow y conecta con el diferencial IoT, representado mediante tarjetas, bloques informativos e indicadores visuales de disponibilidad.
+
+El wireframe también contempla una sección de beneficios dividida por segmentos objetivo. Para los conductores, se destacan acciones como encontrar espacios disponibles, reducir tiempo de búsqueda y reservar antes de llegar. Para los administradores, se resaltan capacidades como visualizar ocupación, gestionar espacios y recibir información actualizada. Esta separación permite que cada visitante identifique rápidamente el valor que le corresponde.
+
+La sección **How It Works** se estructura de forma secuencial, mostrando los pasos principales del servicio: buscar estacionamiento, verificar disponibilidad mediante IoT, reservar un espacio y llegar al destino. Esta organización favorece la comprensión del flujo principal sin sobrecargar al usuario con información técnica.
+
+En la versión **Mobile Web Browser**, el wireframe adapta la navegación a una estructura vertical optimizada para pantallas pequeñas. El contenido se reorganiza en una sola columna, los botones mantienen dimensiones táctiles adecuadas y las tarjetas se apilan para facilitar la lectura. El menú de navegación se simplifica para evitar saturación visual y mejorar la interacción desde dispositivos móviles.
+
+El wireframe evidencia las siguientes decisiones de diseño:
+
+- Uso de jerarquía visual para priorizar el mensaje principal y los CTA.
+- Organización secuencial del contenido para guiar la comprensión del visitante.
+- Separación clara entre beneficios para conductores y beneficios para administradores.
+- Inclusión de secciones informativas y persuasivas antes del formulario de contacto.
+- Adaptación responsive para Desktop Web Browser y Mobile Web Browser.
+- Distribución de contenido basada en bloques reutilizables y escaneables.
+- Priorización de navegación simple, directa y orientada a conversión.
+
+**Figura 5.1**  
+**Landing Page Wireframe — Desktop Web Browser**
+
+![alt text](<assets/landing page wireframe.jpeg>)
+
+**Descripción.** La Figura 5.1 presenta el wireframe desktop del Landing Page de ParkingNow. Esta vista organiza la información en una secuencia vertical compuesta por Header, Hero Section, Problem Section, Solution Section, IoT Differentiator, Benefits, How It Works, Trust, About Us, FAQ, Contact Form, Final CTA y Footer. La estructura permite validar la jerarquía de contenido antes de aplicar colores, tipografía e imágenes finales. Además, evidencia la ubicación de los principales llamados a la acción y la separación de mensajes para conductores y administradores de estacionamientos.
+
+**Nota.** Elaboración propia.
+
+**Figura 5.2**  
+**Landing Page Wireframe — Mobile Web Browser**
+
+![alt text](assets/landingpagemobile.jpeg)
+
+**Descripción.** La Figura 5.2 muestra la versión mobile del wireframe del Landing Page de ParkingNow. Esta adaptación reorganiza los bloques de contenido en una sola columna para facilitar la lectura en pantallas pequeñas. Los elementos principales, como mensajes de valor, tarjetas informativas, beneficios, pasos de funcionamiento y botones de llamada a la acción, se presentan de forma apilada y táctilmente accesible. Esta versión permite comprobar que la arquitectura de información se mantiene clara y usable en dispositivos móviles.
+
+**Nota.** Elaboración propia.
+
+#### 5.3.2. Landing Page Mock-up
+
+El mock-up del Landing Page de **ParkingNow** representa la propuesta visual final de la interfaz, incorporando colores, tipografía, componentes, imágenes, iconografía, espaciado y estilos definidos en el Design System. A diferencia del wireframe, esta versión permite evaluar la apariencia real del producto y su coherencia visual con el resto de aplicaciones de la solución.
+
+El diseño visual utiliza una interfaz de estilo SaaS moderno, con predominio de fondo blanco, tarjetas de bordes redondeados, sombras suaves y una composición limpia. El color azul institucional se emplea para títulos, botones principales y estados seleccionados, mientras que el color cyan se usa como acento para reforzar la idea de conectividad, sensores e IoT. Los colores de estado se reservan exclusivamente para comunicar disponibilidad: verde para espacios disponibles, rojo para espacios ocupados y gris para estados fuera de línea o no disponibles.
+
+La sección **Hero** aplica una composición de alto impacto visual. Incluye una frase principal orientada al beneficio del usuario, un texto de apoyo que resume el funcionamiento del sistema y botones de llamada a la acción. La ilustración principal refuerza el concepto de estacionamiento inteligente mediante elementos relacionados con mapas, sensores, rutas, disponibilidad en tiempo real o conexión entre espacios físicos y plataforma digital.
+
+En la sección del problema, el mock-up utiliza bloques informativos para representar las dificultades actuales del proceso de búsqueda de estacionamiento, como pérdida de tiempo, información poco confiable y falta de visibilidad de espacios realmente disponibles. Luego, la sección de solución presenta a ParkingNow como una plataforma que conecta conductores, estacionamientos y sensores IoT para ofrecer datos más confiables.
+
+La sección del diferencial IoT tiene un rol central en la identidad del producto. Visualmente, se representa mediante tarjetas, indicadores de estado, líneas de conexión, íconos de sensores y elementos abstractos de monitoreo. Esta sección permite comunicar que la disponibilidad no depende únicamente de registros manuales, sino de verificación física mediante nodos IoT instalados en los espacios de estacionamiento.
+
+En la sección de beneficios, el mock-up diferencia claramente los mensajes para los dos segmentos principales. Para conductores, el diseño enfatiza rapidez, confianza y reserva anticipada. Para administradores, comunica control operativo, monitoreo de ocupación y mejor gestión de espacios. Esta segmentación mejora la comprensión del valor del producto para cada tipo de usuario.
+
+La sección **How It Works** utiliza una estructura visual por pasos. Cada paso se presenta con íconos, tarjetas o bloques numerados para explicar el proceso de uso del sistema. Esto permite que el visitante comprenda el flujo sin necesidad de leer textos extensos.
+
+La sección **FAQ** utiliza componentes desplegables o bloques de preguntas frecuentes para resolver dudas comunes sobre disponibilidad, sensores IoT, reservas y uso de la plataforma. Finalmente, el formulario de contacto o interés permite captar potenciales usuarios o negocios interesados en adoptar ParkingNow.
+
+La versión **Mobile Web Browser** mantiene la identidad visual del mock-up desktop, pero adapta la composición a una sola columna. Las ilustraciones reducen su tamaño, los textos se ajustan para lectura rápida, los botones ocupan un ancho adecuado para interacción táctil y las tarjetas se apilan verticalmente. Esta adaptación garantiza una experiencia consistente sin perder claridad visual ni funcionalidad.
+
+El mock-up evidencia las siguientes decisiones de diseño:
+
+- Aplicación consistente del Design System en colores, tipografía, botones, tarjetas e iconografía.
+- Uso de una identidad visual tecnológica asociada a IoT, movilidad urbana y disponibilidad en tiempo real.
+- Priorización de contraste, legibilidad y espaciado para mejorar accesibilidad.
+- Uso restringido de colores de estado para evitar ambigüedad visual.
+- Diseño responsive para Desktop Web Browser y Mobile Web Browser.
+- Consistencia entre el Landing Page y las futuras aplicaciones web del ecosistema ParkingNow.
+- Presencia de CTA visibles y contextualizados para guiar la conversión del visitante.
+- Comunicación diferenciada para conductores y administradores de estacionamientos.
+
+**Figura 5.3**  
+**Landing Page Mock-up — Desktop Web Browser**
+
+![alt text](assets/landingpagemockup.jpeg)
+
+**Descripción.** La Figura 5.3 presenta el mock-up desktop del Landing Page de ParkingNow con el diseño visual final aplicado. En esta versión se evidencia el uso del Design System mediante colores institucionales, tipografía, tarjetas, botones, iconografía, ilustraciones y espaciado consistente. La composición comunica la propuesta de valor del producto, resalta el diferencial de disponibilidad verificada mediante IoT y organiza los beneficios para conductores y administradores. Además, los CTA se ubican estratégicamente para orientar al visitante hacia acciones de registro, contacto o exploración del producto.
+
+**Nota.** Elaboración propia.
+
+**Figura 5.4**  
+**Landing Page Mock-up — Mobile Web Browser**
+
+![alt text](assets/landingpagemockupmobile.jpeg)
+
+**Descripción.** La Figura 5.4 muestra el mock-up mobile del Landing Page de ParkingNow. Esta versión conserva la identidad visual del diseño desktop, pero adapta la interfaz a una navegación vertical de una sola columna. Los textos, botones, tarjetas e ilustraciones se reorganizan para mejorar la legibilidad y la interacción táctil. Asimismo, la propuesta mantiene visibles los mensajes principales, el diferencial IoT, los beneficios por segmento y los llamados a la acción, garantizando una experiencia responsive coherente para visitantes que acceden desde dispositivos móviles.
+
+**Nota.** Elaboración propia.
+
+### 5.4. Applications UX/UI Design.
+
+This section presents the UX/UI design proposal for the ParkingNow administrator web application. The application is oriented to parking lot administrators who need to configure parking lot information, manage parking spaces, monitor IoT devices, review reservations, track IoT events and manage account settings.
+
+The wireframes are organized into one general application overview and five specific operational flows. The general wireframe shows the complete structure of the administrator web application, while each specific wireframe describes a key navigation path that starts from the **Dashboard — Overview**.
 
 ---
+
+#### 5.4.1. Applications Wireframes.
+
+**Figure 1. Applications Wireframes — General Admin Web Flow**
+
+![Applications Wireframes — General Admin Web Flow](assets/webwireframe.jpeg)
+
+**Description:**  
+This general wireframe presents the complete administrator web flow of ParkingNow. It shows the **Dashboard — Overview** as the central navigation point of the platform. From this screen, the administrator can access the main modules of the web application: parking lot configuration, IoT monitoring, reservations management, IoT events and alerts, and administrator settings.
+
+---
+
+**Figure 2. Applications Wireframes — Parking Lot Configuration Flow**
+
+![alt text](assets/webapp1.jpeg)
+
+**Description:**  
+This wireframe represents the parking lot configuration process. It starts from the **Dashboard — Overview**, where the administrator accesses the configuration module. Then, the administrator continues to **Parking Lot Setup** to register the basic information of the parking lot. After that, the configured information is reviewed in **Parking Lot Profile**. Finally, the administrator reaches **Parking Spaces Management**, where parking spaces are created, reviewed, and managed according to the capacity and operational needs of the parking lot.
+
+---
+
+**Figure 3. Applications Wireframes — IoT Monitoring Flow**
+
+![alt text](assets/webapp2.jpeg)
+
+**Description:**  
+This wireframe represents the IoT monitoring process. It starts from the **Dashboard — Overview**, where the administrator accesses the IoT module. Then, the administrator enters **IoT Node Association & Status** to associate physical IoT nodes with parking spaces and verify their connectivity status. Finally, the administrator reaches the **Space Monitoring Board**, where parking space availability is monitored using IoT-verified data.
+
+---
+
+**Figure 4. Applications Wireframes — Reservations Management Flow**
+
+![alt text](assets/webapp3.jpeg)
+
+**Description:**  
+This wireframe represents the reservations management process. It starts from the **Dashboard — Overview**, where the administrator accesses reservation information. Then, the administrator continues to **Reservations Management**, which centralizes the reservation module. After that, the administrator enters **Reservations Management — Active Reservations** to review current or pending reservations. Finally, the administrator reaches **Reservations Management — Reservation History**, where completed, cancelled, or expired reservations are reviewed.
+
+---
+
+**Figure 5. Applications Wireframes — IoT Events and Alerts Flow**
+
+![alt text](assets/webapp4.jpeg)
+
+![alt text](assets/webapp5.jpeg)
+
+**Description:**  
+This wireframe represents the IoT events and alerts review process. It starts from the **Dashboard — Overview**, where the administrator accesses alert information. Then, the administrator continues to **IoT Events History / Alerts — Main View**, where event and alert records are displayed. After that, the administrator can move to **IoT Events History / Alerts — Empty State**, which represents the condition where no alerts are available under the selected filters or current state.
+
+From the empty state, two paths are considered. In the first path, the administrator opens the **Event Details Modal** directly. In the second path, the administrator returns to the main alerts view, reaches the empty state again, and then opens the **Event Details Modal**. This supports both direct event inspection and repeated alert review during administrative monitoring.
+
+---
+
+**Figure 6. Applications Wireframes — Admin Settings Flow**
+
+![alt text](assets/webapp6.jpeg)
+
+**Description:**  
+This wireframe represents the administrator profile and settings process. It starts from the **Dashboard — Overview**, where the administrator accesses the account settings module. Then, the administrator continues to **Admin Profile / Settings — Edit and Validation State**, where profile information can be updated and validation feedback is displayed. After that, the administrator reaches **Admin Profile / Settings — Main Menu**, which contains the main account configuration options. Finally, the process ends in **Admin Profile / Settings — Logout Modal**, where the administrator confirms the session closure.
+
+
 
 **Mobile App**
 <br>
