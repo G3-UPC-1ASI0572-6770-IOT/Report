@@ -6272,10 +6272,19 @@ En conjunto, el sistema de navegación está pensado para que la interacción se
 #### 5.4.1. Applications Wireframes. 
 
 #### 5.4.2. Applications Wireflow Diagrams. 
-
+---
 **Web App**
 
-<img src="./assets/wireflow-web.png" alt="Wireflow Web" width="501">
+<img src="./assets/wireflow-web.png" alt="Wireflow Web" width="801">
+
+---
+
+**Proceso de Landing page-Web app**
+
+<img src="./assets/landing-main.png" alt="Wireflow LP-Web" width="801">
+
+---
+
 
 #### 5.4.3. Applications Mock-ups. 
 
