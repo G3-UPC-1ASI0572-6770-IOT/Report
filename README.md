@@ -6300,6 +6300,13 @@ En conjunto, el sistema de navegación está pensado para que la interacción se
 
 
 
+**Proceso de eventos IoT**
+
+<img src="./assets/iotevents.png" alt="Wireflow IoT events" width="801">
+
+
+
+
 #### 5.4.3. Applications Mock-ups. 
 
 #### 5.4.4. Applications User Flow Diagrams. 
