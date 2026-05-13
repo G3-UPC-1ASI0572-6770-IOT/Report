@@ -7088,6 +7088,360 @@ El uso del ESP32 permite representar un nodo IoT con capacidad de conectividad y
 Este diseño permite validar el flujo principal de ParkingNow: capturar un evento físico desde el entorno, procesarlo localmente en el dispositivo embebido y convertirlo en información digital útil para el sistema. Por ello, el prototipo evidencia la integración entre **Embedded Systems**, **Edge Computing** y la capa cloud de la solución.
 
 
+# Capítulo VI: Product Implementation, Validation & Deployment
+
+## 6.1. Software Configuration Management
+
+En esta sección se describen las decisiones de configuración, control de versiones y convenciones de desarrollo adoptadas por el equipo de **Code Mondoguito** para mantener la consistencia técnica durante el ciclo de vida de **ParkingNow**. La solución está compuesta por diversos productos digitales y componentes IoT, entre ellos el **Landing Page**, la **Web Application** para administradores, la **Mobile Application** para conductores, el **RESTful Core API**, el **Edge API** y la **Embedded Application** ejecutada sobre el nodo ESP32. Por ello, se establecen herramientas, repositorios, flujos de trabajo y reglas de codificación que permiten organizar el desarrollo colaborativo, reducir errores de integración y facilitar la trazabilidad de los cambios realizados por el equipo.
+
+
+### 6.1.1. Software Development Environment Configuration
+
+Para el desarrollo de **ParkingNow**, el equipo de **Code Mondoguito** definió un entorno de trabajo compuesto por herramientas de gestión, diseño, desarrollo, pruebas, documentación y despliegue. Esta configuración permite organizar el trabajo colaborativo durante el ciclo de vida del proyecto y asegurar que cada integrante pueda participar de forma ordenada en la construcción de los productos digitales e IoT que forman parte de la solución.
+
+La solución propuesta integra diferentes componentes: **Landing Page**, **Web Application** para administradores, **Mobile Application** para conductores, **RESTful Core API**, **Edge API** y una **Embedded Application** ejecutada en un nodo IoT basado en **ESP32** con sensores ultrasónicos **HC-SR04+**. Por ello, las herramientas seleccionadas cubren actividades de gestión del proyecto, levantamiento de requisitos, diseño UX/UI, modelado de arquitectura, desarrollo de software, pruebas, despliegue y documentación.
+
+| Categoría | Producto / Herramienta | Propósito de uso en el proyecto | Ruta de referencia o descarga |
+| --- | --- | --- | --- |
+| Project Management | GitHub Projects | Organización de actividades, seguimiento de tareas, control del avance por sprint y relación con las historias de usuario priorizadas. | https://github.com/features/issues |
+| Requirements Management | GitHub Issues | Registro de tareas, incidencias, mejoras y actividades relacionadas con el Product Backlog y Sprint Backlog. | https://github.com/features/issues |
+| Product UX Research | UXPressia | Elaboración de User Personas, User Journey Maps y Empathy Maps de los segmentos objetivo del proyecto. | https://uxpressia.com |
+| Product UX/UI Design | Figma | Diseño de wireframes, mock-ups, prototipos interactivos y validación visual de las interfaces del Landing Page, Web App y Mobile App. | https://www.figma.com |
+| Collaborative Modeling | Miro | Elaboración colaborativa de artefactos como Lean UX Canvas, EventStorming, Candidate Context Discovery y flujos de dominio. | https://miro.com |
+| Architecture Modeling | Structurizr | Modelado de la arquitectura de software mediante C4 Model, incluyendo diagramas de contexto, contenedores, componentes y despliegue. | https://structurizr.com |
+| Diagramming | Lucidchart | Elaboración de diagramas complementarios, como diagramas de clases, diagramas de base de datos y representaciones técnicas del sistema. | https://www.lucidchart.com |
+| Source Code Management | GitHub | Almacenamiento de repositorios, control de versiones, revisión de cambios, Pull Requests y evidencia de colaboración del equipo. | https://github.com |
+| Code Editor | Visual Studio Code | Entorno principal de edición para el desarrollo del Landing Page, Web Application, Mobile Application, APIs y código del dispositivo IoT. | https://code.visualstudio.com |
+| Web Development Runtime | Node.js | Entorno de ejecución utilizado para instalar dependencias y ejecutar localmente los productos frontend del proyecto. | https://nodejs.org |
+| Package Management | npm | Gestión de dependencias JavaScript y TypeScript utilizadas en los productos frontend. | https://www.npmjs.com |
+| Backend Development | .NET SDK | Desarrollo del RESTful Core API en C# y ASP.NET para exponer servicios consumidos por las aplicaciones cliente. | https://dotnet.microsoft.com/download |
+| API Testing | Postman | Pruebas manuales de endpoints REST, validación de requests/responses y verificación de integración entre aplicaciones y servicios. | https://www.postman.com |
+| Database and Realtime Services | Supabase | Gestión de base de datos y sincronización en tiempo real mediante Supabase Realtime para reflejar cambios de estado en las aplicaciones. | https://supabase.com |
+| Embedded Development | Arduino IDE | Desarrollo y carga del código que se ejecuta en el nodo IoT basado en ESP32. | https://www.arduino.cc/en/software |
+| Embedded Simulation | Wokwi | Simulación del circuito IoT con ESP32 y sensores antes de la implementación física del prototipo. | https://wokwi.com |
+| Hardware Development | ESP32 DevKit | Microcontrolador utilizado para el nodo IoT encargado de procesar las lecturas de los sensores de ocupación. | https://www.espressif.com/en/products/socs/esp32 |
+| Sensor Integration | HC-SR04+ Ultrasonic Sensor | Sensor ultrasónico utilizado para detectar la ocupación de los espacios de estacionamiento dentro de la maqueta del prototipo. | Referencia del fabricante o proveedor local |
+| Software Deployment | Vercel | Despliegue del Landing Page y posibles aplicaciones frontend web. | https://vercel.com |
+| Backend Deployment | Railway | Despliegue del RESTful Core API y servicios backend internos de la solución. | https://railway.app |
+| Documentation | Markdown | Redacción del informe principal del proyecto en el archivo `README.md` del repositorio de documentación. | https://www.markdownguide.org |
+| Presentation | Microsoft PowerPoint | Elaboración del Final Project Keynote para la exposición del proyecto. | https://www.microsoft.com/microsoft-365/powerpoint |
+| Video Publishing | Microsoft Stream / Clipchamp | Publicación de videos de entrevistas, exposición, validación y demostración del producto. | https://stream.microsoft.com / https://clipchamp.com |
+
+El entorno de desarrollo fue organizado para que cada integrante pueda trabajar en los productos asignados sin afectar directamente el avance de los demás. Para ello, se utiliza **GitHub** como plataforma central de control de versiones y colaboración, mientras que **Visual Studio Code** funciona como editor principal para el desarrollo de los componentes de software. Asimismo, herramientas como **Figma**, **UXPressia**, **Miro**, **Structurizr** y **Lucidchart** permiten construir y documentar los artefactos de análisis, experiencia de usuario, dominio y arquitectura requeridos por el proyecto.
+
+En el caso de los productos frontend, el equipo utiliza **Node.js** y **npm** para gestionar dependencias y ejecutar los entornos locales de desarrollo. Para el backend, se considera el uso de **.NET SDK** con C# y ASP.NET, debido a que el **Core API** debe exponer servicios RESTful que permitan gestionar usuarios, estacionamientos, espacios, reservas, estados y eventos operativos. Además, **Postman** se utiliza para validar el comportamiento de los endpoints antes de integrarlos con las aplicaciones cliente.
+
+Para el componente IoT, el equipo sigue un flujo progresivo de trabajo. Primero, el circuito se valida mediante **Wokwi**, lo que permite simular el comportamiento del ESP32 y los sensores ultrasónicos antes de realizar pruebas físicas. Luego, el código se implementa y carga en el dispositivo mediante **Arduino IDE** o el entorno configurado en Visual Studio Code. Finalmente, el nodo IoT físico se conecta con los sensores **HC-SR04+** para detectar la ocupación de los espacios de estacionamiento y enviar los eventos correspondientes hacia la capa edge de la solución.
+
+Esta configuración permite mantener una relación coherente entre los distintos niveles de la arquitectura IoT de **ParkingNow**: dispositivo embebido, Edge API, Core API, base de datos, aplicaciones de usuario y servicios de despliegue. De esta manera, el equipo puede evidenciar la trazabilidad entre el evento físico detectado por el sensor y la información mostrada en tiempo real en las interfaces del conductor y del administrador.
+
+
+### 6.1.2. Source Code Management
+
+Para la gestión del código fuente de **ParkingNow**, el equipo de **Code Mondoguito** utiliza **GitHub** como plataforma principal de control de versiones, organización de repositorios y colaboración. Esta decisión permite registrar los cambios realizados por cada integrante, mantener evidencia de participación, trabajar mediante ramas independientes y controlar la integración progresiva de los productos digitales que forman parte de la solución IoT.
+
+El proyecto se encuentra organizado dentro de una organización pública de GitHub, lo cual permite centralizar los repositorios del equipo y mantener separados los diferentes componentes de la solución, como el informe del proyecto, el Landing Page, las aplicaciones, los servicios backend, el Edge API y el código embebido del nodo IoT.
+
+**GitHub Organization:**  
+[https://github.com/G3-UPC-1ASI0572-6770-IOT](https://github.com/G3-UPC-1ASI0572-6770-IOT)
+
+A continuación, se presenta la relación de repositorios considerados para el desarrollo y documentación de **ParkingNow**.
+
+| Producto / Componente | Repositorio | Propósito |
+| --- | --- | --- |
+| Project Report | [https://github.com/G3-UPC-1ASI0572-6770-IOT/Report](https://github.com/G3-UPC-1ASI0572-6770-IOT/Report) | Contiene el informe principal del proyecto en formato Markdown, junto con las imágenes, evidencias y recursos utilizados en la documentación académica. |
+| Landing Page | [https://github.com/G3-UPC-1ASI0572-6770-IOT/Landing-Page](https://github.com/G3-UPC-1ASI0572-6770-IOT/Landing-Page) | Contiene el sitio web estático orientado a presentar la propuesta de valor de ParkingNow, sus segmentos objetivo y los call-to-action hacia las aplicaciones. |
+| Web Application | [https://github.com/G3-UPC-1ASI0572-6770-IOT/Frontend](https://github.com/G3-UPC-1ASI0572-6770-IOT/Frontend) | Contiene la aplicación web dirigida a los administradores de estacionamientos independientes para monitorear espacios, reservas y eventos operativos. |
+
+
+
+#### GitFlow Workflow
+
+Para organizar el trabajo colaborativo, el equipo adopta **GitFlow** como flujo de control de versiones. Este modelo permite separar el código estable del código en desarrollo, trabajar nuevas funcionalidades en ramas independientes, preparar versiones entregables y corregir errores críticos sin afectar directamente la rama principal.
+
+El flujo de trabajo se organiza de la siguiente manera:
+
+| Rama | Propósito |
+| --- | --- |
+| `main` | Contiene la versión estable y validada del producto. Esta rama representa el estado oficial del proyecto para entregas o versiones publicables. |
+| `develop` | Contiene la versión de integración activa. En esta rama se consolidan las funcionalidades terminadas antes de preparar una versión estable. |
+| `feature/*` | Contiene el desarrollo de una funcionalidad específica. Cada User Story o tarea relevante debe trabajarse en una rama independiente. |
+| `release/*` | Contiene la preparación de una versión entregable del producto, incluyendo ajustes finales, pruebas y correcciones menores. |
+| `hotfix/*` | Contiene correcciones urgentes realizadas sobre la versión estable publicada en `main`. |
+
+El flujo general inicia con la creación de una rama `feature/*` desde `develop`. Luego, el integrante responsable desarrolla la funcionalidad asignada, realiza commits siguiendo la convención establecida, sube sus cambios al repositorio remoto y solicita la integración mediante un Pull Request. Después de la revisión del equipo, los cambios aprobados se integran a `develop`. Al finalizar un sprint o una entrega importante, se crea una rama `release/*` para validar el estado del producto antes de integrarlo a `main`.
+
+#### Branch Naming Convention
+
+Para mantener una estructura clara y consistente entre los repositorios, el equipo utiliza una convención de nombres para las ramas. Esta convención permite identificar rápidamente el tipo de trabajo realizado y la funcionalidad asociada.
+
+| Tipo de rama | Convención | Ejemplo |
+| --- | --- | --- |
+| Feature | `feature/<short-description>` | `feature/parking-space-status` |
+| Feature asociada a User Story | `feature/<user-story-id>-<short-description>` | `feature/us08-create-reservation` |
+| Fix | `fix/<short-description>` | `fix/reservation-status-validation` |
+| Documentation | `docs/<short-description>` | `docs/update-sprint-backlog` |
+| Release | `release/v<major>.<minor>.<patch>` | `release/v1.0.0` |
+| Hotfix | `hotfix/<short-description>` | `hotfix/fix-api-connection` |
+
+
+
+#### Conventional Commits
+
+| Tipo       | Uso                                                 | Ejemplo                                                 |
+| ---------- | --------------------------------------------------- | ------------------------------------------------------- |
+| `feat`     | Nueva funcionalidad                                 | `feat(reservations): add reservation creation endpoint` |
+| `fix`      | Corrección de error                                 | `fix(sensor): correct distance threshold validation`    |
+| `docs`     | Cambios en documentación                            | `docs(report): update source code management section`   |
+| `style`    | Cambios de formato sin alterar lógica               | `style(web): format dashboard cards`                    |
+| `refactor` | Mejora interna sin cambiar comportamiento           | `refactor(api): simplify parking space service`         |
+| `test`     | Agregar o modificar pruebas                         | `test(api): add reservation controller tests`           |
+| `chore`    | Tareas de configuración o mantenimiento             | `chore(project): update dependencies`                   |
+| `build`    | Cambios relacionados con compilación o dependencias | `build(web): configure production build`                |
+| `ci`       | Cambios en integración continua                     | `ci(api): add deployment workflow`                      |
+
+
+
+#### Pull Request Workflow
+
+El equipo utiliza Pull Requests para revisar e integrar cambios de forma controlada. Esta práctica permite reducir errores, mejorar la calidad del código y mantener evidencia del trabajo colaborativo.
+
+El flujo esperado para integrar cambios es el siguiente:
+
+1. El integrante crea una rama desde `develop`.
+2. Desarrolla la funcionalidad, corrección o documentación asignada.
+3. Realiza commits siguiendo la convención de Conventional Commits.
+4. Sube la rama al repositorio remoto.
+5. Crea un Pull Request hacia `develop`.
+6. Otro integrante revisa el cambio realizado.
+7. Se validan posibles conflictos, errores o inconsistencias.
+8. Si el cambio es aprobado, se integra a `develop`.
+9. Al cierre del sprint o entrega, se prepara una rama `release/*`.
+10. La versión validada se integra a `main`.
+
+Este flujo evita que los integrantes trabajen directamente sobre `main`, protege la versión estable del proyecto y permite que cada cambio pueda ser revisado antes de formar parte de la integración principal.
+
+
+### 6.1.3. Source Code Style Guide & Conventions
+
+Para mantener la consistencia del código fuente en todos los productos de **ParkingNow**, el equipo de **Code Mondoguito** adopta convenciones de estilo y nomenclatura aplicables a los lenguajes, frameworks y herramientas utilizados en la solución. Estas convenciones permiten que el código sea más fácil de leer, mantener, revisar e integrar entre los distintos componentes del proyecto: **Landing Page**, **Web Application**, **Mobile Application**, **Core API**, **Edge API** y **Embedded Application**.
+
+Como regla general, todos los nombres de archivos, variables, funciones, clases, componentes, rutas, endpoints, ramas y commits se redactan en **inglés**. Esta decisión permite mantener una convención profesional y evitar mezclas de idioma dentro del código fuente, especialmente porque la solución integra productos desarrollados con diferentes tecnologías.
+
+#### General Naming Conventions
+
+| Elemento | Convención | Ejemplo |
+| --- | --- | --- |
+| Variables | `camelCase` | `parkingSpaceStatus`, `reservationDate` |
+| Funciones / Métodos | `camelCase` | `createReservation()`, `updateSpaceStatus()` |
+| Clases | `PascalCase` | `ParkingSpace`, `ReservationService` |
+| Componentes UI | `PascalCase` | `ParkingCard`, `ReservationForm` |
+| Interfaces TypeScript | `PascalCase` | `ParkingSpace`, `ReservationResponse` |
+| Constantes | `UPPER_SNAKE_CASE` | `MAX_DISTANCE_THRESHOLD` |
+| Archivos frontend | `kebab-case` | `parking-card.tsx`, `reservation-form.tsx` |
+| Archivos backend | `PascalCase` para clases principales | `ReservationController.cs`, `ParkingSpaceService.cs` |
+| Rutas web | `kebab-case` | `/parking-spaces`, `/active-reservations` |
+| Endpoints REST | Sustantivos en plural | `/api/v1/parking-spaces` |
+| Branches | `type/short-description` | `feature/create-reservation` |
+| Commits | Conventional Commits | `feat(api): add reservation endpoint` |
+
+#### HTML Conventions
+
+Para el **Landing Page** y las vistas web que utilicen HTML, el equipo adopta reglas orientadas a mantener una estructura semántica, clara y accesible.
+
+Principales convenciones:
+
+- Utilizar etiquetas semánticas como `header`, `main`, `section`, `article`, `nav` y `footer`.
+- Mantener una estructura ordenada y fácil de leer.
+- Incluir atributos `alt` en imágenes para mejorar la accesibilidad.
+- Evitar nombres genéricos como `div1`, `box2` o `section-new`.
+- Utilizar clases descriptivas relacionadas con el propósito del elemento.
+- Mantener una indentación consistente de dos espacios.
+
+Ejemplo:
+
+```html
+<section class="hero-section">
+  <h1>Find and reserve parking spaces in real time</h1>
+  <p>ParkingNow connects drivers with verified parking availability.</p>
+</section>
+```
+
+#### CSS Conventions
+
+Para los estilos CSS, el equipo utiliza nombres descriptivos en inglés y en formato `kebab-case`. En caso se utilice un framework de estilos como Tailwind CSS, se priorizará la reutilización de clases utilitarias y componentes consistentes con el Design System definido para ParkingNow.
+
+Principales convenciones:
+
+- Usar `kebab-case` para clases personalizadas.
+- Evitar estilos duplicados.
+- Mantener coherencia con la paleta de colores, tipografía y espaciado definidos en las Style Guidelines.
+- Evitar valores arbitrarios si existe un token o clase reutilizable.
+- Separar estilos globales de estilos específicos por componente cuando corresponda.
+
+Ejemplo:
+
+```css
+.parking-status-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  padding: 16px;
+}
+```
+
+#### JavaScript / TypeScript Conventions
+
+Para los productos frontend y servicios desarrollados con JavaScript o TypeScript, el equipo adopta convenciones orientadas a claridad, tipado y modularidad.
+
+Principales convenciones:
+
+- Utilizar `const` por defecto y `let` solo cuando el valor cambie.
+- Evitar el uso de `var`.
+- Usar nombres descriptivos para funciones, variables, propiedades y componentes.
+- Mantener componentes pequeños y reutilizables.
+- Separar lógica de presentación, servicios y modelos.
+- Definir tipos o interfaces para las estructuras principales del dominio.
+- Evitar funciones demasiado extensas o con múltiples responsabilidades.
+
+Ejemplo:
+
+```ts
+export interface ParkingSpace {
+  id: string;
+  code: string;
+  status: 'available' | 'occupied' | 'reserved';
+  lastUpdatedAt: string;
+}
+
+export function isParkingSpaceAvailable(space: ParkingSpace): boolean {
+  return space.status === 'available';
+}
+```
+
+
+#### RESTful API Conventions
+
+Los endpoints del **Core API** y del **Edge API** se diseñan siguiendo criterios RESTful para facilitar su consumo desde la Web Application, Mobile Application y el nodo IoT.
+
+Principales convenciones:
+
+- Usar sustantivos en plural para representar recursos.
+- No utilizar verbos en la URL.
+- Usar métodos HTTP según la acción esperada.
+- Mantener respuestas consistentes.
+- Incluir códigos de estado HTTP adecuados.
+- Versionar los endpoints con `/api/v1`.
+
+Ejemplos:
+
+| Acción | Método | Endpoint |
+| --- | --- | --- |
+| Obtener estacionamientos | `GET` | `/api/v1/parking-lots` |
+| Obtener espacios de un estacionamiento | `GET` | `/api/v1/parking-lots/{parkingLotId}/parking-spaces` |
+| Crear una reserva | `POST` | `/api/v1/reservations` |
+| Cancelar una reserva | `PATCH` | `/api/v1/reservations/{reservationId}/cancel` |
+| Reportar estado desde Edge API | `POST` | `/api/v1/parking-space-events` |
+
+Ejemplo de respuesta estándar:
+
+```json
+{
+  "success": true,
+  "message": "Reservation created successfully",
+  "data": {
+    "reservationId": "res-001",
+    "parkingSpaceId": "space-001",
+    "status": "active"
+  }
+}
+```
+
+#### Embedded C++ / Arduino Conventions
+
+Para la **Embedded Application** ejecutada en el ESP32, el equipo adopta convenciones simples y legibles, considerando que el código debe ser fácil de probar, explicar y modificar durante la demostración del prototipo.
+
+Principales convenciones:
+
+- Usar nombres descriptivos en inglés.
+- Definir pines como constantes.
+- Separar la lectura del sensor, la validación del estado y el envío de datos.
+- Evitar lógica extensa dentro de `loop()`.
+- Utilizar comentarios breves solo cuando ayuden a entender la lógica del hardware.
+- Mantener valores configurables para umbrales de distancia y tiempos de lectura.
+
+Ejemplo:
+
+```cpp
+const int TRIGGER_PIN = 5;
+const int ECHO_PIN = 18;
+const int OCCUPIED_DISTANCE_THRESHOLD = 15;
+
+bool isSpaceOccupied(long distanceInCentimeters) {
+  return distanceInCentimeters <= OCCUPIED_DISTANCE_THRESHOLD;
+}
+```
+
+#### Gherkin Conventions
+
+Para criterios de aceptación y posibles pruebas de comportamiento, el equipo utiliza Gherkin con la estructura `Given-When-Then`, manteniendo escenarios claros y comprobables.
+
+Principales convenciones:
+
+- Redactar escenarios en tercera persona.
+- Evitar detalles visuales innecesarios de interfaz.
+- Enfocarse en el comportamiento esperado del sistema.
+- Usar condiciones verificables.
+- Mantener el lenguaje claro y consistente.
+
+Ejemplo:
+
+```gherkin
+Scenario: Driver creates a reservation for an available parking space
+  Given the driver has selected an available parking space
+  When the driver confirms the reservation
+  Then the system creates an active reservation
+  And the parking space status changes to reserved
+```
+
+#### Documentation Conventions
+
+La documentación del proyecto se mantiene en formato Markdown dentro del repositorio correspondiente. Para asegurar consistencia en el informe y en los archivos técnicos, el equipo adopta las siguientes reglas:
+
+- Usar encabezados jerárquicos con `#`, `##`, `###` y `####`.
+- Mantener títulos en inglés cuando correspondan a secciones exigidas por el curso.
+- Redactar explicaciones en español académico y claro.
+- Incluir tablas para resumir herramientas, repositorios, convenciones y responsabilidades.
+- Usar rutas relativas para imágenes dentro del repositorio, por ejemplo `./assets/image-name.png`.
+- Mantener nombres de archivos en minúsculas y con guiones cuando sea posible.
+- Verificar que los enlaces internos del índice funcionen antes de cada entrega.
+
+Ejemplo:
+
+```md
+![Sprint Backlog Evidence](./assets/sprint-backlog-1.png)
+```
+
+#### Code Review Conventions
+
+Antes de integrar una rama a `develop`, el equipo debe realizar una revisión básica de calidad. Esta revisión considera los siguientes criterios:
+
+| Criterio | Descripción |
+| --- | --- |
+| Compilación | El proyecto debe ejecutarse sin errores locales. |
+| Convenciones | El código debe respetar nombres, estructura y formato definidos. |
+| Alcance | El cambio debe corresponder a la User Story, task o issue asignado. |
+| Claridad | El código debe ser comprensible para otro integrante del equipo. |
+| Integración | El cambio no debe romper funcionalidades ya implementadas. |
+| Documentación | Si el cambio afecta configuración, endpoints o uso del sistema, debe actualizarse la documentación correspondiente. |
+
+Con estas convenciones, el equipo busca que los productos de **ParkingNow** mantengan una base de código ordenada, comprensible y coherente entre sus distintos componentes. Esto resulta especialmente importante porque la solución combina software web, mobile, backend, edge computing y hardware IoT, por lo que cualquier inconsistencia podría afectar la trazabilidad entre el estado físico del estacionamiento y la información mostrada al usuario final.
+
+
+
+
+
+
 
 ## Conclusiones y recomendaciones
 
