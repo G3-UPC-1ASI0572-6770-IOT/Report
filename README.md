@@ -6277,13 +6277,19 @@ En conjunto, el sistema de navegación está pensado para que la interacción se
 
 <img src="./assets/wireflow-web.png" alt="Wireflow Web" width="801">
 
----
+
 
 **Proceso de Landing page-Web app**
 
 <img src="./assets/landing-main.png" alt="Wireflow LP-Web" width="801">
 
----
+
+
+**Proceso de Parking configuration y IOT node status**
+
+<img src="./assets/parking-node.png" alt="Wireflow parking-node" width="801">
+
+
 
 
 #### 5.4.3. Applications Mock-ups. 
