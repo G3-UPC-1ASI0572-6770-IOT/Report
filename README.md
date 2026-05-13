@@ -6285,9 +6285,17 @@ En conjunto, el sistema de navegación está pensado para que la interacción se
 
 
 
+
 **Proceso de Parking configuration y IOT node status**
 
 <img src="./assets/parking-node.png" alt="Wireflow parking-node" width="801">
+
+
+
+
+**Proceso de Reservación**
+
+<img src="./assets/reservation.png" alt="Wireflow reservation" width="801">
 
 
 
