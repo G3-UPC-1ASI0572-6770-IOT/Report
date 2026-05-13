@@ -7784,6 +7784,164 @@ En esta sección se definen los responsables principales y colaboradores por asp
 | US06 | Navegación inicial de la Web App | T07 | Configure initial routing | Configurar rutas iniciales de la Web App para administrador, considerando futuras vistas de dashboard, espacios y reservas. | 2 | Vásquez Villalobos, Elverth Jair | To Do |
 | TS01 | Configuración de repositorios | T08 | Define GitFlow branches and conventions | Configurar ramas base, definir convenciones de trabajo y documentar el flujo GitFlow en el informe. | 2 | Vásquez Villalobos, Elverth Jair | To Do |
 
+##### 6.2.1.4. Development Evidence for Sprint Review.
+
+Durante el Sprint 1 se avanzó principalmente en la implementación inicial de los productos digitales visibles para los usuarios: **Landing Page** y **Frontend Web Application**. El alcance de este sprint se concentró en presentar la propuesta de valor de **ParkingNow**, diferenciar los segmentos objetivo, preparar la navegación base de la aplicación web para administradores y documentar las convenciones iniciales de trabajo en GitHub. Estos avances permiten establecer una primera base funcional sobre la cual se integrarán posteriormente las funcionalidades de reservas, monitoreo de espacios, servicios RESTful, Edge API y comunicación con el nodo IoT.
+
+La siguiente tabla debe ser completada con los commits reales generados por el equipo en los repositorios correspondientes. Se mantiene la estructura solicitada para evidenciar la trazabilidad entre repositorio, rama, commit y avance implementado durante el sprint.
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+| --- | --- | --- | --- | --- | --- |
+| G3-UPC-1ASI0572-6770-IOT/Landing-Page | feature/landing-hero-section | COMPLETAR | feat(landing): implement hero section | Implementación de la sección principal del Landing Page con nombre del producto, propuesta de valor y mensaje inicial para conductores y administradores. | COMPLETAR |
+| G3-UPC-1ASI0572-6770-IOT/Landing-Page | feature/landing-content | COMPLETAR | feat(landing): add value proposition content | Integración de contenido relacionado con el problema de estacionamiento urbano y la propuesta de valor de ParkingNow. | COMPLETAR |
+| G3-UPC-1ASI0572-6770-IOT/Landing-Page | feature/user-segments | COMPLETAR | feat(landing): add user segment sections | Implementación de secciones diferenciadas para conductores urbanos y administradores de estacionamientos independientes. | COMPLETAR |
+| G3-UPC-1ASI0572-6770-IOT/Landing-Page | feature/call-to-action | COMPLETAR | feat(landing): add segment call-to-action buttons | Incorporación de botones de acción orientados a redirigir al usuario según su segmento objetivo. | COMPLETAR |
+| G3-UPC-1ASI0572-6770-IOT/Landing-Page | feature/responsive-layout | COMPLETAR | feat(landing): configure responsive layout | Ajuste visual del Landing Page para escritorio y dispositivos móviles, manteniendo coherencia con los mock-ups del proyecto. | COMPLETAR |
+| G3-UPC-1ASI0572-6770-IOT/Web-Application | feature/frontend-base-structure | COMPLETAR | feat(web): create frontend base structure | Creación de la estructura base del proyecto frontend, carpetas principales, componentes iniciales y configuración general. | COMPLETAR |
+| G3-UPC-1ASI0572-6770-IOT/Web-Application | feature/initial-routing | COMPLETAR | feat(web): configure initial routing | Configuración de rutas iniciales para futuras vistas de dashboard, espacios, reservas y monitoreo del administrador. | COMPLETAR |
+| G3-UPC-1ASI0572-6770-IOT/Report | docs/chapter-six | COMPLETAR | docs(report): add sprint one evidence sections | Documentación del Sprint 1, incluyendo Sprint Backlog, evidencias de desarrollo, pruebas, ejecución, despliegue y colaboración. | COMPLETAR |
+
+> Nota: Los valores marcados como `COMPLETAR` deben reemplazarse con los datos reales obtenidos desde GitHub antes de la entrega. Esta tabla no debe contener commits inventados; debe reflejar únicamente evidencias verificables del trabajo realizado por el equipo.
+
+##### 6.2.1.5. Testing Suite Evidence for Sprint Review.
+
+En el Sprint 1, el alcance de implementación se centró en la primera versión del **Landing Page**, la estructura inicial del **Frontend Web Application** y la documentación de configuración del proyecto. Debido a que en este sprint aún no se implementaron servicios RESTful completos, reglas de negocio complejas ni integración con el nodo IoT, no se desarrolló una suite automatizada de pruebas unitarias, de integración o de aceptación para Web Services.
+
+Sin embargo, el equipo realizó una validación funcional inicial de forma manual, enfocada en verificar que los elementos implementados cumplan con el objetivo del sprint: presentar correctamente la propuesta de valor de ParkingNow, diferenciar los segmentos objetivo, permitir navegación inicial y mantener una visualización adecuada en distintos tamaños de pantalla.
+
+| Test Type | Related Product | Validation Item | Description | Status |
+| --- | --- | --- | --- | --- |
+| Manual UI Test | Landing Page | Hero section visibility | Verificar que la sección principal muestre correctamente el nombre ParkingNow, la propuesta de valor y el mensaje principal del producto. | To Verify |
+| Manual UI Test | Landing Page | User segment sections | Verificar que las secciones para conductores urbanos y administradores de estacionamientos independientes se visualicen de forma diferenciada. | To Verify |
+| Manual UI Test | Landing Page | Call-to-action buttons | Verificar que los botones de acción estén visibles y orienten al usuario hacia la experiencia correspondiente según su segmento. | To Verify |
+| Manual Responsive Test | Landing Page | Desktop and mobile layout | Verificar que el Landing Page mantenga una estructura visual adecuada en escritorio y dispositivos móviles. | To Verify |
+| Manual Navigation Test | Web Application | Initial routing | Verificar que las rutas iniciales de la Web App se encuentren configuradas para futuras vistas de administración. | To Verify |
+| Documentation Review | Report | GitFlow and conventions | Verificar que la documentación del flujo GitFlow, convenciones de ramas y commits esté incluida en el informe del proyecto. | To Verify |
+
+Para los siguientes sprints, cuando se incorporen funcionalidades de backend, endpoints RESTful, reservas, monitoreo de espacios, reportes desde el Edge API e integración con el nodo ESP32, se deberán agregar pruebas más completas. Estas podrán incluir pruebas unitarias para servicios, pruebas de integración entre API y base de datos, y pruebas de aceptación en lenguaje Gherkin para validar los escenarios principales de conductor y administrador.
+
+##### 6.2.1.6. Execution Evidence for Sprint Review.
+
+En esta sección se presenta la evidencia de ejecución correspondiente al Sprint 1. Durante este sprint se obtuvo una primera versión funcional del **Landing Page** y una estructura inicial de la **Web Application**. La ejecución permite demostrar que el equipo avanzó en los productos digitales que servirán como punto de entrada para los usuarios y como base para el panel de administración del estacionamiento.
+
+A continuación, se deben incorporar capturas de pantalla de las principales vistas implementadas. Las imágenes deben agregarse dentro de la carpeta `assets/` del repositorio del informe y referenciarse mediante rutas relativas en Markdown.
+
+**Figura X**  
+_Primera versión de la sección principal del Landing Page de ParkingNow_
+
+![Landing Page Hero Section](./assets/sprint-1-landing-hero-section.png)
+
+_Nota._ Elaboración propia (2026), a partir de la implementación inicial del Landing Page.
+
+**Figura X**  
+_Secciones diferenciadas para conductores urbanos y administradores de estacionamientos independientes_
+
+![Landing Page User Segments](./assets/sprint-1-user-segments.png)
+
+_Nota._ Elaboración propia (2026), a partir de la implementación inicial del Landing Page.
+
+**Figura X**  
+_Estructura inicial de navegación de la Web Application_
+
+![Web Application Initial Routing](./assets/sprint-1-web-app-routing.png)
+
+_Nota._ Elaboración propia (2026), a partir de la estructura inicial de la Web Application.
+
+Asimismo, el equipo debe incluir un enlace a un video corto donde se muestre la navegación lograda en este sprint. El video debe evidenciar la visualización del Landing Page, la respuesta visual en distintos tamaños de pantalla y la navegación inicial de la Web Application.
+
+**Video de ejecución del Sprint 1:**  
+[COMPLETAR URL DEL VIDEO EN MICROSOFT STREAM / CLIPCHAMP](COMPLETAR_URL)
+
+##### 6.2.1.7. Services Documentation Evidence for Sprint Review.
+
+En el Sprint 1 no se implementaron servicios RESTful completos ni endpoints definitivos del **Core API** o **Edge API**, debido a que el alcance se concentró en la primera versión del **Landing Page**, la estructura inicial de la **Web Application** y la configuración colaborativa del proyecto. Por ello, todavía no se cuenta con documentación OpenAPI asociada a endpoints productivos.
+
+No obstante, se deja establecida la estructura que será utilizada en los próximos sprints para documentar los servicios de ParkingNow. Esta documentación deberá registrar los endpoints relacionados con usuarios, estacionamientos, espacios, reservas, eventos de ocupación, comunicación con la capa edge y actualización del estado físico detectado por el nodo IoT.
+
+| API / Service | Endpoint | Acción implementada | HTTP Verb | Estado en Sprint 1 | Observación |
+| --- | --- | --- | --- | --- | --- |
+| Core API | `/api/v1/parking-lots` | Gestión de estacionamientos afiliados | GET / POST | Not implemented | Se documentará cuando se implemente el módulo de estacionamientos. |
+| Core API | `/api/v1/parking-spaces` | Gestión de espacios de estacionamiento | GET / POST / PATCH | Not implemented | Se documentará cuando se implemente el módulo de espacios. |
+| Core API | `/api/v1/reservations` | Creación y consulta de reservas | GET / POST / PATCH | Not implemented | Se documentará cuando se implemente la reserva anticipada. |
+| Core API | `/api/v1/occupancy-events` | Registro de eventos de ocupación | GET / POST | Not implemented | Se documentará cuando se integre el flujo de eventos del sensor. |
+| Edge API | `/api/v1/sensor-events` | Recepción de eventos desde ESP32 | POST | Not implemented | Se documentará cuando se implemente la comunicación entre nodo IoT y Edge API. |
+
+En los siguientes sprints, esta sección deberá incluir capturas de la documentación OpenAPI, ejemplos de request y response, parámetros de entrada, códigos de respuesta y enlaces al repositorio de Web Services correspondiente.
+
+##### 6.2.1.8. Software Deployment Evidence for Sprint Review.
+
+Durante el Sprint 1 se preparó el despliegue inicial de los productos frontend que forman parte del alcance temprano de **ParkingNow**: el **Landing Page** y la primera versión de la **Web Application**. El despliegue permite que los integrantes del equipo, el docente y los usuarios de validación puedan acceder a una versión navegable de los productos desarrollados.
+
+Para esta etapa, el despliegue se enfoca en evidenciar la disponibilidad pública de los productos digitales iniciales. La integración con servicios backend, Edge API, Supabase Realtime y nodo IoT se desarrollará de manera progresiva en los siguientes sprints.
+
+| Producto | Plataforma de despliegue | Rama utilizada | URL de despliegue | Estado |
+| --- | --- | --- | --- | --- |
+| Landing Page | Vercel / GitHub Pages | `main` | [COMPLETAR URL LANDING PAGE](COMPLETAR_URL) | To Update |
+| Web Application | Vercel / Railway / plataforma definida por el equipo | `main` | [COMPLETAR URL WEB APPLICATION](COMPLETAR_URL) | To Update |
+| Core API | Railway / plataforma definida por el equipo | `develop` | Not available in Sprint 1 | Pending |
+| Edge API | Railway / plataforma definida por el equipo | `develop` | Not available in Sprint 1 | Pending |
+| Embedded Application | ESP32 local prototype | Local firmware upload | Not applicable in Sprint 1 | Pending |
+
+A continuación, se deben agregar capturas del proceso de despliegue realizado durante el sprint. Las capturas pueden mostrar la configuración del proyecto en la plataforma de despliegue, el estado exitoso del deployment y la visualización pública de la aplicación.
+
+**Figura X**  
+_Evidencia del despliegue del Landing Page de ParkingNow_
+
+![Landing Page Deployment Evidence](./assets/sprint-1-landing-deployment.png)
+
+_Nota._ Elaboración propia (2026), a partir de la plataforma de despliegue utilizada por el equipo.
+
+**Figura X**  
+_Evidencia del despliegue inicial de la Web Application_
+
+![Web Application Deployment Evidence](./assets/sprint-1-web-app-deployment.png)
+
+_Nota._ Elaboración propia (2026), a partir de la plataforma de despliegue utilizada por el equipo.
+
+##### 6.2.1.9. Team Collaboration Insights during Sprint.
+
+Durante el Sprint 1, el equipo trabajó de forma colaborativa en la implementación inicial del **Landing Page**, la configuración base de la **Web Application** y la documentación del capítulo de implementación. La distribución de tareas permitió que cada integrante participe según su rol dentro del proyecto, manteniendo relación con los work-items definidos en el Sprint Backlog.
+
+| Team Member | Main Contribution during Sprint 1 | Related Tasks |
+| --- | --- | --- |
+| Cuya Villegas, Rafael Alberto | Implementación de secciones iniciales del Landing Page y botones call-to-action. | T01, T04 |
+| Soto Quispe, Diego Ulises | Redacción e integración de contenido de propuesta de valor para ParkingNow. | T02 |
+| Vilca Valverde, Fiorella Angela | Apoyo en estructura visual, segmentos objetivo y responsive layout. | T03, T05 |
+| Lapa De La Cruz, Gabriel Omar | Preparación de la estructura base del proyecto frontend. | T06 |
+| Vásquez Villalobos, Elverth Jair | Configuración inicial de navegación de la Web App y documentación de convenciones GitFlow. | T07, T08 |
+
+Como evidencia de colaboración, se deben incluir capturas de los insights de GitHub correspondientes a los repositorios trabajados durante el sprint. Estas capturas deben mostrar actividad de commits, ramas o contribuciones del equipo y deben guardar coherencia con las tareas asignadas en el Sprint Backlog.
+
+**Figura X**  
+_Insights del repositorio Landing Page durante el Sprint 1_
+
+![Landing Page GitHub Insights](./assets/sprint-1-landing-github-insights.png)
+
+_Nota._ Elaboración propia (2026), a partir de los analíticos de colaboración de GitHub.
+
+**Figura X**  
+_Insights del repositorio Web Application durante el Sprint 1_
+
+![Web Application GitHub Insights](./assets/sprint-1-web-app-github-insights.png)
+
+_Nota._ Elaboración propia (2026), a partir de los analíticos de colaboración de GitHub.
+
+**Figura X**  
+_Insights del repositorio Report durante el Sprint 1_
+
+![Report GitHub Insights](./assets/sprint-1-report-github-insights.png)
+
+_Nota._ Elaboración propia (2026), a partir de los analíticos de colaboración de GitHub.
+
+Estas evidencias permiten sustentar que el trabajo fue realizado de manera colaborativa y que las actividades desarrolladas durante el sprint se encuentran respaldadas por el control de versiones del proyecto.
+
+
+
+
+
+
+
+
 
 
 
