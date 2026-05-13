@@ -6034,14 +6034,20 @@ El nombre que seleccionamos para nuestro proyecto es PARKINGNOW, ya que refleja 
 
 A continuación, presentaremos el logo de nuestra aplicación:
 
+**Figura 96** _Logo oficial de ParkingNow_  
 <img src="./assets/logoparkingnow.png" alt="Logo ParkingNow" width="591">
+
+Según la **Figura 96**, el logotipo consolida la identidad visual de la solución y transmite una propuesta de valor centrada en inmediatez, claridad y tecnología aplicada al estacionamiento urbano.
 
 **Typography**
 La tipografía en PARKINGNOW cumple un rol clave en la claridad y facilidad de uso de la interfaz. Se ha optado por fuentes legibles y de estilo moderno que permiten que la información sea comprendida rápidamente en distintos dispositivos. La organización tipográfica se estructura en cuatro niveles: headings (encabezados) para resaltar secciones principales, body (texto) para el contenido general, buttons (botones) para acciones importantes y links (enlaces) para la navegación, asegurando una jerarquía visual clara y consistente.
 
 Para el diseño se han seleccionado dos tipografías: Kalam, utilizada principalmente en títulos o elementos destacados para aportar cercanía y personalidad a la interfaz, y Tinos, empleada en textos y contenidos por su alta legibilidad. Esta combinación permite equilibrar estética y funcionalidad, mejorando la experiencia del usuario dentro de la plataforma.
 
+**Figura 97** _Guía tipográfica de ParkingNow_  
 <img src="./assets/Typograpy.png" alt="Typography" width="301">
+
+Según la **Figura 97**, la combinación tipográfica definida permite establecer jerarquía visual entre títulos, contenido y acciones, favoreciendo legibilidad y consistencia en web y mobile.
 
 **Colors**
 
@@ -6051,7 +6057,10 @@ La elección de colores en PARKINGNOW está orientada a transmitir claridad, con
 
 El blanco será el color predominante en los fondos de la interfaz. Representa simplicidad, orden y limpieza visual, permitiendo que el contenido sea más fácil de leer y que los elementos importantes destaquen sin saturar al usuario.
 
+**Figura 98** _Color primario: blanco_  
 <img src="./assets/Blanco.png" alt="Color Primario" width="701">
+
+Según la **Figura 98**, el color blanco se emplea como base de la interfaz para priorizar limpieza visual, reducir saturación y mejorar la lectura de información crítica.
 
 **Colores Secundarios (Azul y Celeste):**
 
@@ -6059,22 +6068,34 @@ El azul se utiliza para transmitir confianza, seguridad y tecnología, siendo id
 
 **Azul**
 
+**Figura 99** _Color secundario: azul_  
 <img src="./assets/Azul.png" alt="Color secundario 1" width="701">
+
+Según la **Figura 99**, el azul cumple el rol de color de confianza y soporte tecnológico, aplicado en elementos de navegación y acciones principales del sistema.
 
 **Celeste**
 
+**Figura 100** _Color secundario: celeste_  
 <img src="./assets/Celeste.png" alt="Color secundario 2" width="701">
+
+Según la **Figura 100**, el celeste complementa la paleta visual con un tono de apoyo para estados informativos y elementos de interacción de menor jerarquía.
 
 **Colores de Texto (Negro y Blanco):**
 El negro se emplea principalmente para textos sobre fondos claros, garantizando alta legibilidad. Por otro lado, el blanco se utiliza en textos cuando el fondo es oscuro, asegurando contraste y claridad en la información presentada.
 
 **Negro:**
 
+**Figura 101** _Color de texto: negro_  
 <img src="./assets/Negro.png" alt="Color texto 1" width="701">
+
+Según la **Figura 101**, el negro garantiza contraste suficiente sobre fondos claros y asegura legibilidad en contenidos extensos y etiquetas funcionales.
 
 **Blanco:**
 
+**Figura 102** _Color de texto: blanco_  
 <img src="./assets/Blanco.png" alt="Color texto 2" width="701">
+
+Según la **Figura 102**, el blanco se utiliza en componentes con fondo oscuro para mantener accesibilidad visual y claridad en botones, badges y encabezados invertidos.
 
 **Colores de Estado:**
 Se incorporan colores funcionales para indicar el estado de los espacios de estacionamiento:
@@ -6082,11 +6103,17 @@ Se incorporan colores funcionales para indicar el estado de los espacios de esta
 
 **Verde: espacio disponible**
 
+**Figura 103** _Color de estado: espacio disponible_  
 <img src="./assets/Verde.png" alt="Color estado 1" width="701">
+
+Según la **Figura 103**, el verde representa disponibilidad operativa de espacios y facilita decisiones rápidas del conductor durante la búsqueda y reserva.
 
 **Rojo: espacio ocupado**
 
+**Figura 104** _Color de estado: espacio ocupado_  
 <img src="./assets/Rojo.png" alt="Color estado 2" width="701">
+
+Según la **Figura 104**, el rojo señala ocupación de espacios en tiempo real, reduciendo ambigüedad en la interpretación de estados provenientes del componente IoT.
 
 Estos colores son fundamentales dentro del sistema, ya que permiten al usuario interpretar rápidamente la información proveniente de los sensores IoT, facilitando la toma de decisiones en tiempo real.
 En conjunto, esta paleta de colores no solo define la identidad visual de PARKINGNOW, sino que también mejora la experiencia del usuario al hacer la interfaz más clara, intuitiva y funcional.
@@ -6275,42 +6302,66 @@ En conjunto, el sistema de navegación está pensado para que la interacción se
 
 **Mobile App**
 <br>
+**Figura 105** _Wireflow general de la aplicación móvil_  
 <img src="./assets/wireflow-mobile.png" alt="Wireflow Mobile App" width="801">
 <br>
 
+Según la **Figura 105**, el flujo base de la aplicación móvil integra navegación principal, búsqueda, reserva y seguimiento, estructurando una experiencia continua para el conductor.
+
 **Proceso de Landing page - Mobile app**
 <br>
+**Figura 106** _Wireflow de landing en aplicación móvil_  
 <img src="./assets/wireflow-mobile-landing.png" alt="Wireflow Mobile App Landing" width="801">
 <br>
 
+Según la **Figura 106**, el flujo de entrada organiza bienvenida, propuesta de valor y acceso a autenticación para facilitar onboarding en los primeros pasos de uso.
+
 **Proceso de autenticación Mobile App**
 <br>
+**Figura 107** _Wireflow del proceso de autenticación móvil_  
 <img src="./assets/mobile-authentication.png" alt="Wireflow Mobile Authentication" width="801">
 <br>
 
+Según la **Figura 107**, la secuencia de autenticación contempla registro, inicio de sesión y validación de acceso como puerta de entrada a funcionalidades personalizadas.
+
 **Proceso de búsqueda de estacionamientos**
 <br>
+**Figura 108** _Wireflow de búsqueda de estacionamientos_  
 <img src="./assets/mobile-parking-search.png" alt="Wireflow Mobile Parking Search" width="801">
 <br>
 
+Según la **Figura 108**, el flujo de búsqueda prioriza ubicación y filtros de disponibilidad para acortar el tiempo de descubrimiento de opciones viables.
+
 **Proceso de resultados y detalle de estacionamiento**
 <br>
+**Figura 109** _Wireflow de resultados y detalle de estacionamiento_  
 <img src="./assets/mobile-parking-results-detail.png" alt="Wireflow Mobile Parking Results and Detail" width="801">
 <br>
 
+Según la **Figura 109**, el usuario puede contrastar alternativas, revisar atributos del estacionamiento y avanzar a una decisión informada antes de reservar.
+
 **Proceso de disponibilidad de espacios y reservación**
 <br>
+**Figura 110** _Wireflow de disponibilidad y reservación de espacios_  
 <img src="./assets/mobile-space-reservation.png" alt="Wireflow Mobile Space Availability and Reservation" width="801">
 <br>
 
+Según la **Figura 110**, la reserva se articula con la verificación de disponibilidad en tiempo real, disminuyendo conflictos entre intención digital y estado físico.
+
 **Proceso de detalle de reservaciones pasadas**
 <br>
+**Figura 111** _Wireflow de detalle de reservaciones pasadas_  
 <img src="./assets/mobile-past-reservation-details.png" alt="Wireflow Mobile Past Reservation Details" width="801">
 <br>
 
+Según la **Figura 111**, el historial permite trazabilidad de reservas finalizadas y consulta de información relevante para soporte y análisis de comportamiento de uso.
+
 **Proceso de seguimiento y cancelación de reservación**
 <br>
+**Figura 112** _Wireflow de seguimiento y cancelación de reservación_  
 <img src="./assets/mobile-reservation-tracking-cancellation.png" alt="Wireflow Mobile Reservation Tracking and Cancellation" width="801">
+
+Según la **Figura 112**, el flujo contempla monitoreo del estado de reserva y acciones de cancelación, mejorando control del usuario sobre su operación activa.
 
 ---
 
@@ -6318,41 +6369,59 @@ En conjunto, el sistema de navegación está pensado para que la interacción se
 ---
 **Web App**
 
+**Figura 113** _Wireflow general de la aplicación web_  
 <img src="./assets/wireflow-web.png" alt="Wireflow Web" width="801">
+
+Según la **Figura 113**, la vista web estructura operaciones administrativas del estacionamiento, incluyendo monitoreo, gestión de reservas y control de espacios.
 
 
 
 **Proceso de Landing page-Web app**
 
+**Figura 114** _Wireflow de landing page en entorno web_  
 <img src="./assets/landing-main.png" alt="Wireflow LP-Web" width="801">
+
+Según la **Figura 114**, la landing web organiza información comercial y llamados a la acción para conversión de visitantes en usuarios registrados.
 
 
 
 
 **Proceso de Parking configuration y IOT node status**
 
+**Figura 115** _Wireflow de configuración de parking y estado del nodo IoT_  
 <img src="./assets/parking-node.png" alt="Wireflow parking-node" width="801">
+
+Según la **Figura 115**, el administrador puede configurar espacios y supervisar el estado de nodos IoT, asegurando correspondencia entre operación física y plataforma digital.
 
 
 
 
 **Proceso de Reservación**
 
+**Figura 116** _Wireflow del proceso de reservación en web_  
 <img src="./assets/reservation.png" alt="Wireflow reservation" width="801">
+
+Según la **Figura 116**, el proceso de reserva en web permite visualizar solicitudes y estados operativos para una gestión más ordenada del servicio.
 
 
 
 
 **Proceso de eventos IoT**
 
+**Figura 117** _Wireflow de eventos IoT en la aplicación web_  
 <img src="./assets/iotevents.png" alt="Wireflow IoT events" width="801">
+
+Según la **Figura 117**, la plataforma centraliza eventos del componente IoT para seguimiento en tiempo real y detección de incidencias operativas.
 
 
 
 
 **Proceso de administrar usuario**
 
+**Figura 118** _Wireflow de administración de usuarios_  
 <img src="./assets/admin.png" alt="Wireflow admin" width="801">
+
+Según la **Figura 118**, la gestión de usuarios contempla control de cuentas y permisos, reforzando gobierno operativo y trazabilidad de acciones administrativas.
 
 
 ---
@@ -6368,10 +6437,25 @@ En conjunto, el sistema de navegación está pensado para que la interacción se
 
 #### Prototipo Mobile Aplication
 
+**Figura 119** _Prototipo móvil: pantalla de inicio_  
 ![alt text](./assets/prototipo-mobile-1.png)
+
+Según la **Figura 119**, la pantalla inicial prioriza navegación directa a búsqueda y acceso rápido a funciones clave para iniciar la experiencia del conductor.
+
+**Figura 120** _Prototipo móvil: flujo de exploración de estacionamientos_  
 ![alt text](./assets/prototipo-mobile-2.png)
+
+Según la **Figura 120**, la interfaz de exploración organiza opciones disponibles y simplifica la comparación de alternativas cercanas.
+
+**Figura 121** _Prototipo móvil: flujo de reserva y confirmación_  
 ![alt text](./assets/prototipo-mobile-3.png)
+
+Según la **Figura 121**, el usuario visualiza disponibilidad, selecciona espacio y confirma la reserva en una secuencia de interacción guiada.
+
+**Figura 122** _Prototipo móvil: seguimiento operativo de la reserva_  
 ![alt text](./assets/prototipo-mobile-4.png)
+
+Según la **Figura 122**, la solución presenta el estado de la reserva y acciones asociadas para mantener control durante el ciclo de uso.
 
 
 
