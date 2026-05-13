@@ -7131,6 +7131,8 @@ Recomendamos priorizar, para el siguiente ciclo, los siguientes frentes:
   URL: https://github.com/G3-UPC-1ASI0572-6770-IOT/Report
 - Lean UX Canvas: [https://canva.link/jukpsaamxd32d5t](https://canva.link/jukpsaamxd32d5t)  
   URL: https://canva.link/jukpsaamxd32d5t
+- Prototipo en Figma (ParkingNow): [https://www.figma.com/design/fv6VHaooXXIFFNxxZkYSHz/ParkingNow?node-id=0-1&t=Q2x17eKiSAvVKh7w-1](https://www.figma.com/design/fv6VHaooXXIFFNxxZkYSHz/ParkingNow?node-id=0-1&t=Q2x17eKiSAvVKh7w-1)  
+  URL: https://www.figma.com/design/fv6VHaooXXIFFNxxZkYSHz/ParkingNow?node-id=0-1&t=Q2x17eKiSAvVKh7w-1
 - Video consolidado de entrevistas: [https://upcedupe-my.sharepoint.com/:v:/g/personal/u202214477_upc_edu_pe/IQCMBDZdyMVAQKh_NrFheDDEAfbJMIyo3lVGDKNSnQugT3I?e=Amq8Ep](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202214477_upc_edu_pe/IQCMBDZdyMVAQKh_NrFheDDEAfbJMIyo3lVGDKNSnQugT3I?e=Amq8Ep)  
   URL: https://upcedupe-my.sharepoint.com/:v:/g/personal/u202214477_upc_edu_pe/IQCMBDZdyMVAQKh_NrFheDDEAfbJMIyo3lVGDKNSnQugT3I?e=Amq8Ep
 - Video de la exposición del AV1: [https://upcedupe-my.sharepoint.com/:v:/g/personal/u202213070_upc_edu_pe/IQDQT28ea1C4SKq7jWxtYq2ZAdfXe2QTF8b-zzUj1pfZnCg?e=XyaXzi&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202213070_upc_edu_pe/IQDQT28ea1C4SKq7jWxtYq2ZAdfXe2QTF8b-zzUj1pfZnCg?e=XyaXzi&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
