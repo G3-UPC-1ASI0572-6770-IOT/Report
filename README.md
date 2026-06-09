@@ -7961,6 +7961,130 @@ Estas evidencias permiten sustentar que el trabajo fue realizado de manera colab
 
 ##### 6.3.2. Registro de Entrevistas.
 
+---
+#### Entrevistas al Segmento 1: Conductores Urbanos
+
+A continuación se registran las entrevistas de validación realizadas a conductores urbanos de Lima Metropolitana que utilizan vehículo propio con frecuencia y se han enfrentado de forma recurrente al problema de encontrar estacionamiento disponible en zonas de alta demanda vehicular.
+
+##### Entrevista 1
+
+<table style="width:100%; table-layout:fixed; border-collapse:collapse;">
+  <tr>
+    <th style="width:24%; text-align:left;">Campo</th>
+    <th style="text-align:left;">Detalle</th>
+  </tr>
+  <tr><td><strong>Imagen</strong></td><td><img src="" alt="" width="240" /></td></tr>
+  <tr><td><strong>Entrevistado</strong></td><td></td></tr>
+  <tr><td><strong>Entrevistador</strong></td><td></td></tr>
+  <tr><td><strong>Sexo</strong></td><td></td></tr>
+  <tr><td><strong>Edad</strong></td><td></td></tr>
+  <tr><td><strong>Estado civil</strong></td><td></td></tr>
+  <tr><td><strong>Distrito</strong></td><td></td></tr>
+  <tr><td><strong>URL del video</strong></td><td><a href="">https://upcedupe-my.sharepoint.com/:v:/g/personal/u202214477_upc_edu_pe/IQCMBDZdyMVAQKh_NrFheDDEAfbJMIyo3lVGDKNSnQugT3I?e=Amq8Ep</a></td></tr>
+  <tr><td><strong>Timing</strong></td><td>Inicio: 00:00 | Fin:  | Duración: </td></tr>
+  <tr><td><strong>Resumen</strong></td><td></td></tr>
+</table>	
+
+##### Entrevista 2
+
+<table style="width:100%; table-layout:fixed; border-collapse:collapse;">
+  <tr>
+    <th style="width:24%; text-align:left;">Campo</th>
+    <th style="text-align:left;">Detalle</th>
+  </tr>
+  <tr><td><strong>Imagen</strong></td><td><img src="" alt="" width="240" /></td></tr>
+  <tr><td><strong>Entrevistado</strong></td><td></td></tr>
+  <tr><td><strong>Entrevistador</strong></td><td></td></tr>
+  <tr><td><strong>Sexo</strong></td><td></td></tr>
+  <tr><td><strong>Edad</strong></td><td></td></tr>
+  <tr><td><strong>Estado civil</strong></td><td></td></tr>
+  <tr><td><strong>Distrito</strong></td><td></td></tr>
+  <tr><td><strong>URL del video</strong></td><td><a href="">https://upcedupe-my.sharepoint.com/:v:/g/personal/u202214477_upc_edu_pe/IQCMBDZdyMVAQKh_NrFheDDEAfbJMIyo3lVGDKNSnQugT3I?e=Amq8Ep</a></td></tr>
+  <tr><td><strong>Timing</strong></td><td>Inicio: 00:00 | Fin:  | Duración: </td></tr>
+  <tr><td><strong>Resumen</strong></td><td></td></tr>
+</table>	
+
+##### Entrevista 3
+
+<table style="width:100%; table-layout:fixed; border-collapse:collapse;">
+  <tr>
+    <th style="width:24%; text-align:left;">Campo</th>
+    <th style="text-align:left;">Detalle</th>
+  </tr>
+  <tr><td><strong>Imagen</strong></td><td><img src="" alt="" width="240" /></td></tr>
+  <tr><td><strong>Entrevistado</strong></td><td></td></tr>
+  <tr><td><strong>Entrevistador</strong></td><td></td></tr>
+  <tr><td><strong>Sexo</strong></td><td></td></tr>
+  <tr><td><strong>Edad</strong></td><td></td></tr>
+  <tr><td><strong>Estado civil</strong></td><td></td></tr>
+  <tr><td><strong>Distrito</strong></td><td></td></tr>
+  <tr><td><strong>URL del video</strong></td><td><a href="">https://upcedupe-my.sharepoint.com/:v:/g/personal/u202214477_upc_edu_pe/IQCMBDZdyMVAQKh_NrFheDDEAfbJMIyo3lVGDKNSnQugT3I?e=Amq8Ep</a></td></tr>
+  <tr><td><strong>Timing</strong></td><td>Inicio: 00:00 | Fin:  | Duración: </td></tr>
+  <tr><td><strong>Resumen</strong></td><td></td></tr>
+</table>	
+
+---
+
+#### Entrevistas al Segmento 2: Administradores de Estacionamientos Independientes
+
+A continuación se registran las entrevistas de validación realizadas a propietarios y administradores de estacionamientos independientes de Lima Metropolitana que operan sus locales de forma manual o semi-formal, sin herramientas digitales de gestión integradas.
+
+##### Entrevista 4
+
+<table style="width:100%; table-layout:fixed; border-collapse:collapse;">
+  <tr>
+    <th style="width:24%; text-align:left;">Campo</th>
+    <th style="text-align:left;">Detalle</th>
+  </tr>
+  <tr><td><strong>Imagen</strong></td><td><img src="" alt="" width="240" /></td></tr>
+  <tr><td><strong>Entrevistado</strong></td><td></td></tr>
+  <tr><td><strong>Entrevistador</strong></td><td></td></tr>
+  <tr><td><strong>Sexo</strong></td><td></td></tr>
+  <tr><td><strong>Edad</strong></td><td></td></tr>
+  <tr><td><strong>Distrito</strong></td><td></td></tr>
+  <tr><td><strong>URL del video</strong></td><td><a href="">https://upcedupe-my.sharepoint.com/:v:/g/personal/u202214477_upc_edu_pe/IQCMBDZdyMVAQKh_NrFheDDEAfbJMIyo3lVGDKNSnQugT3I?e=Amq8Ep</a></td></tr>
+  <tr><td><strong>Timing</strong></td><td>Inicio:  | Fin:  | Duración: </td></tr>
+  <tr><td><strong>Resumen</strong></td><td></td></tr>
+</table>
+
+##### Entrevista 5
+
+<table style="width:100%; table-layout:fixed; border-collapse:collapse;">
+  <tr>
+    <th style="width:24%; text-align:left;">Campo</th>
+    <th style="text-align:left;">Detalle</th>
+  </tr>
+  <tr><td><strong>Imagen</strong></td><td><img src="" alt="" width="240" /></td></tr>
+  <tr><td><strong>Entrevistado</strong></td><td></td></tr>
+  <tr><td><strong>Entrevistador</strong></td><td></td></tr>
+  <tr><td><strong>Sexo</strong></td><td></td></tr>
+  <tr><td><strong>Edad</strong></td><td></td></tr>
+  <tr><td><strong>Distrito</strong></td><td></td></tr>
+  <tr><td><strong>URL del video</strong></td><td><a href="">https://upcedupe-my.sharepoint.com/:v:/g/personal/u202214477_upc_edu_pe/IQCMBDZdyMVAQKh_NrFheDDEAfbJMIyo3lVGDKNSnQugT3I?e=Amq8Ep</a></td></tr>
+  <tr><td><strong>Timing</strong></td><td>Inicio:  | Fin:  | Duración: </td></tr>
+  <tr><td><strong>Resumen</strong></td><td></td></tr>
+</table>
+
+##### Entrevista 6
+
+<table style="width:100%; table-layout:fixed; border-collapse:collapse;">
+  <tr>
+    <th style="width:24%; text-align:left;">Campo</th>
+    <th style="text-align:left;">Detalle</th>
+  </tr>
+  <tr><td><strong>Imagen</strong></td><td><img src="" alt="" width="240" /></td></tr>
+  <tr><td><strong>Entrevistado</strong></td><td></td></tr>
+  <tr><td><strong>Entrevistador</strong></td><td></td></tr>
+  <tr><td><strong>Sexo</strong></td><td></td></tr>
+  <tr><td><strong>Edad</strong></td><td></td></tr>
+  <tr><td><strong>Distrito</strong></td><td></td></tr>
+  <tr><td><strong>URL del video</strong></td><td><a href="">https://upcedupe-my.sharepoint.com/:v:/g/personal/u202214477_upc_edu_pe/IQCMBDZdyMVAQKh_NrFheDDEAfbJMIyo3lVGDKNSnQugT3I?e=Amq8Ep</a></td></tr>
+  <tr><td><strong>Timing</strong></td><td>Inicio:  | Fin:  | Duración: </td></tr>
+  <tr><td><strong>Resumen</strong></td><td></td></tr>
+</table>
+
+---
+
 ##### 6.3.3. Evaluaciones según heurísticas.
 
 ##### 6.4. Video About-the-Product.
