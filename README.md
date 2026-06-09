@@ -7974,6 +7974,76 @@ Estas evidencias permiten sustentar que el trabajo fue realizado de manera colab
 
 ##### 6.3.1. Diseño de Entrevistas.
 
+**Segmento 1: Conductores Urbanos**
+
+**Preguntas generales** 
+
+1. ¿Cuál es tu nombre?
+2. ¿Cuántos años tienes?
+3. ¿En qué distrito resides actualmente y cuál es tu estado civil?
+4. ¿Tienes hijos o personas a tu cargo?
+5. ¿Cuál es tu ocupación actual?
+
+**Preguntas del segmento** 
+1. Después de observar el prototipo, ¿cuál fue tu primera impresión de la aplicación?
+2. ¿Consideras que la interfaz es fácil de entender y utilizar?
+3. ¿Qué tan útil te parece la posibilidad de visualizar estacionamientos disponibles en tiempo real?
+4. ¿La información mostrada en el mapa te resulta clara y suficiente para tomar una decisión?
+5. ¿Entendiste fácilmente cómo realizar una reserva desde la aplicación?
+6. ¿Utilizarías una aplicación como PARKINGNOW en tu día a día? ¿Por qué?
+7. ¿Qué tan útil consideras que sea conocer la disponibilidad de espacios antes de llegar al estacionamiento?
+8. ¿Te genera confianza saber que la disponibilidad mostrada proviene de sensores instalados en los espacios de estacionamiento?
+9. ¿La opción de reservar un espacio antes de salir te parece valiosa?
+10. ¿Qué funcionalidad consideras más importante dentro de la aplicación?
+11. ¿Hay alguna funcionalidad que consideres innecesaria o poco útil?
+12. En una escala del 1 al 5, ¿qué tan probable sería que utilizaras esta aplicación?
+    
+**Preguntas complementarias**
+
+13. ¿Qué fue lo que más te gustó del prototipo?
+14. ¿Qué aspecto mejorarías de la interfaz o navegación?
+15. ¿Hubo alguna pantalla o función que te resultó confusa?
+16. ¿Agregarías alguna funcionalidad que no esté presente actualmente?
+17. ¿Pagarías por utilizar algún servicio premium relacionado con reservas o beneficios exclusivos?
+18. ¿Recomendarías esta aplicación a otros conductores? ¿Por qué?
+19. ¿Qué tendría que mejorar la aplicación para convertirse en una herramienta que utilices con frecuencia?
+
+**Segmento 2: Administradores de Estacionamientos**
+
+**Preguntas generales** 
+
+1. ¿Cuál es tu nombre?
+2. ¿Cuántos años tienes?
+3. ¿En qué distrito resides actualmente y cuál es tu estado civil?
+4. ¿Tienes hijos o personas a tu cargo?
+5. ¿Cuál es tu ocupación actual?
+
+**Preguntas principales**
+
+1. Después de observar el prototipo de la plataforma web, ¿cuál fue tu impresión general?
+2. ¿Consideras que la información mostrada es clara y fácil de interpretar?
+3. ¿La plataforma te ayudaría a gestionar mejor tu estacionamiento?
+4. ¿Qué tan útil te parece visualizar la ocupación de espacios en tiempo real?
+5. ¿Consideras valioso que la disponibilidad se actualice automáticamente mediante sensores IoT?
+6. ¿La gestión de reservas te parece sencilla de utilizar?
+7. ¿Crees que la plataforma podría ayudarte a incrementar la ocupación de tus espacios?
+8. ¿Te sentirías cómodo utilizando este sistema en tu operación diaria?
+9. ¿Estarías dispuesto a implementar sensores en los espacios de estacionamiento para automatizar la disponibilidad?
+10. ¿Qué funcionalidad consideras más importante para la gestión de tu negocio?
+11. ¿Qué tan probable sería que afiliaras tu estacionamiento a una plataforma como PARKINGNOW?
+
+**Preguntas complementarias**
+
+1. ¿Qué fue lo que más te llamó la atención de la plataforma?
+2. ¿Qué aspectos mejorarías de la interfaz web?
+3. ¿Hubo alguna función que no te quedó completamente clara?
+4. ¿Qué información adicional te gustaría visualizar en el panel de administración?
+5. ¿Qué preocupación tendrías antes de implementar una solución como esta?
+6. ¿Qué beneficio tendría que demostrar la plataforma para que decidas utilizarla?
+7. ¿Recomendarías esta solución a otros administradores de estacionamientos? ¿Por qué?
+8. ¿Qué mejoras sugerirías para aumentar el valor de la plataforma para tu negocio?
+
+
 ##### 6.3.2. Registro de Entrevistas.
 
 ---
