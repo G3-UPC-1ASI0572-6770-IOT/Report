@@ -7939,6 +7939,21 @@ Estas evidencias permiten sustentar que el trabajo fue realizado de manera colab
 
 #### 6.2.2.1. Sprint Planning 2.
 
+| Sprint # | Sprint 2 |
+| --- | --- |
+| Sprint Planning Background |  |
+| Date | 2026-05-28 |
+| Time | 08:00 PM |
+| Location | Reunión virtual mediante Google Meet / Discord |
+| Prepared by | Cuya Villegas, Rafael Alberto |
+| Attendees | Cuya Villegas, Rafael Alberto / Soto Quispe, Diego Ulises / Lapa De La Cruz, Gabriel Omar / Vásquez Villalobos, Elverth Jair / Vilca Valverde, Fiorella Angela |
+| Sprint 1 Review Summary | Durante el sprint anterior, el equipo completó el desarrollo de los principales artefactos de UX y avanzó en la elaboración del informe del proyecto. Asimismo, se implementó y desplegó una primera versión funcional de la Landing Page y de la estructura inicial del Frontend de PARKINGNOW, validando las decisiones de diseño y sentando las bases para la integración de nuevas funcionalidades en los siguientes sprints. |
+| Sprint 0 Retrospective Summary | El equipo identificó como principal fortaleza la adecuada distribución de tareas y la coordinación durante la elaboración del informe y los artefactos de diseño. Como oportunidades de mejora, se acordó fortalecer la revisión cruzada entre los integrantes, optimizar la gestión de tiempos para reducir retrabajos y mantener una mayor consistencia en la nomenclatura y organización de los componentes desarrollados.|
+| Sprint Goal & User Stories |  |
+| Sprint 2 Goal | Implementar y desplegar una segunda versión funcional de la Landing Page y del Frontend, además de desarrollar la primera versión del Backend y las integraciones necesarias para la comunicación entre los diferentes componentes del sistema, priorizando la funcionalidad y la preparación de la arquitectura para la futura incorporación de los módulos IoT de monitoreo de estacionamientos. |
+| Sprint  2 Velocity | 20 Story Points |
+| Sum of Story Points | 20 Story Points |
+
 #### 6.2.2.2. Aspect Leaders and Collaborators.
 
 #### 6.2.2.3. Sprint Backlog 1.
