@@ -7985,28 +7985,28 @@ Estas evidencias permiten sustentar que el trabajo fue realizado de manera colab
 5. ¿Cuál es tu ocupación actual?
 
 **Preguntas del segmento** 
-1. Después de observar el prototipo, ¿cuál fue tu primera impresión de la aplicación?
-2. ¿Consideras que la interfaz es fácil de entender y utilizar?
-3. ¿Qué tan útil te parece la posibilidad de visualizar estacionamientos disponibles en tiempo real?
-4. ¿La información mostrada en el mapa te resulta clara y suficiente para tomar una decisión?
-5. ¿Entendiste fácilmente cómo realizar una reserva desde la aplicación?
-6. ¿Utilizarías una aplicación como PARKINGNOW en tu día a día? ¿Por qué?
-7. ¿Qué tan útil consideras que sea conocer la disponibilidad de espacios antes de llegar al estacionamiento?
-8. ¿Te genera confianza saber que la disponibilidad mostrada proviene de sensores instalados en los espacios de estacionamiento?
-9. ¿La opción de reservar un espacio antes de salir te parece valiosa?
-10. ¿Qué funcionalidad consideras más importante dentro de la aplicación?
-11. ¿Hay alguna funcionalidad que consideres innecesaria o poco útil?
-12. En una escala del 1 al 5, ¿qué tan probable sería que utilizaras esta aplicación?
+6. Después de observar el prototipo, ¿cuál fue tu primera impresión de la aplicación?
+7. ¿Consideras que la interfaz es fácil de entender y utilizar?
+8. ¿Qué tan útil te parece la posibilidad de visualizar estacionamientos disponibles en tiempo real?
+9. ¿La información mostrada en el mapa te resulta clara y suficiente para tomar una decisión?
+10. ¿Entendiste fácilmente cómo realizar una reserva desde la aplicación?
+11. ¿Utilizarías una aplicación como PARKINGNOW en tu día a día? ¿Por qué?
+12. ¿Qué tan útil consideras que sea conocer la disponibilidad de espacios antes de llegar al estacionamiento?
+13. ¿Te genera confianza saber que la disponibilidad mostrada proviene de sensores instalados en los espacios de estacionamiento?
+14. ¿La opción de reservar un espacio antes de salir te parece valiosa?
+15. ¿Qué funcionalidad consideras más importante dentro de la aplicación?
+16. ¿Hay alguna funcionalidad que consideres innecesaria o poco útil?
+17. En una escala del 1 al 5, ¿qué tan probable sería que utilizaras esta aplicación?
     
 **Preguntas complementarias**
 
-13. ¿Qué fue lo que más te gustó del prototipo?
-14. ¿Qué aspecto mejorarías de la interfaz o navegación?
-15. ¿Hubo alguna pantalla o función que te resultó confusa?
-16. ¿Agregarías alguna funcionalidad que no esté presente actualmente?
-17. ¿Pagarías por utilizar algún servicio premium relacionado con reservas o beneficios exclusivos?
-18. ¿Recomendarías esta aplicación a otros conductores? ¿Por qué?
-19. ¿Qué tendría que mejorar la aplicación para convertirse en una herramienta que utilices con frecuencia?
+18. ¿Qué fue lo que más te gustó del prototipo?
+19. ¿Qué aspecto mejorarías de la interfaz o navegación?
+20. ¿Hubo alguna pantalla o función que te resultó confusa?
+21. ¿Agregarías alguna funcionalidad que no esté presente actualmente?
+22. ¿Pagarías por utilizar algún servicio premium relacionado con reservas o beneficios exclusivos?
+23. ¿Recomendarías esta aplicación a otros conductores? ¿Por qué?
+24. ¿Qué tendría que mejorar la aplicación para convertirse en una herramienta que utilices con frecuencia?
 
 **Segmento 2: Administradores de Estacionamientos**
 
@@ -8020,28 +8020,28 @@ Estas evidencias permiten sustentar que el trabajo fue realizado de manera colab
 
 **Preguntas principales**
 
-1. Después de observar el prototipo de la plataforma web, ¿cuál fue tu impresión general?
-2. ¿Consideras que la información mostrada es clara y fácil de interpretar?
-3. ¿La plataforma te ayudaría a gestionar mejor tu estacionamiento?
-4. ¿Qué tan útil te parece visualizar la ocupación de espacios en tiempo real?
-5. ¿Consideras valioso que la disponibilidad se actualice automáticamente mediante sensores IoT?
-6. ¿La gestión de reservas te parece sencilla de utilizar?
-7. ¿Crees que la plataforma podría ayudarte a incrementar la ocupación de tus espacios?
-8. ¿Te sentirías cómodo utilizando este sistema en tu operación diaria?
-9. ¿Estarías dispuesto a implementar sensores en los espacios de estacionamiento para automatizar la disponibilidad?
-10. ¿Qué funcionalidad consideras más importante para la gestión de tu negocio?
-11. ¿Qué tan probable sería que afiliaras tu estacionamiento a una plataforma como PARKINGNOW?
+6. Después de observar el prototipo de la plataforma web, ¿cuál fue tu impresión general?
+7. ¿Consideras que la información mostrada es clara y fácil de interpretar?
+8. ¿La plataforma te ayudaría a gestionar mejor tu estacionamiento?
+9. ¿Qué tan útil te parece visualizar la ocupación de espacios en tiempo real?
+10. ¿Consideras valioso que la disponibilidad se actualice automáticamente mediante sensores IoT?
+11. ¿La gestión de reservas te parece sencilla de utilizar?
+12. ¿Crees que la plataforma podría ayudarte a incrementar la ocupación de tus espacios?
+13. ¿Te sentirías cómodo utilizando este sistema en tu operación diaria?
+14. ¿Estarías dispuesto a implementar sensores en los espacios de estacionamiento para automatizar la disponibilidad?
+15. ¿Qué funcionalidad consideras más importante para la gestión de tu negocio?
+16. ¿Qué tan probable sería que afiliaras tu estacionamiento a una plataforma como PARKINGNOW?
 
 **Preguntas complementarias**
 
-1. ¿Qué fue lo que más te llamó la atención de la plataforma?
-2. ¿Qué aspectos mejorarías de la interfaz web?
-3. ¿Hubo alguna función que no te quedó completamente clara?
-4. ¿Qué información adicional te gustaría visualizar en el panel de administración?
-5. ¿Qué preocupación tendrías antes de implementar una solución como esta?
-6. ¿Qué beneficio tendría que demostrar la plataforma para que decidas utilizarla?
-7. ¿Recomendarías esta solución a otros administradores de estacionamientos? ¿Por qué?
-8. ¿Qué mejoras sugerirías para aumentar el valor de la plataforma para tu negocio?
+17. ¿Qué fue lo que más te llamó la atención de la plataforma?
+18. ¿Qué aspectos mejorarías de la interfaz web?
+19. ¿Hubo alguna función que no te quedó completamente clara?
+20. ¿Qué información adicional te gustaría visualizar en el panel de administración?
+21. ¿Qué preocupación tendrías antes de implementar una solución como esta?
+22. ¿Qué beneficio tendría que demostrar la plataforma para que decidas utilizarla?
+23. ¿Recomendarías esta solución a otros administradores de estacionamientos? ¿Por qué?
+24. ¿Qué mejoras sugerirías para aumentar el valor de la plataforma para tu negocio?
 
 
 ##### 6.3.2. Registro de Entrevistas.
