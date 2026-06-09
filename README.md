@@ -7956,6 +7956,16 @@ Estas evidencias permiten sustentar que el trabajo fue realizado de manera colab
 
 #### 6.2.2.2. Aspect Leaders and Collaborators.
 
+| Aspect | Leader | Collaborators | Main responsibility |
+| --- | --- | --- | --- |
+| Project Report | Cuya Villegas, Rafael Alberto | Vásquez Villalobos, Elverth Jair / Vilca Valverde, Fiorella Angela | Actualizar y consolidar el Capítulo VI del informe, documentar los avances del sprint, registrar las decisiones técnicas adoptadas y asegurar la coherencia entre el desarrollo realizado y los entregables del proyecto.|
+| Backend Implementation | Soto Quispe, Diego Ulises | Cuya Villegas, Rafael Alberto / Vilca Valverde, Fiorella Angela | Implementar la primera versión del backend, desarrollar los endpoints necesarios para la gestión de usuarios, estacionamientos y reservas, y establecer la comunicación con los componentes frontend.|
+|Actualización Frontend Web Application | Lapa De La Cruz, Gabriel Omar | Vásquez Villalobos, Elverth Jair | Actualizar la aplicación web para administradores, incorporando nuevas interfaces, funcionalidades de monitoreo y gestión de estacionamientos, así como la integración con los servicios del backend. |
+| Actualización Landing Page | Vilca Valverde, Fiorella Angela | Soto Quispe, Diego Ulises | Mejorar y actualizar la Landing Page, incorporando nuevos contenidos, secciones informativas y elementos visuales alineados con la identidad de PARKINGNOW y la propuesta tecnológica basada en IoT. |
+| Entrevistas | Vásquez Villalobos, Elverth Jair | Lapa De La Cruz, Gabriel Omar / Cuya Villegas, Rafael Alberto / Vilca Valverde, Fiorella Angela / Soto Quispe, Diego Ulises | Planificar, ejecutar y documentar las entrevistas de validación con los segmentos objetivo, recopilando retroalimentación sobre los prototipos y funcionalidades propuestas para identificar oportunidades de mejora. |
+| Deployment Configuration | Cuya Villegas, Rafael Alberto | Lapa De La Cruz, Gabriel Omar | Configurar y validar el despliegue de los componentes desarrollados, asegurando la disponibilidad de la Landing Page, la aplicación web y los servicios asociados en los entornos definidos para el proyecto. |
+
+
 #### 6.2.2.3. Sprint Backlog 1.
 
 ##### 6.2.2.4. Development Evidence for Sprint Review.
