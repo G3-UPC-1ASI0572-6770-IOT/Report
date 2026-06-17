@@ -7726,7 +7726,7 @@ _Landing Page desplegado y accesible durante Sprint 1_
 La Figura 120 presenta la evidencia visual del **Landing Page de ParkingNow** desplegado en **Vercel**. La captura muestra la propuesta de valor pública del producto, la navegación superior, los CTA orientados a conductores y dueños, y la sección inicial del problema que motivó la solución. Esta evidencia valida que el entregable comprometido para Sprint 1 fue implementado y publicado correctamente.
 
 - URL verificada del despliegue: [ParkingNow Landing](https://parkingnow-landing.vercel.app).
-- URL explícita: `https://parkingnow-landing.vercel.app`
+- URL explícita: [https://parkingnow-landing.vercel.app](https://parkingnow-landing.vercel.app/)
 - Relación con Sprint 1: implementación pública inicial del producto y canal de ingreso hacia las aplicaciones.
 - Evidencia documental complementaria: Capítulo V, Sprint Backlog 1 y video de Sprint 1.
 
@@ -7738,7 +7738,7 @@ _Acceso inicial a la Web Application del administrador en Sprint 1_
 La Figura 121 muestra la evidencia visual de la **Web Application** desplegada para el segmento owner. En la captura se observa la pantalla de inicio de sesión del panel administrativo, la identidad visual del producto y los accesos necesarios para autenticación del usuario propietario. Esta evidencia confirma que el producto frontend del administrador fue publicado correctamente y quedó listo para soportar el flujo de acceso comprometido en el sprint.
 
 - Artefacto fuente: [ParkingNow Web](https://parkingnow-frontend.vercel.app).
-- URL explícita: `https://parkingnow-frontend.vercel.app`
+- URL explícita: [https://parkingnow-frontend.vercel.app](https://parkingnow-frontend.vercel.app/)
 - Alcance funcional documentado: registro, login, dashboard inicial, alta de estacionamiento y configuración base de espacios.
 - Módulos relacionados: `auth`, `parking-lots`, `spaces`.
 - Evidencia complementaria: Sprint Backlog 1 y video de Sprint 1.
@@ -7772,14 +7772,14 @@ La Figura 122 evidencia la documentación navegable del endpoint `POST /api/v1/a
 | --- | --- | --- | --- |
 | Landing Page | Vercel | [ParkingNow Landing](https://parkingnow-landing.vercel.app) | OK |
 | Web Application | Vercel | [ParkingNow Web](https://parkingnow-frontend.vercel.app) | OK |
-| Core API | Render | [ParkingNow Core API](https://parkingnow-back.onrender.com) | OK |
+| Core API | Render | [ParkingNow Core API](https://parkingnow-back.onrender.com/swagger-ui/index.html) | OK |
 | Supabase | Supabase Cloud | PostgreSQL + tablas base configuradas | OK |
 
 **URLs explícitas de despliegue Sprint 1**
 
-- Landing Page: `https://parkingnow-landing.vercel.app`
-- Web Application: `https://parkingnow-frontend.vercel.app`
-- Core API: `https://parkingnow-back.onrender.com`
+- Landing Page: [https://parkingnow-landing.vercel.app](https://parkingnow-landing.vercel.app/)
+- Web Application: [https://parkingnow-frontend.vercel.app](https://parkingnow-frontend.vercel.app/)
+- Core API: [https://parkingnow-back.onrender.com/swagger-ui/index.html](https://parkingnow-back.onrender.com/swagger-ui/index.html)
 
 **Figura 123**  
 _Evidencia del despliegue funcional inicial del Landing Page y la Web Application_
@@ -7789,10 +7789,10 @@ _Evidencia del despliegue funcional inicial del Landing Page y la Web Applicatio
 La Figura 123 documenta el despliegue funcional inicial del Landing Page accesible por URL pública. La captura confirma presencia digital operativa, identidad visual consistente y disponibilidad de navegación pública durante Sprint 1.
 
 - Landing Page desplegado en [ParkingNow Landing](https://parkingnow-landing.vercel.app).
-  URL: `https://parkingnow-landing.vercel.app`
+  URL: [https://parkingnow-landing.vercel.app](https://parkingnow-landing.vercel.app/)
 - Web Application desplegada en [ParkingNow Web](https://parkingnow-frontend.vercel.app).
-  URL: `https://parkingnow-frontend.vercel.app`
-- Core API desplegada en [ParkingNow Core API](https://parkingnow-back.onrender.com).
+  URL: [https://parkingnow-frontend.vercel.app](https://parkingnow-frontend.vercel.app/)
+- Core API desplegada en [ParkingNow Core API](https://parkingnow-back.onrender.com/swagger-ui/index.html).
 - Base de datos operativa en Supabase Cloud.
 
 **Evidencia complementaria de acceso al panel web del owner**
@@ -7988,7 +7988,7 @@ La consulta `GET /api/v1/iot/events?limit=50` permitió validar el contrato REST
 | --- | --- | --- | --- |
 | Landing Page | Vercel | [ParkingNow Landing](https://parkingnow-landing.vercel.app) | OK |
 | Web App (Angular) | Vercel | [ParkingNow Web](https://parkingnow-frontend.vercel.app) | OK |
-| Core API (Spring Boot) | Render | [ParkingNow Core API](https://parkingnow-back.onrender.com) | OK |
+| Core API (Spring Boot) | Render | [ParkingNow Core API](https://parkingnow-back.onrender.com/swagger-ui/index.html) | OK |
 | Edge API (Flask) | Railway | [ParkingNow Edge API](https://parkingnow-edge.railway.app) | OK |
 | Mobile App (Flutter) | Firebase App Distribution | APK distribuido para pruebas | OK |
 | Supabase | Supabase Cloud | PostgreSQL + Realtime | OK |
@@ -7996,9 +7996,9 @@ La consulta `GET /api/v1/iot/events?limit=50` permitió validar el contrato REST
 
 **URLs explícitas de despliegue Sprint 2**
 
-- Landing Page: `https://parkingnow-landing.vercel.app`
-- Web Application: `https://parkingnow-frontend.vercel.app`
-- Core API: `https://parkingnow-back.onrender.com`
+- Landing Page: [https://parkingnow-landing.vercel.app](https://parkingnow-landing.vercel.app/)
+- Web Application: [https://parkingnow-frontend.vercel.app](https://parkingnow-frontend.vercel.app/)
+- Core API: [https://parkingnow-back.onrender.com/swagger-ui/index.html](https://parkingnow-back.onrender.com/swagger-ui/index.html)
 
 **Figura 132**  
 _Landing Page operativo y accesible en despliegue público durante Sprint 2_
