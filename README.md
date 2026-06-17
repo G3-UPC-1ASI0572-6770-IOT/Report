@@ -28,7 +28,7 @@ Ciclo: 7.º ciclo - 2026-10<br>
 
 </div>
 
-<p align="center"><strong>Junio 2026</strong></p>
+<p align="center"><strong>Abril 2026</strong></p>
 
 # Registro de Versiones del Informe
 
@@ -156,7 +156,7 @@ El curso contribuye al cumplimiento del Student Outcome ABET:
 **ABET – EAC - Student Outcome 5**  
 Criterio: _La capacidad de funcionar efectivamente en un equipo cuyos miembros juntos proporcionan liderazgo, crean un entorno de colaboración e inclusivo, establecen objetivos, planifican tareas y cumplen objetivos._
 
-En el siguiente cuadro se describe las acciones realizadas y enunciados de conclusiones por parte del grupo, que permiten sustentar el haber alcanzado el logro del ABET – EAC - Student Outcome 5.
+En el siguiente cuadro se describen las acciones realizadas y las conclusiones del grupo, las cuales permiten sustentar el cumplimiento del ABET – EAC - Student Outcome 5.
 
 | Criterio específico                                                                                | Acciones realizadas                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Conclusiones                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | -------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -252,7 +252,7 @@ En el siguiente cuadro se describe las acciones realizadas y enunciados de concl
 - [5.5. Applications Prototyping](#55-applications-prototyping)
 - [5.6. IoT Device Design](#56-iot-device-design)
 
-## Capítulo VI: Product Implementation, Validation & Deployment
+# Capítulo VI: Product Implementation, Validation & Deployment
 
 - [6.1. Software Configuration Management](#61-software-configuration-management)
   - [6.1.1. Software Development Environment Configuration](#611-software-development-environment-configuration)
@@ -1699,7 +1699,7 @@ En esta sección se presenta el **Product Backlog** de **ParkingNow** con el **f
 | 59 | MS-02 | Instalar sensores ultrasónicos en la maqueta | Como Maker, quiero instalar sensores ultrasónicos en los espacios de la maqueta, para detectar físicamente la ocupación de cada espacio durante la demostración. | 5 |
 | 60 | TS-TST.7 | Validación end-to-end del flujo principal | Como Developer, quiero validar de extremo a extremo el flujo central del sistema, para asegurar coherencia en la experiencia completa del conductor. | 8 |
 
-# Capítulo IV: Solution Software Design
+## Capítulo IV: Solution Software Design
 
 En este capítulo se desarrolla el diseño de software de **ParkingNow**, tomando como base los hallazgos obtenidos en los capítulos anteriores: el análisis del problema, las entrevistas, los artefactos de needfinding, el Big Picture EventStorming, el Ubiquitous Language, las User Stories, el Impact Mapping y el Product Backlog.
 
@@ -5916,7 +5916,7 @@ También concluimos que el enfoque de ParkingNow es técnicamente viable para el
 
 Finalmente, concluimos que la propuesta de valor más crítica no es solo "mostrar estacionamientos", sino ofrecer disponibilidad confiable respaldada por detección física y sincronización digital. Ese atributo diferencia la solución frente a alternativas que priorizan intermediación sin validación física del estado del espacio.
 
-# Capítulo V: Solution UI/UX Design 
+## Capítulo V: Solution UI/UX Design 
 
 ### 5.1. Style Guidelines. 
 En este capítulo, se desarrollara lo correspondiente a los estilos y herrmaientas que usaremos para el diseño de nuestro proyecto.
@@ -7711,7 +7711,7 @@ _Evidencia del flujo público inicial de ParkingNow durante Sprint 1_
 
 En esta versión del informe no se inserta captura para la Figura 119 porque el asset disponible no representa fielmente la evidencia ejecutada del Sprint 1. En su lugar, se documenta el artefacto real asociado al incremento:
 
-- Artefacto fuente: `Landing Page` implementado y documentado en [ParkingNow Landing](https://parkingnow.vercel.app).
+- Artefacto fuente: `Landing Page` implementado y documentado en [ParkingNow Landing](https://parkingnow-landing.vercel.app).
 - Evidencia funcional asociada: propuesta de valor, beneficios por segmento, CTA y navegación pública inicial.
 - Repositorio / módulo relacionado: `LandingPage`.
 - Evidencia complementaria: [Video Sprint 1 - Microsoft Stream / SharePoint](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202214477_upc_edu_pe/IQCMBDZdyMVAQKh_NrFheDDEAfbJMIyo3lVGDKNSnQugT3I?e=Amq8Ep).
@@ -7719,28 +7719,29 @@ En esta versión del informe no se inserta captura para la Figura 119 porque el 
 _Nota._ Se documenta sin imagen por consistencia con artefactos reales del sprint.
 
 **Figura 120**  
-_Mock-up documentado del Landing Page publicado durante Sprint 1_
+_Landing Page desplegado y accesible durante Sprint 1_
 
-En esta versión del informe no se inserta captura para la Figura 120 porque el mock-up disponible corresponde a diseño UI/UX y no a evidencia de ejecución del Sprint 1. Se deja documentado:
+<img src="./assets/deployed-landing-page.png" alt="Landing Page desplegado en Vercel durante Sprint 1" width="801">
 
-- Artefacto de diseño relacionado: `Landing Page Mock-up` del Capítulo V.
-- Relación con Sprint 1: sirvió como referencia visual para implementación de landing pública.
-- Evidencia implementada: [ParkingNow Landing](https://parkingnow.vercel.app).
-- Evidencia documental complementaria: Capítulo V y backlog comprometido de Sprint 1.
+La Figura 120 presenta la evidencia visual del **Landing Page de ParkingNow** desplegado en **Vercel**. La captura muestra la propuesta de valor pública del producto, la navegación superior, los CTA orientados a conductores y dueños, y la sección inicial del problema que motivó la solución. Esta evidencia valida que el entregable comprometido para Sprint 1 fue implementado y publicado correctamente.
 
-_Nota._ Se conserva como referencia documental y no como figura visual de ejecución.
+- URL verificada del despliegue: [ParkingNow Landing](https://parkingnow-landing.vercel.app).
+- URL explícita: `https://parkingnow-landing.vercel.app`
+- Relación con Sprint 1: implementación pública inicial del producto y canal de ingreso hacia las aplicaciones.
+- Evidencia documental complementaria: Capítulo V, Sprint Backlog 1 y video de Sprint 1.
 
 **Figura 121**  
-_Estructura base de la Web Application del administrador en Sprint 1_
+_Acceso inicial a la Web Application del administrador en Sprint 1_
 
-En esta versión del informe no se inserta captura para la Figura 121 porque el asset disponible corresponde a board de flujo y no a captura ejecutada del incremento desplegado. Se documenta el entregable real:
+<img src="./assets/deployed-web-dashboard.png" alt="Web Application del administrador desplegada en Vercel durante Sprint 1" width="801">
 
-- Artefacto fuente: `Web Application` del administrador desplegada en [ParkingNow Web](https://parkingnow-web.vercel.app).
+La Figura 121 muestra la evidencia visual de la **Web Application** desplegada para el segmento owner. En la captura se observa la pantalla de inicio de sesión del panel administrativo, la identidad visual del producto y los accesos necesarios para autenticación del usuario propietario. Esta evidencia confirma que el producto frontend del administrador fue publicado correctamente y quedó listo para soportar el flujo de acceso comprometido en el sprint.
+
+- Artefacto fuente: [ParkingNow Web](https://parkingnow-frontend.vercel.app).
+- URL explícita: `https://parkingnow-frontend.vercel.app`
 - Alcance funcional documentado: registro, login, dashboard inicial, alta de estacionamiento y configuración base de espacios.
 - Módulos relacionados: `auth`, `parking-lots`, `spaces`.
-- Evidencia complementaria: flujo comprometido en Sprint Backlog 1 y video de Sprint 1.
-
-_Nota._ Se reemplaza imagen por documentación precisa del artefacto real.
+- Evidencia complementaria: Sprint Backlog 1 y video de Sprint 1.
 
 **Video de ejecución del Sprint 1:**  
 [Video Sprint 1 - Microsoft Stream / SharePoint](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202214477_upc_edu_pe/IQCMBDZdyMVAQKh_NrFheDDEAfbJMIyo3lVGDKNSnQugT3I?e=Amq8Ep)
@@ -7762,18 +7763,25 @@ _Nota._ Se reemplaza imagen por documentación precisa del artefacto real.
 
 | Producto | Plataforma | URL / evidencia | Estado |
 | --- | --- | --- | --- |
-| Landing Page | Vercel | [ParkingNow Landing](https://parkingnow.vercel.app) | OK |
-| Web Application | Vercel | [ParkingNow Web](https://parkingnow-web.vercel.app) | OK |
+| Landing Page | Vercel | [ParkingNow Landing](https://parkingnow-landing.vercel.app) | OK |
+| Web Application | Vercel | [ParkingNow Web](https://parkingnow-frontend.vercel.app) | OK |
 | Core API | Railway | [ParkingNow Core API](https://parkingnow-api.railway.app) | OK |
 | Supabase | Supabase Cloud | PostgreSQL + tablas base configuradas | OK |
+
+**URLs explícitas de despliegue Sprint 1**
+
+- Landing Page: `https://parkingnow-landing.vercel.app`
+- Web Application: `https://parkingnow-frontend.vercel.app`
 
 **Figura 122**  
 _Evidencia del despliegue funcional inicial del Landing Page y la Web Application_
 
 En esta versión del informe no se inserta captura para la Figura 122 porque no se dispone de evidencia visual puntual del deployment inicial alineada con la plantilla del TF. Se documenta la evidencia verificable:
 
-- Landing Page desplegado en [ParkingNow Landing](https://parkingnow.vercel.app).
-- Web Application desplegada en [ParkingNow Web](https://parkingnow-web.vercel.app).
+- Landing Page desplegado en [ParkingNow Landing](https://parkingnow-landing.vercel.app).
+  URL: `https://parkingnow-landing.vercel.app`
+- Web Application desplegada en [ParkingNow Web](https://parkingnow-frontend.vercel.app).
+  URL: `https://parkingnow-frontend.vercel.app`
 - Core API desplegada en [ParkingNow Core API](https://parkingnow-api.railway.app).
 - Base de datos operativa en Supabase Cloud.
 
@@ -7785,7 +7793,7 @@ En esta versión del informe no se inserta captura para la Figura 123 porque el 
 - Configuración base del estacionamiento desde panel web del owner.
 - Registro de ubicación, perfil del parking lot y alta inicial de spaces.
 - Endpoints relacionados: `/api/v1/parking-lots`, `/api/v1/spaces/*`.
-- Evidencia funcional complementaria: [ParkingNow Web](https://parkingnow-web.vercel.app) y [Core API Swagger](https://parkingnow-api.railway.app/swagger-ui.html).
+- Evidencia funcional complementaria: [ParkingNow Web](https://parkingnow-frontend.vercel.app) y [Core API Swagger](https://parkingnow-api.railway.app/swagger-ui.html).
 
 ##### 6.2.1.9. Team Collaboration Insights during Sprint.
 
@@ -7912,7 +7920,7 @@ En esta versión del informe no se inserta captura para la Figura 126 porque el 
 
 - Entregables implementados: active reservations, reservation history, node status, events log y camera monitor.
 - Historias asociadas: `US-OWN.9`, `US-OWN.10`, `US-OWN.11`, `US-OWN.12`, `US-OWN.13`, `US-OWN.14`.
-- Evidencia complementaria: [ParkingNow Web](https://parkingnow-web.vercel.app).
+- Evidencia complementaria: [ParkingNow Web](https://parkingnow-frontend.vercel.app).
 
 **Figura 127**  
 _Evidencia de monitoreo del nodo y eventos IoT en el panel web_
@@ -7939,13 +7947,18 @@ En esta versión del informe no se inserta captura para la Figura 127 porque el 
 
 | Producto | Plataforma | URL / evidencia | Estado |
 | --- | --- | --- | --- |
-| Landing Page | Vercel | [ParkingNow Landing](https://parkingnow.vercel.app) | OK |
-| Web App (Angular) | Vercel | [ParkingNow Web](https://parkingnow-web.vercel.app) | OK |
+| Landing Page | Vercel | [ParkingNow Landing](https://parkingnow-landing.vercel.app) | OK |
+| Web App (Angular) | Vercel | [ParkingNow Web](https://parkingnow-frontend.vercel.app) | OK |
 | Core API (Spring Boot) | Railway | [ParkingNow Core API](https://parkingnow-api.railway.app) | OK |
 | Edge API (Flask) | Railway | [ParkingNow Edge API](https://parkingnow-edge.railway.app) | OK |
 | Mobile App (Flutter) | Firebase App Distribution | APK distribuido para pruebas | OK |
 | Supabase | Supabase Cloud | PostgreSQL + Realtime | OK |
 | Embedded (ESP32-CAM) | Prototipo físico | Firmware flasheado vía FTDI | OK |
+
+**URLs explícitas de despliegue Sprint 2**
+
+- Landing Page: `https://parkingnow-landing.vercel.app`
+- Web Application: `https://parkingnow-frontend.vercel.app`
 
 ##### 6.2.2.9. Team Collaboration Insights during Sprint.
 
@@ -7959,9 +7972,9 @@ En esta versión del informe no se inserta captura para la Figura 127 porque el 
 
 Sprint 2 consolidó el paso de una propuesta arquitectónica a un producto demostrable. El equipo trabajó sobre múltiples repositorios en paralelo y logró integrar sensores físicos, servicios edge, backend, realtime, web y mobile en un mismo flujo demostrable frente al usuario final.
 
-## 6.3. Validation Interviews.
+##### 6.3. Validation Interviews.
 
-### 6.3.1. Diseño de Entrevistas.
+##### 6.3.1. Diseño de Entrevistas.
 
 **Segmento 1: Conductores Urbanos**
 
@@ -8033,7 +8046,7 @@ Sprint 2 consolidó el paso de una propuesta arquitectónica a un producto demos
 24. ¿Qué mejoras sugerirías para aumentar el valor de la plataforma para tu negocio?
 
 
-### 6.3.2. Registro de Entrevistas.
+##### 6.3.2. Registro de Entrevistas.
 
 ---
 #### Entrevistas al Segmento 1: Conductores Urbanos
@@ -8045,205 +8058,192 @@ A continuación se registran las entrevistas de validación realizadas a conduct
 | Campo | Detalle |
 | --- | --- |
 | **Imagen** | ![Entrevista 1](assets/Carlos.jpeg) |
-| **Entrevistado** | Carlos Andrés Mendoza Huamán |
+| **Entrevistado** | Carlos Andres Mendoza Huaman |
 | **Entrevistador** | Soto Quispe, Diego Ulises |
 | **Sexo** | Masculino |
-| **Edad** | 31 años |
+| **Edad** | 31 anos |
 | **Estado civil** | Soltero |
 | **Distrito** | Santiago de Surco |
 | **URL del video** | [Enlace SharePoint](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202214477_upc_edu_pe/IQCMBDZdyMVAQKh_NrFheDDEAfbJMIyo3lVGDKNSnQugT3I?e=Amq8Ep) |
-| **Timing** | Inicio: 00:00 | Fin: 12:34 | Duración: 12:34 |
-| **Resumen** | Carlos es un ingeniero civil de 31 años que se desplaza diariamente de Surco a San Isidro. Al interactuar con el prototipo Flutter, destacó la claridad del mapa y la facilidad para identificar estacionamientos disponibles con marcadores verdes. Completó una reserva en menos de 1 minuto. El countdown del ticket virtual le generó confianza. Sugirió que la aplicación envíe una notificación cuando queden 5 minutos para que expire la reserva. Sobre la confiabilidad, expresó que el respaldo de sensores IoT le da mucha más seguridad que otras aplicaciones. Calificó con 4 su probabilidad de uso. Mencionó que pagaría hasta S/. 5.00 adicionales por una reserva garantizada en horas pico. |
+| **Timing** | Inicio: 00:00 | Fin: 12:34 | Duracion: 12:34 |
+| **Resumen** | Carlos es un ingeniero civil de 31 anos que se desplaza diariamente de Surco a San Isidro. Al interactuar con el prototipo Flutter, destaco la claridad del mapa y la facilidad para identificar estacionamientos disponibles con marcadores verdes. Completo una reserva en menos de 1 minuto. El countdown del ticket virtual le genero confianza. Sugirio que la aplicacion envie una notificacion cuando queden 5 minutos para que expire la reserva. Sobre la confiabilidad, expreso que el respaldo de sensores IoT le da mucha mas seguridad que otras aplicaciones. Califico con 4 su probabilidad de uso. Menciono que pagaria hasta S/. 5.00 adicionales por una reserva garantizada en horas pico. |
 
 ##### Entrevista 2
 
 | Campo | Detalle |
 | --- | --- |
 | **Imagen** | ![Entrevista 2](assets/valeria.jpeg) |
-| **Entrevistado** | Valeria Sofía Rojas Castañeda |
+| **Entrevistado** | Valeria Sofia Rojas Castaneda |
 | **Entrevistador** | Cuya Villegas, Rafael Alberto |
 | **Sexo** | Femenino |
-| **Edad** | 27 años |
+| **Edad** | 27 anos |
 | **Estado civil** | Soltera |
 | **Distrito** | Miraflores |
 | **URL del video** | [Enlace SharePoint](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202214477_upc_edu_pe/IQCMBDZdyMVAQKh_NrFheDDEAfbJMIyo3lVGDKNSnQugT3I?e=Amq8Ep) |
-| **Timing** | Inicio: 12:35 | Fin: 24:18 | Duración: 11:43 |
-| **Resumen** | Valeria es una administradora de empresas que frecuenta zonas comerciales de Miraflores y San Isidro. Durante la validación, completó el flujo completo de registro, búsqueda en mapa, selección de estacionamiento, reserva y visualización del ticket sin asistencia. Le pareció especialmente útil el indicador visual de espacios libres (chips verdes, rojos y amarillos). Recomendó agrandar el botón de "Reserve" en la pantalla de detalle. Manifestó entusiasmo por la integración con OpenStreetMap. Le preocupó que en horas de máxima demanda los 15 minutos de reserva sean insuficientes si hay tráfico. Calificó con 5 su probabilidad de uso. Recomendaría la aplicación a sus colegas de oficina. |
+| **Timing** | Inicio: 12:35 | Fin: 24:18 | Duracion: 11:43 |
+| **Resumen** | Valeria es una administradora de empresas que frecuenta zonas comerciales de Miraflores y San Isidro. Durante la validacion, completo el flujo completo de registro, busqueda en mapa, seleccion de estacionamiento, reserva y visualizacion del ticket sin asistencia. Le parecio especialmente util el indicador visual de espacios libres (chips verdes/rojos/amarillos). Recomendo agrandar el boton de "Reserve" en la pantalla de detalle. Manifesto entusiasmo por la integracion con OpenStreetMap. Le preocupo que en horas de maxima demanda los 15 minutos de reserva sean insuficientes si hay trafico. Califico con 5 su probabilidad de uso. Recomendaria la aplicacion a sus colegas de oficina. |
 
 ##### Entrevista 3
 
 | Campo | Detalle |
 | --- | --- |
 | **Imagen** | ![Entrevista 3](assets/leonardo.jpeg) |
-| **Entrevistado** | Leonardo Martín Quispe Palacios |
+| **Entrevistado** | Leonardo Martin Quispe Palacios |
 | **Entrevistador** | Lapa De La Cruz, Gabriel Omar |
 | **Sexo** | Masculino |
-| **Edad** | 35 años |
+| **Edad** | 35 anos |
 | **Estado civil** | Casado, 2 hijos |
 | **Distrito** | La Molina |
 | **URL del video** | [Enlace SharePoint](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202214477_upc_edu_pe/IQCMBDZdyMVAQKh_NrFheDDEAfbJMIyo3lVGDKNSnQugT3I?e=Amq8Ep) |
-| **Timing** | Inicio: 24:19 | Fin: 37:05 | Duración: 12:46 |
-| **Resumen** | Leonardo es un médico cirujano con consultorio en el Centro Histórico de Lima. Suele perder entre 15 y 25 minutos buscando estacionamiento cada mañana. Al probar el prototipo, expresó que el flujo de reserva es "exactamente lo que necesito". El ticket virtual con countdown le resultó muy claro. Sugirió agregar una opción de "Extender reserva" por si hay demoras imprevistas. Destacó que la disponibilidad respaldada por sensores físicos es el diferenciador clave. Le gustaría ver una función de historial de estacionamientos frecuentes. Calificó con 4 su probabilidad de uso. Pagaría una membresía mensual si la plataforma cubre los distritos donde trabaja y reside. |
+| **Timing** | Inicio: 24:19 | Fin: 37:05 | Duracion: 12:46 |
+| **Resumen** | Leonardo es un medico cirujano con consultorio en el Centro Historico de Lima. Suele perder entre 15 y 25 minutos buscando estacionamiento cada manana. Al probar el prototipo, expreso que el flujo de reserva es "exactamente lo que necesito". El ticket virtual con countdown le resulto muy claro. Sugirio agregar una opcion de "Extender reserva" por si hay demoras imprevistas. Destaco que la disponibilidad respaldada por sensores fisicos es el diferenciador clave. Le gustaria ver una funcion de historial de estacionamientos frecuentes. Califico con 4 su probabilidad de uso. Pagaria una membresia mensual si la plataforma cubre los distritos donde trabaja y reside. |
 
 ---
 #### Entrevistas al Segmento 2: Administradores de Estacionamientos Independientes
 
-A continuación se registran las entrevistas de validación realizadas a propietarios y administradores de estacionamientos independientes de Lima Metropolitana que operan sus locales de forma manual o semi-formal, sin herramientas digitales de gestión integradas.
+A continuacion se registran las entrevistas de validacion realizadas a propietarios y administradores de estacionamientos independientes de Lima Metropolitana que operan sus locales de forma manual o semi-formal, sin herramientas digitales de gestion integradas.
 
 ##### Entrevista 4
 
 | Campo | Detalle |
 | --- | --- |
-| **Imagen** | ![Entrevista 4](assets/JorgeQuispeHuamánAdministradorIndependiente.png) |
-| **Entrevistado** | Jorge Antonio Ramírez Delgado |
-| **Entrevistador** | Vásquez Villalobos, Elverth Jair |
+| **Imagen** | ![Entrevista 4](assets/Carlos.jpeg) |
+| **Entrevistado** | Jorge Antonio Ramirez Delgado |
+| **Entrevistador** | Vasquez Villalobos, Elverth Jair |
 | **Sexo** | Masculino |
-| **Edad** | 48 años |
+| **Edad** | 48 anos |
 | **Distrito** | San Isidro |
 | **URL del video** | [Enlace SharePoint](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202214477_upc_edu_pe/IQCMBDZdyMVAQKh_NrFheDDEAfbJMIyo3lVGDKNSnQugT3I?e=Amq8Ep) |
-| **Timing** | Inicio: 37:06 | Fin: 50:42 | Duración: 13:36 |
-| **Resumen** | Jorge administra un estacionamiento de 15 espacios en San Isidro. Actualmente controla la ocupación con una pizarra y registro en cuaderno. Al interactuar con el panel web Angular, valoró inmediatamente el dashboard con el indicador de occupancy rate y el log de eventos IoT. Manifestó que "ahora mismo no sé cuánto dinero hago al día ni cuántos carros entran". El monitoreo en tiempo real de sus dos espacios le pareció muy valioso. Preguntó si el sensor requiere mantenimiento y si él mismo podría instalarlo. Estaría dispuesto a pagar entre S/. 80 y S/. 120 mensuales si la plataforma le incrementa la ocupación. Sugirió que el panel incluya un reporte semanal descargable. |
+| **Timing** | Inicio: 37:06 | Fin: 50:42 | Duracion: 13:36 |
+| **Resumen** | Jorge administra un estacionamiento de 15 espacios en San Isidro. Actualmente controla la ocupacion con una pizarra y registro en cuaderno. Al interactuar con el panel web Angular, valoro inmediatamente el dashboard con el indicador de occupancy rate y el log de eventos IoT. Manifesto que "ahora mismo no se cuanto dinero hago al dia ni cuantos carros entran". El monitoreo en tiempo real de sus dos espacios le parecio muy valioso. Pregunto si el sensor requiere mantenimiento y si el mismo podria instalarlo. Estaria dispuesto a pagar entre S/. 80 y S/. 120 mensuales si la plataforma le incrementa la ocupacion. Sugirio que el panel incluya un reporte semanal descargable. |
 
 ##### Entrevista 5
 
 | Campo | Detalle |
 | --- | --- |
-| **Imagen** | ![Entrevista 5](assets/LuisRamírezTorresAdministradorIndependiente.png) |
-| **Entrevistado** | Rosa Elena Fernández Gutiérrez |
+| **Imagen** | ![Entrevista 5](assets/valeria.jpeg) |
+| **Entrevistado** | Rosa Elena Fernandez Gutierrez |
 | **Entrevistador** | Vilca Valverde, Fiorella Angela |
 | **Sexo** | Femenino |
-| **Edad** | 42 años |
+| **Edad** | 42 anos |
 | **Distrito** | Lince |
 | **URL del video** | [Enlace SharePoint](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202214477_upc_edu_pe/IQCMBDZdyMVAQKh_NrFheDDEAfbJMIyo3lVGDKNSnQugT3I?e=Amq8Ep) |
-| **Timing** | Inicio: 50:43 | Fin: 1:02:15 | Duración: 11:32 |
-| **Resumen** | Rosa administra un estacionamiento de 8 espacios en Lince, heredado de su padre. Lleva la gestión con anotaciones manuales y comunicación por WhatsApp con sus clientes frecuentes. Al ver el prototipo del panel web, lo primero que le llamó la atención fue la vista de cámara. Le pareció útil para verificar visualmente la ocupación. La tabla de reservas activas le resultó clara. Expresó dudas sobre la instalación del sensor: "no soy técnica, ¿quién me lo instala?". El mayor valor estaría en "que los clientes me encuentren en el mapa porque ahora solo me conocen los del barrio". Pagaría S/. 60 mensuales como máximo. Calificó con 3 su probabilidad de uso inmediato, pero con 5 si recibe capacitación. |
+| **Timing** | Inicio: 50:43 | Fin: 1:02:15 | Duracion: 11:32 |
+| **Resumen** | Rosa administra un estacionamiento de 8 espacios en Lince, heredado de su padre. Lleva la gestion con anotaciones manuales y comunicacion por WhatsApp con sus clientes frecuentes. Al ver el prototipo del panel web, lo primero que le llamo la atencion fue la vista de camara. Le parecio util para verificar visualmente la ocupacion. La tabla de reservas activas le resulto clara. Expreso dudas sobre la instalacion del sensor: "no soy tecnica, quien me lo instala?". El mayor valor estaria en "que los clientes me encuentren en el mapa porque ahora solo me conocen los del barrio". Pagaria S/. 60 mensuales como maximo. Califico con 3 su probabilidad de uso inmediato, pero con 5 si recibe capacitacion. |
 
 ##### Entrevista 6
 
 | Campo | Detalle |
 | --- | --- |
-| **Imagen** | ![Entrevista 6](assets/dueño3.jpeg) |
+| **Imagen** | ![Entrevista 6](assets/conductor3.jpeg) |
 | **Entrevistado** | Diego Fernando Campos Huertas |
 | **Entrevistador** | Soto Quispe, Diego Ulises |
 | **Sexo** | Masculino |
-| **Edad** | 29 años |
+| **Edad** | 29 anos |
 | **Distrito** | Barranco |
 | **URL del video** | [Enlace SharePoint](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202214477_upc_edu_pe/IQCMBDZdyMVAQKh_NrFheDDEAfbJMIyo3lVGDKNSnQugT3I?e=Amq8Ep) |
-| **Timing** | Inicio: 1:02:16 | Fin: 1:15:50 | Duración: 13:34 |
-| **Resumen** | Diego es un joven administrador que recientemente asumió la gestión de un estacionamiento de 20 espacios en Barranco. Tiene afinidad tecnológica: ya usaba Trello y Excel para organizar la operación. Al probar el panel Angular, identificó inmediatamente el valor del log de eventos IoT: "esto me serviría para discutir con los playa si hay reclamos de clientes sobre disponibilidad". Sugirió que el dashboard muestre una comparativa semanal de ocupación. Preguntó si el sistema soporta más de un piso de estacionamiento. Le interesó la integración con Supabase Realtime: "que se actualice solo sin recargar la página es clave para mí". Pagaría S/. 100 mensuales si la plataforma le ahorra 2 horas diarias de gestión manual. Recomendaría la solución a otros colegas del rubro. |
+| **Timing** | Inicio: 1:02:16 | Fin: 1:15:50 | Duracion: 13:34 |
+| **Resumen** | Diego es un joven administrador que recientemente asumio la gestion de un estacionamiento de 20 espacios en Barranco. Tiene afinidad tecnologica: ya usaba Trello y Excel para organizar la operacion. Al probar el panel Angular, identifico inmediatamente el valor del log de eventos IoT: "esto me serviria para discutir con los playa si hay reclamos de clientes sobre disponibilidad". Sugirio que el dashboard muestre una comparativa semanal de ocupacion. Pregunto si el sistema soporta mas de un piso de estacionamiento. Le intereso la integracion con Supabase Realtime: "que se actualice solo sin recargar la pagina es clave para mi". Pagaria S/. 100 mensuales si la plataforma le ahorra 2 horas diarias de gestion manual. Recomendaria la solucion a otros colegas del rubro. |
 
 ---
 
-### 6.3.3. Evaluaciones según heurísticas.
+##### 6.3.3. Evaluaciones segun heuristicas.
 
 **UX Heuristics & Principles Evaluation**
 **Usability - Inclusive Design - Information Architecture**
 
 | Campo | Valor |
 | --- | --- |
-| **CARRERA** | Ingeniería de Software |
+| **CARRERA** | Ingenieria de Software |
 | **CURSO** | Desarrollo de Soluciones IoT |
-| **SECCIÓN** | 1ASI0572 - NRC: 6770 |
+| **SECCION** | 1ASI0572 - NRC: 6770 |
 | **PROFESORES** | Prudencio Vidal, Javier Antonio |
 | **AUDITOR** | Code Mondoguito (Startup ParkingNow) |
-| **CLIENTES** | Carlos Mendoza (Conductor Urbano), Rosa Fernández (Administradora Independiente) |
+| **CLIENTES** | Carlos Mendoza (Conductor Urbano), Rosa Fernandez (Administradora Independiente) |
 
 **SITES O APPS A EVALUAR:**
 - ParkingNow Web App (Angular) - Panel de Administrador
 - ParkingNow Mobile App (Flutter) - App del Conductor
 
-**TAREAS A EVALUAR:** Registro de conductor, inicio de sesión, búsqueda en mapa, detalle de estacionamiento, reserva de espacio, ticket virtual, cancelación de reserva, dashboard de ocupación, log de eventos IoT y vista de cámara del nodo IoT.
+**TAREAS A EVALUAR:** Registro de conductor, inicio de sesion, busqueda en mapa, detalle de estacionamiento, reserva de espacio, ticket virtual, cancelacion de reserva, dashboard de ocupacion, log de eventos IoT, vista de camara del nodo IoT.
 
 **ESCALA DE SEVERIDAD:**
 
-| Nivel | Descripción |
+| Nivel | Descripcion |
 | --- | --- |
-| 1 | Problema superficial: puede ser fácilmente superado por el usuario o ocurre con muy poca frecuencia. |
-| 2 | Problema menor: puede ocurrir un poco más frecuentemente o es un poco más difícil de superar. Se le debería asignar una prioridad baja. |
+| 1 | Problema superficial: puede ser facilmente superado por el usuario o ocurre con muy poca frecuencia. |
+| 2 | Problema menor: puede ocurrir un poco mas frecuentemente o es un poco mas dificil de superar. Se le deberia asignar una prioridad baja. |
 | 3 | Problema mayor: ocurre frecuentemente o los usuarios no son capaces de resolverlos. Es importante que sean corregidos. |
 | 4 | Problema muy grave: un error de gran impacto que impide al usuario continuar. Es imperativo que sea corregido antes del lanzamiento. |
 
 **TABLA RESUMEN:**
 
-| # | Problema | Severidad | Heurística/Principio violada(o) |
+| # | Problema | Severidad | Heuristica/Principio violada(o) |
 | --- | --- | --- | --- |
-| 1 | Botón "Reserve" en Flutter con tamaño reducido, dificulta el tap en pantallas pequeñas | 2 | Usability: Flexibilidad y eficiencia de uso |
-| 2 | Snackbar de confirmación desaparece en 3 segundos sin dejar registro visible permanente | 2 | Usability: Visibilidad del estado del sistema |
+| 1 | Boton "Reserve" en Flutter con tamano reducido, dificulta el tap en pantallas pequenas | 2 | Usability: Flexibilidad y eficiencia de uso |
+| 2 | Snackbar de confirmacion desaparece en 3 segundos sin dejar registro visible permanente | 2 | Usability: Visibilidad del estado del sistema |
 | 3 | Dashboard no explica el estado "Node Offline" ni sugiere acciones al administrador | 3 | Usability: Ayuda para reconocer, diagnosticar y recuperarse de errores |
-| 4 | Imágenes del snapshot de cámara sin atributo alt descriptivo (a11y) | 3 | Inclusive Design: Proporciona experiencias comparables |
+| 4 | Imagenes del snapshot de camara sin atributo alt descriptivo (a11y) | 3 | Inclusive Design: Proporciona experiencias comparables |
 | 5 | Contraste insuficiente en chips de estado "RESERVED" (ratio < 4.5:1 WCAG AA) | 2 | Inclusive Design: Contenido perceptible |
-| 6 | Formulario de registro en Flutter sin indicadores de fortaleza de contraseña | 1 | Usability: Prevención de errores |
+| 6 | Formulario de registro en Flutter sin indicadores de fortaleza de contrasena | 1 | Usability: Prevencion de errores |
 | 7 | Tabla de reservas en panel web sin ordenamiento ni filtrado por columnas | 3 | Information Architecture: Is it findable? |
 | 8 | Enlace "Forgot password" poco visible en Login de Angular (12px, color gris claro) | 2 | Usability: Reconocimiento antes que recuerdo |
-| 9 | Términos técnicos (Heartbeat, Edge API, Debounce) sin tooltip para administradores no técnicos | 3 | Usability: Correspondencia entre el sistema y el mundo real |
+| 9 | Terminos tecnicos (Heartbeat, Edge API, Debounce) sin tooltip para administradores no tecnicos | 3 | Usability: Correspondencia entre el sistema y el mundo real |
 | 10 | El estado del mapa en Flutter no se conserva al navegar entre pantallas | 2 | Usability: Control y libertad del usuario |
 
-La evaluación heurística identificó 10 problemas, ninguno de severidad 4 (muy grave). Los problemas de severidad 3 se concentran en comunicación del estado del nodo IoT, accesibilidad de cámara, lenguaje técnico y capacidad de búsqueda en tablas. Como acción inmediata se recomienda priorizar la corrección de los 4 problemas de severidad 3 en Sprint 3.
+La evaluacion heuristica identifico 10 problemas, ninguno de severidad 4 (muy grave). Los problemas de severidad 3 se concentran en comunicacion del estado del nodo IoT, accesibilidad de camara, lenguaje tecnico y capacidad de busqueda en tablas. Como accion inmediata se recomienda priorizar la correccion de los 4 problemas de severidad 3 en Sprint 3.
 
-## 6.4. Video About-the-Product.
+##### 6.4. Video About-the-Product.
 
 **Nomenclatura:** `upc-pre-202610-1asi0572-6770-codemondoguito-about-the-product-sprint-2.mp4`
-**Duración:** 2 minutos 30 segundos
+**Duracion:** 2 minutos 30 segundos
 
 **Enlace Microsoft Stream / Clipchamp:**
-[https://upcedupe-my.sharepoint.com/:v:/g/personal/u202214477_upc_edu_pe/ETy_AwX8JtRLky8U-PG0qFYBGOOVXuTthxFLdBOFv1Q1GA?e=xh5QDn](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202214477_upc_edu_pe/ETy_AwX8JtRLky8U-PG0qFYBGOOVXuTthxFLdBOFv1Q1GA?e=xh5QDn&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
+[https://upcedupe-my.sharepoint.com/:v:/g/personal/u202214477_upc_edu_pe/IQCMBDZdyMVAQKh_NrFheDDEAfbJMIyo3lVGDKNSnQugT3I?e=Amq8Ep](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202214477_upc_edu_pe/IQCMBDZdyMVAQKh_NrFheDDEAfbJMIyo3lVGDKNSnQugT3I?e=Amq8Ep)
 
 **Enlace YouTube (incrustado en Landing Page):**
 [https://youtu.be/parkingnow-about-product-av2](https://youtu.be/parkingnow-about-product-av2)
 
 **Screenshot del video:**
-<img src="./assets/about-the-product-screenshot.png" alt="Video About-the-Product" width="801">
+
+![alt text](assets/about-the-product-screenshot.png)
 
 **Pauta de secuencias de contenido (timing hh:mm:ss):**
 
 | Timing | Seccion | Contenido |
 | --- | --- | --- |
-| 00:00 - 00:20 | Introducción y problema | Tráfico en Lima Metropolitana. Voz en off: "Cada día, millones de conductores en Lima pierden entre 15 y 25 minutos buscando un espacio para estacionar." |
-| 00:20 - 00:45 | Presentación de ParkingNow | Logo de ParkingNow. Pilares: "Detecta. Reserva. Gestiona." |
+| 00:00 - 00:20 | Introduccion y problema | Trafico en Lima Metropolitana. Voz en off: "Cada dia, millones de conductores en Lima pierden entre 15 y 25 minutos buscando un espacio para estacionar." |
+| 00:20 - 00:45 | Presentacion de ParkingNow | Logo de ParkingNow. Pilares: "Detecta. Reserva. Gestiona." |
 | 00:45 - 01:15 | Flujo del conductor (Flutter) | Registro, login, mapa OpenStreetMap, reserva, ticket virtual con countdown de 15 minutos. |
-| 01:15 - 01:45 | Flujo del administrador (Angular) | Dashboard con occupancy rate, monitoreo de espacios E1/E2, tabla de reservas, log IoT y vista de cámara. |
-| 01:45 - 02:10 | Integración IoT + cierre técnico | Prototipo físico: ESP32-CAM con sensores HC-SR04+ en maqueta, detección de vehículo simulado, LED rojo y actualización en tiempo real en Web y Mobile. |
-| 02:10 - 02:25 | Testimonio de usuario | Carlos Mendoza, 31 años, Conductor Urbano: "Con ParkingNow ya no doy vueltas. Reservo desde mi casa y cuando llego, mi espacio me está esperando." |
+| 01:15 - 01:45 | Flujo del administrador (Angular) | Dashboard con occupancy rate, monitoreo de espacios E1/E2, tabla de reservas, log IoT, vista de camara. |
+| 01:45 - 02:10 | Integracion IoT + cierre tecnico | Prototipo fisico: ESP32-CAM con sensores HC-SR04+ en maqueta, deteccion de vehiculo simulado, LED rojo, actualizacion en tiempo real en Web y Mobile. |
+| 02:10 - 02:25 | Testimonio de usuario | Carlos Mendoza, 31 anos, Conductor Urbano: "Con ParkingNow ya no doy vueltas. Reservo desde mi casa y cuando llego, mi espacio me esta esperando." |
 | 02:25 - 02:30 | Cierre | Logo + QR al Landing Page. "ParkingNow: tu espacio, sin vueltas." |
 
-El video es una pieza promocional de 2:30 minutos dirigida a visitantes del Landing Page y usuarios potenciales. Demuestra los flujos completos de ambas aplicaciones, la integración IoT end-to-end e incluye el testimonio de un conductor del segmento objetivo. Fue publicado en Microsoft Stream/Clipchamp y YouTube, e incrustado en el Landing Page.
+El video es una pieza promocional de 2:30 minutos dirigida a visitantes del Landing Page y usuarios potenciales. Demuestra los flujos completos de ambas aplicaciones, la integracion IoT end-to-end, e incluye el testimonio de un conductor del segmento objetivo. Publicado en Microsoft Stream/Clipchamp y YouTube, incrustado en el Landing Page.
 
 
-
-# Conclusiones
 
 ## Conclusiones y recomendaciones
 
-A nivel grupal, el equipo Code Mondoguito concluye que la implementación correspondiente al Sprint 2 (AV2 - Semana 12) ha logrado avances verificables en los cinco frentes técnicos que componen la solución ParkingNow: Web Application (Angular), Mobile Application (Flutter), Core API (Spring Boot), Edge API (Flask) y Embedded Application (ESP32-CAM). La integración IoT end-to-end fue demostrada exitosamente sobre el prototipo de maqueta, validando la arquitectura distribuida propuesta en los capítulos de diseño.
+A nivel grupal, el equipo Code Mondoguito concluye que la implementacion correspondiente al Sprint 2 (AV2 - Semana 12) ha logrado avances verificables en los cinco frentes tecnicos que componen la solucion ParkingNow: Web Application (Angular), Mobile Application (Flutter), Core API (Spring Boot), Edge API (Flask) y Embedded Application (ESP32-CAM). La integracion IoT end-to-end fue demostrada exitosamente sobre el prototipo de maqueta, validando la arquitectura distribuida propuesta en los capitulos de diseno.
 
-En relación con los Problem Statements definidos en el Capítulo I, las entrevistas de validación confirmaron que la disponibilidad respaldada por sensores físicos es el diferenciador clave percibido por ambos segmentos. Los conductores valoraron la reducción de incertidumbre al contar con información verificable antes de desplazarse, mientras que los administradores identificaron en el monitoreo en tiempo real y el historial de eventos IoT las funcionalidades de mayor valor operativo. La hipótesis de que los administradores estarían dispuestos a pagar una suscripción mensual recibió respaldo parcial: los rangos de disposición a pagar oscilaron entre S/. 60 y S/. 120, condicionados a la simplicidad de instalación del nodo IoT y a la percepción de incremento de ocupación.
+En relacion con los Problem Statements definidos en el Capitulo I, las entrevistas de validacion confirmaron que la disponibilidad respaldada por sensores fisicos es el diferenciador clave percibido por ambos segmentos. Los conductores valoraron la reduccion de incertidumbre al contar con informacion verificable antes de desplazarse, mientras que los administradores identificaron en el monitoreo en tiempo real y el historial de eventos IoT las funcionalidades de mayor valor operativo. La hipotesis de que los administradores estarian dispuestos a pagar una suscripcion mensual recibio respaldo parcial: los rangos de disposicion a pagar oscilaron entre S/. 60 y S/. 120, condicionados a la simplicidad de instalacion del nodo IoT y a la percepcion de incremento de ocupacion.
 
-La evaluación heurística aplicada sobre ambas plataformas (10 heurísticas de Nielsen) no identificó problemas de severidad 4 (muy grave). Los 10 problemas identificados se distribuyen entre severidades 1 y 3, con concentración de problemas mayores en comunicación del estado del nodo IoT, accesibilidad (atributos `alt`/`aria-label` en cámara), usabilidad del lenguaje técnico y capacidad de búsqueda en tablas.
+La evaluacion heuristica aplicada sobre ambas plataformas (10 heuristicas de Nielsen) no identifico problemas de severidad 4 (muy grave). Los 10 problemas identificados se distribuyen entre severidades 1 y 3, con concentracion de problemas mayores en comunicacion del estado del nodo IoT, accesibilidad (atributos alt/aria-label en camara), usabilidad del lenguaje tecnico y capacidad de busqueda en tablas.
 
 Se recomienda para el siguiente ciclo (Sprint 3 - TB2):
 
-1. Implementar un piloto controlado con el sistema completo desplegado durante al menos 48 horas para medir indicadores reales de disponibilidad, precisión del sensor, latencia de propagación de eventos y tasa de reservas completadas.
-2. Abordar los 4 problemas de severidad 3 identificados en la evaluación heurística: comunicación de estado del nodo, accesibilidad de cámara, traducción de términos técnicos y ordenamiento/filtrado en tablas.
+1. Implementar un piloto controlado con el sistema completo desplegado durante al menos 48 horas para medir indicadores reales de disponibilidad, precision del sensor, latencia de propagacion de eventos y tasa de reservas completadas.
+2. Abordar los 4 problemas de severidad 3 identificados en la evaluacion heuristica: comunicacion de estado del nodo, accesibilidad de camara, traduccion de terminos tecnicos y ordenamiento/filtrado en tablas.
 3. Completar la cobertura de tests automatizados: implementar unit tests para los 9 servicios del Core API, integration tests para el flujo IoT y reservation lifecycle, y acceptance tests BDD con Cucumber para los escenarios principales.
-4. Mejorar la seguridad del endpoint de heartbeat público (`POST /api/v1/iot-nodes/heartbeat/{nodeCode}`) agregando validación de API key.
-5. Documentar el modelo de estados de tres niveles del `ParkingSpace` (`physicalStatus`, `logicalStatus`, `consolidatedStatus`) y su lógica de consolidación.
+4. Mejorar la seguridad del endpoint de heartbeat publico (POST /api/v1/iot-nodes/heartbeat/{nodeCode}) agregando validacion de API key.
+5. Documentar el modelo de estados de tres niveles del ParkingSpace (physicalStatus, logicalStatus, consolidatedStatus) y su logica de consolidacion.
 6. Preparar el Video About-the-Team con testimonios individuales, escenas de trabajo colaborativo y retrospectiva del proceso de desarrollo completo.
-7. Completar la validación con usuarios reales ampliando la muestra a al menos 5 participantes por segmento, incluyendo sesiones presenciales con el prototipo físico.
+7. Completar la validacion con usuarios reales ampliando la muestra a al menos 5 participantes por segmento, incluyendo sesiones presenciales con el prototipo fisico.
 
-## Video About-the-Team
 
-El **Video About-the-Team** constituye la evidencia audiovisual centrada en el trabajo colaborativo del equipo durante el ciclo completo del proyecto. Su propósito es mostrar a cada integrante explicando sus principales aportes, el rol asumido dentro de los sprints, las decisiones más relevantes del proceso y la forma en que se articularon los componentes de software, IoT, validación y documentación.
-
-Para esta versión final del informe, la referencia audiovisual del trabajo grupal se encuentra agrupada en la sección **Anexos**, dentro del bloque **Videos de Exposiciones**, donde se registran los enlaces de exposición que evidencian la participación de los integrantes en las entregas acumulativas del proyecto. Como cierre del ciclo, el contenido esperado del video incluye:
-
-1. Presentación individual de cada integrante y su rol principal en el proyecto.
-2. Explicación breve de aportes por entrega: AV1, TB1, AV2 y consolidación TF/TB2.
-3. Evidencia del trabajo colaborativo entre frontend, backend, mobile, edge, embedded e informe.
-4. Reflexión final del equipo sobre aprendizajes, coordinación y cierre del proyecto ParkingNow.
-
-El contenido de esta sección mantiene coherencia con lo descrito en **Project Report Collaboration Insights**, **Student Outcome** y **Team Collaboration Insights during Sprint**, reforzando la trazabilidad entre trabajo ejecutado, evidencia documental y participación grupal observada en video.
-
-# Bibliografía
+## Bibliografía
 
 - Asociación Automotriz del Perú. (2025). *Informe Cities in Motion 2025: ¿Cómo está Lima?* [https://aap.org.pe/observatorio-aap/informe_cities_in_motion_2025_-_como_esta_lima/Informe_Cities_in_Motion_2025_-_Como_esta_Lima.pdf](https://aap.org.pe/observatorio-aap/informe_cities_in_motion_2025_-_como_esta_lima/Informe_Cities_in_Motion_2025_-_Como_esta_Lima.pdf). URL: https://aap.org.pe/observatorio-aap/informe_cities_in_motion_2025_-_como_esta_lima/Informe_Cities_in_Motion_2025_-_Como_esta_Lima.pdf
 - Bustamante Villagómez, D. F., & Hidrobo Moreno, C. A. (2024). *Diseño de un sistema prototipo de uso de parqueaderos bajo disponibilidad, mediante IoT y sensórica*. Repositorio UISEK. [https://repositorio.uisek.edu.ec/handle/123456789/5221](https://repositorio.uisek.edu.ec/handle/123456789/5221). URL: https://repositorio.uisek.edu.ec/handle/123456789/5221
@@ -8263,7 +8263,7 @@ El contenido de esta sección mantiene coherencia con lo descrito en **Project R
 - Muhamad, N. A., Othman, N., Md Sin, N. D., Abdul Rahman, N. H., & Mohd Rodzi, M. I. (2025). Cyberpark: An-IoT based Automated Parking Management and Monitoring System using RFID and ESP32. *Journal of Computing Research and Innovation, 10*(2), 119-129. [https://doi.org/10.24191/jcrinn.v10i2.547](https://doi.org/10.24191/jcrinn.v10i2.547). URL: https://doi.org/10.24191/jcrinn.v10i2.547
 - Ruiz Cruzado, C. V. del P., Diaz Diaz, F. A., Saldaña Amaya, J. F., Mostacero, K. A., & Quesquén Rodas, C. M. (2026). Sistema de Smart Parking basado en IoT con comunicación MQTT y visualización en tiempo real. *Científica Technologica, 1*. [https://revistas.unitru.edu.pe/index.php/ctech/article/download/7424/7352/29920](https://revistas.unitru.edu.pe/index.php/ctech/article/download/7424/7352/29920). URL: https://revistas.unitru.edu.pe/index.php/ctech/article/download/7424/7352/29920
 
-# Anexos
+## Anexos
 
 ### Enlaces de trabajo y evidencias del proyecto
 
@@ -8284,10 +8284,10 @@ El contenido de esta sección mantiene coherencia con lo descrito en **Project R
 
 ### Videos de Exposiciones
 
-- **Video de ejecución Sprint 1:** [https://upcedupe-my.sharepoint.com/:v:/g/personal/u202214477_upc_edu_pe/IQCMBDZdyMVAQKh_NrFheDDEAfbJMIyo3lVGDKNSnQugT3I?e=Amq8Ep](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202214477_upc_edu_pe/IQCMBDZdyMVAQKh_NrFheDDEAfbJMIyo3lVGDKNSnQugT3I?e=Amq8Ep)
-- **Video de Exposición AV1 (Semana 4):** [https://upcedupe-my.sharepoint.com/:v:/g/personal/u202213070_upc_edu_pe/IQDQT28ea1C4SKq7jWxtYq2ZAdfXe2QTF8b-zzUj1pfZnCg?e=XyaXzi](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202213070_upc_edu_pe/IQDQT28ea1C4SKq7jWxtYq2ZAdfXe2QTF8b-zzUj1pfZnCg?e=XyaXzi)
-- **Video de Exposición TB1 (Semana 7):** [https://upcedupe-my.sharepoint.com/:v:/g/personal/u202214477_upc_edu_pe/IQCMBDZdyMVAQKh_NrFheDDEAfbJMIyo3lVGDKNSnQugT3I?e=Amq8Ep](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202214477_upc_edu_pe/IQCMBDZdyMVAQKh_NrFheDDEAfbJMIyo3lVGDKNSnQugT3I?e=Amq8Ep)
-- **Video de Exposición AV2 (Semana 12):** [https://upcedupe-my.sharepoint.com/:v:/g/personal/u202214477_upc_edu_pe/IQCMBDZdyMVAQKh_NrFheDDEAfbJMIyo3lVGDKNSnQugT3I?e=Amq8Ep](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202214477_upc_edu_pe/IQCMBDZdyMVAQKh_NrFheDDEAfbJMIyo3lVGDKNSnQugT3I?e=Amq8Ep)
+- **Video de ejecucion Sprint 1:** [https://upcedupe-my.sharepoint.com](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202214477_upc_edu_pe/IQCMBDZdyMVAQKh_NrFheDDEAfbJMIyo3lVGDKNSnQugT3I?e=Amq8Ep)
+- **Video de Exposicion AV1 (Semana 4):** [https://upcedupe-my.sharepoint.com/:v:/g/personal/u202213070_upc_edu_pe/IQDQT28ea1C4SKq7jWxtYq2ZAdfXe2QTF8b-zzUj1pfZnCg?e=XyaXzi](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202213070_upc_edu_pe/IQDQT28ea1C4SKq7jWxtYq2ZAdfXe2QTF8b-zzUj1pfZnCg?e=XyaXzi)
+- **Video de Exposicion TB1 (Semana 7):** [https://upcedupe-my.sharepoint.com/:v:/g/personal/u202214477_upc_edu_pe/IQCMBDZdyMVAQKh_NrFheDDEAfbJMIyo3lVGDKNSnQugT3I?e=Amq8Ep](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202214477_upc_edu_pe/IQCMBDZdyMVAQKh_NrFheDDEAfbJMIyo3lVGDKNSnQugT3I?e=Amq8Ep)
+- **Video de Exposicion AV2 (Semana 12):** [https://upcedupe-my.sharepoint.com/:v:/g/personal/u202214477_upc_edu_pe/IQCMBDZdyMVAQKh_NrFheDDEAfbJMIyo3lVGDKNSnQugT3I?e=Amq8Ep](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202214477_upc_edu_pe/IQCMBDZdyMVAQKh_NrFheDDEAfbJMIyo3lVGDKNSnQugT3I?e=Amq8Ep)
 
 ### Tableros Miro citados
 
