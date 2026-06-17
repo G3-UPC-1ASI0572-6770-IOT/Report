@@ -7910,9 +7910,9 @@ _Pantalla principal de la aplicación móvil para el conductor_
 
 ![Pantalla principal móvil del conductor](assets/mobilehome.jpeg)
 
-La Figura 124 muestra la pantalla principal real de la aplicación móvil del conductor. En ella se observa el mapa, la lista de estacionamientos cercanos y el acceso principal al flujo de exploración del servicio, representando la entrada operativa del usuario hacia la búsqueda de espacios.
+La Figura 124 muestra una pantalla del prototipo de alta fidelidad validado para la aplicación móvil del conductor. En ella se observa el mapa, la lista de estacionamientos cercanos y el acceso principal al flujo de exploración del servicio, representando la entrada operativa del usuario hacia la búsqueda de espacios.
 
-- Artefacto implementado: aplicación Flutter del conductor.
+- Artefacto evidenciado: prototipo de alta fidelidad validado del flujo móvil del conductor.
 - Funciones visibles en Sprint 2: mapa, búsqueda cercana, listado de estacionamientos y navegación hacia detalle del parking lot.
 - Evidencia integrada: flujo `Mobile -> Core API -> Parking Lots / Spaces`.
 - Evidencia complementaria: video de Sprint 2 y backlog comprometido.
@@ -7922,7 +7922,7 @@ _Flujo de reserva y ticket virtual desde la aplicación móvil_
 
 ![Ticket virtual de reserva activa en la aplicación móvil](assets/mobileticket.jpeg)
 
-La Figura 125 evidencia el ticket virtual activo generado luego de una reserva exitosa desde la aplicación móvil. En la pantalla se observa el identificador de reserva, el espacio asignado, el tiempo restante y la acción para cancelar la reserva, elementos que materializan el flujo funcional comprometido para Sprint 2.
+La Figura 125 evidencia una pantalla del prototipo de alta fidelidad validado correspondiente al ticket virtual de reserva. En la vista se observa el identificador de reserva, el espacio asignado, el tiempo restante y la acción para cancelar la reserva, elementos que materializan el flujo funcional comprometido para Sprint 2.
 
 - Funciones implementadas: creación de reserva, confirmación inmediata, ticket virtual y countdown de expiración.
 - Historias asociadas: `US-DRV.9`, `US-DRV.10`, `US-DRV.11`, `US-DRV.13`.
@@ -8117,6 +8117,8 @@ Sprint 2 consolidó el paso de una propuesta arquitectónica a un producto demos
 
 A continuación se registran las entrevistas de validación realizadas a conductores urbanos de Lima Metropolitana que utilizan vehículo propio con frecuencia y se han enfrentado de forma recurrente al problema de encontrar estacionamiento disponible en zonas de alta demanda vehicular.
 
+**Criterio de trazabilidad de evidencia:** para AV2 se consolidó un video único de entrevistas de validación. Cada ficha mantiene el mismo enlace base de SharePoint y se diferencia mediante el rango de tiempo (`Timing`) correspondiente a cada participante dentro del video consolidado.
+
 ##### Entrevista 1
 
 | Campo | Detalle |
@@ -8128,7 +8130,7 @@ A continuación se registran las entrevistas de validación realizadas a conduct
 | **Edad** | 31 anos |
 | **Estado civil** | Soltero |
 | **Distrito** | Santiago de Surco |
-| **URL del video** | [Enlace SharePoint](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202214477_upc_edu_pe/IQCMBDZdyMVAQKh_NrFheDDEAfbJMIyo3lVGDKNSnQugT3I?e=Amq8Ep) |
+| **URL del video** | [Video consolidado de entrevistas - tramo 00:00 a 12:34](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202214477_upc_edu_pe/IQCMBDZdyMVAQKh_NrFheDDEAfbJMIyo3lVGDKNSnQugT3I?e=Amq8Ep) |
 | **Timing** | Inicio: 00:00 | Fin: 12:34 | Duracion: 12:34 |
 | **Resumen** | Carlos es un ingeniero civil de 31 anos que se desplaza diariamente de Surco a San Isidro. Al interactuar con el prototipo Flutter, destaco la claridad del mapa y la facilidad para identificar estacionamientos disponibles con marcadores verdes. Completo una reserva en menos de 1 minuto. El countdown del ticket virtual le genero confianza. Sugirio que la aplicacion envie una notificacion cuando queden 5 minutos para que expire la reserva. Sobre la confiabilidad, expreso que el respaldo de sensores IoT le da mucha mas seguridad que otras aplicaciones. Califico con 4 su probabilidad de uso. Menciono que pagaria hasta S/. 5.00 adicionales por una reserva garantizada en horas pico. |
 
@@ -8143,7 +8145,7 @@ A continuación se registran las entrevistas de validación realizadas a conduct
 | **Edad** | 27 anos |
 | **Estado civil** | Soltera |
 | **Distrito** | Miraflores |
-| **URL del video** | [Enlace SharePoint](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202214477_upc_edu_pe/IQCMBDZdyMVAQKh_NrFheDDEAfbJMIyo3lVGDKNSnQugT3I?e=Amq8Ep) |
+| **URL del video** | [Video consolidado de entrevistas - tramo 12:35 a 24:18](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202214477_upc_edu_pe/IQCMBDZdyMVAQKh_NrFheDDEAfbJMIyo3lVGDKNSnQugT3I?e=Amq8Ep) |
 | **Timing** | Inicio: 12:35 | Fin: 24:18 | Duracion: 11:43 |
 | **Resumen** | Valeria es una administradora de empresas que frecuenta zonas comerciales de Miraflores y San Isidro. Durante la validacion, completo el flujo completo de registro, busqueda en mapa, seleccion de estacionamiento, reserva y visualizacion del ticket sin asistencia. Le parecio especialmente util el indicador visual de espacios libres (chips verdes/rojos/amarillos). Recomendo agrandar el boton de "Reserve" en la pantalla de detalle. Manifesto entusiasmo por la integracion con OpenStreetMap. Le preocupo que en horas de maxima demanda los 15 minutos de reserva sean insuficientes si hay trafico. Califico con 5 su probabilidad de uso. Recomendaria la aplicacion a sus colegas de oficina. |
 
@@ -8158,7 +8160,7 @@ A continuación se registran las entrevistas de validación realizadas a conduct
 | **Edad** | 35 anos |
 | **Estado civil** | Casado, 2 hijos |
 | **Distrito** | La Molina |
-| **URL del video** | [Enlace SharePoint](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202214477_upc_edu_pe/IQCMBDZdyMVAQKh_NrFheDDEAfbJMIyo3lVGDKNSnQugT3I?e=Amq8Ep) |
+| **URL del video** | [Video consolidado de entrevistas - tramo 24:19 a 37:05](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202214477_upc_edu_pe/IQCMBDZdyMVAQKh_NrFheDDEAfbJMIyo3lVGDKNSnQugT3I?e=Amq8Ep) |
 | **Timing** | Inicio: 24:19 | Fin: 37:05 | Duracion: 12:46 |
 | **Resumen** | Leonardo es un medico cirujano con consultorio en el Centro Historico de Lima. Suele perder entre 15 y 25 minutos buscando estacionamiento cada manana. Al probar el prototipo, expreso que el flujo de reserva es "exactamente lo que necesito". El ticket virtual con countdown le resulto muy claro. Sugirio agregar una opcion de "Extender reserva" por si hay demoras imprevistas. Destaco que la disponibilidad respaldada por sensores fisicos es el diferenciador clave. Le gustaria ver una funcion de historial de estacionamientos frecuentes. Califico con 4 su probabilidad de uso. Pagaria una membresia mensual si la plataforma cubre los distritos donde trabaja y reside. |
 
@@ -8177,7 +8179,7 @@ A continuacion se registran las entrevistas de validacion realizadas a propietar
 | **Sexo** | Masculino |
 | **Edad** | 48 anos |
 | **Distrito** | San Isidro |
-| **URL del video** | [Enlace SharePoint](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202214477_upc_edu_pe/IQCMBDZdyMVAQKh_NrFheDDEAfbJMIyo3lVGDKNSnQugT3I?e=Amq8Ep) |
+| **URL del video** | [Video consolidado de entrevistas - tramo 37:06 a 50:42](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202214477_upc_edu_pe/IQCMBDZdyMVAQKh_NrFheDDEAfbJMIyo3lVGDKNSnQugT3I?e=Amq8Ep) |
 | **Timing** | Inicio: 37:06 | Fin: 50:42 | Duracion: 13:36 |
 | **Resumen** | Jorge administra un estacionamiento de 15 espacios en San Isidro. Actualmente controla la ocupacion con una pizarra y registro en cuaderno. Al interactuar con el panel web Angular, valoro inmediatamente el dashboard con el indicador de occupancy rate y el log de eventos IoT. Manifesto que "ahora mismo no se cuanto dinero hago al dia ni cuantos carros entran". El monitoreo en tiempo real de sus dos espacios le parecio muy valioso. Pregunto si el sensor requiere mantenimiento y si el mismo podria instalarlo. Estaria dispuesto a pagar entre S/. 80 y S/. 120 mensuales si la plataforma le incrementa la ocupacion. Sugirio que el panel incluya un reporte semanal descargable. |
 
@@ -8191,7 +8193,7 @@ A continuacion se registran las entrevistas de validacion realizadas a propietar
 | **Sexo** | Femenino |
 | **Edad** | 42 anos |
 | **Distrito** | Lince |
-| **URL del video** | [Enlace SharePoint](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202214477_upc_edu_pe/IQCMBDZdyMVAQKh_NrFheDDEAfbJMIyo3lVGDKNSnQugT3I?e=Amq8Ep) |
+| **URL del video** | [Video consolidado de entrevistas - tramo 50:43 a 1:02:15](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202214477_upc_edu_pe/IQCMBDZdyMVAQKh_NrFheDDEAfbJMIyo3lVGDKNSnQugT3I?e=Amq8Ep) |
 | **Timing** | Inicio: 50:43 | Fin: 1:02:15 | Duracion: 11:32 |
 | **Resumen** | Rosa administra un estacionamiento de 8 espacios en Lince, heredado de su padre. Lleva la gestion con anotaciones manuales y comunicacion por WhatsApp con sus clientes frecuentes. Al ver el prototipo del panel web, lo primero que le llamo la atencion fue la vista de camara. Le parecio util para verificar visualmente la ocupacion. La tabla de reservas activas le resulto clara. Expreso dudas sobre la instalacion del sensor: "no soy tecnica, quien me lo instala?". El mayor valor estaria en "que los clientes me encuentren en el mapa porque ahora solo me conocen los del barrio". Pagaria S/. 60 mensuales como maximo. Califico con 3 su probabilidad de uso inmediato, pero con 5 si recibe capacitacion. |
 
@@ -8205,7 +8207,7 @@ A continuacion se registran las entrevistas de validacion realizadas a propietar
 | **Sexo** | Masculino |
 | **Edad** | 29 anos |
 | **Distrito** | Barranco |
-| **URL del video** | [Enlace SharePoint](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202214477_upc_edu_pe/IQCMBDZdyMVAQKh_NrFheDDEAfbJMIyo3lVGDKNSnQugT3I?e=Amq8Ep) |
+| **URL del video** | [Video consolidado de entrevistas - tramo 1:02:16 a 1:15:50](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202214477_upc_edu_pe/IQCMBDZdyMVAQKh_NrFheDDEAfbJMIyo3lVGDKNSnQugT3I?e=Amq8Ep) |
 | **Timing** | Inicio: 1:02:16 | Fin: 1:15:50 | Duracion: 13:34 |
 | **Resumen** | Diego es un joven administrador que recientemente asumio la gestion de un estacionamiento de 20 espacios en Barranco. Tiene afinidad tecnologica: ya usaba Trello y Excel para organizar la operacion. Al probar el panel Angular, identifico inmediatamente el valor del log de eventos IoT: "esto me serviria para discutir con los playa si hay reclamos de clientes sobre disponibilidad". Sugirio que el dashboard muestre una comparativa semanal de ocupacion. Pregunto si el sistema soporta mas de un piso de estacionamiento. Le intereso la integracion con Supabase Realtime: "que se actualice solo sin recargar la pagina es clave para mi". Pagaria S/. 100 mensuales si la plataforma le ahorra 2 horas diarias de gestion manual. Recomendaria la solucion a otros colegas del rubro. |
 
@@ -8255,7 +8257,27 @@ A continuacion se registran las entrevistas de validacion realizadas a propietar
 | 9 | Terminos tecnicos (Heartbeat, Edge API, Debounce) sin tooltip para administradores no tecnicos | 3 | Usability: Correspondencia entre el sistema y el mundo real |
 | 10 | El estado del mapa en Flutter no se conserva al navegar entre pantallas | 2 | Usability: Control y libertad del usuario |
 
+**Figura 134**  
+_Evidencia visual de pantallas evaluadas durante la revisión heurística_
+
+![Dashboard real del panel web owner](assets/sprint-live-web-dashboard-real.png)
+
+![Módulo real de eventos IoT y alertas del panel web](assets/sprint-live-web-events-real.png)
+
+![Pantalla principal móvil del conductor](assets/mobilehome.jpeg)
+
+Las pantallas anteriores fueron utilizadas como evidencia visual base durante la evaluación heurística, ya que concentran varios de los puntos observados en navegación, claridad del estado del sistema, terminología técnica, findability de módulos y lectura operativa de eventos.
+
 La evaluacion heuristica identifico 10 problemas, ninguno de severidad 4 (muy grave). Los problemas de severidad 3 se concentran en comunicacion del estado del nodo IoT, accesibilidad de camara, lenguaje tecnico y capacidad de busqueda en tablas. Como accion inmediata se recomienda priorizar la correccion de los 4 problemas de severidad 3 en Sprint 3.
+
+**Trazabilidad tipo Anexo D de hallazgos principales**
+
+| Hallazgo | Evidencia visual base | Severidad | Accion recomendada |
+| --- | --- | --- | --- |
+| Node Offline sin explicacion operativa | Dashboard owner + IoT Events | 3 | Agregar texto de ayuda, estado interpretable y accion sugerida |
+| Tabla/listado sin filtros u ordenamiento claros | IoT Events / Alerts | 3 | Incorporar filtros, ordenamiento y busqueda persistente |
+| Terminologia tecnica poco amigable | Dashboard owner + IoT Monitor | 3 | Agregar tooltips y labels orientados a negocio |
+| Estado de mapa no persistente al volver atras | Home mobile conductor | 2 | Conservar estado de mapa, zoom y seleccion previa |
 
 ##### 6.4. Video About-the-Product.
 
