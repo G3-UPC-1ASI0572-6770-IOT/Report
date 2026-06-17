@@ -7709,19 +7709,19 @@ Durante Sprint 1 el equipo construyó la base pública y administrativa de Parki
 **Figura 119**  
 _Evidencia del flujo público inicial de ParkingNow durante Sprint 1_
 
-En esta versión del informe no se inserta captura para la Figura 119 porque el asset disponible no representa fielmente la evidencia ejecutada del Sprint 1. En su lugar, se documenta el artefacto real asociado al incremento:
+![Landing Page pública de ParkingNow](assets/sprint-live-landing-home.png)
+
+La Figura 119 presenta la evidencia real del flujo público inicial de ParkingNow durante Sprint 1. En la captura se aprecia el hero principal del Landing Page, la propuesta de valor asociada a sensores físicos, la navegación superior y los CTA orientados a conductores y dueños del estacionamiento. Esta vista resume el primer punto de contacto público del producto desplegado.
 
 - Artefacto fuente: `Landing Page` implementado y documentado en [ParkingNow Landing](https://parkingnow-landing.vercel.app).
 - Evidencia funcional asociada: propuesta de valor, beneficios por segmento, CTA y navegación pública inicial.
 - Repositorio / módulo relacionado: `LandingPage`.
 - Evidencia complementaria: [Video Sprint 1 - Microsoft Stream / SharePoint](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202214477_upc_edu_pe/IQCMBDZdyMVAQKh_NrFheDDEAfbJMIyo3lVGDKNSnQugT3I?e=Amq8Ep).
 
-_Nota._ Se documenta sin imagen por consistencia con artefactos reales del sprint.
-
 **Figura 120**  
 _Landing Page desplegado y accesible durante Sprint 1_
 
-<img src="./assets/deployed-landing-page.png" alt="Landing Page desplegado en Vercel durante Sprint 1" width="801">
+![Landing Page desplegado en Vercel durante Sprint 1](assets/sprint-live-landing-home.png)
 
 La Figura 120 presenta la evidencia visual del **Landing Page de ParkingNow** desplegado en **Vercel**. La captura muestra la propuesta de valor pública del producto, la navegación superior, los CTA orientados a conductores y dueños, y la sección inicial del problema que motivó la solución. Esta evidencia valida que el entregable comprometido para Sprint 1 fue implementado y publicado correctamente.
 
@@ -7733,7 +7733,7 @@ La Figura 120 presenta la evidencia visual del **Landing Page de ParkingNow** de
 **Figura 121**  
 _Acceso inicial a la Web Application del administrador en Sprint 1_
 
-<img src="./assets/deployed-web-dashboard.png" alt="Web Application del administrador desplegada en Vercel durante Sprint 1" width="801">
+![Web Application del administrador desplegada en Vercel durante Sprint 1](assets/sprint-live-web-home.png)
 
 La Figura 121 muestra la evidencia visual de la **Web Application** desplegada para el segmento owner. En la captura se observa la pantalla de inicio de sesión del panel administrativo, la identidad visual del producto y los accesos necesarios para autenticación del usuario propietario. Esta evidencia confirma que el producto frontend del administrador fue publicado correctamente y quedó listo para soportar el flujo de acceso comprometido en el sprint.
 
@@ -7755,9 +7755,16 @@ La Figura 121 muestra la evidencia visual de la **Web Application** desplegada p
 | Core API | `/api/v1/auth/*` | Registro e inicio de sesión de usuarios | OK |
 | Core API | `/api/v1/parking-lots` | Consulta y alta inicial de estacionamientos | OK |
 | Core API | `/api/v1/spaces/*` | Configuración base de espacios | OK |
-| Swagger UI | `/swagger-ui.html` | Documentación navegable del Core API | OK |
+| Swagger UI | `/swagger-ui/index.html` | Documentación navegable del Core API | OK |
 
-**Swagger UI:** [Core API Swagger](https://parkingnow-api.railway.app/swagger-ui.html)
+**Swagger UI:** [Core API Swagger](https://parkingnow-back.onrender.com/swagger-ui/index.html)
+
+**Figura 122**  
+_Documentación del endpoint de autenticación del Core API en Sprint 1_
+
+![Swagger UI con endpoint de autenticación](assets/sprint1-back-auth-docs.png)
+
+La Figura 122 evidencia la documentación navegable del endpoint `POST /api/v1/auth/sign-in` dentro de Swagger UI. Se observa el contrato JSON de entrada para autenticación, validando que el backend expuso desde Sprint 1 una interfaz documentada para registro e inicio de sesión del owner panel.
 
 ##### 6.2.1.8. Software Deployment Evidence for Sprint Review.
 
@@ -7765,35 +7772,39 @@ La Figura 121 muestra la evidencia visual de la **Web Application** desplegada p
 | --- | --- | --- | --- |
 | Landing Page | Vercel | [ParkingNow Landing](https://parkingnow-landing.vercel.app) | OK |
 | Web Application | Vercel | [ParkingNow Web](https://parkingnow-frontend.vercel.app) | OK |
-| Core API | Railway | [ParkingNow Core API](https://parkingnow-api.railway.app) | OK |
+| Core API | Render | [ParkingNow Core API](https://parkingnow-back.onrender.com) | OK |
 | Supabase | Supabase Cloud | PostgreSQL + tablas base configuradas | OK |
 
 **URLs explícitas de despliegue Sprint 1**
 
 - Landing Page: `https://parkingnow-landing.vercel.app`
 - Web Application: `https://parkingnow-frontend.vercel.app`
+- Core API: `https://parkingnow-back.onrender.com`
 
-**Figura 122**  
+**Figura 123**  
 _Evidencia del despliegue funcional inicial del Landing Page y la Web Application_
 
-En esta versión del informe no se inserta captura para la Figura 122 porque no se dispone de evidencia visual puntual del deployment inicial alineada con la plantilla del TF. Se documenta la evidencia verificable:
+![Landing Page desplegado en Vercel](assets/sprint-live-landing-home.png)
+
+La Figura 123 documenta el despliegue funcional inicial del Landing Page accesible por URL pública. La captura confirma presencia digital operativa, identidad visual consistente y disponibilidad de navegación pública durante Sprint 1.
 
 - Landing Page desplegado en [ParkingNow Landing](https://parkingnow-landing.vercel.app).
   URL: `https://parkingnow-landing.vercel.app`
 - Web Application desplegada en [ParkingNow Web](https://parkingnow-frontend.vercel.app).
   URL: `https://parkingnow-frontend.vercel.app`
-- Core API desplegada en [ParkingNow Core API](https://parkingnow-api.railway.app).
+- Core API desplegada en [ParkingNow Core API](https://parkingnow-back.onrender.com).
 - Base de datos operativa en Supabase Cloud.
 
-**Figura 123**  
-_Evidencia de la configuración inicial del estacionamiento en la Web Application_
+**Evidencia complementaria de acceso al panel web del owner**
 
-En esta versión del informe no se inserta captura para la Figura 123 porque el asset disponible mezcla wireflow de configuración con monitoreo IoT posterior. Se documenta el entregable realmente asociado a Sprint 1:
+![Web Application en pantalla de acceso del owner](assets/sprint-live-web-home.png)
+
+La evidencia complementaria de acceso al panel web del owner muestra la Web Application desplegada y accesible durante Sprint 1. Aunque esta vista corresponde a la entrada por autenticación y no al dashboard interno, sí valida el punto inicial del flujo administrativo comprometido en el sprint y el acceso al producto web desplegado.
 
 - Configuración base del estacionamiento desde panel web del owner.
 - Registro de ubicación, perfil del parking lot y alta inicial de spaces.
 - Endpoints relacionados: `/api/v1/parking-lots`, `/api/v1/spaces/*`.
-- Evidencia funcional complementaria: [ParkingNow Web](https://parkingnow-frontend.vercel.app) y [Core API Swagger](https://parkingnow-api.railway.app/swagger-ui.html).
+- Evidencia funcional complementaria: [ParkingNow Web](https://parkingnow-frontend.vercel.app) y [Core API Swagger](https://parkingnow-back.onrender.com/swagger-ui/index.html).
 
 ##### 6.2.1.9. Team Collaboration Insights during Sprint.
 
@@ -7937,11 +7948,39 @@ En esta versión del informe no se inserta captura para la Figura 127 porque el 
 
 | Servicio | Evidencia | URL |
 | --- | --- | --- |
-| Core API | 36 endpoints operativos y documentados | [Swagger UI](https://parkingnow-api.railway.app/swagger-ui.html) |
+| Core API | 36 endpoints operativos y documentados | [Swagger UI](https://parkingnow-back.onrender.com/swagger-ui/index.html) |
 | Edge API | 4 rutas operativas (`/edge/events`, `/edge/heartbeat`, `/edge/camera`, `/edge/status`) | [Edge Status](https://parkingnow-edge.railway.app/edge/status) |
 | Supabase | PostgreSQL + Realtime para `spaces` y `reservations` | Configuración cloud activa |
 
 **Core API verificado en documentación:** autenticación, parking lots, spaces, reservations, IoT events, IoT nodes y endpoints de soporte al dashboard owner.
+
+**Figura 128**  
+_Vista general de la documentación Swagger del Core API en Sprint 2_
+
+![Vista general de Swagger UI del backend](assets/sprint2-swagger-overview.png)
+
+La documentación del backend para Sprint 2 quedó centralizada en Swagger UI, donde se verifican los grupos funcionales `auth-controller`, `camera-feed-controller`, `dashboard-controller`, `health-controller`, `iot-event-controller`, `iot-node-controller`, `parking-lot-controller`, `parking-space-controller`, `payment-controller` y `reservation-controller`. Esta evidencia confirma que el incremento del sprint no solo fue implementado, sino también documentado y expuesto para validación técnica del equipo.
+
+**Figura 129**  
+_Ejecución del endpoint de salud del backend usando Swagger UI_
+
+![Endpoint health ejecutado desde Swagger](assets/sprint2-back-health-endpoint.png)
+
+En esta interacción se ejecuta el endpoint público `GET /health`, obteniendo respuesta `200 OK` con payload JSON de estado. Esta evidencia respalda que el servicio Spring Boot desplegado se encontraba operativo y accesible durante la validación del Sprint 2.
+
+**Figura 130**  
+_Ejecución del endpoint de estacionamientos disponibles desde Swagger UI_
+
+![Endpoint parking lots ejecutado desde Swagger](assets/sprint2-back-parking-lots-endpoint.png)
+
+La respuesta del endpoint `GET /api/v1/parking-lots` evidencia datos reales del dominio, incluyendo nombre, dirección, capacidad, espacios libres y metadatos del estacionamiento. Este endpoint se relaciona directamente con las historias `US-DRV.1`, `US-DRV.2`, `US-DRV.3`, `US-DRV.4` y `US-DRV.5`, ya que alimenta la experiencia de descubrimiento y consulta de disponibilidad para el conductor.
+
+**Figura 131**  
+_Ejecución del endpoint de eventos IoT desde Swagger UI_
+
+![Endpoint IoT events ejecutado desde Swagger](assets/sprint2-back-iot-events-endpoint.png)
+
+La consulta `GET /api/v1/iot/events?limit=50` permitió validar el contrato REST del flujo IoT y la disponibilidad de la ruta documentada para monitoreo técnico. Esta evidencia se vincula con `US-OWN.11`, `US-OWN.12`, `TS-IOT.1`, `TS-IOT.6` y `TS-IOT.7`, porque documenta la capa de observabilidad y trazabilidad de eventos físicos propagados hacia el sistema central.
 
 ##### 6.2.2.8. Software Deployment Evidence for Sprint Review.
 
@@ -7949,7 +7988,7 @@ En esta versión del informe no se inserta captura para la Figura 127 porque el 
 | --- | --- | --- | --- |
 | Landing Page | Vercel | [ParkingNow Landing](https://parkingnow-landing.vercel.app) | OK |
 | Web App (Angular) | Vercel | [ParkingNow Web](https://parkingnow-frontend.vercel.app) | OK |
-| Core API (Spring Boot) | Railway | [ParkingNow Core API](https://parkingnow-api.railway.app) | OK |
+| Core API (Spring Boot) | Render | [ParkingNow Core API](https://parkingnow-back.onrender.com) | OK |
 | Edge API (Flask) | Railway | [ParkingNow Edge API](https://parkingnow-edge.railway.app) | OK |
 | Mobile App (Flutter) | Firebase App Distribution | APK distribuido para pruebas | OK |
 | Supabase | Supabase Cloud | PostgreSQL + Realtime | OK |
@@ -7959,6 +7998,21 @@ En esta versión del informe no se inserta captura para la Figura 127 porque el 
 
 - Landing Page: `https://parkingnow-landing.vercel.app`
 - Web Application: `https://parkingnow-frontend.vercel.app`
+- Core API: `https://parkingnow-back.onrender.com`
+
+**Figura 132**  
+_Landing Page operativo y accesible en despliegue público durante Sprint 2_
+
+![Landing Page operativo en Sprint 2](assets/sprint-live-landing-home.png)
+
+La Figura 132 confirma que el Landing Page continuó desplegado y accesible durante Sprint 2, manteniendo la propuesta de valor pública del producto, la entrada hacia la experiencia de conductores y el acceso para dueños. Esta evidencia respalda continuidad operativa del canal de captación mientras el resto del sistema integraba funcionalidades IoT y realtime.
+
+**Figura 133**  
+_Web Application accesible para el owner durante Sprint 2_
+
+![Web Application accesible en Sprint 2](assets/sprint-live-web-home.png)
+
+La Figura 133 evidencia que la Web Application permaneció publicada y accesible desde su pantalla de autenticación durante Sprint 2. Esta vista representa la puerta de entrada al dashboard owner, desde donde el producto soporta monitoreo, reservas, historial, eventos IoT y supervisión operativa documentados en el sprint.
 
 ##### 6.2.2.9. Team Collaboration Insights during Sprint.
 
