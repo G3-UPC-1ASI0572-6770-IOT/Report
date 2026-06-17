@@ -7908,39 +7908,49 @@ Durante Sprint 2 se desarrolló el incremento técnico más importante del proye
 **Figura 124**  
 _Pantalla principal de la aplicación móvil para el conductor_
 
-En esta versión del informe no se inserta captura para la Figura 124 porque el prototipo disponible integra múltiples pantallas y no una evidencia única de ejecución. Se documenta:
+![Pantalla principal móvil del conductor](assets/mobilehome.jpeg)
+
+La Figura 124 muestra la pantalla principal real de la aplicación móvil del conductor. En ella se observa el mapa, la lista de estacionamientos cercanos y el acceso principal al flujo de exploración del servicio, representando la entrada operativa del usuario hacia la búsqueda de espacios.
 
 - Artefacto implementado: aplicación Flutter del conductor.
-- Funciones visibles en Sprint 2: registro, login, mapa, detalle de estacionamiento y reserva.
-- Evidencia integrada: flujo `Mobile -> Core API -> Reservation`.
+- Funciones visibles en Sprint 2: mapa, búsqueda cercana, listado de estacionamientos y navegación hacia detalle del parking lot.
+- Evidencia integrada: flujo `Mobile -> Core API -> Parking Lots / Spaces`.
 - Evidencia complementaria: video de Sprint 2 y backlog comprometido.
 
 **Figura 125**  
 _Flujo de reserva y ticket virtual desde la aplicación móvil_
 
-En esta versión del informe no se inserta captura para la Figura 125 porque el asset disponible es un prototipo compuesto y no una evidencia puntual del sprint. Se documenta:
+![Ticket virtual de reserva activa en la aplicación móvil](assets/mobileticket.jpeg)
 
-- Funciones implementadas: creación de reserva, confirmación inmediata y ticket virtual.
+La Figura 125 evidencia el ticket virtual activo generado luego de una reserva exitosa desde la aplicación móvil. En la pantalla se observa el identificador de reserva, el espacio asignado, el tiempo restante y la acción para cancelar la reserva, elementos que materializan el flujo funcional comprometido para Sprint 2.
+
+- Funciones implementadas: creación de reserva, confirmación inmediata, ticket virtual y countdown de expiración.
 - Historias asociadas: `US-DRV.9`, `US-DRV.10`, `US-DRV.11`, `US-DRV.13`.
 - Evidencia técnica relacionada: integración `Mobile -> Core API -> Reservation`.
 
 **Figura 126**  
 _Vista del panel web del administrador para supervisión operativa y reservas_
 
-En esta versión del informe no se inserta captura para la Figura 126 porque el asset disponible representa board de flujo y no evidencia puntual del incremento desplegado. Se documenta:
+![Dashboard real del panel web owner](assets/sprint-live-web-dashboard-real.png)
 
-- Entregables implementados: active reservations, reservation history, node status, events log y camera monitor.
-- Historias asociadas: `US-OWN.9`, `US-OWN.10`, `US-OWN.11`, `US-OWN.12`, `US-OWN.13`, `US-OWN.14`.
+La Figura 126 presenta el dashboard real del panel web del administrador. En la captura se observan métricas operativas como total de espacios, libres, ocupados, reservados, revenue diario, reservas activas y estado del nodo, además de accesos directos a cámara e IoT events. Esta vista sí corresponde a la supervisión operativa y de reservas pedida para Sprint 2.
+
+- Entregables implementados: overview dashboard, métricas operativas, active reservations y node status.
+- Historias asociadas: `US-OWN.9`, `US-OWN.10`, `US-OWN.12`, `US-OWN.13` y `US-OWN.14`.
 - Evidencia complementaria: [ParkingNow Web](https://parkingnow-frontend.vercel.app).
+- URL explícita: [https://parkingnow-frontend.vercel.app](https://parkingnow-frontend.vercel.app/)
 
 **Figura 127**  
 _Evidencia de monitoreo del nodo y eventos IoT en el panel web_
 
-En esta versión del informe no se inserta captura para la Figura 127 porque el asset disponible resume wireflow y no evidencia ejecutada puntual del monitoreo IoT. Se documenta:
+![Módulo real de eventos IoT y alertas del panel web](assets/sprint-live-web-events-real.png)
 
-- Flujo validado: `sensor HC-SR04+ -> ESP32-CAM -> Edge API -> Core API -> Supabase Realtime -> Angular + Flutter`.
-- Historias técnicas asociadas: `TS-IOT.1`, `TS-IOT.4`, `TS-IOT.6`, `TS-IOT.7`, `TS-EMB.1`, `TS-EMB.2`, `TS-EMB.3`, `TS-CLD.1`.
-- Evidencia de soporte: panel web owner, Core API, Edge API y backend integrado.
+La Figura 127 muestra el módulo real `IoT Events History / Alerts` del panel web del owner. En esta vista se aprecia la revisión de eventos IoT, alertas operativas, estado de auto-actualización, nodo asociado y accesos a detalle de eventos. Esta evidencia sí corresponde al monitoreo del nodo y eventos IoT solicitado para Sprint 2.
+
+- Flujo validado desde frontend web: `IoT Monitor -> History / Alerts -> Event Details`.
+- Historias técnicas asociadas: `US-OWN.11`, `US-OWN.12`, `TS-IOT.1`, `TS-IOT.6` y `TS-IOT.7`.
+- Evidencia de soporte: panel web owner desplegado, Core API y backend integrado.
+- URL explícita: [https://parkingnow-frontend.vercel.app](https://parkingnow-frontend.vercel.app/)
 
 **Flujo IoT end-to-end evidenciado:** sensor HC-SR04+ -> ESP32-CAM -> Edge API -> Core API -> Supabase Realtime -> Angular + Flutter sin refresh manual.
 
